@@ -1,7 +1,7 @@
 ---
 layout: post
 published: false
-title: 2017-01-02-Downloading a batch of stocks from yahoo finance
+title: Downloading a batch of stocks from yahoo finance
 ---
 One of the great things of working in finance is that financial datasets
 are freely available from sources such as Google and Yahoo Finance. This
@@ -135,4 +135,3 @@ download the whole dataset.
 
     print(l.out$df.control)
     print(l.out$df.tickers)
-
