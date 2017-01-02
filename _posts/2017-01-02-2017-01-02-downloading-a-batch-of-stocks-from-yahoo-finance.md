@@ -1,6 +1,6 @@
 ---
 layout: post
-published: false
+published: true
 title: Downloading a batch of stocks from yahoo finance
 ---
 One of the great things of working in finance is that financial datasets
