@@ -1,6 +1,6 @@
 ---
 layout: page
-title: About the blog and me
+title: About me
 image: /img/profile.jpg
 ---
 
