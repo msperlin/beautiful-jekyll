@@ -102,6 +102,7 @@ disqus: "msperlin"
 # Truncates the excerpt to the specified number of words on the index page
 excerpt_length: 50
 
+encoding: UTF-8
 # --- Don't need to touch anything below here (but you can if you want) --- #
 
 # Output options (more information on Jekyll's site)
