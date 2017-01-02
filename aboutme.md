@@ -4,6 +4,8 @@ title: About me
 image: /img/profile.jpg
 ---
 
+![](/img/profile.jpg)
+
 Hi there! 
 
 My name is Marcelo Perlin and my day job is assistant professor of Finance in Federal University of Rio Grande do Sul, in the city of south of Brazil (Porto Alegre). I received my PhD in Finance from Reading University (ICMA Centre) in 2010 and I have a long experience in doing applied research in Finance. You can find more details about my work in my [personal homepage](https://sites.google.com/site/marceloperlin/).
