@@ -104,7 +104,7 @@ Moreover, we can plot the daily closing prices using ggplot2:
     p <- p + facet_wrap(~ticker, scales = 'free_y') 
     print(p)
 
-![](2017-01-01-How_to_download_and_organize_financial_data_from_yahoo_finance_for_several_tickers_using_BatchGetSymbols_files/figure-markdown_strict/plot.prices-1.png)
+![](plot.prices-1.png)
 
 Downloading data for all tickers in the SP500 index
 ---------------------------------------------------
