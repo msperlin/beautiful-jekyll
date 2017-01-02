@@ -51,9 +51,9 @@ l.out <- BatchGetSymbols(tickers = tickers,
     ## Running BatchGetSymbols for:
     ##    tickers = FB, NYSE:MMM, PETR4.SA, abcdef
     ##    Downloading data for benchmark ticker
-    ## Downloading Data for FB from yahoo (1|4) - Good stuff!
-    ## Downloading Data for NYSE:MMM from google (2|4) - Good job!
-    ## Downloading Data for PETR4.SA from yahoo (3|4) - Got it!
+    ## Downloading Data for FB from yahoo (1|4) - Nice!
+    ## Downloading Data for NYSE:MMM from google (2|4) - Got it!
+    ## Downloading Data for PETR4.SA from yahoo (3|4) - Good job!
     ## Downloading Data for abcdef from yahoo (4|4) - Error in download..
 
 After downloading the data, we can check the success of the process for each ticker. Notice that the last ticker does not exist in yahoo finance or google and therefore results in an error. All information regarding the download process is provided in the dataframe df.control:
@@ -84,7 +84,7 @@ p <- p + facet_wrap(~ticker, scales = 'free_y')
 print(p)
 ```
 
-![](2017-01-01-How_to_download_and_organize_financial_data_from_yahoo_finance_for_several_tickers_using_BatchGetSymbols_files/figure-markdown_github/plot.prices-1.png)
+![](2017-01-01-bathgetsymbols_files/figure-markdown_github/plot.prices-1.png)
 
 Downloading data for all tickers in the SP500 index
 ---------------------------------------------------
