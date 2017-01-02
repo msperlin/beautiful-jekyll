@@ -1,6 +1,7 @@
 ---
 layout: page
 title: About the blog and me
+image: /img/profile.jpg
 ---
 
 Hi there! 
