@@ -28,12 +28,10 @@ I was writing R code much faster and the result was much simpler to
 mantain than I would do in Matlab. After that, I was hooked. I'm
 currently writing a book about R and Finance that I hope to publish
 soon. The portuguese version should be up in amazon very soon. The
-english version is due in a couple of monts.
+english version is due in a couple of months.
 
 In this blog I will write about my CRAN packages and any other ideas
-about finance and R or research papers that I'm currently working on.
-The content will be mostly about ways to make the life of a financial
-data analyst more enjoyable.
+about finance and R or research papers that I'm currently working on. 
 
 Oh, and when I'm not researching and teaching, I also love playing
 tennis and swimming. Fell free to drop me an email at
