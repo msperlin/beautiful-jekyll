@@ -4,7 +4,7 @@ title: "Using R to download high frequency trade data directly from Bovespa"
 subtitle: "Using package GetHFData"
 author: "Marcelo Perlin"
 output: md_document
-image: /img/2017-01-02-GetHFData_files/figure-markdown_strict/unnamed-chunk-8-1.png
+image: "/img/2017-01-02-GetHFData_files/figure-markdown_strict/unnamed-chunk-8-1.png"
 bibliography: /bib files/MyBib.bib
 tags: [GetHFData,vbovespa, market microstructure, high frequency]
 ---
