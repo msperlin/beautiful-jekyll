@@ -29,7 +29,7 @@ navbar-links:
     - R-Bloggers: "https://www.r-bloggers.com/"
     - GitHub Pages: "https://pages.github.com/"
   Author's home: "https://sites.google.com/site/marceloperlin/"
-  My R Book: "https://sites.google.com/site/marceloperlin/"   
+  My R Book: "myrbook"   
 
 # Image to show in the navigation bar - image must be a square (width = height)
 # Remove this parameter if you don't want an image in the navbar
@@ -46,8 +46,8 @@ avatar: "/img/Rlogo.png"
 author:
   name: Marcelo S. Perlin
   email: "marceloperlin@gmail.com"
-  facebook: yourname  # eg. daattali
-  github: yourname    # eg. daattali
+  facebook: marcelo.perlin  # eg. daattali
+  github: msperlin    # eg. daattali
   twitter: yourname   # eg. daattali
   reddit: yourname    # eg. daattali
   google-plus: +yourname   # eg. +DeanAttali or 109424658772469020925
@@ -94,7 +94,7 @@ share-links-active:
 disqus: "msperlin"
 
 # Fill in your Google Analytics ID to track your website using GA
-#google_analytics: ""
+#google_analytics: "UA-89690212-1"
 
 # Facebook App ID
 # fb_app_id: ""
