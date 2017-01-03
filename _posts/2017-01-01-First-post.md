@@ -8,7 +8,7 @@ image: /img/profile.jpg
 tags: [about me]
 ---
 
-<img src="figs/profile.jpg" width="20%" />
+<img src="/img/profile.jpg" width="20%" />
 
 Hello everyone! This is the first (ever) post for a new blog about
 Finance and R. My name is Marcelo Perlin and my day job is assistant
