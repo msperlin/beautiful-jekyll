@@ -4,7 +4,7 @@ title: "Using R to download high frequency trade data directly from Bovespa"
 subtitle: "Using package GetHFData"
 author: "Marcelo Perlin"
 output: md_document
-image: "/img/2017-01-02-GetHFData_files/figure-markdown_strict/unnamed-chunk-8-1.png"
+image: "/img/2017-01-03-GetHFData_files/figure-markdown_strict/unnamed-chunk-8-1.png"
 bibliography: /bib files/MyBib.bib
 tags: [GetHFData,vbovespa, market microstructure, high frequency]
 ---
@@ -104,7 +104,7 @@ the 25 most traded stocks in the date of 2016-09-30, as shown next.
     p <- p + labs(x = 'Tickers', y = 'Number of trades')
     print(p)
 
-![](/img/2017-01-02-GetHFData_files/figure-markdown_strict/unnamed-chunk-2-1.png)
+![](/img/2017-01-03-GetHFData_files/figure-markdown_strict/unnamed-chunk-2-1.png)
 
 From the previous figure we can see that the six most traded assets in
 2016-09-30 are ITSA4, PETR4, ITUB4, BBDC4, ABEV3, BBSE3. A particular
@@ -285,7 +285,7 @@ creates the figure based on the `ggplot2` package.
     p <- p + labs(y='Number of Trades', x = 'Time of Day')
     print(p)
 
-![](/img/2017-01-02-GetHFData_files/figure-markdown_strict/unnamed-chunk-8-1.png)
+![](/img/2017-01-03-GetHFData_files/figure-markdown_strict/unnamed-chunk-8-1.png)
 
 In the previous figure we show the number of trades as a function of the
 time of the day. As expected, we find that the intraday shape of

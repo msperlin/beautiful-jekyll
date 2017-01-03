@@ -4,7 +4,7 @@ title: "How to download and organize financial data from yahoo finance for sever
 subtitle: "Using package BatchGetSymbols"
 author: "Marcelo Perlin"
 output: md_document
-image: /img/2017-01-01-BatchGetSymbols_files/figure-markdown_strict/plot.prices-1.png
+image: /img/2017-01-02-BatchGetSymbols_files/figure-markdown_strict/plot.prices-1.png
 tags: [yahoo finance, batchgetsymbols, quantmod]
 ---
 
@@ -109,7 +109,7 @@ Moreover, we can plot the daily closing prices using ggplot2:
     p <- p + facet_wrap(~ticker, scales = 'free_y') 
     print(p)
 
-![](/img/2017-01-01-BatchGetSymbols_files/figure-markdown_strict/plot.prices-1.png)
+![](/img/2017-01-02-BatchGetSymbols_files/figure-markdown_strict/plot.prices-1.png)
 
 Downloading data for all tickers in the SP500 index
 ---------------------------------------------------
