@@ -1,10 +1,10 @@
 ---
 layout: post
 title: "How to download and organize financial data from yahoo finance for several tickers"
-subtitle: "How to use BatchGetSymbols"
+subtitle: "Using package BatchGetSymbols"
 author: "Marcelo Perlin"
 output: md_document
-image: /img/hello_world.jpeg
+image: /img/2017-01-01-BatchGetSymbols_files/figure-markdown_strict/plot.prices-1.png
 tags: [yahoo finance, batchgetsymbols, quantmod]
 ---
 
