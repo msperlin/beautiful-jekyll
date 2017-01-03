@@ -4,6 +4,6 @@ title: My R book
 image: /img/profile.jpg
 ---
 
-<img src="/img/profile.jpg" alt="Drawing" style="width: 200px;"/>
+I'm writing a book about processing and modeling financial data with R. The current version of the book is written in portuguese and it is ready to publish. An english version is probably coming out in a couple of months. 
 
-TBA
+I'll add more details about the book soon..
