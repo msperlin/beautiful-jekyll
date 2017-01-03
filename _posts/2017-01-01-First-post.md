@@ -6,6 +6,7 @@ author: "Marcelo Perlin"
 output: md_document
 image: /img/profile.jpg
 tags: [about me]
+comments: true
 ---
 
 <img src="/img/profile.jpg" width="20%" />
