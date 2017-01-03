@@ -93,7 +93,7 @@ share-links-active:
 disqus: "r-and-finance"
 
 # Fill in your Google Analytics ID to track your website using GA
-#google_analytics: "UA-89690212-1"
+google_analytics: "UA-89690212-1"
 
 # Facebook App ID
 # fb_app_id: ""
