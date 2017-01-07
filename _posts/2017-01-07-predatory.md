@@ -16,7 +16,7 @@ academic evaluation system is not yet well established. Surprinsingly,
 even standard impact assessment systems such as JCR and SJR are not
 immune to predatory publishers.
 
-![source: https://forbetterscience.wordpress.com/2015/10/28/is-frontiers-a-potential-predatory-publisher/
+![source: [here](https://forbetterscience.wordpress.com/2015/10/28/is-frontiers-a-potential-predatory-publisher/)
 ](/img/2017-01-07-predatory_files/predatory-publisher.png)
 
 One of the problems in doing empirical research regarding predatory
