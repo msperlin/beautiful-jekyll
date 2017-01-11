@@ -6,7 +6,7 @@ author: "Marcelo Perlin"
 output: md_document
 image: "/img/2017-01-03-GetHFData_files/figure-markdown_strict/unnamed-chunk-8-1.png"
 bibliography: /bib files/MyBib.bib
-tags: [GetHFData,vbovespa, market microstructure, high frequency]
+tags: [R, GetHFData,vbovespa, market microstructure, high frequency]
 ---
 
 Recently, Bovespa, the Brazilian financial exchange company, allowed

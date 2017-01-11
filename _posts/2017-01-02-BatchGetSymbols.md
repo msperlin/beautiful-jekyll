@@ -5,7 +5,7 @@ subtitle: "Using package BatchGetSymbols"
 author: "Marcelo Perlin"
 output: md_document
 image: /img/2017-01-02-BatchGetSymbols_files/figure-markdown_strict/plot.prices-1.png
-tags: [yahoo finance, batchgetsymbols, quantmod]
+tags: [R, yahoo finance, batchgetsymbols, quantmod]
 ---
 
 One of the great things of working in finance is that financial datasets

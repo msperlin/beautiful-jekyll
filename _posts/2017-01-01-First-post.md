@@ -5,7 +5,7 @@ subtitle: "A little bit about me and this blog"
 author: "Marcelo Perlin"
 output: md_document
 image: /img/profile.jpg
-tags: [about me]
+tags: [R,about me]
 ---
 
 <img src="/img/profile.jpg" width="20%" />
