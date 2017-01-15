@@ -183,9 +183,7 @@ properties. In practice, though, it makes very little difference. In
 this post we will use only log returns. They are given by the following
 formula:
 
-$$
-R\_t = \\log \\frac{P\_t}{P\_{t-1}}
-$$
+![](http://www.sciweavers.org/tex2img.php?eq=R_t%20%3D%20%5Clog%20%5Cfrac%7BP_t%7D%7BP_%7Bt-1%7D%7D%0A&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=0)
 
 In order to calculate daily returns for each stock, the first step is to
 write a simple function that, given a vector of prices, outputs a vector
