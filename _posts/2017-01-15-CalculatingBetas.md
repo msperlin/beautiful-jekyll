@@ -164,7 +164,7 @@ Now, lets plot the time series of prices and look for any problem:
     p <- p + facet_wrap(~ticker, scales = 'free')
     print(p)
 
-![](\img\2017-01-15-CalculatingBetas_files\figure-markdown_strict/unnamed-chunk-3-1.png)
+![](/img/2017-01-15-CalculatingBetas_files/figure-markdown_strict/unnamed-chunk-3-1.png)
 
 Again, we see that all prices seems to be Ok. This is one of the
 advantages of working with adjusted (and not closing) prices from yahoo
