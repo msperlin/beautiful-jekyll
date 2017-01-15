@@ -27,9 +27,9 @@ higher average of historical returns.
 
 In the quantitative side, we can formulate the market model as:
 
-\begin{equation}
+$$\begin{equation}
 R_{t} = \alpha +\beta R_{M,t} + \epsilon _t
-\end{equation}
+\end{equation} $$
 
 where *R*<sub>*t*</sub> is the return of the stock at time *t*,
 *R*<sub>*M*, *t*</sub> is the return of the market index, *α* is the
