@@ -8,7 +8,7 @@ image: /img/2017-01-15-CalculatingBetas_files/figure-markdown_strict/unnamed-chu
 tags: [R, stock market, beta, linear regression]
 ---
 
-One of the first examples about using linear regression models in
+One of the first examples about using linear regression models in 
 finance is the calculation of betas, the so called market model.
 Coefficient beta is a measure of systematic risk and it is calculated by
 estimating a linear model where the dependent variable is the return
