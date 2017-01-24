@@ -25,10 +25,11 @@ description: This blog is about R and finance
 navbar-links:
   About Me: "aboutme"
   Subscribe to RSS: "subscribe"
+  My R Book: "myrbook"
   Resources:
     - Beautiful Jekyll: "http://deanattali.com/beautiful-jekyll/"
     - R-Bloggers: "https://www.r-bloggers.com/"
-  My R Book: "myrbook"   
+
 
 # Image to show in the navigation bar - image must be a square (width = height)
 # Remove this parameter if you don't want an image in the navbar
