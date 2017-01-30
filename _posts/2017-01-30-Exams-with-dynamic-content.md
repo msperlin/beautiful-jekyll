@@ -45,7 +45,7 @@ as input a .tex file and created `n` versions of exams by randomly
 defining the order of questions, the answer list and textual content
 based on a simple markup language. If you know latex, it is basically a
 problem of finding regex patterns and restructuring a character object
-that is later saved in a new and compilable latex file.
+that is later saved in a compilable latex file.
 
 The package I wrote worked pretty well for me but, as with any first
 version of a software, it had missing features. The output was only a
@@ -254,7 +254,7 @@ print the exam in pdf, nops (a pdf that allows easy scanning), or html.
 If you know a bit of latex or html, it is easy to customize the
 templates to the needs of your particular exam.
 
-As with all technical things, not everything is perfect. In my oppinio,
+As with all technical things, not everything is perfect. In my oppinion,
 the main issue with the `exams` template is that requires some knowledge
 of R and Knitr. While this is Ok for most people reading this blog, it
 is not the case for the *average* professor. It may sound surprising to
