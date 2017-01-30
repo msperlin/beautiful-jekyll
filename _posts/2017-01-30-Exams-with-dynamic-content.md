@@ -87,7 +87,7 @@ command
 Now, lets build the content of this simple question in a separate file.
 You can either use .Rnw or .Rmd files with exam. I will choose the later
 just to keep it simple. Here are the contents of a file called
-**Question.Rmd**, available [here](/img/Question.Rmd).
+**Question.Rmd**, available [here](msperlin.github.io/img/Question.Rmd).
 
     cat(paste0(readLines('Question.Rmd'), collapse = '\n'))
 
