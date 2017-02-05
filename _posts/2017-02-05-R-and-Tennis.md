@@ -224,7 +224,7 @@ And now we plot the result.
 
     ## Warning: Removed 1 rows containing non-finite values (stat_count).
 
-![](2017-02-05-R-and-Tennis_files/figure-markdown_strict/unnamed-chunk-5-1.png)
+![](/img/2017-02-05-R-and-Tennis_files/figure-markdown_strict/unnamed-chunk-5-1.png)
 
 It seems that hard courts dominated the game over the years. I'm not
 sure why that is. As a player, I find it easier to play in clay court as
