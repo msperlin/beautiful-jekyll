@@ -4,10 +4,8 @@ title: My R book
 image: /img/CAPA_MarceloDadosFinanceiros01E.jpg
 ---
 
-I'm writing a book about processing and modeling financial data with R. The current version of the book is written in portuguese and it was based in my class notes. I'm in the final stages of the publication process. Soon it will be available in Amazon. Here is the cover of the book (thanks to [capista](http://capista.com.br/)).
+My book about R and Finance (in portuguese) is finally available! 
 
-![](/img/CAPA_MarceloDadosFinanceiros01E.jpg)
+You can purchase it in amazon: [Ebook](https://www.amazon.com.br/dp/B01N4VXYPM), [print](https://www.amazon.com/dp/8592243513), [book site]( https://sites.google.com/view/r-financas/p%C3%A1gina-inicial)
 
-I'm working towards the translation of the book to english. I hope I can make it in a couple o months or more.
 
-I'll keep this part of the blog updated with new information about the book.
