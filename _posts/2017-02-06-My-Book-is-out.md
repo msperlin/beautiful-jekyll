@@ -19,9 +19,7 @@ My special thanks to Yihui Xie for his [bookdown package](https://bookdown.org/)
 
 Here are the links to the book.
 
-Ebook: https://www.amazon.com.br/dp/B01N4VXYPM
-Print: https://www.amazon.com/dp/8592243513
-Book Site: https://sites.google.com/view/r-financas/p%C3%A1gina-inicial
+[Ebook](https://www.amazon.com.br/dp/B01N4VXYPM), [print](https://www.amazon.com/dp/8592243513), [book site]( https://sites.google.com/view/r-financas/p%C3%A1gina-inicial)
 
 Fell free to send me any questions at marceloperlin@gmail.com.
 
