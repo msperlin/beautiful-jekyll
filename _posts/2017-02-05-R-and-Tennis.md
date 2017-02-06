@@ -259,9 +259,8 @@ and return the ball or a **serve and volley** strategy, were the server
 would hit a slower ball, but would immediately run to the net in order
 to close the point. If you can find some example of this strategy
 [here](https://www.youtube.com/watch?v=kOtC2UGY77I). I can personally
-relate to that boredom. Most of the fun in watching matches comes
-happens when players are exchanging balls back and forth over the court,
-one trying to outsmart or overpower the other.
+relate to that boredom. Most of the fun in watching matches happens when players 
+are exchanging balls back and forth over the court, one trying to outsmart or overpower the other.
 
 The success of both strategies, aces and serve-volley, are related to
 the speed of the ball. Aces are easier to hit if the ball travels
