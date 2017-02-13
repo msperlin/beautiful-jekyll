@@ -8,11 +8,7 @@ image: /img/tennis.jpg
 tags: [R, tennis]
 ---
 
-In the previous post about tennis, we studied how changes in ball's
-composition in hard and grass courts affected the game back in 2000. In
-this post, we will analyse a different dataset from the same repository,
-and look at the players winning records in ATP matches. We will again
-separate the result by the type of court.
+In the [previous post about tennis](https://msperlin.github.io/2017-02-05-R-and-Tennis/), we studied how changes in ball's composition in hard and grass courts affected the game back in 2000. In this post, we will analyse a different dataset from the same repository, and look at the players winning records in ATP matches. We will again separate the result by the type of court.
 
 The data
 --------
