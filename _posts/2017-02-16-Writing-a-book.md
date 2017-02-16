@@ -248,15 +248,15 @@ it to the *book creator* system in amazon. At this stage, you will also
 need a summary about the book and its author and a picture for the back
 cover of the printed version.
 
-1.  Registration in Amazon. The site asks you a lot of information. It
+3.  Registration in Amazon. The site asks you a lot of information. It
     took me at least half an hour to fill up the forms, which also
     includes tax details for us and non-us residents.
 
-2.  Description of the book. This is the text that goes in the webpage
+4.  Description of the book. This is the text that goes in the webpage
     of the book in Amazon. In my case, I just used the same text as the
     back cover.
 
-3.  [A book
+5.  [A book
     site](https://sites.google.com/view/r-financas/p%C3%A1gina-inicial).
     I wanted to distribute the code from the book and also exercises
     over the web. I used [Google Sites](https://sites.google.com/), but
