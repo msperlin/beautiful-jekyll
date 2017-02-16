@@ -95,7 +95,7 @@ a reason for change. Clearly, I was wrong. Once I started to investigate
 how to format better the code in the book, it became clear that I should
 be using `knitr`, which has all these extra options that are not
 available in `Sweave`. I switched it as soon as I realized how much I
-would gain there was.
+would gain in terms of control over the output.
 
 After 6 months of work, I had a first readable version of the book. This
 is when I started to investigate how to turn a latex file into an ebook
