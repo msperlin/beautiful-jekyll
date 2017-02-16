@@ -116,8 +116,7 @@ platform. I'm not going to go into the details about how to use
 `bookdown`. You can find the official tutorial
 [here](https://bookdown.org/yihui/bookdown/). It is worth to point out
 that the written content is just RMarkdown so, if you know latex, you'll
-fell right at home. So, here I go again, switching a whole book from
-latex to Rmarkdown.
+fell right at home. At this point, I switched all content from latex to Rmarkdown.
 
 The only feature in `bookdown` that didn't work out of the box was the
 equation in the kindle format. The formulas just didn't print well. The
