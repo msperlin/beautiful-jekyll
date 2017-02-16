@@ -242,7 +242,7 @@ the list:
     the number of pages at this stage. In my case, I used a 7x11 inches
     configuration for 200+ pages. It looks quite nice. Have a look:
 
-![My book (and my spanish iguana!)](/img/MyBook_printed.jpg)
+![My book and my spanish iguana!](/img/MyBook_printed.jpg)
 
 Beautiful cover! Isn't it? Once you have the figure file, you just add
 it to the *book creator* system in amazon. At this stage, you will also
