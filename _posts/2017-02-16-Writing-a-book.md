@@ -211,8 +211,8 @@ program](https://www.amazon.com/Browse-Kindle-Unlimited-Books/b?ie=UTF8&node=906
 the author gets 70% of the sticker price in royalties, which is a nice
 percentage! A bit of information, the normal royalty rate for an author
 of a publishing company is around 5%-10% of the book price. Just a quick
-comparison, for each ebook sold at
-9,*t**h**e**a**u**t**h**o**r**g**e**t**s*6.3 (70%\*9). In other
+comparison, for each ebook sold for
+9 dollar,the author gets 6.3 (70%*9). In other
 scenario, assuming an author has a publisher that offered 10% royalty,
 you would get the same royalty for a a book priced at 63$ (6.3/10%). The
 big difference here is that a 9$ ebook sells a lot more than a 63$
