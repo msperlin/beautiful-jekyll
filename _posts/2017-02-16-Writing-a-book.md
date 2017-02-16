@@ -4,7 +4,7 @@ title: "Writing a R book and self-publishing it in Amazon"
 subtitle: "My experience and some advices about the process"
 author: "Marcelo Perlin"
 output: md_document
-image: /img/MyBook_printed
+image: /img/MyBook_printed.jpg
 tags: [R, book, self-publish]
 ---
 
