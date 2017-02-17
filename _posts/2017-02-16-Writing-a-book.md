@@ -95,7 +95,7 @@ a reason for change. Clearly, I was wrong. Once I started to investigate
 how to format better the code in the book, it became clear that I should
 be using `knitr`, which has all these extra options that are not
 available in `Sweave`. I switched it as soon as I realized how much I
-would gain in terms of control over the output.
+would gain there was.
 
 After 6 months of work, I had a first readable version of the book. This
 is when I started to investigate how to turn a latex file into an ebook
@@ -116,7 +116,8 @@ platform. I'm not going to go into the details about how to use
 `bookdown`. You can find the official tutorial
 [here](https://bookdown.org/yihui/bookdown/). It is worth to point out
 that the written content is just RMarkdown so, if you know latex, you'll
-fell right at home. At this point, I switched all content from latex to Rmarkdown.
+fell right at home. So, here I go again, switching a whole book from
+latex to Rmarkdown.
 
 The only feature in `bookdown` that didn't work out of the box was the
 equation in the kindle format. The formulas just didn't print well. The
@@ -211,8 +212,8 @@ program](https://www.amazon.com/Browse-Kindle-Unlimited-Books/b?ie=UTF8&node=906
 the author gets 70% of the sticker price in royalties, which is a nice
 percentage! A bit of information, the normal royalty rate for an author
 of a publishing company is around 5%-10% of the book price. Just a quick
-comparison, for each ebook sold for
-9 dollar,the author gets 6.3 (70%*9). In other
+comparison, for each ebook sold at
+9,*t**h**e**a**u**t**h**o**r**g**e**t**s*6.3 (70%\*9). In other
 scenario, assuming an author has a publisher that offered 10% royalty,
 you would get the same royalty for a a book priced at 63$ (6.3/10%). The
 big difference here is that a 9$ ebook sells a lot more than a 63$
@@ -241,12 +242,12 @@ the list:
     the number of pages at this stage. In my case, I used a 7x11 inches
     configuration for 200+ pages. It looks quite nice. Have a look:
 
-![My book and my spanish iguana!](/img/MyBook_printed.jpg)
+	![My book and my spanish iguana!](/img/MyBook_printed.jpg)
 
-Beautiful cover! Isn't it? Once you have the figure file, you just add
-it to the *book creator* system in amazon. At this stage, you will also
-need a summary about the book and its author and a picture for the back
-cover of the printed version.
+	Beautiful cover! Isn't it? Once you have the figure file, you just add
+	it to the *book creator* system in amazon. At this stage, you will also
+	need a summary about the book and its author and a picture for the back
+	cover of the printed version.
 
 3.  Registration in Amazon. The site asks you a lot of information. It
     took me at least half an hour to fill up the forms, which also
