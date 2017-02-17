@@ -286,7 +286,7 @@ The publication
 The book was launched in the sixth of February 2017. I advertised it in
 here, my [blog](https://msperlin.github.io/), Facebook and email. I was
 very surprised with the strong reception. In the first and second day,
-it became the *best seller* book in the section of finance in the
+it became the **best seller** book in the section of finance in the
 Brazilian Amazon. I am really happy for the success of the book. Right
 now, the sales have gone down, which is normal and expected, but I'm
 getting all sorts of good responses. What surprised me is that, even
