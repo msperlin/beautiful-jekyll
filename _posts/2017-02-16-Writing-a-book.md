@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Writing a R book and self-publishing it in Amazon"
+title: "Writing an R book and self-publishing it in Amazon"
 subtitle: "My experience and some advices about the process"
 author: "Marcelo Perlin"
 output: md_document
