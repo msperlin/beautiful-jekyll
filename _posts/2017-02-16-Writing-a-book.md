@@ -213,10 +213,10 @@ the author gets 70% of the sticker price in royalties, which is a nice
 percentage! A bit of information, the normal royalty rate for an author
 of a publishing company is around 5%-10% of the book price. Just a quick
 comparison, for each ebook sold at
-9,*t**h**e**a**u**t**h**o**r**g**e**t**s*6.3 (70%\*9). In other
+$9, the author gets $6.3 (70%\*9). In other
 scenario, assuming an author has a publisher that offered 10% royalty,
-you would get the same royalty for a a book priced at 63$ (6.3/10%). The
-big difference here is that a 9$ ebook sells a lot more than a 63$
+you would get the same royalty for a a book priced at $63 (6.3/10%). The
+big difference here is that a $9 ebook sells a lot more than a $63
 ebook, resulting in higher royalties and higher impact. More people read
 your book and you make more money. My only disappointment with Amazon is
 that the printed books are shipped from the USA. A buyer of the printed
