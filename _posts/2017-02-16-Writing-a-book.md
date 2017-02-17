@@ -311,7 +311,7 @@ well.
 
 -   When possible, use `tidy=TRUE` in the chunks of code. This simple
     command forces the code within the boundaries of the pdf. Sometimes
-    it doesn't look good so you always need to mannualy check the chunks
+    it doesn't look good so you always need to manually check the chunks
     with lots of code.
 
 -   Avoid using function `str` in the content. For some reason, it does
