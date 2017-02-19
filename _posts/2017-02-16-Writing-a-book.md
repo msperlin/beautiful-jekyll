@@ -158,7 +158,7 @@ Around october of 2016, the content of the book started to take a good
 shape and it was time to investigate where and how to publish it. I got
 in touch with a major local publisher here in Brazil and, after one
 month, they informed me that they were not interested in the book. While
-I could try other publishers, I really didn't felt like going through
+I could try other publishers, I really didn't fell like going through
 another month of evaluation. I studied for while and decided to
 **self-publish the book**.
 
@@ -176,7 +176,7 @@ This is particular important as grammar mistakes are normal and expected
 in large documents. But, selecting a reviewer was an interactive
 process. I searched the web and hired tree different reviewers and
 offered them three different chapters of the book. Once I had all
-revisions, I selected the reviewer the offered the best result and sent
+revisions, I selected the reviewer that offered the best result and sent
 him the rest of the chapters. You can find his site
 [here](http://revisaotextual.com.br/). I'm glad I did this way, It would
 be a nightmare if I hired the wrong person to do this job.
@@ -221,7 +221,7 @@ ebook, resulting in higher royalties and higher impact. More people read
 your book and you make more money. My only disappointment with Amazon is
 that the printed books are shipped from the USA. A buyer of the printed
 book in Brazil will need to wait at least 10-15 days to get the book.
-But, overall, I find this to be a small cost to bear.
+But, overall, I find this to be a small cost to bare.
 
 When the final version of the content of the book was ready, I started
 to organize everything I needed in order to publish the book. This is
