@@ -660,7 +660,9 @@ popular sport.
 Guga had a hip injury back in 2001. He tried surgery, but it didn't
 worked out and he wasn't able to maintain the higher level of tennis
 that is necessary in the professional circuit. He retired in february of
-2008. His story is very inspiring, growing up in the state of Santa
+2008. 
+
+His story is very inspiring, growing up in the state of Santa
 Catarina, in a time where tennis was not a popular sport in Brazil and
 funding opportunities were scarce. His [biography (in
 portuguese)](https://www.amazon.com/Gustavo-Kuerten/e/B00VOUXHS2) is an
