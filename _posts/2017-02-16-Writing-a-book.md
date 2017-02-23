@@ -239,7 +239,7 @@ the list:
 
 2.  Cover - The cover is processed as a figure file (.jpg). An important
     information here is that you need to define the size of you book and
-    the number of pages at this stage. In my case, I used a 7x11 inches
+    the number of pages at this stage. In my case, I used a 7x10 inches
     configuration for 200+ pages. It looks quite nice. Have a look:
 
 	![My book and my spanish iguana!](/img/MyBook_printed.jpg)
