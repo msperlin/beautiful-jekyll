@@ -239,7 +239,7 @@ algorithm is the encompassing test. The idea is to estimate the
 following linear model with the real returns (*R*<sub>*t*</sub>) and its
 predictions ($\\hat{R} \_t$).
 
-![](EncompassingTest.png)
+![](/img/EncompassingTest.png)
 
 If the model provides good forecasts, we can expect that *α* is equal to
 zero (no bias) and *β* is equal to 1. If both conditions are true, we
