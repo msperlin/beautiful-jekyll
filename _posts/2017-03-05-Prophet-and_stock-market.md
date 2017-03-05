@@ -243,7 +243,7 @@ predictions ($\\hat{R} \_t$).
 
 If the model provides good forecasts, we can expect that *α* is equal to
 zero (no bias) and *β* is equal to 1. If both conditions are true, we
-have that $R\_t = \\hat{R} \_t + \\epsilon \_t$$, meaning that our
+have that $R\_t = \\hat{R} \_t + \\epsilon \_t$, meaning that our
 forecasting model provides an unbiased estimator of the predicted
 variable. In a formal research, we could use a Wald test to verify this
 hypothesis jointly.
@@ -273,7 +273,7 @@ First, lets find the result of the encompassing test for all forecasts.
     ## F-statistic: 10.44 on 1 and 123 DF,  p-value: 0.001582
 
 As you can see, it didn't work very well. While the constant seems Ok,
-the value of 0.8220446 is not even close to 1. But, it could be the case
+the value of 0.8220446 is not very close to 1. But, it could be the case
 that the different horizon have different results. A longer horizon,
 with bad forecasts, will be affecting short horizons with good
 forecasts. Lets use `dplyr` to separate our model according to `nfor`.
@@ -401,9 +401,9 @@ model fails in the encompassing test.
 Let's try it out with a simple trading strategy for all different
 horizons:
 
--   buy in end of day *t* if forecast in *t+1* is positive and sell at
+-   buy the stock in end of day *t* if forecast in *t+1* is positive and sell at
     the end of *t+1*
--   short-sell in the end of day *t* when forecast for *t+1* is negative
+-   short-sell the stock in the end of day *t* when forecast for *t+1* is negative
     and buy it back in the end of *t+1*
 
 The total profit will be given by:
@@ -414,7 +414,7 @@ The total profit will be given by:
     ## [1] 0.07947572
 
 Not bad! Doesn't look like much, but remember that we have a few trading
-days and this return might be due to a sistematic effect in the market.
+days and this return might be due to a systematic effect in the market.
 Let's see how this result compares to random trading signals.
 
     n.sim <- 10000
@@ -438,12 +438,12 @@ Let's see how this result compares to random trading signals.
 
 ![](/img/2017-03-05-Prophet-and_stock-market_files/figure-markdown_strict/unnamed-chunk-13-1.png)
 
-The previous histogram shows the total return from randomnly generated
+The previous histogram shows the total return from randomly generated
 signals in 10^{4} simulations. The vertical line is the result from
 using `prophet`. As you can see, it is a bit higher than the average of
 the distribution. The total return from `prophet` is lower than the
 return of the naive strategy in 27.5 percent of the simulations. This is
-not a bad result. But, notice that we didnt add trading or liquidity
+not a bad result. But, notice that we didn't add trading or liquidity
 costs to the analysis, which will make the total returns worse.
 
 The main results of this simple study are clear: **`prophet` is bad at
