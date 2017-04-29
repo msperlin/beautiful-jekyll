@@ -1,0 +1,1586 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Processing and Analyzing Financial Data with R</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="Processing and Analyzing Financial Data with R">
+  <meta name="generator" content="bookdown 0.3 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Processing and Analyzing Financial Data with R" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="figs/CAPADigital_FinancialDataR.jpg" />
+  <meta property="og:description" content="Processing and Analyzing Financial Data with R" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Processing and Analyzing Financial Data with R" />
+  
+  <meta name="twitter:description" content="Processing and Analyzing Financial Data with R" />
+  <meta name="twitter:image" content="figs/CAPADigital_FinancialDataR.jpg" />
+
+<meta name="author" content="Marcelo S. Perlin (marcelo.perlin@ufrgs.br)">
+
+
+<meta name="date" content="2017-04-29">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="importing.html">
+<link rel="next" href="Figures.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Processing and Analyzing Financial Data with R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome!</a></li>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#what-is-r"><i class="fa fa-check"></i><b>1.1</b> What is R</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#why-choose-r"><i class="fa fa-check"></i><b>1.2</b> Why Choose R</a></li>
+<li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#what-can-you-do-with-r-and-rstudio"><i class="fa fa-check"></i><b>1.3</b> What Can You Do With R and RStudio?</a></li>
+<li class="chapter" data-level="1.4" data-path="introduction.html"><a href="introduction.html#installing-r-and-rstudio"><i class="fa fa-check"></i><b>1.4</b> Installing R and RStudio</a></li>
+<li class="chapter" data-level="1.5" data-path="introduction.html"><a href="introduction.html#resources-in-the-web"><i class="fa fa-check"></i><b>1.5</b> Resources in the Web</a></li>
+<li class="chapter" data-level="1.6" data-path="introduction.html"><a href="introduction.html#structure-and-organization"><i class="fa fa-check"></i><b>1.6</b> Structure and Organization</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html"><i class="fa fa-check"></i><b>2</b> Basic Operations in R</a><ul>
+<li class="chapter" data-level="2.1" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#working-with-r"><i class="fa fa-check"></i><b>2.1</b> Working With R</a></li>
+<li class="chapter" data-level="2.2" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#objects-in-r"><i class="fa fa-check"></i><b>2.2</b> Objects in R</a></li>
+<li class="chapter" data-level="2.3" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#international-and-local-formats"><i class="fa fa-check"></i><b>2.3</b> International and Local Formats</a></li>
+<li class="chapter" data-level="2.4" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#types-of-files-in-r"><i class="fa fa-check"></i><b>2.4</b> Types of Files in R</a></li>
+<li class="chapter" data-level="2.5" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#explaining-the-rstudio-screen"><i class="fa fa-check"></i><b>2.5</b> Explaining the RStudio Screen</a></li>
+<li class="chapter" data-level="2.6" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#running-scripts-from-rstudio"><i class="fa fa-check"></i><b>2.6</b> Running Scripts from RStudio</a></li>
+<li class="chapter" data-level="2.7" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#testing-and-debugging-code"><i class="fa fa-check"></i><b>2.7</b> Testing and Debugging Code</a></li>
+<li class="chapter" data-level="2.8" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#creating-simple-objects"><i class="fa fa-check"></i><b>2.8</b> Creating Simple Objects</a></li>
+<li class="chapter" data-level="2.9" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#creating-vectors"><i class="fa fa-check"></i><b>2.9</b> Creating Vectors</a></li>
+<li class="chapter" data-level="2.10" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#knowing-your-environment"><i class="fa fa-check"></i><b>2.10</b> Knowing Your Environment</a></li>
+<li class="chapter" data-level="2.11" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#displaying-and-formatting-output"><i class="fa fa-check"></i><b>2.11</b> Displaying and Formatting Output</a><ul>
+<li class="chapter" data-level="2.11.1" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#customizing-the-output"><i class="fa fa-check"></i><b>2.11.1</b> Customizing the Output</a></li>
+</ul></li>
+<li class="chapter" data-level="2.12" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#finding-the-size-of-objects"><i class="fa fa-check"></i><b>2.12</b> Finding the Size of Objects</a></li>
+<li class="chapter" data-level="2.13" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#selecting-the-elements-of-an-atomic-vector"><i class="fa fa-check"></i><b>2.13</b> Selecting the Elements of an Atomic Vector</a></li>
+<li class="chapter" data-level="2.14" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#removing-objects-from-the-memory"><i class="fa fa-check"></i><b>2.14</b> Removing Objects from the Memory</a></li>
+<li class="chapter" data-level="2.15" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#displaying-and-setting-the-working-directory"><i class="fa fa-check"></i><b>2.15</b> Displaying and Setting the Working Directory</a></li>
+<li class="chapter" data-level="2.16" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#cancelling-code-execution"><i class="fa fa-check"></i><b>2.16</b> Cancelling Code Execution</a></li>
+<li class="chapter" data-level="2.17" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#code-comments"><i class="fa fa-check"></i><b>2.17</b> Code Comments</a></li>
+<li class="chapter" data-level="2.18" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#looking-for-help"><i class="fa fa-check"></i><b>2.18</b> Looking for Help</a></li>
+<li class="chapter" data-level="2.19" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#r-packages"><i class="fa fa-check"></i><b>2.19</b> R Packages</a><ul>
+<li class="chapter" data-level="2.19.1" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#installing-packages-from-cran"><i class="fa fa-check"></i><b>2.19.1</b> Installing Packages from CRAN</a></li>
+<li class="chapter" data-level="2.19.2" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#installing-packages-from-github"><i class="fa fa-check"></i><b>2.19.2</b> Installing Packages from Github</a></li>
+<li class="chapter" data-level="2.19.3" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#loading-packages"><i class="fa fa-check"></i><b>2.19.3</b> Loading Packages</a></li>
+<li class="chapter" data-level="2.19.4" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#upgrading-packages"><i class="fa fa-check"></i><b>2.19.4</b> Upgrading Packages</a></li>
+</ul></li>
+<li class="chapter" data-level="2.20" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#using-code-completion-with-tab"><i class="fa fa-check"></i><b>2.20</b> Using Code Completion with <em>tab</em></a></li>
+<li class="chapter" data-level="2.21" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#interacting-with-files-and-the-operating-system"><i class="fa fa-check"></i><b>2.21</b> Interacting with Files and the Operating System</a><ul>
+<li class="chapter" data-level="2.21.1" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#listing-files-and-folders"><i class="fa fa-check"></i><b>2.21.1</b> Listing Files and Folders</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="BasicObjects.html"><a href="BasicObjects.html"><i class="fa fa-check"></i><b>3</b> Basic Object Classes</a><ul>
+<li class="chapter" data-level="3.1" data-path="BasicObjects.html"><a href="BasicObjects.html#numeric-objects"><i class="fa fa-check"></i><b>3.1</b> <code>Numeric</code> Objects</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-and-manipulating-numeric-objects"><i class="fa fa-check"></i><b>3.1.1</b> Creating and Manipulating <code>numeric</code> Objects</a></li>
+<li class="chapter" data-level="3.1.2" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-a-numeric-sequence"><i class="fa fa-check"></i><b>3.1.2</b> Creating a <code>numeric</code> Sequence</a></li>
+<li class="chapter" data-level="3.1.3" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-vectors-with-repeated-elements"><i class="fa fa-check"></i><b>3.1.3</b> Creating Vectors with Repeated Elements</a></li>
+<li class="chapter" data-level="3.1.4" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-vectors-with-random-numbers"><i class="fa fa-check"></i><b>3.1.4</b> Creating Vectors with Random Numbers</a></li>
+<li class="chapter" data-level="3.1.5" data-path="BasicObjects.html"><a href="BasicObjects.html#accessing-the-elements-of-a-numeric-vector"><i class="fa fa-check"></i><b>3.1.5</b> Accessing the Elements of a <code>numeric</code> Vector</a></li>
+<li class="chapter" data-level="3.1.6" data-path="BasicObjects.html"><a href="BasicObjects.html#modifying-and-removing-elements-of-a-numeric-vector"><i class="fa fa-check"></i><b>3.1.6</b> Modifying and Removing Elements of a <code>numeric</code> Vector</a></li>
+<li class="chapter" data-level="3.1.7" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-groups-from-a-numeric-vector"><i class="fa fa-check"></i><b>3.1.7</b> Creating Groups from a <code>numeric</code> Vector</a></li>
+<li class="chapter" data-level="3.1.8" data-path="BasicObjects.html"><a href="BasicObjects.html#other-functions-for-manipulating-numerical-vectors"><i class="fa fa-check"></i><b>3.1.8</b> Other Functions for Manipulating Numerical Vectors</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="BasicObjects.html"><a href="BasicObjects.html#character-objects"><i class="fa fa-check"></i><b>3.2</b> <code>Character</code> Objects</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-a-simple-character-object"><i class="fa fa-check"></i><b>3.2.1</b> Creating a Simple <code>character</code> Object</a></li>
+<li class="chapter" data-level="3.2.2" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-structured-character-objects"><i class="fa fa-check"></i><b>3.2.2</b> Creating Structured <code>character</code> Objects</a></li>
+<li class="chapter" data-level="3.2.3" data-path="BasicObjects.html"><a href="BasicObjects.html#character-constants"><i class="fa fa-check"></i><b>3.2.3</b> <code>character</code> Constants</a></li>
+<li class="chapter" data-level="3.2.4" data-path="BasicObjects.html"><a href="BasicObjects.html#selecting-characters-of-a-text-object"><i class="fa fa-check"></i><b>3.2.4</b> Selecting Characters of a Text Object</a></li>
+<li class="chapter" data-level="3.2.5" data-path="BasicObjects.html"><a href="BasicObjects.html#finding-and-replacing-characters-of-a-text"><i class="fa fa-check"></i><b>3.2.5</b> Finding and Replacing Characters of a Text</a></li>
+<li class="chapter" data-level="3.2.6" data-path="BasicObjects.html"><a href="BasicObjects.html#splitting-text"><i class="fa fa-check"></i><b>3.2.6</b> Splitting Text</a></li>
+<li class="chapter" data-level="3.2.7" data-path="BasicObjects.html"><a href="BasicObjects.html#finding-the-number-of-characters-in-a-text"><i class="fa fa-check"></i><b>3.2.7</b> Finding the Number of Characters in a Text</a></li>
+<li class="chapter" data-level="3.2.8" data-path="BasicObjects.html"><a href="BasicObjects.html#generating-combinations-of-text"><i class="fa fa-check"></i><b>3.2.8</b> Generating Combinations of Text</a></li>
+<li class="chapter" data-level="3.2.9" data-path="BasicObjects.html"><a href="BasicObjects.html#encoding-of-character-objects"><i class="fa fa-check"></i><b>3.2.9</b> Encoding of <code>character</code> Objects</a></li>
+<li class="chapter" data-level="3.2.10" data-path="BasicObjects.html"><a href="BasicObjects.html#other-functions-for-manipulating-character"><i class="fa fa-check"></i><b>3.2.10</b> Other Functions for Manipulating <code>character</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="BasicObjects.html"><a href="BasicObjects.html#factor-objects"><i class="fa fa-check"></i><b>3.3</b> <code>Factor</code> Objects</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-factors"><i class="fa fa-check"></i><b>3.3.1</b> Creating <code>factors</code></a></li>
+<li class="chapter" data-level="3.3.2" data-path="BasicObjects.html"><a href="BasicObjects.html#modifying-factors"><i class="fa fa-check"></i><b>3.3.2</b> Modifying <code>factors</code></a></li>
+<li class="chapter" data-level="3.3.3" data-path="BasicObjects.html"><a href="BasicObjects.html#converting-factors-to-other-classes"><i class="fa fa-check"></i><b>3.3.3</b> Converting <code>factors</code> to Other Classes</a></li>
+<li class="chapter" data-level="3.3.4" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-contingency-tables"><i class="fa fa-check"></i><b>3.3.4</b> Creating Contingency Tables</a></li>
+<li class="chapter" data-level="3.3.5" data-path="BasicObjects.html"><a href="BasicObjects.html#other-functions-for-manipulating-factors"><i class="fa fa-check"></i><b>3.3.5</b> Other Functions for Manipulating <code>factors</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="BasicObjects.html"><a href="BasicObjects.html#logical-objects"><i class="fa fa-check"></i><b>3.4</b> <code>Logical</code> Objects</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-logical-objects"><i class="fa fa-check"></i><b>3.4.1</b> Creating <code>logical</code> Objects</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="BasicObjects.html"><a href="BasicObjects.html#date-and-time-objects"><i class="fa fa-check"></i><b>3.5</b> Date and Time Objects</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-simple-dates"><i class="fa fa-check"></i><b>3.5.1</b> Creating Simple Dates</a></li>
+<li class="chapter" data-level="3.5.2" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-a-sequence-of-dates"><i class="fa fa-check"></i><b>3.5.2</b> Creating a Sequence of <code>Dates</code></a></li>
+<li class="chapter" data-level="3.5.3" data-path="BasicObjects.html"><a href="BasicObjects.html#operations-with-dates"><i class="fa fa-check"></i><b>3.5.3</b> Operations with <code>Dates</code></a></li>
+<li class="chapter" data-level="3.5.4" data-path="BasicObjects.html"><a href="BasicObjects.html#dealing-with-time"><i class="fa fa-check"></i><b>3.5.4</b> Dealing with Time</a></li>
+<li class="chapter" data-level="3.5.5" data-path="BasicObjects.html"><a href="BasicObjects.html#customizing-the-output-format-of-dates-and-times"><i class="fa fa-check"></i><b>3.5.5</b> Customizing the Output Format of Dates and Times</a></li>
+<li class="chapter" data-level="3.5.6" data-path="BasicObjects.html"><a href="BasicObjects.html#find-the-current-date-and-time"><i class="fa fa-check"></i><b>3.5.6</b> Find the Current Date and Time</a></li>
+<li class="chapter" data-level="3.5.7" data-path="BasicObjects.html"><a href="BasicObjects.html#other-functions-for-manipulating-dates-and-time"><i class="fa fa-check"></i><b>3.5.7</b> Other Functions for Manipulating Dates and Time</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="BasicObjects.html"><a href="BasicObjects.html#missing-data---na-not-available"><i class="fa fa-check"></i><b>3.6</b> Missing Data - <code>NA</code> (<em>Not available</em>)</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="BasicObjects.html"><a href="BasicObjects.html#defining-na-values"><i class="fa fa-check"></i><b>3.6.1</b> Defining <code>NA</code> Values</a></li>
+<li class="chapter" data-level="3.6.2" data-path="BasicObjects.html"><a href="BasicObjects.html#finding-and-replacing-na"><i class="fa fa-check"></i><b>3.6.2</b> Finding and Replacing <code>NA</code></a></li>
+<li class="chapter" data-level="3.6.3" data-path="BasicObjects.html"><a href="BasicObjects.html#other-useful-functions-for-treating-na"><i class="fa fa-check"></i><b>3.6.3</b> Other Useful Functions for Treating <code>NA</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html"><i class="fa fa-check"></i><b>4</b> Data Structure Objects</a><ul>
+<li class="chapter" data-level="4.1" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#lists"><i class="fa fa-check"></i><b>4.1</b> <code>Lists</code></a><ul>
+<li class="chapter" data-level="4.1.1" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#creating-lists"><i class="fa fa-check"></i><b>4.1.1</b> Creating <code>lists</code></a></li>
+<li class="chapter" data-level="4.1.2" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#accessing-the-elements-of-a-list"><i class="fa fa-check"></i><b>4.1.2</b> Accessing the Elements of a <code>list</code></a></li>
+<li class="chapter" data-level="4.1.3" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#adding-and-removing-elements-from-a-list"><i class="fa fa-check"></i><b>4.1.3</b> Adding and Removing Elements from a <code>list</code></a></li>
+<li class="chapter" data-level="4.1.4" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#processing-the-elements-of-a-list"><i class="fa fa-check"></i><b>4.1.4</b> Processing the Elements of a <code>list</code></a></li>
+<li class="chapter" data-level="4.1.5" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#other-functions-for-manipulating-lists"><i class="fa fa-check"></i><b>4.1.5</b> Other Functions for Manipulating <code>lists</code></a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#matrices"><i class="fa fa-check"></i><b>4.2</b> <code>Matrices</code></a><ul>
+<li class="chapter" data-level="4.2.1" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#selecting-elements-from-a-matrix"><i class="fa fa-check"></i><b>4.2.1</b> Selecting Elements from a <code>matrix</code></a></li>
+<li class="chapter" data-level="4.2.2" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#other-useful-functions-for-manipulating-matrices"><i class="fa fa-check"></i><b>4.2.2</b> Other Useful Functions for Manipulating Matrices</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#dataframes"><i class="fa fa-check"></i><b>4.3</b> <code>Dataframes</code></a><ul>
+<li class="chapter" data-level="4.3.1" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#creating-dataframes"><i class="fa fa-check"></i><b>4.3.1</b> Creating <code>dataframes</code></a></li>
+<li class="chapter" data-level="4.3.2" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#accessing-information-from-a-dataframe"><i class="fa fa-check"></i><b>4.3.2</b> Accessing Information from a <code>dataframe</code></a></li>
+<li class="chapter" data-level="4.3.3" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#modifying-a-dataframe"><i class="fa fa-check"></i><b>4.3.3</b> Modifying a <code>dataframe</code></a></li>
+<li class="chapter" data-level="4.3.4" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#sorting-a-dataframe"><i class="fa fa-check"></i><b>4.3.4</b> Sorting a <code>dataframe</code></a></li>
+<li class="chapter" data-level="4.3.5" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#combining-and-aggregating-dataframes"><i class="fa fa-check"></i><b>4.3.5</b> Combining and Aggregating <code>dataframes</code></a></li>
+<li class="chapter" data-level="4.3.6" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#reporting-a-dataframe-table"><i class="fa fa-check"></i><b>4.3.6</b> Reporting a <code>Dataframe</code> Table</a></li>
+<li class="chapter" data-level="4.3.7" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#the-format-of-the-dataframe-long-and-wide"><i class="fa fa-check"></i><b>4.3.7</b> The Format of the <code>dataframe</code> (<em>long</em> and <em>wide</em>)</a></li>
+<li class="chapter" data-level="4.3.8" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#extensions-of-the-dataframe-class"><i class="fa fa-check"></i><b>4.3.8</b> Extensions of the <code>dataframe</code> Class</a></li>
+<li class="chapter" data-level="4.3.9" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#other-useful-functions-for-handling-dataframes"><i class="fa fa-check"></i><b>4.3.9</b> Other Useful Functions for Handling <code>dataframes</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="Financial-data.html"><a href="Financial-data.html"><i class="fa fa-check"></i><b>5</b> Financial Data and Common Operations</a><ul>
+<li class="chapter" data-level="5.1" data-path="Financial-data.html"><a href="Financial-data.html#data-from-financial-markets"><i class="fa fa-check"></i><b>5.1</b> Data from Financial Markets</a></li>
+<li class="chapter" data-level="5.2" data-path="Financial-data.html"><a href="Financial-data.html#data-from-the-financial-evaluation-of-projects"><i class="fa fa-check"></i><b>5.2</b> Data from the Financial Evaluation of Projects</a></li>
+<li class="chapter" data-level="5.3" data-path="Financial-data.html"><a href="Financial-data.html#data-from-financial-statements"><i class="fa fa-check"></i><b>5.3</b> Data from Financial Statements</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="importing.html"><a href="importing.html"><i class="fa fa-check"></i><b>6</b> Importing and Exporting Data</a><ul>
+<li class="chapter" data-level="6.1" data-path="importing.html"><a href="importing.html#importing-data-from-local-files"><i class="fa fa-check"></i><b>6.1</b> Importing Data from Local Files</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="importing.html"><a href="importing.html#importing-data-from-a-.csv-file-comma-separated-values"><i class="fa fa-check"></i><b>6.1.1</b> Importing Data from a <em>.csv</em> File (<em>comma separated values</em>)</a></li>
+<li class="chapter" data-level="6.1.2" data-path="importing.html"><a href="importing.html#importing-data-from-an-excel-file"><i class="fa fa-check"></i><b>6.1.2</b> Importing Data from an <em>Excel</em> File</a></li>
+<li class="chapter" data-level="6.1.3" data-path="importing.html"><a href="importing.html#importing-data-from-a-.rdata-file"><i class="fa fa-check"></i><b>6.1.3</b> Importing Data from a <em>.RData</em> File</a></li>
+<li class="chapter" data-level="6.1.4" data-path="importing.html"><a href="importing.html#importing-data-from-sqlite"><i class="fa fa-check"></i><b>6.1.4</b> Importing Data from SQLITE</a></li>
+<li class="chapter" data-level="6.1.5" data-path="importing.html"><a href="importing.html#importing-data-from-a-text-file"><i class="fa fa-check"></i><b>6.1.5</b> Importing Data from a Text File</a></li>
+<li class="chapter" data-level="6.1.6" data-path="importing.html"><a href="importing.html#other-file-formats"><i class="fa fa-check"></i><b>6.1.6</b> Other File Formats</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="importing.html"><a href="importing.html#importing-data-using-the-internet"><i class="fa fa-check"></i><b>6.2</b> Importing Data Using the Internet</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="importing.html"><a href="importing.html#package-quantmod"><i class="fa fa-check"></i><b>6.2.1</b> Package <code>quantmod</code></a></li>
+<li class="chapter" data-level="6.2.2" data-path="importing.html"><a href="importing.html#package-batchgetsymbols"><i class="fa fa-check"></i><b>6.2.2</b> Package <code>BatchGetSymbols</code></a></li>
+<li class="chapter" data-level="6.2.3" data-path="importing.html"><a href="importing.html#package-finreportr"><i class="fa fa-check"></i><b>6.2.3</b> Package <code>finreportr</code></a></li>
+<li class="chapter" data-level="6.2.4" data-path="importing.html"><a href="importing.html#package-tidyquant"><i class="fa fa-check"></i><b>6.2.4</b> Package <code>tidyquant</code></a></li>
+<li class="chapter" data-level="6.2.5" data-path="importing.html"><a href="importing.html#package-gethfdata"><i class="fa fa-check"></i><b>6.2.5</b> Package <code>GetHFData</code></a></li>
+<li class="chapter" data-level="6.2.6" data-path="importing.html"><a href="importing.html#package-ustyc"><i class="fa fa-check"></i><b>6.2.6</b> Package <code>ustyc</code></a></li>
+<li class="chapter" data-level="6.2.7" data-path="importing.html"><a href="importing.html#quandl"><i class="fa fa-check"></i><b>6.2.7</b> Package <code>Quandl</code></a></li>
+<li class="chapter" data-level="6.2.8" data-path="importing.html"><a href="importing.html#package-rbitcoin"><i class="fa fa-check"></i><b>6.2.8</b> Package <code>Rbitcoin</code></a></li>
+<li class="chapter" data-level="6.2.9" data-path="importing.html"><a href="importing.html#other-packages"><i class="fa fa-check"></i><b>6.2.9</b> Other Packages</a></li>
+<li class="chapter" data-level="6.2.10" data-path="importing.html"><a href="importing.html#accessing-data-from-web-pages-webscraping"><i class="fa fa-check"></i><b>6.2.10</b> Accessing Data from Web Pages (<em>webscraping</em>)</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="importing.html"><a href="importing.html#exporting-to-local-file"><i class="fa fa-check"></i><b>6.3</b> Exporting to Local File</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="importing.html"><a href="importing.html#exporting-data-to-a-.csv-file"><i class="fa fa-check"></i><b>6.3.1</b> Exporting Data to a <em>.csv</em> File</a></li>
+<li class="chapter" data-level="6.3.2" data-path="importing.html"><a href="importing.html#exporting-data-to-a-rdata-file"><i class="fa fa-check"></i><b>6.3.2</b> Exporting Data to a <em>RData</em> File</a></li>
+<li class="chapter" data-level="6.3.3" data-path="importing.html"><a href="importing.html#exporting-data-to-an-excel-file"><i class="fa fa-check"></i><b>6.3.3</b> Exporting Data to an Excel File</a></li>
+<li class="chapter" data-level="6.3.4" data-path="importing.html"><a href="importing.html#exporting-data-to-a-text-file"><i class="fa fa-check"></i><b>6.3.4</b> Exporting Data to a Text File</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="programming.html"><a href="programming.html"><i class="fa fa-check"></i><b>7</b> Programming and Data Analysis with R</a><ul>
+<li class="chapter" data-level="7.1" data-path="programming.html"><a href="programming.html#creating-functions"><i class="fa fa-check"></i><b>7.1</b> Creating Functions</a></li>
+<li class="chapter" data-level="7.2" data-path="programming.html"><a href="programming.html#using-loops-for"><i class="fa fa-check"></i><b>7.2</b> Using Loops (<code>for</code>)</a></li>
+<li class="chapter" data-level="7.3" data-path="programming.html"><a href="programming.html#conditional-statements-if-else-switch"><i class="fa fa-check"></i><b>7.3</b> Conditional Statements (<code>if</code>, <code>else</code>, <code>switch</code>)</a></li>
+<li class="chapter" data-level="7.4" data-path="programming.html"><a href="programming.html#using-apply-functions"><i class="fa fa-check"></i><b>7.4</b> Using <code>apply</code> Functions</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="programming.html"><a href="programming.html#using-lapply"><i class="fa fa-check"></i><b>7.4.1</b> Using <code>lapply</code></a></li>
+<li class="chapter" data-level="7.4.2" data-path="programming.html"><a href="programming.html#using-sapply"><i class="fa fa-check"></i><b>7.4.2</b> Using <code>sapply</code></a></li>
+<li class="chapter" data-level="7.4.3" data-path="programming.html"><a href="programming.html#using-tapply"><i class="fa fa-check"></i><b>7.4.3</b> Using <code>tapply</code></a></li>
+<li class="chapter" data-level="7.4.4" data-path="programming.html"><a href="programming.html#using-mapply"><i class="fa fa-check"></i><b>7.4.4</b> Using <code>mapply</code></a></li>
+<li class="chapter" data-level="7.4.5" data-path="programming.html"><a href="programming.html#using-apply"><i class="fa fa-check"></i><b>7.4.5</b> Using <code>apply</code></a></li>
+<li class="chapter" data-level="7.4.6" data-path="programming.html"><a href="programming.html#using-by"><i class="fa fa-check"></i><b>7.4.6</b> Using <code>by</code></a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="programming.html"><a href="programming.html#data-manipulation-with-package-dplyr"><i class="fa fa-check"></i><b>7.5</b> Data Manipulation with Package <code>dplyr</code></a><ul>
+<li class="chapter" data-level="7.5.1" data-path="programming.html"><a href="programming.html#manipulating-a-dataframe-with-dplyr"><i class="fa fa-check"></i><b>7.5.1</b> Manipulating a <code>dataframe</code> with <code>dplyr</code></a></li>
+<li class="chapter" data-level="7.5.2" data-path="programming.html"><a href="programming.html#the-pipeline-operator"><i class="fa fa-check"></i><b>7.5.2</b> The Pipeline Operator (<code>%&gt;%</code>)</a></li>
+<li class="chapter" data-level="7.5.3" data-path="programming.html"><a href="programming.html#simple-group-operations-with-dplyr"><i class="fa fa-check"></i><b>7.5.3</b> Simple Group Operations with <code>dplyr</code></a></li>
+<li class="chapter" data-level="7.5.4" data-path="programming.html"><a href="programming.html#complex-group-operations-with-dplyr"><i class="fa fa-check"></i><b>7.5.4</b> Complex Group Operations with <code>dplyr</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="Figures.html"><a href="Figures.html"><i class="fa fa-check"></i><b>8</b> Creating and Saving Figures with <code>ggplot2</code></a><ul>
+<li class="chapter" data-level="8.1" data-path="Figures.html"><a href="Figures.html#using-graphic-windows"><i class="fa fa-check"></i><b>8.1</b> Using Graphic Windows</a></li>
+<li class="chapter" data-level="8.2" data-path="Figures.html"><a href="Figures.html#creating-figures-with-function-qplot"><i class="fa fa-check"></i><b>8.2</b> Creating Figures with Function <code>qplot</code></a></li>
+<li class="chapter" data-level="8.3" data-path="Figures.html"><a href="Figures.html#using-ggplot"><i class="fa fa-check"></i><b>8.3</b> Creating Figures with Function <code>ggplot</code></a><ul>
+<li class="chapter" data-level="8.3.1" data-path="Figures.html"><a href="Figures.html#using-themes"><i class="fa fa-check"></i><b>8.3.1</b> Using Themes</a></li>
+<li class="chapter" data-level="8.3.2" data-path="Figures.html"><a href="Figures.html#creating-panels-with-facet_wrap"><i class="fa fa-check"></i><b>8.3.2</b> Creating Panels with <code>facet_wrap</code></a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="Figures.html"><a href="Figures.html#using-pipelines-for-data-analysis-and-figures"><i class="fa fa-check"></i><b>8.4</b> Using Pipelines for Data Analysis and Figures</a></li>
+<li class="chapter" data-level="8.5" data-path="Figures.html"><a href="Figures.html#creating-statistical-graphics"><i class="fa fa-check"></i><b>8.5</b> Creating Statistical Graphics</a><ul>
+<li class="chapter" data-level="8.5.1" data-path="Figures.html"><a href="Figures.html#creating-histograms"><i class="fa fa-check"></i><b>8.5.1</b> Creating Histograms</a></li>
+<li class="chapter" data-level="8.5.2" data-path="Figures.html"><a href="Figures.html#creating-boxplot-figures"><i class="fa fa-check"></i><b>8.5.2</b> Creating <em>boxplot</em> Figures</a></li>
+<li class="chapter" data-level="8.5.3" data-path="Figures.html"><a href="Figures.html#creating-qq-plots"><i class="fa fa-check"></i><b>8.5.3</b> Creating <em>QQ</em> Plots</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="Figures.html"><a href="Figures.html#saving-graphics-to-a-file"><i class="fa fa-check"></i><b>8.6</b> Saving Graphics to a File</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="models.html"><a href="models.html"><i class="fa fa-check"></i><b>9</b> Financial Econometrics with R</a><ul>
+<li class="chapter" data-level="9.1" data-path="models.html"><a href="models.html#linear-models-ols"><i class="fa fa-check"></i><b>9.1</b> Linear Models (OLS)</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="models.html"><a href="models.html#simulating-a-linear-model"><i class="fa fa-check"></i><b>9.1.1</b> Simulating a Linear Model</a></li>
+<li class="chapter" data-level="9.1.2" data-path="models.html"><a href="models.html#estimating-ols"><i class="fa fa-check"></i><b>9.1.2</b> Estimating a Linear Model</a></li>
+<li class="chapter" data-level="9.1.3" data-path="models.html"><a href="models.html#testing-ols"><i class="fa fa-check"></i><b>9.1.3</b> Statistical Inference in Linear Models</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="models.html"><a href="models.html#generalized-linear-models-glm"><i class="fa fa-check"></i><b>9.2</b> Generalized Linear Models (GLM)</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="models.html"><a href="models.html#simulating-a-glm-model"><i class="fa fa-check"></i><b>9.2.1</b> Simulating a GLM Model</a></li>
+<li class="chapter" data-level="9.2.2" data-path="models.html"><a href="models.html#estimating-a-glm-model"><i class="fa fa-check"></i><b>9.2.2</b> Estimating a GLM Model</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="models.html"><a href="models.html#panel-data-models"><i class="fa fa-check"></i><b>9.3</b> Panel Data Models</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="models.html"><a href="models.html#simulating-panel-data-models"><i class="fa fa-check"></i><b>9.3.1</b> Simulating Panel Data Models</a></li>
+<li class="chapter" data-level="9.3.2" data-path="models.html"><a href="models.html#estimating-panel-data-models"><i class="fa fa-check"></i><b>9.3.2</b> Estimating Panel Data Models</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="models.html"><a href="models.html#arima-models"><i class="fa fa-check"></i><b>9.4</b> Arima Models</a><ul>
+<li class="chapter" data-level="9.4.1" data-path="models.html"><a href="models.html#simulating-arima-models"><i class="fa fa-check"></i><b>9.4.1</b> Simulating Arima Models</a></li>
+<li class="chapter" data-level="9.4.2" data-path="models.html"><a href="models.html#arima-estimating"><i class="fa fa-check"></i><b>9.4.2</b> Estimating Arima Models</a></li>
+<li class="chapter" data-level="9.4.3" data-path="models.html"><a href="models.html#forecasting-arima-models"><i class="fa fa-check"></i><b>9.4.3</b> Forecasting Arima Models</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="models.html"><a href="models.html#garch-models"><i class="fa fa-check"></i><b>9.5</b> Garch Models</a><ul>
+<li class="chapter" data-level="9.5.1" data-path="models.html"><a href="models.html#simulating-garch-models"><i class="fa fa-check"></i><b>9.5.1</b> Simulating Garch Models</a></li>
+<li class="chapter" data-level="9.5.2" data-path="models.html"><a href="models.html#estimating-garch"><i class="fa fa-check"></i><b>9.5.2</b> Estimating Garch Models</a></li>
+<li class="chapter" data-level="9.5.3" data-path="models.html"><a href="models.html#forecasting-garch-models"><i class="fa fa-check"></i><b>9.5.3</b> Forecasting Garch Models</a></li>
+</ul></li>
+<li class="chapter" data-level="9.6" data-path="models.html"><a href="models.html#regime-switching-models"><i class="fa fa-check"></i><b>9.6</b> Regime Switching Models</a><ul>
+<li class="chapter" data-level="9.6.1" data-path="models.html"><a href="models.html#simulating-regime-switching-models"><i class="fa fa-check"></i><b>9.6.1</b> Simulating Regime Switching Models</a></li>
+<li class="chapter" data-level="9.6.2" data-path="models.html"><a href="models.html#estimating-regime-switching-models"><i class="fa fa-check"></i><b>9.6.2</b> Estimating Regime Switching Models</a></li>
+<li class="chapter" data-level="9.6.3" data-path="models.html"><a href="models.html#forecasting-regime-switching-models"><i class="fa fa-check"></i><b>9.6.3</b> Forecasting Regime Switching Models</a></li>
+</ul></li>
+<li class="chapter" data-level="9.7" data-path="models.html"><a href="models.html#dealing-with-several-models"><i class="fa fa-check"></i><b>9.7</b> Dealing with Several Models</a></li>
+<li class="chapter" data-level="9.8" data-path="models.html"><a href="models.html#reporting-models"><i class="fa fa-check"></i><b>9.8</b> Reporting Models with <code>texreg</code></a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="research-scripts.html"><a href="research-scripts.html"><i class="fa fa-check"></i><b>10</b> Writing Research Scripts</a><ul>
+<li class="chapter" data-level="10.1" data-path="research-scripts.html"><a href="research-scripts.html#structure-of-a-research-script"><i class="fa fa-check"></i><b>10.1</b> Structure of a Research Script</a></li>
+<li class="chapter" data-level="10.2" data-path="research-scripts.html"><a href="research-scripts.html#folder-structure"><i class="fa fa-check"></i><b>10.2</b> Folder Structure</a></li>
+<li class="chapter" data-level="10.3" data-path="research-scripts.html"><a href="research-scripts.html#ExampleResearch"><i class="fa fa-check"></i><b>10.3</b> Examples of Research Scripts</a><ul>
+<li class="chapter" data-level="10.3.1" data-path="research-scripts.html"><a href="research-scripts.html#research-performance"><i class="fa fa-check"></i><b>10.3.1</b> The performance of international investments</a></li>
+<li class="chapter" data-level="10.3.2" data-path="research-scripts.html"><a href="research-scripts.html#research-prophet"><i class="fa fa-check"></i><b>10.3.2</b> Can we predict stock’s returns with Prophet?</a></li>
+<li class="chapter" data-level="10.3.3" data-path="research-scripts.html"><a href="research-scripts.html#research-gethfdata"><i class="fa fa-check"></i><b>10.3.3</b> An Analysis of High Frequency trade Data</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://sites.google.com/view/pmfdr/home" target="blank">Book Companion Site</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Processing and Analyzing Financial Data with R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="programming" class="section level1">
+<h1><span class="header-section-number">Chapter 7</span> Programming and Data Analysis with R</h1>
+<p>In chapters <a href="BasicObjects.html#BasicObjects">3</a>, <a href="DataStructureObjects.html#DataStructureObjects">4</a>, and <a href="importing.html#importing">6</a>, we learned the ecosystem of objects in R and studied the procedures for importing datasets from local files and the web. Here, we will address programming with R and processing data. This includes the creation of custom functions, structured repetition of code (<em>loops</em>), and conditional execution. A section about one of the most popular packages in CRAN, <code>dplyr</code>, is also included. The concepts presented here are valuable. Based on it, you’ll be able to solve several computational problems in your data analysis.</p>
+<div id="creating-functions" class="section level2">
+<h2><span class="header-section-number">7.1</span> Creating Functions</h2>
+<p>As emphasized in an earlier chapter, <strong>the use of functions is in the heart of R</strong>. Any procedure can be written to a function. Using functions organizes code and increases the applicability of generic procedures. It makes it easy to fix bugs in the code. If you are using a function in many places of a script, you only need to change it in one place. For example, consider creating a procedure that cleans a database by removing outliers and <code>NA</code> cases. This procedure can be written as a function and be used in different <code>dataframes</code>. If the author of the function must apply the same procedure in the future, simply load the previously written function and use it again.</p>
+<p>A function can be further developed, so its applicability increases. If we need to use it in a slightly different way, we can add options using arguments. By using functions in your work, you’ll invest less time in rewriting repetitive tasks and more in writing new procedures. With time and experience, a baggage of previously written custom functions will be available, allowing you to write complex data operations in minutes. In this section, we will address how to create custom functions in R. </p>
+<p>A function always has three parts: input, processing stage, and output. The inputs are the information for the solution offered by the function. Processing is the operation that will produce a result in the function output. In R, the definition of a function is structured as follows:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my.fct &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">arg1 =</span> <span class="dv">1</span>, <span class="dt">arg2 =</span> <span class="st">&#39;abc&#39;</span>, ...){
+  <span class="co"># Description goes here</span>
+  <span class="co">#</span>
+  <span class="co"># Args:</span>
+  <span class="co">#   arg1 - description of arg1 here</span>
+  <span class="co">#   arg2 - description of arg2 here</span>
+  <span class="co">#</span>
+  <span class="co"># Returns:</span>
+  <span class="co">#   description of returned object goes here</span>
+  ...
+  
+  <span class="kw">return</span>(out)
+  
+}</code></pre></div>
+<p>And, after registering the function in the environment, we can change its input as necessary, such as in the next example:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">out &lt;-<span class="st"> </span><span class="kw">my.fct</span>(<span class="dt">arg1 =</span> <span class="dv">2</span>, <span class="dt">arg2 =</span> <span class="st">&#39;bcd&#39;</span>)</code></pre></div>
+<p>The definition of a function is similar to the definition of an object in R. The main difference is its content is encapsulated by curly braces (<code>{ }</code>). Objects <em>arg1</em> and <em>arg2</em> are the inputs of the function, the information required to perform a procedure.</p>
+<p>Using the equality symbol in this setting, as in <code>arg1 = 1</code>, defines the <em>default</em> case, determining the default value if the user does not set any in the call to the written function. Using default values is useful to define the most likely choice of the inputs of a function. This facilitates their use by speeding up the calling process by the user, who does not need to know and enter values for all possible options.</p>
+<p>Every function will return an object with the <code>return</code> command. This is usually at the end of the function definition. There is no restriction on the type of object returned: it can be a <code>list</code>, a <code>numeric</code> array, or an object of any other class. This flexibility allows the user to return various information. Just organize it into a <code>list</code>, <code>vector</code>, or <code>dataframe</code>. The command <code>return</code> defines the end of the function and the return of the created object.  </p>
+<p>As for using the function, you’ll first need to register it in the environment by executing its definition like any other code. A simple way of doing that is to place the cursor in the second curly brace and press <em>control + enter</em>. The arguments of the function can be set by position or name. So, if you called function <code>my.fct</code> as <code>my.fct(1,2)</code>, it will recognize its input as <code>arg1=1</code> and <code>arg2=2</code>. When you use names, the position of arguments is irrelevant, i.e., the previous function call is equivalent to <code>my.fct(arg2=2, arg1=1)</code>.</p>
+<p>Now, let’s create a function that does something useful: takes as input a numeric vector and outputs its mean. From previous chapters we know that there is already a function called <code>mean</code> that does this procedure, but we will write a new one as a showcase. Here is the function definition:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my.fct &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>)){
+  <span class="co"># Calculates the average of input x</span>
+  <span class="co">#</span>
+  <span class="co"># Args: </span>
+  <span class="co">#     x: a numerical vector</span>
+  <span class="co">#</span>
+  <span class="co"># Returns:</span>
+  <span class="co">#   The mean of x</span>
+  
+  out &lt;-<span class="st"> </span><span class="kw">sum</span>(x)<span class="op">/</span><span class="kw">length</span>(x)
+  
+  <span class="kw">return</span>(out)
+  
+}</code></pre></div>
+<p>Notice how we set a comment section after the first curly brace to describe the written function, including its arguments and the returned value. By giving this quick summary, the user can quickly grasp what the function does and what to expect from it. From the <a href="https://google.github.io/styleguide/Rguide.xml#functionlanguage">Google’s R style manual</a>:</p>
+<blockquote>
+<p>“Functions should contain a comments section immediately below the function definition line. These comments should consist of a one-sentence description of the function; a list of the function’s arguments, denoted by Args:, with a description of each (including the data type); and a description of the return value, denoted by Returns:. The comments should be descriptive enough that a caller can use the function without reading any of the function’s code.”</p>
+<p>— Google’s R style manual</p>
+</blockquote>
+<p>After writing the function down, we need to execute the code to <em>register</em> the procedure in R. Notice, after running the function’s definition, the name of it appears in panel <em>environment</em> of RStudio. In R, a function is an object, just like atomic vectors, <code>lists</code>, and <code>dataframes</code>. </p>
+<p>After executing the function definition in the script, let’s test it:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># testing function my.fct</span>
+my.mean &lt;-<span class="st"> </span><span class="kw">my.fct</span>(<span class="dt">x =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">100</span>)
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(my.mean)</code></pre></div>
+<pre><code>## [1] 50.5</code></pre>
+<p>The result is 50.5, as expected.</p>
+<p>If the function <code>my.fct</code> is called without any input, it will use the <em>default</em> value of <code>x = c (1,1,1,1)</code>. Let’s try it:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># calling my.fct without input</span>
+my.mean &lt;-<span class="st"> </span><span class="kw">my.fct</span>()
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(my.mean)</code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<p>Again, as expected, the returned value is correct.</p>
+<p>Although simple, the previous example can be further refined by introducing tests for the inputs. Notice how <code>my.fct</code> accepts any input we give. If we defined <code>x</code> as a <code>character</code> object, the function would still accept it and try to execute the command in <code>out &lt;- sum(x)/length(x)</code>. The problem is the function <code>sum</code> does not accept a <code>character</code> object and it would return an error. <strong>By not testing the types of inputs in the function, we allow for errors that can lead to problems difficult to identify</strong>. This is especially true for complex functions with many lines of code.</p>
+<p>Correcting this problem is simple: just use a logical test for the class of <code>x</code> and throw a custom error with function <code>stop</code> if the class is not <code>numeric</code> or <code>integer</code>. See next: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my.fct &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>)){
+  <span class="co"># Calculates the average of input x</span>
+  <span class="co">#</span>
+  <span class="co"># Args: </span>
+  <span class="co">#   x - a numerical vector</span>
+  <span class="co">#</span>
+  <span class="co"># Returns:</span>
+  <span class="co">#   The mean of x</span>
+  
+  <span class="cf">if</span> (<span class="op">!</span>(<span class="kw">class</span>(x) <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;numeric&#39;</span>,<span class="st">&#39;integer&#39;</span>))){
+    <span class="kw">stop</span>(<span class="st">&#39;ERROR: x is not numeric or integer&#39;</span>)
+  }
+  
+  out &lt;-<span class="st"> </span><span class="kw">sum</span>(x)<span class="op">/</span><span class="kw">length</span>(x)
+  
+  <span class="kw">return</span>(out)
+}</code></pre></div>
+<p>In the previous code, we use the <code>class</code> function to test the input type and <code>stop</code> to issue an error. If we tried to set <code>x</code> as something different than a <code>numeric</code> or <code>integer</code> object, the execution stops and an error with the message <code>ERROR: x is not numeric or integer</code> appears on the prompt. This message helps the user to understand the reason the function was not executed and give a hint on how to fix it. See an example next: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># using wrong inputs (ERROR)</span>
+<span class="kw">my.fct</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>))</code></pre></div>
+<pre><code>## Error in my.fct(x = c(&quot;a&quot;, &quot;b&quot;)): ERROR: x is not numeric or integer</code></pre>
+<p>Going further in developing our function, notice how it does not deal with <code>NA</code> values in the input. As explained in previous chapter, if a numeric vector contains <code>NA</code>, the sum of it will also be a <code>NA</code> object. Have a look:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># sum with NA</span>
+<span class="kw">print</span>(<span class="kw">sum</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="ot">NA</span>, <span class="dv">4</span>)))</code></pre></div>
+<pre><code>## [1] NA</code></pre>
+<p>The problem with the <code>NA</code> is this object is contagious and will turn everything it touches into a <code>NA</code>! It is possible that, in using function <code>my.fct</code>, the user will introduce a bug in his code that is difficult to identify.</p>
+<p>To handle <code>NA</code> values in function <code>my.fct</code>, a possible solution is to issue a warning message informing the user that input <code>x</code> contains an <code>NA</code>, remove the <code>NA</code> values from the input, and proceed with the calculation. The new definition of <code>my.fct</code> will look like:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my.fct &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>)){
+  <span class="co"># Calculates the average of input x</span>
+  <span class="co">#</span>
+  <span class="co"># Args: </span>
+  <span class="co">#   x: a numerical vector</span>
+  <span class="co">#</span>
+  <span class="co"># Returns:</span>
+  <span class="co">#   The mean of x</span>
+  
+  <span class="cf">if</span> (<span class="op">!</span>(<span class="kw">class</span>(x) <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;numeric&#39;</span>,<span class="st">&#39;integer&#39;</span>))){
+    <span class="kw">stop</span>(<span class="st">&#39;ERROR: x is not numeric or integer&#39;</span>)
+  }
+  
+  <span class="cf">if</span> (<span class="kw">any</span>(<span class="kw">is.na</span>(x))){
+    <span class="kw">warning</span>(<span class="st">&#39;Warning: Found NA in x. Removing it.&#39;</span>)
+    x &lt;-<span class="st"> </span><span class="kw">na.omit</span>(x)
+  } 
+  
+  out &lt;-<span class="st"> </span><span class="kw">sum</span>(x)<span class="op">/</span><span class="kw">length</span>(x)
+  
+  <span class="kw">return</span>(out)
+}</code></pre></div>
+<p>For the previous code, we used function <code>warning</code> to issue a message in the prompt, command <code>any(is.na(x))</code> to test if any element of <code>x</code> has a <code>NA</code> value, and <code>na.omit</code> to remove it from the atomic vector. Let’s test it:   </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set vector with NA</span>
+y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>, <span class="ot">NA</span>,<span class="dv">1</span>)
+
+<span class="co"># test function</span>
+<span class="kw">print</span>(<span class="kw">my.fct</span>(y))</code></pre></div>
+<pre><code>## Warning in my.fct(y): Warning: Found NA in x. Removing it.</code></pre>
+<pre><code>## [1] 1.75</code></pre>
+<p>As we can see, the function acknowledged the existence of a <code>NA</code> value, issued a warning message, and calculated the mean of <code>x</code> without the <code>NA</code>.</p>
+<p>Using comments and input testing is a good policy in R programming. <strong>Writing good R functions takes a lot of work and demands a great deal of knowledge about R and the underlying operation</strong>. The great thing about it is you only need to do it once! The function can be used over and over in different scenarios. With time, you’ll build a set of functions that will help you do your work, and this collection of code will be your greatest asset. If you have written something that might interest other people, package the code and send it to CRAN. The community will appreciate it.</p>
+<p>Now, lets move to a more complete example of using functions. As emphasized in chapter <a href="Financial-data.html#Financial-data">5</a>, a very common task in financial research is to calculate the returns of one or more stocks. Notice the calculation of returns must be done for each stock, and we always lose the first observation. We will have a <code>dataframe</code> in the long format with prices for several stocks. Based on these prices, we want to calculate a vector of returns and add it as a new column.</p>
+<p>Let’s create a function that takes as input a <code>dataframe</code> in the long format and adds a new <code>ret</code> column to it. For that, we need to know only the names of the column where prices are stored and the name of the column with the ticker symbols. Once the returns are calculated for each stock, we consolidate a full vector using functions <code>tapply</code> and <code>unlist</code>. So far, we haven’t discussed the use of <code>tapply</code>. For now, it is only necessary to understand it performs a function for different groups. We’ll provide more detail about <code>tapply</code> in the following section. </p>
+<p>First, let’s register a function for calculating returns from a vector of prices.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">calc.ret &lt;-<span class="st"> </span><span class="cf">function</span>(P) {
+  <span class="co"># calculates arithmetic returns from a vector of prices</span>
+  <span class="co">#</span>
+  <span class="co"># Args:</span>
+  <span class="co">#   P - vector of prices (numeric)</span>
+  <span class="co">#</span>
+  <span class="co"># Returns:</span>
+  <span class="co">#   A vector of returns</span>
+  
+  <span class="co"># ret = p_{t}/p_{t-1} - 1 </span>
+  my.length &lt;-<span class="st"> </span><span class="kw">length</span>(P)
+  ret &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="ot">NA</span>, P[<span class="dv">2</span><span class="op">:</span>my.length]<span class="op">/</span>P[<span class="dv">1</span><span class="op">:</span>(my.length <span class="op">-</span><span class="st"> </span><span class="dv">1</span>)] <span class="op">-</span><span class="st"> </span><span class="dv">1</span>)
+  <span class="kw">return</span>(ret)
+}</code></pre></div>
+<p>Notice how we kept it simple. Since we will use <code>calc.ret</code> inside another function, we can leave the error checking process to the main function. This can take care of <code>NA</code> values or wrong input class. In the function definition, we set a <code>NA</code> value in the first element of the return series. We do that because it is important the return object has the same length as the input, and we always lose the first observation when calculating returns. So, we need to replace it with something. We could have simply set a 0 value or the mean of the returns, but a <code>NA</code> value seems more appropriate.</p>
+<p>Now, let’s write a function that, using a <code>dataframe</code> as input, adds a new column with the arithmetic returns based on the column of prices and tickers. The definition is given next.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df.calc.ret &lt;-<span class="st"> </span><span class="cf">function</span>(df.in, colname.price, colname.tickers){
+  <span class="co"># Calculates an arithmetic return series and adds it to input</span>
+  <span class="co">#</span>
+  <span class="co"># Args:</span>
+  <span class="co">#   df.in - a dataframe with columns for prices and tickers</span>
+  <span class="co">#   colname.price -  the name of the column in input df.in with prices</span>
+  <span class="co">#   colname.tickers - the name of the column with tickers</span>
+  <span class="co">#</span>
+  <span class="co"># Returns:</span>
+  <span class="co">#     A copy of the input dataframe, but with a new column ret</span>
+  
+  <span class="co"># error checking (classes)</span>
+  <span class="cf">if</span> ( <span class="op">!</span>(<span class="st">&#39;data.frame&#39;</span> <span class="op">%in%</span><span class="st"> </span><span class="kw">class</span>(df.in)) ) {
+    <span class="kw">stop</span>(<span class="st">&#39;ERROR: df.in should be a data.frame!&#39;</span>)
+  }
+  
+  <span class="cf">if</span> ( <span class="kw">class</span>(colname.price) <span class="op">!=</span><span class="st"> &#39;character&#39;</span>) {
+    <span class="kw">stop</span>(<span class="st">&#39;ERROR: colname.price should be a character object!&#39;</span>)
+  }
+  
+  <span class="cf">if</span> ( <span class="kw">class</span>(colname.tickers) <span class="op">!=</span><span class="st"> &#39;character&#39;</span>) {
+    <span class="kw">stop</span>(<span class="st">&#39;ERROR: colname.tickers should be a character object!&#39;</span>)
+  }
+  
+  <span class="co"># error checking (col.names)</span>
+  my.colnames &lt;-<span class="st"> </span><span class="kw">colnames</span>(df.in)
+  
+  <span class="cf">if</span> (<span class="kw">any</span>(<span class="op">!</span><span class="kw">c</span>(colname.price, colname.tickers) <span class="op">%in%</span><span class="st"> </span>my.colnames)) {
+    <span class="kw">stop</span>(<span class="st">&#39;ERROR: column names dont match with names in df.in!&#39;</span>)
+  }
+  
+  <span class="co"># error checking (size of df)</span>
+  <span class="cf">if</span> ( <span class="kw">nrow</span>(df.in) <span class="op">&lt;</span><span class="st"> </span><span class="dv">2</span>) {
+    <span class="kw">stop</span>(<span class="st">&#39;ERROR: input df should have at least 2 rows!&#39;</span>)
+  }
+  
+  <span class="co"># do calc with tapply</span>
+  my.l &lt;-<span class="st"> </span><span class="kw">tapply</span>(<span class="dt">X =</span> df.in[[colname.price]], 
+                 <span class="dt">INDEX =</span> df.in[[colname.tickers]], 
+                 <span class="dt">FUN =</span> calc.ret)
+  
+  
+  <span class="co"># restore order of tickers in df.in</span>
+  my.l &lt;-<span class="st"> </span>my.l[<span class="kw">unique</span>(df.in[[colname.tickers]])]
+  
+  <span class="co"># set new col in df.in</span>
+  df.in<span class="op">$</span>ret &lt;-<span class="st"> </span><span class="kw">unlist</span>(my.l)
+  
+  <span class="co"># return df</span>
+  <span class="kw">return</span>(df.in)
+}</code></pre></div>
+<p>That’s a lengthy code! But remember, you only need to do it one time. The function has many error checking procedures that ensure the inputs are correctly specified. Even though you spend time writing it, you can reuse it whenever you need it.</p>
+<p>Now, let’s use the function with the data available in <code>SP500-Stocks_long.csv</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(readr)
+
+my.f &lt;-<span class="st"> &#39;data/SP500-Stocks_long.csv&#39;</span>
+
+<span class="co"># set columns types</span>
+my.cols &lt;-<span class="st"> </span><span class="kw">cols</span>(
+  <span class="dt">price.adjusted =</span> <span class="kw">col_double</span>(),
+  <span class="dt">ref.date =</span> <span class="kw">col_date</span>(<span class="dt">format =</span> <span class="st">&quot;&quot;</span>),
+  <span class="dt">ticker =</span> <span class="kw">col_character</span>()
+)
+
+<span class="co"># import data</span>
+my.df &lt;-<span class="st"> </span><span class="kw">read_csv</span>(my.f, <span class="dt">col_types =</span> my.cols)
+
+<span class="co"># calculate return column</span>
+my.df &lt;-<span class="st"> </span><span class="kw">df.calc.ret</span>(my.df, 
+                     <span class="dt">colname.price =</span> <span class="st">&#39;price.adjusted&#39;</span>, 
+                     <span class="dt">colname.tickers =</span> <span class="st">&#39;ticker&#39;</span>)</code></pre></div>
+<p>Let’s look at the result:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(<span class="kw">head</span>(my.df))</code></pre></div>
+<pre><code>## # A tibble: 6 × 4
+##   price.adjusted   ref.date ticker          ret
+##            &lt;dbl&gt;     &lt;date&gt;  &lt;chr&gt;        &lt;dbl&gt;
+## 1       69.15826 2010-01-04    MMM           NA
+## 2       68.72509 2010-01-05    MMM -0.006263503
+## 3       69.69973 2010-01-06    MMM  0.014181794
+## 4       69.74972 2010-01-07    MMM  0.000717162
+## 5       70.24120 2010-01-08    MMM  0.007046423
+## 6       69.95798 2010-01-11    MMM -0.004032220</code></pre>
+<p>It looks great! The return vector is available in column <code>ret</code>. Going further, let’s remove all <code>NA</code> rows with function <code>complete.cases</code>, so we only keep the rows with actual values in all columns. </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">idx &lt;-<span class="st"> </span><span class="kw">complete.cases</span>(my.df)
+my.df &lt;-<span class="st"> </span>my.df[idx, ]</code></pre></div>
+<p>For last, we save the resulting dataset as a <em>.RData</em> file. We will use the data in this <code>dataframe</code> in the following chapters.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">save</span>(<span class="dt">list =</span> <span class="st">&#39;my.df&#39;</span>, 
+     <span class="dt">file =</span> <span class="st">&#39;data/SP500-Stocks-WithRet.RData&#39;</span>)</code></pre></div>
+</div>
+<div id="using-loops-for" class="section level2">
+<h2><span class="header-section-number">7.2</span> Using Loops (<code>for</code>)</h2>
+<p><em>Loops</em> are the most basic command in any programming language. Briefly, loops allow a structured repetition of code. Consider a scenario where we have a database composed of 1,000 <em>.csv</em> files in the same folder. Here, we can create a <em>loop</em> to load the data individually, process the resulting <code>dataframe</code> of each file, and finally, aggregate all imported <code>dataframes</code> into a single object of the same class. </p>
+<p>The great thing about <em>loops</em> is the length of it is dynamically set. Using the previous example, if we had 5,000 files, the loop would process all 5,000 files. If we had just 500, the <em>loop</em> would run 500 times. That means we can encapsulate a generic procedure for processing all found files in a particular folder. With it, you have at your reach a tool for the execution of any sequential process.</p>
+<p>The structure of a <em>loop</em> in R follows:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">for</span> (i <span class="cf">in</span> i.vec){
+  ...
+}</code></pre></div>
+<p>In the previous code, command <code>for</code> indicates the beginning of a <em>loop</em>. Object <code>i</code> in <code>(i in i.vec)</code> is the iterator of the <em>loop</em>. This iterator will change its value in each iteration, taking each individual value contained in <code>i.vec</code>. Note the <em>loop</em> is encapsulated by curly braces (<code>{}</code>). These are important, as they define where the <em>loop</em> starts and where it ends. The indentation (use of bigger margins) is also important for visual cues, but not necessary. Consider the following practical example:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set seq</span>
+my.seq &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="op">-</span><span class="dv">5</span>,<span class="dv">5</span>)
+
+<span class="co"># do loop</span>
+<span class="cf">for</span> (i <span class="cf">in</span> my.seq){
+  <span class="kw">cat</span>(<span class="kw">paste</span>(<span class="st">&#39;</span><span class="ch">\n</span><span class="st">The value of i is&#39;</span>,i))
+}</code></pre></div>
+<pre><code>## 
+## The value of i is -5
+## The value of i is -4
+## The value of i is -3
+## The value of i is -2
+## The value of i is -1
+## The value of i is 0
+## The value of i is 1
+## The value of i is 2
+## The value of i is 3
+## The value of i is 4
+## The value of i is 5</code></pre>
+<p>In the code, we created a sequence from -5 to 5 and presented a text for each element with the <code>cat</code> function. Notice how we also broke the prompt line with <code>'\n'</code>. The <em>loop</em> starts with <code>i=-5</code>, execute command <code>cat(paste('\nThe value of i is', -5))</code>, proceed to the next iteration by setting <code>i=-4</code>, rerun the <code>cat</code> command, and so on. At its final iteration, the value of <code>i</code> is <code>5</code>.</p>
+<p>The iterated sequence in the <em>loop</em> is not exclusive to numerical vectors. Any type of vector or list may be used. See next:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set char vec</span>
+my.char.vec &lt;-<span class="st"> </span>letters[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>]
+
+<span class="co"># loop it!</span>
+<span class="cf">for</span> (i.char <span class="cf">in</span> my.char.vec){
+  <span class="kw">cat</span>(<span class="kw">paste</span>(<span class="st">&#39;</span><span class="ch">\n</span><span class="st">The value of i.char is&#39;</span>, i.char))
+}</code></pre></div>
+<pre><code>## 
+## The value of i.char is a
+## The value of i.char is b
+## The value of i.char is c
+## The value of i.char is d
+## The value of i.char is e</code></pre>
+<p>The same goes for <code>lists</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set list</span>
+my.l &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">x =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, 
+             <span class="dt">y =</span> <span class="kw">c</span>(<span class="st">&#39;abc&#39;</span>,<span class="st">&#39;dfg&#39;</span>), 
+             <span class="dt">z =</span> <span class="kw">factor</span>(<span class="st">&#39;A&#39;</span>,<span class="st">&#39;B&#39;</span>,<span class="st">&#39;C&#39;</span>,<span class="st">&#39;D&#39;</span>))
+
+<span class="co"># loop list</span>
+<span class="cf">for</span> (i.l <span class="cf">in</span> my.l){
+  
+  <span class="kw">cat</span>(<span class="kw">paste0</span>(<span class="st">&#39;</span><span class="ch">\n</span><span class="st">The class of i.l is &#39;</span>, <span class="kw">class</span>(i.l), <span class="st">&#39;. &#39;</span>))
+  <span class="kw">cat</span>(<span class="kw">paste0</span>(<span class="st">&#39;The number of elements is &#39;</span>, <span class="kw">length</span>(i.l), <span class="st">&#39;.&#39;</span>))
+  
+}</code></pre></div>
+<pre><code>## 
+## The class of i.l is integer. The number of elements is 5.
+## The class of i.l is character. The number of elements is 2.
+## The class of i.l is factor. The number of elements is 1.</code></pre>
+<p>In the definition of <em>loops</em>, the iterator does not have to be the only object incremented in each iteration. We can create other objects and increment them using a simple sum operation. See next:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set vec and iterators</span>
+my.vec &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>)
+my.x &lt;-<span class="st"> </span><span class="dv">5</span>
+my.z &lt;-<span class="st"> </span><span class="dv">10</span>
+
+<span class="cf">for</span> (i <span class="cf">in</span> my.vec){
+  <span class="co"># iterate &quot;mannualy&quot;</span>
+  my.x &lt;-<span class="st"> </span>my.x <span class="op">+</span><span class="st"> </span><span class="dv">1</span>
+  my.z &lt;-<span class="st"> </span>my.z <span class="op">+</span><span class="st"> </span><span class="dv">2</span>
+  
+  <span class="kw">cat</span>(<span class="st">&#39;</span><span class="ch">\n</span><span class="st">Value of i = &#39;</span>, i, 
+      <span class="st">&#39; | Value of my.x = &#39;</span>, my.x, 
+      <span class="st">&#39; | Value of my.z = &#39;</span>, my.z)
+}</code></pre></div>
+<pre><code>## 
+## Value of i =  1  | Value of my.x =  6  | Value of my.z =  12
+## Value of i =  2  | Value of my.x =  7  | Value of my.z =  14
+## Value of i =  3  | Value of my.x =  8  | Value of my.z =  16
+## Value of i =  4  | Value of my.x =  9  | Value of my.z =  18
+## Value of i =  5  | Value of my.x =  10  | Value of my.z =  20</code></pre>
+<p>Using nested <em>loops</em>, that is, a <em>loop</em> inside of another <em>loop</em> is also possible. See the following example, where we present all the elements of a matrix:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set matrix</span>
+my.mat &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>, <span class="dt">nrow =</span> <span class="dv">3</span>)
+
+<span class="co"># loop all values of matrix</span>
+<span class="cf">for</span> (i <span class="cf">in</span> <span class="kw">seq</span>(<span class="dv">1</span>,<span class="kw">nrow</span>(my.mat))){
+  <span class="cf">for</span> (j <span class="cf">in</span> <span class="kw">seq</span>(<span class="dv">1</span>,<span class="kw">ncol</span>(my.mat))){
+    <span class="kw">cat</span>(<span class="kw">paste0</span>(<span class="st">&#39;</span><span class="ch">\n</span><span class="st">Element [&#39;</span>, i, <span class="st">&#39;, &#39;</span>, j, <span class="st">&#39;] = &#39;</span>, my.mat[i,j]))
+  }
+}</code></pre></div>
+<pre><code>## 
+## Element [1, 1] = 1
+## Element [1, 2] = 4
+## Element [1, 3] = 7
+## Element [2, 1] = 2
+## Element [2, 2] = 5
+## Element [2, 3] = 8
+## Element [3, 1] = 3
+## Element [3, 2] = 6
+## Element [3, 3] = 9</code></pre>
+<p>Let’s do a more complex example using data files. We will create several files with random data in our computer and save them in a folder named <code>many_datafiles</code>. This is accomplished with the following script:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set number of files to create</span>
+n.files &lt;-<span class="st"> </span><span class="dv">10</span>
+
+<span class="co"># set first part of saved files</span>
+pattern.name &lt;-<span class="st"> &#39;myfiles_&#39;</span>
+
+<span class="co"># set dir</span>
+out.dir &lt;-<span class="st"> &#39;many_datafiles/&#39;</span>
+
+<span class="co"># test if out.dir exists, if not, create it</span>
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">dir.exists</span>(out.dir)){
+  <span class="kw">dir.create</span>(out.dir)   
+} 
+
+<span class="co"># clean up folder before creating new files</span>
+<span class="kw">file.remove</span>(<span class="kw">list.files</span>(out.dir, <span class="dt">full.names =</span> <span class="ot">TRUE</span>)) </code></pre></div>
+<pre><code>## logical(0)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set vec with filenames</span>
+file.names &lt;-<span class="st"> </span><span class="kw">paste0</span>(out.dir, pattern.name, <span class="kw">seq</span>(<span class="dv">1</span>,n.files), <span class="st">&#39;.csv&#39;</span>)
+
+<span class="co"># loop it!</span>
+<span class="cf">for</span> (i.file <span class="cf">in</span> file.names){
+  <span class="co"># create temp df</span>
+  temp.df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">x =</span> <span class="kw">runif</span>(<span class="dv">100</span>))
+  
+  <span class="co"># write it!</span>
+  <span class="kw">write.csv</span>(<span class="dt">x =</span> temp.df, <span class="dt">file =</span> i.file)
+}</code></pre></div>
+<p>In the previous example, we used function <code>if</code> in <code>if (!dir.exists(out.dir))</code> to test if folder <code>many_datafiles</code> existed. If it did not, we create it in the current working directory. Before running the loop, we remove all files in <code>out.dir</code> with command <code>file.remove(list.files(out.dir, full.names = TRUE))</code>.</p>
+<p>In the <em>loop</em>, we used function <code>runif</code> to create 100 random numbers between <em>0</em> and <em>1</em>, so each <em>dataframe</em> created in <code>temp.df</code> differs from the other. Notice how the <em>loop</em> size is set by object <code>n.files</code>. If we wanted to create <em>10,000</em> files, all we need to do is set <code>n.files = 10000</code> and the rest of the code will adjust accordingly. It becomes clear that <em>loops</em> are a powerful and flexible procedure that can be used in many situations.</p>
+<p>Now, let’s check if the files are in the folder:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># check files</span>
+<span class="kw">print</span>(<span class="kw">list.files</span>(out.dir))</code></pre></div>
+<pre><code>##  [1] &quot;myfiles_1.csv&quot;  &quot;myfiles_10.csv&quot; &quot;myfiles_2.csv&quot; 
+##  [4] &quot;myfiles_3.csv&quot;  &quot;myfiles_4.csv&quot;  &quot;myfiles_5.csv&quot; 
+##  [7] &quot;myfiles_6.csv&quot;  &quot;myfiles_7.csv&quot;  &quot;myfiles_8.csv&quot; 
+## [10] &quot;myfiles_9.csv&quot;</code></pre>
+<p>As expected, the files are there. To complete the example, we will import the contents of these files and aggregate all information into a single <code>dataframe</code> by using another <em>loop</em> and functions <code>read.csv</code> and <code>rbind</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set empty df</span>
+df.agg &lt;-<span class="st"> </span><span class="kw">data.frame</span>()
+<span class="cf">for</span> (i.file <span class="cf">in</span> file.names){
+  <span class="co"># read file</span>
+  temp.df &lt;-<span class="st"> </span><span class="kw">read.csv</span>(i.file)
+  
+  <span class="co"># row bind </span>
+  df.agg &lt;-<span class="st"> </span><span class="kw">rbind</span>(df.agg, temp.df)
+}
+
+<span class="kw">print</span>(<span class="kw">head</span>(df.agg))</code></pre></div>
+<pre><code>##   X          x
+## 1 1 0.05141425
+## 2 2 0.56794649
+## 3 3 0.96941775
+## 4 4 0.85850221
+## 5 5 0.37694870
+## 6 6 0.20902950</code></pre>
+<p>In the previous code, notice how we bind all <code>dataframes</code> with <code>df.agg &lt;- rbind(df.agg, temp.df)</code>. So, the size of <code>df.agg</code> increases with each iteration of the <em>loop</em>. Object <code>df.agg</code> has 1000 rows and 2 columns. The extra column is the row names of the <code>dataframe</code>, which is saved by default in the <em>.csv</em> file. Looking at the contents of <code>df.agg</code>, we can see the code performed as expected, where column <code>x</code> contains numerical values between <em>0</em> and <em>1</em>, just as set in the previous chunk of code. </p>
+<p>Another practical example of using <em>loops</em> is processing data according to groups. If we have a price dataset for several tickers and we want to calculate the average price of each stock, we can use a <em>loop</em> for that. In this example, we will again use the data from file <code>SP500-Stocks_long.csv</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># read data</span>
+my.f &lt;-<span class="st"> &#39;data/SP500-Stocks_long.csv&#39;</span>
+my.df &lt;-<span class="st"> </span><span class="kw">read.csv</span>(my.f, <span class="dt">colClasses =</span> <span class="kw">c</span>(<span class="st">&#39;numeric&#39;</span>, <span class="st">&#39;Date&#39;</span>,<span class="st">&#39;factor&#39;</span>))
+
+<span class="co"># find unique tickers in column ticker</span>
+unique.tickers &lt;-<span class="st"> </span><span class="kw">unique</span>(my.df<span class="op">$</span>ticker)
+
+<span class="co"># create empty df</span>
+tab.out &lt;-<span class="st"> </span><span class="kw">data.frame</span>()
+
+<span class="co"># loop tickers</span>
+<span class="cf">for</span> (i.ticker <span class="cf">in</span> unique.tickers){
+  
+  <span class="co"># create temp df with ticker i.ticker</span>
+  temp &lt;-<span class="st"> </span>my.df[my.df<span class="op">$</span>ticker<span class="op">==</span>i.ticker, ]
+  
+  <span class="co"># row bind i.ticker and mean.price</span>
+  tab.out &lt;-<span class="st"> </span><span class="kw">rbind</span>(tab.out, 
+                   <span class="kw">data.frame</span>(<span class="dt">ticker =</span> i.ticker,
+                              <span class="dt">mean.price =</span> <span class="kw">mean</span>(temp<span class="op">$</span>price.adjusted)))
+  
+}
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(tab.out[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, ])</code></pre></div>
+<pre><code>##    ticker mean.price
+## 1     MMM  110.90200
+## 2     ABT   32.11558
+## 3     ACN   70.60025
+## 4    ATVI   19.04112
+## 5     AYI  112.67233
+## 6    ADBE   55.24791
+## 7     AAP  103.19876
+## 8     AES   11.19658
+## 9     AET   65.73250
+## 10    AMG  143.31837</code></pre>
+<p>In the code, we used function <code>unique</code> to find out the names of all the tickers in the dataset. Soon after, we create an empty <em>dataframe</em> to save the results and a loop to filter the data of each stock sequentially and average its prices. At the end of the <em>loop</em>, we use function <code>rbind</code> to paste the results of each stock with the results of the main table. As you can see, we can use the data to perform group calculations with <em>loop</em>. There are, however, better ways of doing this procedure in R using native <code>apply</code> functions or package <code>dplyr</code>, as we will soon learn. </p>
+</div>
+<div id="conditional-statements-if-else-switch" class="section level2">
+<h2><span class="header-section-number">7.3</span> Conditional Statements (<code>if</code>, <code>else</code>, <code>switch</code>)</h2>
+<p>Making binary decisions of type <em>yes</em> or <em>no</em> is common programming practice. If a condition is found true, a specific code is executed. If it is false, other command lines are executed. These decisions define the conditional statements. In R, we can write them using the following structure:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># skeleton for if statement</span>
+<span class="cf">if</span> (cond){
+  
+  CodeIfTRUE...
+  
+} <span class="cf">else</span> {
+  
+  CodeIfFALSE...
+  
+}</code></pre></div>
+<p>The place holder <code>cond</code> is the condition to be evaluated, taking only two values: <code>TRUE</code> or <code>FALSE</code>. The result of the condition must be a single logical element. With finding a <code>TRUE</code> value to <code>cond</code>, the code in <code>CodeIfTRUE</code> will run. Otherwise, where we find a <code>FALSE</code> value in <code>cond</code>, the code in <code>CodeIfFALSE</code> will be executed. A practical example based on a <em>loop</em> is presented next:  </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set vec and threshold</span>
+my.x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span>
+my.thresh &lt;-<span class="st"> </span><span class="dv">5</span>
+
+<span class="cf">for</span> (i <span class="cf">in</span> my.x){
+  <span class="cf">if</span> (i <span class="op">&gt;</span><span class="st"> </span>my.thresh){
+    <span class="kw">cat</span>(<span class="st">&#39;</span><span class="ch">\n</span><span class="st">Value of &#39;</span>, i, <span class="st">&#39; is higher than &#39;</span>, my.thresh)
+  } <span class="cf">else</span> {
+    <span class="kw">cat</span>(<span class="st">&#39;</span><span class="ch">\n</span><span class="st">Value of &#39;</span>, i, <span class="st">&#39; is lower or equal than &#39;</span>, my.thresh)
+  }
+}</code></pre></div>
+<pre><code>## 
+## Value of  1  is lower or equal than  5
+## Value of  2  is lower or equal than  5
+## Value of  3  is lower or equal than  5
+## Value of  4  is lower or equal than  5
+## Value of  5  is lower or equal than  5
+## Value of  6  is higher than  5
+## Value of  7  is higher than  5
+## Value of  8  is higher than  5
+## Value of  9  is higher than  5
+## Value of  10  is higher than  5</code></pre>
+<p>If we want to apply more than one logical condition, we can use command <code>else if</code> and <code>else</code>. See an example next: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">for</span> (i <span class="cf">in</span> my.x){
+  <span class="cf">if</span> (i <span class="op">&gt;</span><span class="st"> </span>my.thresh){
+    <span class="kw">cat</span>(<span class="st">&#39;</span><span class="ch">\n</span><span class="st">Value of &#39;</span>, i, <span class="st">&#39; is higher than &#39;</span>, my.thresh)
+  } <span class="cf">else</span> <span class="cf">if</span> (i<span class="op">==</span>my.thresh) {
+    <span class="kw">cat</span>(<span class="st">&#39;</span><span class="ch">\n</span><span class="st">Value of &#39;</span>, i, <span class="st">&#39; is equal to &#39;</span>, my.thresh)
+  } <span class="cf">else</span> {
+    <span class="kw">cat</span>(<span class="st">&#39;</span><span class="ch">\n</span><span class="st">Value of &#39;</span>, i, <span class="st">&#39; is lower than &#39;</span>, my.thresh)
+  }
+}</code></pre></div>
+<pre><code>## 
+## Value of  1  is lower than  5
+## Value of  2  is lower than  5
+## Value of  3  is lower than  5
+## Value of  4  is lower than  5
+## Value of  5  is equal to  5
+## Value of  6  is higher than  5
+## Value of  7  is higher than  5
+## Value of  8  is higher than  5
+## Value of  9  is higher than  5
+## Value of  10  is higher than  5</code></pre>
+<p>Another possibility for using conditional executions is function <code>switch</code>, designed to give a better structure for a decision based on more than two choices. Let’s say you want a conditional execution based on five conditions, A, B, C, and D. For each condition, you want the code to show a different message. Using <code>if</code> function, you could do that using this chunk of code:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set vec</span>
+my.vec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;A&#39;</span>, <span class="st">&#39;D&#39;</span>, <span class="st">&#39;B&#39;</span>, <span class="st">&#39;A&#39;</span>, <span class="st">&#39;C&#39;</span>, <span class="st">&#39;B&#39;</span>)
+
+<span class="cf">for</span> (i.vec <span class="cf">in</span> my.vec){
+  <span class="cf">if</span> (i.vec <span class="op">==</span><span class="st"> &#39;A&#39;</span>){
+    <span class="kw">cat</span>(<span class="st">&#39;</span><span class="ch">\n</span><span class="st">Got an A!&#39;</span>)
+  } <span class="cf">else</span> <span class="cf">if</span> (i.vec <span class="op">==</span><span class="st"> &#39;B&#39;</span>) {
+    <span class="kw">cat</span>(<span class="st">&#39;</span><span class="ch">\n</span><span class="st">Got a B!&#39;</span>)
+  } <span class="cf">else</span> <span class="cf">if</span> (i.vec <span class="op">==</span><span class="st"> &#39;C&#39;</span>) {
+    <span class="kw">cat</span>(<span class="st">&#39;</span><span class="ch">\n</span><span class="st">Got a C!&#39;</span>)
+  } <span class="cf">else</span> <span class="cf">if</span> (i.vec <span class="op">==</span><span class="st"> &#39;D&#39;</span>) {
+    <span class="kw">cat</span>(<span class="st">&#39;</span><span class="ch">\n</span><span class="st">Got a D!&#39;</span>)   
+  }
+}</code></pre></div>
+<pre><code>## 
+## Got an A!
+## Got a D!
+## Got a B!
+## Got an A!
+## Got a C!
+## Got a B!</code></pre>
+<p>While the previous code would do what we need, using several <code>else if</code> conditions is not visually elegant. A better way of doing it is using function <code>switch</code>. See next:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set vec</span>
+my.vec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;A&#39;</span>, <span class="st">&#39;D&#39;</span>, <span class="st">&#39;B&#39;</span>, <span class="st">&#39;A&#39;</span>, <span class="st">&#39;C&#39;</span>, <span class="st">&#39;B&#39;</span>)
+
+<span class="cf">for</span> (i.vec <span class="cf">in</span> my.vec){
+  msg.out &lt;-<span class="st"> </span><span class="cf">switch</span>(i.vec, 
+                  <span class="st">&#39;A&#39;</span> =<span class="st"> &#39;</span><span class="ch">\n</span><span class="st">Got an A!&#39;</span>,
+                  <span class="st">&#39;B&#39;</span> =<span class="st"> &#39;</span><span class="ch">\n</span><span class="st">Got a B!&#39;</span>,
+                  <span class="st">&#39;C&#39;</span> =<span class="st"> &#39;</span><span class="ch">\n</span><span class="st">Got a C!&#39;</span>,
+                  <span class="st">&#39;D&#39;</span> =<span class="st"> &#39;</span><span class="ch">\n</span><span class="st">Got a D!&#39;</span>)
+  
+  <span class="kw">cat</span>(msg.out)
+  
+}</code></pre></div>
+<pre><code>## 
+## Got an A!
+## Got a D!
+## Got a B!
+## Got an A!
+## Got a C!
+## Got a B!</code></pre>
+<p>The main benefit of using <code>switch</code> is the code becomes clear and easier to understand.</p>
+</div>
+<div id="using-apply-functions" class="section level2">
+<h2><span class="header-section-number">7.4</span> Using <code>apply</code> Functions</h2>
+<p>In R, there is an alternative to the usage of <em>loops</em>. Sometimes, you want simple procedures executed in a vector object. Writing a whole <em>loop</em> for that can be more verbose than needed. Functions from the <strong>apply family</strong>: <code>sapply</code>, <code>lapply</code>, <code>tapply</code>, <code>mapply</code>, <code>apply</code> and <code>by</code> can be used for that purpose.</p>
+<p>All procedures using <em>loops</em> can be restructured using <em>apply</em> functions and vice versa. The difference of processing speed from one to the other is negligible. The choice between <em>loops</em> and <em>apply</em> functions is determined by the complexity of the operation and personal taste. Sometimes, <em>loops</em> are easier to use. The opposite can be true in other scenarios. In the author’s opinion, <em>loops</em> should be used when complex procedures are performed and using the structure of an <em>apply</em> function is not straightforward. Now, let’s discuss each type of <em>apply</em> function.</p>
+<div id="using-lapply" class="section level3">
+<h3><span class="header-section-number">7.4.1</span> Using <code>lapply</code></h3>
+<p>Function <code>lapply</code> takes as input a <code>list</code> and a function object. It works by passing each element of the input <code>list</code> to the object function. The output of each call is aggregated and returned as an object of class <code>list</code>. Notice how the use of <code>lists</code> in the input and output of <code>lapply</code> provides flexibility. You can use it for any object, with no restriction on its output. See the following example, where we calculate the average of a series of vectors with different sizes: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set list</span>
+my.l &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dv">2</span><span class="op">:</span><span class="dv">5</span>, <span class="dv">10</span><span class="op">:-</span><span class="dv">20</span>)
+
+<span class="co"># use lapply with mean</span>
+my.mean.vec &lt;-<span class="st"> </span><span class="kw">lapply</span>(<span class="dt">X =</span> my.l, <span class="dt">FUN =</span> mean)
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(my.mean.vec)</code></pre></div>
+<pre><code>## [[1]]
+## [1] 5.5
+## 
+## [[2]]
+## [1] 3.5
+## 
+## [[3]]
+## [1] -5</code></pre>
+<p>The result shows the means of each vector in <code>my.l</code>, as expected. We could also pass other options to <code>mean</code> with <code>lapply</code>. See next, where we use <code>na.rm=TRUE</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set list</span>
+my.l &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="ot">NA</span>,<span class="dv">2</span>), <span class="kw">c</span>(<span class="dv">2</span><span class="op">:</span><span class="dv">5</span>,<span class="ot">NA</span>), <span class="dv">10</span><span class="op">:-</span><span class="dv">20</span>)
+
+<span class="co"># use lapply with mean</span>
+my.mean.vec &lt;-<span class="st"> </span><span class="kw">lapply</span>(<span class="dt">X =</span> my.l, <span class="dt">FUN =</span> mean, <span class="dt">na.rm=</span><span class="ot">TRUE</span>)
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(my.mean.vec)</code></pre></div>
+<pre><code>## [[1]]
+## [1] 1.5
+## 
+## [[2]]
+## [1] 3.5
+## 
+## [[3]]
+## [1] -5</code></pre>
+<p>Using <code>lapply</code> is useful when utilizing a custom function. Let’s redo the previous example of creating several <em>.csv</em> files. The first step is to create a function that generates these files as we did with the <em>loop</em>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># function to generate files</span>
+create.rnd.file &lt;-<span class="st"> </span><span class="cf">function</span>(name.file, <span class="dt">N=</span><span class="dv">100</span>){
+  <span class="co"># Generates a csv file with random content</span>
+  <span class="co">#</span>
+  <span class="co"># Args:</span>
+  <span class="co">#     name.file - name of csv file (character)</span>
+  <span class="co"># N - number of rows in random dataframe (integer)</span>
+  <span class="co">#</span>
+  <span class="co"># Returns:</span>
+  <span class="co">#     TRUE, if successful</span>
+  
+  <span class="cf">if</span> (<span class="kw">class</span>(name.file)<span class="op">!=</span><span class="st">&#39;character&#39;</span>){
+    <span class="kw">stop</span>(<span class="st">&#39;ERROR: input name.file is not a character&#39;</span>)
+  }
+  
+  <span class="cf">if</span> ( <span class="op">!</span>(<span class="kw">class</span>(N) <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;numeric&#39;</span>,<span class="st">&#39;integer&#39;</span>)) ){
+    <span class="kw">stop</span>(<span class="st">&#39;ERROR: input N is not an integer or numeric!&#39;</span>)
+  }
+  
+  <span class="co"># create random df</span>
+  temp.df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">x =</span> <span class="kw">runif</span>(N))
+  
+  <span class="co"># write it!</span>
+  <span class="kw">write.csv</span>(<span class="dt">x =</span> temp.df, <span class="dt">file =</span> name.file)
+  
+  <span class="co"># return TRUE</span>
+  <span class="kw">return</span>(<span class="ot">TRUE</span>)
+}</code></pre></div>
+<p>Now, we use function <code>create.rnd.file</code> with <code>lapply</code>: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set options</span>
+n.files &lt;-<span class="st"> </span><span class="dv">5</span>
+pattern.name &lt;-<span class="st"> &#39;myfiles_with_lapply_&#39;</span>
+out.dir &lt;-<span class="st"> &#39;many_datafiles/&#39;</span>
+
+<span class="co"># set file names</span>
+file.names &lt;-<span class="st"> </span><span class="kw">paste0</span>(out.dir,pattern.name, <span class="kw">seq</span>(<span class="dv">1</span>,n.files), <span class="st">&#39;.csv&#39;</span>)
+
+<span class="co"># test if out.dir exists, if not, create it</span>
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">dir.exists</span>(out.dir)){
+  <span class="kw">dir.create</span>(out.dir)   
+} 
+
+<span class="co"># clean up folder before creating new files</span>
+<span class="kw">file.remove</span>(<span class="kw">list.files</span>(out.dir, <span class="dt">full.names =</span> <span class="ot">TRUE</span>)) </code></pre></div>
+<pre><code>##  [1] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># use lapply</span>
+out.l &lt;-<span class="st"> </span><span class="kw">lapply</span>(<span class="dt">X =</span> file.names, <span class="dt">FUN =</span> create.rnd.file, <span class="dt">N=</span><span class="dv">100</span>)
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(out.l)</code></pre></div>
+<pre><code>## [[1]]
+## [1] TRUE
+## 
+## [[2]]
+## [1] TRUE
+## 
+## [[3]]
+## [1] TRUE
+## 
+## [[4]]
+## [1] TRUE
+## 
+## [[5]]
+## [1] TRUE</code></pre>
+<p>Everything worked well in the previous code. The creation of the random files was a success. Notice the return of <code>lapply</code> is a <code>list</code>. Whenever you need to apply a function that returns a complex object, such as the estimation of a model, it is advised to use <code>lapply</code>.</p>
+</div>
+<div id="using-sapply" class="section level3">
+<h3><span class="header-section-number">7.4.2</span> Using <code>sapply</code></h3>
+<p>Function <code>sapply</code> works similarly to <code>lapply</code>. The main difference is in the type of output. While <code>lapply</code> returns a list, <code>sapply</code> returns an atomic matrix or vector. See the following example: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># create list</span>
+my.l &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dv">2</span><span class="op">:</span><span class="dv">5</span>, <span class="dv">10</span><span class="op">:-</span><span class="dv">20</span>)
+
+<span class="co"># use sapply</span>
+my.mean.vec &lt;-<span class="st"> </span><span class="kw">sapply</span>(my.l, mean)
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(my.mean.vec)</code></pre></div>
+<pre><code>## [1]  5.5  3.5 -5.0</code></pre>
+<p>Using <code>sapply</code> is recommended when the output of the underlying function is an atomic vector. In such cases, it is unnecessary to return a flexible object, such as a <code>list</code>.</p>
+<p>An important aspect of using <code>sapply</code> is the underlying function can return more than one value. The result comes from the aggregation of the individual vectors into a <code>matrix</code>. See the following example, where we create a function that returns the mean and standard deviation of a numeric vector:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set list</span>
+my.l &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="kw">runif</span>(<span class="dv">10</span>), <span class="kw">runif</span>(<span class="dv">15</span>), <span class="kw">rnorm</span>(<span class="dv">1000</span>))
+
+my.fct &lt;-<span class="st"> </span><span class="cf">function</span>(x){
+  <span class="co"># Returns mean and standard deviation of a vector</span>
+  <span class="co">#</span>
+  <span class="co"># Args: </span>
+  <span class="co">#   x - numerical vector</span>
+  <span class="co">#</span>
+  <span class="co"># Returns:</span>
+  <span class="co">#   Vector as c(mean(x), sd(x))</span>
+  
+  <span class="cf">if</span> (<span class="op">!</span>(<span class="kw">class</span>(x) <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;numeric&#39;</span>,<span class="st">&#39;integer&#39;</span>))){
+    <span class="kw">stop</span>(<span class="st">&#39;ERROR: Class of x is not numeric or integer.&#39;</span>)
+  }
+  
+  x &lt;-<span class="st"> </span><span class="kw">na.omit</span>(x)
+  
+  out &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">mean</span>(x), <span class="kw">sd</span>(x))
+  <span class="kw">return</span>(out)
+  
+}
+
+<span class="co"># use sapply</span>
+my.vec &lt;-<span class="st"> </span><span class="kw">sapply</span>(my.l, my.fct)
+
+<span class="co"># check result</span>
+<span class="kw">print</span>(my.vec)</code></pre></div>
+<pre><code>##           [,1]      [,2]        [,3]
+## [1,] 0.5639535 0.5268192 -0.02939186
+## [2,] 0.3602511 0.1803701  1.03958391</code></pre>
+<p>When there is more than one output in the underlying function, each row in the returned object represents a different output of the function used with <code>sapply</code>, in this case, the mean and standard deviation of <code>x</code>. The columns indicate the different processed items in <code>my.l</code>.</p>
+<p>A practical use of function <code>sapply</code> in data analysis is the creation of descriptive tables. Let’s use the SP500 data and create a descriptive analysis of the prices of the different stocks. First, let’s write the function.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">describe.vec &lt;-<span class="st"> </span><span class="cf">function</span>(x){
+  <span class="co"># Describe numerical vector with mean and other stats</span>
+  <span class="co">#</span>
+  <span class="co"># Args:</span>
+  <span class="co">#   x - numerical vector</span>
+  <span class="co">#</span>
+  <span class="co"># Returns:</span>
+  <span class="co">#   A vector with mean, maximum and minimum</span>
+  
+  <span class="co"># error checking</span>
+  <span class="cf">if</span> (<span class="op">!</span>(<span class="kw">class</span>(x) <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;numeric&#39;</span>,<span class="st">&#39;integer&#39;</span>))){
+    <span class="kw">stop</span>(<span class="st">&#39;ERROR: Class of x is not numeric or integer.&#39;</span>)
+  }
+  
+  x &lt;-<span class="st"> </span><span class="kw">na.omit</span>(x)
+  
+  <span class="co"># calc vec</span>
+  out &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dt">mean.price =</span> <span class="kw">mean</span>(x), 
+           <span class="dt">max.price =</span> <span class="kw">max</span>(x), 
+           <span class="dt">min.price =</span> <span class="kw">min</span>(x))
+  
+  <span class="kw">return</span>(out)
+}</code></pre></div>
+<p>Now, let’s load the data and apply function <code>describe.vec</code> to the different stocks. </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set file and read it</span>
+my.f &lt;-<span class="st"> &#39;data/SP500-Stocks_long.csv&#39;</span>
+my.df &lt;-<span class="st"> </span><span class="kw">read.csv</span>(my.f,
+                  <span class="dt">colClasses =</span> <span class="kw">c</span>(<span class="st">&#39;numeric&#39;</span>, 
+                                 <span class="st">&#39;Date&#39;</span>,
+                                 <span class="st">&#39;factor&#39;</span>))
+
+<span class="co"># use split to split prices by ticker</span>
+my.l &lt;-<span class="st"> </span><span class="kw">split</span>(<span class="dt">x =</span> my.df<span class="op">$</span>price, my.df<span class="op">$</span>ticker)
+
+<span class="co"># use sapply</span>
+my.tab &lt;-<span class="st"> </span><span class="kw">sapply</span>(<span class="dt">X =</span> my.l, <span class="dt">FUN =</span> describe.vec)
+
+<span class="co"># check result</span>
+<span class="kw">print</span>(<span class="kw">head</span>(<span class="kw">t</span>(my.tab)))</code></pre></div>
+<pre><code>##      mean.price max.price min.price
+## A      33.04629  48.18046 18.329764
+## AAL    23.41365  54.66265  3.893684
+## AAP   103.19876 199.99451 38.418693
+## AAPL   75.00174 127.96609 24.881912
+## ABC    58.38558 112.10088 23.307129
+## ABT    32.11558  49.33589 18.430625</code></pre>
+<p>In this example, we used function <code>split</code> in <code>split(x = my.df$price, my.df$ticker)</code> to separate the prices of the different stocks into the different elements of a <code>list</code>. We later use this object with <code>sapply</code>. Notice also we transposed the resulting matrix with function <code>t</code>, resulting in a matrix where the rows represent the assets and the columns indicate the different statistics.  </p>
+<p>Using a descriptive table is helpful to understand a database and identify potential data problems, such as a large values. It is worth pointing out the user could extend the information returned by <code>describe.vec</code> by adding several other statistics of interest.</p>
+</div>
+<div id="using-tapply" class="section level3">
+<h3><span class="header-section-number">7.4.3</span> Using <code>tapply</code></h3>
+<p>Function <code>tapply</code> is designed to perform group operations. See the following example, where we create a <code>numeric</code> vector with a sequence of 1 to 150 and a <code>factor</code> with groups A, B, and C. Using <code>tapply</code>, we can calculate the average of the numerical vector for each group. </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set numeric vec and factor</span>
+my.x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">150</span>
+my.factor &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&#39;C&#39;</span>,<span class="dv">50</span>), <span class="kw">rep</span>(<span class="st">&#39;B&#39;</span>,<span class="dv">50</span>), <span class="kw">rep</span>(<span class="st">&#39;A&#39;</span>,<span class="dv">50</span>)))
+
+<span class="co"># use tapply</span>
+my.mean.vec &lt;-<span class="st"> </span><span class="kw">tapply</span>(<span class="dt">X =</span> my.x, <span class="dt">INDEX =</span> my.factor, <span class="dt">FUN =</span> mean)
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(my.mean.vec)</code></pre></div>
+<pre><code>##     A     B     C 
+## 125.5  75.5  25.5</code></pre>
+<p>A very important point about using <code>tapply</code> is the order of groups in the output is set <strong>alphabetically</strong>, and it does not follow the order found in <code>my.factor</code>. If keeping the same order of groups is important, you must reorder the resulting <code>list</code>.</p>
+<p>Going back to the previous example using stock prices, we can also use <code>tapply</code> to reach the same objective of calculating several descriptive statistics for different tickers. Have a look.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># use tapply for descriptive stats</span>
+my.l.out &lt;-<span class="st"> </span><span class="kw">tapply</span>(<span class="dt">X =</span> my.df<span class="op">$</span>price, 
+                   <span class="dt">INDEX =</span> my.df<span class="op">$</span>ticker, 
+                   <span class="dt">FUN =</span> describe.vec)
+
+<span class="co"># print result                 </span>
+<span class="kw">print</span>(my.l.out[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>])</code></pre></div>
+<pre><code>## $A
+## mean.price  max.price  min.price 
+##   33.04629   48.18046   18.32976 
+## 
+## $AAL
+## mean.price  max.price  min.price 
+##  23.413651  54.662650   3.893684 
+## 
+## $AAP
+## mean.price  max.price  min.price 
+##  103.19876  199.99451   38.41869 
+## 
+## $AAPL
+## mean.price  max.price  min.price 
+##   75.00174  127.96609   24.88191 
+## 
+## $ABC
+## mean.price  max.price  min.price 
+##   58.38558  112.10088   23.30713</code></pre>
+<p>The output of <code>tapply</code> is a <code>list</code> of values. Each element contains a vector from <code>describe.vec</code>. Despite showing the same results we’ve found in the previous example, a <code>list</code> is not the recommended type of object to export data in constructing tables. Ideally, we should transform the <code>list</code> to a <code>dataframe</code>, so we can later export it. The next code will do this conversion.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># convert list to dataframe</span>
+my.tab &lt;-<span class="st"> </span><span class="kw">do.call</span>(<span class="dt">what =</span> rbind, <span class="dt">args =</span> my.l.out)
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(<span class="kw">head</span>(my.tab))</code></pre></div>
+<pre><code>##      mean.price max.price min.price
+## A      33.04629  48.18046 18.329764
+## AAL    23.41365  54.66265  3.893684
+## AAP   103.19876 199.99451 38.418693
+## AAPL   75.00174 127.96609 24.881912
+## ABC    58.38558 112.10088 23.307129
+## ABT    32.11558  49.33589 18.430625</code></pre>
+<p>This is the first appearance of <code>do.call</code>. This is a more complex function that, recursively, will use a sequence of a pair of elements from <code>args</code> and feed it to the function defined in input <code>what</code>. In our case, <code>do.call</code> will first use elements one and two of <code>my.l.out</code> as inputs in <code>rbind</code>. This is equivalent to <code>rbind(my.l.out[[1]], my.l.out[[2]])</code>. After that, it will use the result of the previous step and feed it to <code>rbind</code> again, using the third element of <code>my.l.out</code>. Function <code>do.call</code> will continue this operation until the end of <code>my.l.out</code> is reached. As you can see, it is a recursive calculation. For our case, it is simply binding all elements of <code>my.l.out</code> into a single <code>dataframe</code>. Further details about this function can be obtained with command <code>help(do.call)</code>. </p>
+<p>Going back to the example, we can see the result in <code>my.tab</code> is exactly as expected, with each stock showing its average, minimum, and maximum price.</p>
+</div>
+<div id="using-mapply" class="section level3">
+<h3><span class="header-section-number">7.4.4</span> Using <code>mapply</code></h3>
+<p>Function <code>mapply</code> is a multivariate version of <code>sapply</code> and <code>lapply</code>. It allows the use of more than one argument to a function, so each element in the output is a combination of the inputs in <code>mapply</code>. Sounds confusing? Don’t worry; an example will make this clear. </p>
+<p>Assume we are interested in creating a <code>list</code> with the content as in <code>my.l &lt;- list(1,1:2, 1:3,1:4,.., 1:10)</code>. One possible solution is to use a <code>loop</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set size</span>
+N &lt;-<span class="st"> </span><span class="dv">10</span>
+
+<span class="co"># prealocate list</span>
+my.l &lt;-<span class="st"> </span><span class="kw">list</span>()
+
+<span class="cf">for</span> (i <span class="cf">in</span> <span class="kw">seq</span>(<span class="dv">1</span>,N)){
+  my.l[[i]] &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">1</span>,i)
+}
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(my.l)</code></pre></div>
+<pre><code>## [[1]]
+## [1] 1
+## 
+## [[2]]
+## [1] 1 2
+## 
+## [[3]]
+## [1] 1 2 3
+## 
+## [[4]]
+## [1] 1 2 3 4
+## 
+## [[5]]
+## [1] 1 2 3 4 5
+## 
+## [[6]]
+## [1] 1 2 3 4 5 6
+## 
+## [[7]]
+## [1] 1 2 3 4 5 6 7
+## 
+## [[8]]
+## [1] 1 2 3 4 5 6 7 8
+## 
+## [[9]]
+## [1] 1 2 3 4 5 6 7 8 9
+## 
+## [[10]]
+##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<p>Another, less verbose and more elegant solution, is to use <code>mapply</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># use mapply for creating list</span>
+my.l &lt;-<span class="st"> </span><span class="kw">mapply</span>(<span class="dt">FUN =</span> seq, <span class="kw">rep</span>(<span class="dv">1</span>,N), <span class="kw">seq</span>(<span class="dv">1</span>,N))
+
+<span class="kw">print</span>(my.l)</code></pre></div>
+<pre><code>## [[1]]
+## [1] 1
+## 
+## [[2]]
+## [1] 1 2
+## 
+## [[3]]
+## [1] 1 2 3
+## 
+## [[4]]
+## [1] 1 2 3 4
+## 
+## [[5]]
+## [1] 1 2 3 4 5
+## 
+## [[6]]
+## [1] 1 2 3 4 5 6
+## 
+## [[7]]
+## [1] 1 2 3 4 5 6 7
+## 
+## [[8]]
+## [1] 1 2 3 4 5 6 7 8
+## 
+## [[9]]
+## [1] 1 2 3 4 5 6 7 8 9
+## 
+## [[10]]
+##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<p>Explaining the result, function <code>mapply</code> is calling <code>seq</code> for each pair of elements in <code>rep(1,N)</code> and <code>seq(1,N)</code>. So, the first element of <code>my.l</code> is simply <code>seq(1,1)</code>. The second element is <code>seq(1,2)</code>, and its final element is <code>seq(1,10)</code>. As you can see, function <code>mapply</code> is a more elaborate use of functions <code>lapply</code> and <code>sapply</code>, and it is useful when you have more than one argument you want to change in a call to a function.</p>
+</div>
+<div id="using-apply" class="section level3">
+<h3><span class="header-section-number">7.4.5</span> Using <code>apply</code></h3>
+<p>Function <code>apply</code> follows the same logic as the others, with the main difference it is specifically used in objects with two dimensions. Here, the user can process the object by rows or columns. Look in the following example where, based on a matrix object, we calculated the sum of the row and column values. </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set matrix and print it</span>
+my.mat &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">15</span>, <span class="dt">nrow =</span> <span class="dv">5</span>)
+<span class="kw">print</span>(my.mat)</code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    6   11
+## [2,]    2    7   12
+## [3,]    3    8   13
+## [4,]    4    9   14
+## [5,]    5   10   15</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># sum rows with apply and print it</span>
+sum.rows &lt;-<span class="st"> </span><span class="kw">apply</span>(<span class="dt">X =</span> my.mat, <span class="dt">MARGIN =</span> <span class="dv">1</span>, <span class="dt">FUN =</span> sum)
+<span class="kw">print</span>(sum.rows)</code></pre></div>
+<pre><code>## [1] 18 21 24 27 30</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># sum columns with apply and print it</span>
+sum.cols &lt;-<span class="st"> </span><span class="kw">apply</span>(<span class="dt">X =</span> my.mat, <span class="dt">MARGIN =</span> <span class="dv">2</span>, <span class="dt">FUN =</span> sum)
+<span class="kw">print</span>(sum.cols)</code></pre></div>
+<pre><code>## [1] 15 40 65</code></pre>
+<p>In the previous example, the <code>MARGIN</code> argument sets the orientation of the calculation. With <code>MARGIN = 1</code>, function <code>apply</code> separates each row as a vector and uses function <code>sum</code> in each. With <code>MARGIN = 2</code>, the calculation is column oriented.</p>
+<p>Expanding the example, we can use <code>apply</code> to find the maximum values of <code>my.mat</code> per row and per column. Have a look at the next example:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># print max by row</span>
+<span class="kw">print</span>(<span class="kw">apply</span>(<span class="dt">X =</span> my.mat, <span class="dt">MARGIN =</span> <span class="dv">1</span>, <span class="dt">FUN =</span> max))</code></pre></div>
+<pre><code>## [1] 11 12 13 14 15</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># print max by column</span>
+<span class="kw">print</span>(<span class="kw">apply</span>(<span class="dt">X =</span> my.mat, <span class="dt">MARGIN =</span> <span class="dv">2</span>, <span class="dt">FUN =</span> max))</code></pre></div>
+<pre><code>## [1]  5 10 15</code></pre>
+</div>
+<div id="using-by" class="section level3">
+<h3><span class="header-section-number">7.4.6</span> Using <code>by</code></h3>
+<p>Function <code>by</code> has the same objective as the other functions in the <code>apply</code> family. Its <code>dataframe</code> orientation differentiates it from the others. It splits a <code>dataframe</code> into smaller pieces according to a <code>factor</code>. Its main advantage is it allows the user to access any column available in the data, not just one. Whenever you need to process the data by groups and use information from several columns of a <code>dataframe</code>, the <code>by</code>function should be used.</p>
+<p>Look at the next example, where we create a more complex descriptive table using information on prices and returns.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># load data </span>
+<span class="kw">load</span>(<span class="st">&#39;data/SP500-Stocks-WithRet.RData&#39;</span>)
+
+<span class="co"># set function for processing df</span>
+my.fct &lt;-<span class="st"> </span><span class="cf">function</span>(df.in){
+  
+  P &lt;-<span class="st"> </span>df.in<span class="op">$</span>price.adjusted
+  ret &lt;-<span class="st"> </span>df.in<span class="op">$</span>ret
+  
+  out &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dt">MeanPrice=</span> <span class="kw">mean</span>(P),
+           <span class="dt">MaxPrice =</span> <span class="kw">max</span>(P),
+           <span class="dt">MinPrice =</span> <span class="kw">min</span>(P),
+           <span class="dt">MeanRet =</span> <span class="kw">mean</span>(ret),
+           <span class="dt">MaxRet =</span> <span class="kw">max</span>(ret),
+           <span class="dt">MinRet =</span> <span class="kw">min</span>(ret))
+  
+  <span class="kw">return</span>(out)
+  
+}
+
+<span class="co"># apply my.fct for each ticker in my.df</span>
+my.l &lt;-<span class="st"> </span><span class="kw">by</span>(<span class="dt">data =</span> my.df, <span class="dt">INDICES =</span> my.df<span class="op">$</span>ticker, <span class="dt">FUN =</span> my.fct)
+
+<span class="co"># convert list to dataframe</span>
+my.tab &lt;-<span class="st"> </span><span class="kw">do.call</span>(<span class="dt">what =</span> rbind, <span class="dt">args =</span> my.l)
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(<span class="kw">head</span>(my.tab))</code></pre></div>
+<pre><code>##      MeanPrice  MaxPrice  MinPrice      MeanRet     MaxRet
+## A     33.05298  48.18046 18.329764 0.0006090903 0.11763059
+## AAL   23.42431  54.66265  3.893684 0.0017774469 0.17316703
+## AAP  103.23486 199.99451 38.418693 0.0009719157 0.16557581
+## AAPL  75.02859 127.96609 24.881912 0.0009460433 0.08874137
+## ABC   58.40506 112.10088 23.307129 0.0007544274 0.09532090
+## ABT   32.12158  49.33589 18.430625 0.0003925589 0.06496596
+##           MinRet
+## A    -0.11013941
+## AAL  -0.15818175
+## AAP  -0.16967114
+## AAPL -0.12355795
+## ABC  -0.13031447
+## ABT  -0.09290837</code></pre>
+<p>Function <code>my.fct</code> needed to be created for using <code>by</code>. Notice how its input is a <code>dataframe</code> and columns <code>ret</code> and <code>price.adjusted</code> are used inside it. As explained, the <code>by</code> function is passing each smaller <code>dataframe</code> related to a particular ticker to function <code>my.fct</code> and directing the result to a <code>list</code> object.</p>
+</div>
+</div>
+<div id="data-manipulation-with-package-dplyr" class="section level2">
+<h2><span class="header-section-number">7.5</span> Data Manipulation with Package <code>dplyr</code></h2>
+<p>One of the most important assets of an experienced data analyst is the knowledge of the capabilities of different R packages. For data processing operations, one of the most useful packages is <code>dplyr</code> <span class="citation">(Wickham and Francois <a href="#ref-dplyr">2016</a>)</span>. It allows complex data operations to be carried out with its own intuitive and customizable syntax. Not only that, it also decreases computational time. </p>
+<p>Before describing functions and examples, let’s load <code>dplyr</code> to show its effect in the environment.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&#39;dplyr&#39;</span>)</code></pre></div>
+<p>The loading screen of <code>dplyr</code> warns the user the package replaced functions of other packages, such as <code>xts::first</code> and <code>stats::lag</code>. Therefore, the features of these functions after loading <code>dplyr</code> will change. In its current version, 0.5.0, <code>dplyr</code> has 245 functions. Describing each functionality would be too exhaustive for this book. Therefore, we will focus on the main functions of the package.</p>
+<div id="manipulating-a-dataframe-with-dplyr" class="section level3">
+<h3><span class="header-section-number">7.5.1</span> Manipulating a <code>dataframe</code> with <code>dplyr</code></h3>
+<p>Package <code>dplyr</code> includes several functions for standard <code>dataframe</code> manipulations, such as adding columns, filtering rows, and ordering. The main advantage of these functions is they can be used with the pipeline operator, a way to streamline data operations. We will detail the use of the pipeline operator in the following section. For now, let’s learn the <code>dplyr</code> functions for simple <code>dataframe</code> manipulations, without the use of pipelines.</p>
+<p>To select columns, you can use function <code>select</code> with the names of the desired columns as inputs: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
+
+<span class="co"># set rnd df</span>
+<span class="kw">set.seed</span>(<span class="dv">10</span>)
+N &lt;-<span class="st"> </span><span class="dv">5</span>
+my.df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">COL1 =</span> <span class="kw">runif</span>(N), 
+                    <span class="dt">COL2 =</span> <span class="kw">runif</span>(N), 
+                    <span class="dt">G =</span> <span class="kw">runif</span>(N),
+                    <span class="dt">B =</span> <span class="kw">runif</span>(N))
+
+<span class="co"># select columns with dplyr::select</span>
+my.temp.df &lt;-<span class="st"> </span><span class="kw">select</span>(my.df, COL1, G)
+<span class="kw">print</span>(my.temp.df)</code></pre></div>
+<pre><code>##         COL1         G
+## 1 0.50747820 0.6516557
+## 2 0.30676851 0.5677378
+## 3 0.42690767 0.1135090
+## 4 0.69310208 0.5959253
+## 5 0.08513597 0.3580500</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># unselect columns with dplyr::select</span>
+my.temp.df &lt;-<span class="st"> </span><span class="kw">select</span>(my.df, <span class="op">-</span>COL1, <span class="op">-</span>COL2)
+<span class="kw">print</span>(my.temp.df)</code></pre></div>
+<pre><code>##           G          B
+## 1 0.6516557 0.42880942
+## 2 0.5677378 0.05190332
+## 3 0.1135090 0.26417767
+## 4 0.5959253 0.39879073
+## 5 0.3580500 0.83613414</code></pre>
+<p>One innovation from the native way of selecting columns is you can select them based on patterns on its name. For example, you can select only those that start with a particular text:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># select columnw with dplyr::select</span>
+my.temp.df &lt;-<span class="st"> </span><span class="kw">select</span>(my.df, <span class="kw">starts_with</span>(<span class="st">&#39;COL&#39;</span>))
+<span class="kw">print</span>(my.temp.df)</code></pre></div>
+<pre><code>##         COL1      COL2
+## 1 0.50747820 0.2254366
+## 2 0.30676851 0.2745305
+## 3 0.42690767 0.2723051
+## 4 0.69310208 0.6158293
+## 5 0.08513597 0.4296715</code></pre>
+<p>This possibility is interesting when dealing with a <code>dataframe</code> with several columns. Matching other types of column names patterns is possible with functions <code>ends_with</code>, <code>contains</code> and <code>matches</code>.</p>
+<p>For indexing (or filtering) rows, we use function <code>filter</code>, which allows us to select rows based on one or more conditions. See an example: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># filter rows with filter() - one condition</span>
+my.temp.df. &lt;-<span class="st"> </span><span class="kw">filter</span>(my.df, COL1 <span class="op">&gt;</span><span class="st"> </span><span class="fl">0.25</span>)
+<span class="kw">print</span>(my.temp.df)</code></pre></div>
+<pre><code>##         COL1      COL2
+## 1 0.50747820 0.2254366
+## 2 0.30676851 0.2745305
+## 3 0.42690767 0.2723051
+## 4 0.69310208 0.6158293
+## 5 0.08513597 0.4296715</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># filter rows with filter() - two conditions</span>
+my.temp.df &lt;-<span class="st"> </span><span class="kw">filter</span>(my.df, COL1 <span class="op">&gt;</span><span class="st"> </span><span class="fl">0.25</span>, 
+                            COL2 <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.75</span>)
+<span class="kw">print</span>(my.temp.df)</code></pre></div>
+<pre><code>##        COL1      COL2         G          B
+## 1 0.5074782 0.2254366 0.6516557 0.42880942
+## 2 0.3067685 0.2745305 0.5677378 0.05190332
+## 3 0.4269077 0.2723051 0.1135090 0.26417767
+## 4 0.6931021 0.6158293 0.5959253 0.39879073</code></pre>
+<p>We can add columns to a <code>dataframe</code> using <code>mutate</code> and sort the rows using <code>arrange</code>:  </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># add new columns with mutate</span>
+my.temp.df &lt;-<span class="st"> </span><span class="kw">mutate</span>(my.df, <span class="dt">COL3 =</span> COL1 <span class="op">+</span><span class="st"> </span>COL2,
+                            <span class="dt">COL4 =</span> COL3 <span class="op">+</span><span class="st"> </span><span class="kw">runif</span>(N) )
+
+my.temp.df &lt;-<span class="st"> </span><span class="kw">arrange</span>(my.temp.df, COL1)
+<span class="co"># print result</span>
+<span class="kw">print</span>(my.temp.df)</code></pre></div>
+<pre><code>##         COL1      COL2         G          B      COL3
+## 1 0.08513597 0.4296715 0.3580500 0.83613414 0.5148075
+## 2 0.30676851 0.2745305 0.5677378 0.05190332 0.5812990
+## 3 0.42690767 0.2723051 0.1135090 0.26417767 0.6992127
+## 4 0.50747820 0.2254366 0.6516557 0.42880942 0.7329148
+## 5 0.69310208 0.6158293 0.5959253 0.39879073 1.3089314
+##        COL4
+## 1 0.9206575
+## 2 1.1966514
+## 3 1.4743226
+## 4 1.5976360
+## 5 1.6645001</code></pre>
+<p>Using <code>dplyr</code> functions for <code>dataframe</code> manipulations offers a simple interface and, sometimes, can be less verbose than the native functions. You’ll most likely be using them within a pipeline operation, as described next.</p>
+</div>
+<div id="the-pipeline-operator" class="section level3">
+<h3><span class="header-section-number">7.5.2</span> The Pipeline Operator (<code>%&gt;%</code>)</h3>
+<p>An important feature of package <code>dplyr</code> is the <em>pipeline</em> operator, first proposed by <span class="citation">Bache and Wickham (<a href="#ref-magrittr">2014</a>)</span> and defined by symbol <code>%&gt;%</code>. It allows data operations to be performed in a sequential fashion, as in a pipeline, facilitating the optimization and readability of the resulting code. For example, we could write a <code>dataframe</code> manipulation procedure with the following code: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># example of using the pipeline operator</span>
+my.temp.df.pipeline &lt;-<span class="st"> </span>my.df <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">select</span>(COL1, COL2) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">filter</span>(COL1 <span class="op">&gt;</span><span class="st"> </span><span class="fl">0.25</span>, COL2 <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.75</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">COL3 =</span> COL1 <span class="op">+</span><span class="st"> </span>COL2,
+         <span class="dt">COL4 =</span> COL3 <span class="op">+</span><span class="st"> </span><span class="kw">runif</span>(<span class="kw">length</span>(COL1)) ) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">arrange</span>(COL1)
+
+<span class="kw">print</span>(my.temp.df.pipeline)</code></pre></div>
+<pre><code>##        COL1      COL2      COL3      COL4
+## 1 0.3067685 0.2745305 0.5812990 1.4195867
+## 2 0.4269077 0.2723051 0.6992127 0.9388019
+## 3 0.5074782 0.2254366 0.7329148 1.4395617
+## 4 0.6931021 0.6158293 1.3089314 2.0797029</code></pre>
+<p>In the code, we use symbol <code>%&gt;%</code> in the end of each line to link the operations. The result from each line is passed to the next in a sequential fashion. That way, there is no need for creating intermediate objects. It makes the code prettier and more readable. You can also link the data manipulation stage with the creation of figures. We will discuss this possibility in chapter <a href="Figures.html#Figures">8</a>. Whenever possible, I strongly recommended the use of <em>pipelines</em>.</p>
+</div>
+<div id="simple-group-operations-with-dplyr" class="section level3">
+<h3><span class="header-section-number">7.5.3</span> Simple Group Operations with <code>dplyr</code></h3>
+<p>To illustrate the use of the functions <code>group_by</code> and <code>summarise</code>, we will execute the example of describing stock prices in previous sections. This time, however, we will use the structure of package <code>dplyr</code> to perform these calculations using the pipeline operator. Consider the following code:  </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
+
+<span class="co"># load data </span>
+<span class="kw">load</span>(<span class="st">&#39;data/SP500-Stocks-WithRet.RData&#39;</span>)
+
+<span class="co"># group data and calculate stats</span>
+my.tab &lt;-<span class="st"> </span>my.df <span class="op">%&gt;%</span>
+<span class="st">          </span><span class="kw">group_by</span>(ticker) <span class="op">%&gt;%</span>
+<span class="st">          </span><span class="kw">summarise</span>(<span class="dt">mean.price =</span> <span class="kw">mean</span>(price.adjusted), 
+                    <span class="dt">max.price =</span> <span class="kw">max</span>(price.adjusted), 
+                    <span class="dt">min.price =</span> <span class="kw">min</span>(price.adjusted),
+                    <span class="dt">max.ret =</span> <span class="kw">max</span>(ret),
+                    <span class="dt">min.ret =</span> <span class="kw">min</span>(ret))
+
+<span class="co"># print result                        </span>
+<span class="kw">print</span>(my.tab)</code></pre></div>
+<pre><code>## # A tibble: 471 × 6
+##    ticker mean.price max.price min.price    max.ret
+##     &lt;chr&gt;      &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;
+## 1       A   33.05298  48.18046 18.329764 0.11763059
+## 2     AAL   23.42431  54.66265  3.893684 0.17316703
+## 3     AAP  103.23486 199.99451 38.418693 0.16557581
+## 4    AAPL   75.02859 127.96609 24.881912 0.08874137
+## 5     ABC   58.40506 112.10088 23.307129 0.09532090
+## 6     ABT   32.12158  49.33589 18.430625 0.06496596
+## 7     ACN   70.61981 125.40000 31.589890 0.07989349
+## 8    ADBE   55.25822 110.81000 22.690001 0.12780138
+## 9     ADI   42.36350  73.90623 21.600676 0.10146155
+## 10    ADM   33.77152  50.48857 20.866785 0.07298599
+## # ... with 461 more rows, and 1 more variables:
+## #   min.ret &lt;dbl&gt;</code></pre>
+<p>Explaining it, the first step in using <code>dplyr</code> is to group the data with function <code>group_by</code>. Here, we are grouping based on column <code>ticker</code>. This means we intend to perform a certain calculation for each stock in our database. Using <code>group_by</code> command is very flexible, allowing group operations with multiple columns, e.g., more than one factor.</p>
+<p>After we group the data, we feed this object to the <code>summarise</code> function. It processes the data in blocks defined by the formation of groups in function <code>group_by</code>. Note each argument in <code>summarise</code> turns into a column in the output: <code>mean.price</code>, <code>max.price</code>, <code>min.price</code>, <code>max.ret</code>, <code>min.ret</code>. Each of the previous arguments is doing a different calculation based on the columns of <code>my.df</code>. If we wanted, we could add several other calculations with different columns by simply expanding the input arguments in <code>summarise</code>.</p>
+<p>Using <code>dplyr</code> is highly recommended when you have to group the data based on more than one factor. Let’s consider grouping stock data by ticker and the day of the week (Monday, Tuesday, …). First, let’s use function <code>weekday</code> to create a column called <code>week.day</code> in <code>my.df</code>. </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set new col week.day</span>
+my.df<span class="op">$</span>week.day &lt;-<span class="st"> </span><span class="kw">weekdays</span>(my.df<span class="op">$</span>ref.date)
+
+<span class="co"># print it</span>
+<span class="kw">print</span>(<span class="kw">head</span>(my.df<span class="op">$</span>week.day))</code></pre></div>
+<pre><code>## [1] &quot;Tuesday&quot;   &quot;Wednesday&quot; &quot;Thursday&quot;  &quot;Friday&quot;   
+## [5] &quot;Monday&quot;    &quot;Tuesday&quot;</code></pre>
+<p>Now, we proceed by adding column <code>week.day</code> in <code>group_by</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># group by ticker and weekday, calculate stats</span>
+my.tab &lt;-<span class="st"> </span>my.df <span class="op">%&gt;%</span>
+<span class="st">          </span><span class="kw">group_by</span>(ticker, week.day) <span class="op">%&gt;%</span>
+<span class="st">          </span><span class="kw">summarise</span>(<span class="dt">mean.price =</span> <span class="kw">mean</span>(price.adjusted), 
+                    <span class="dt">max.price =</span> <span class="kw">max</span>(price.adjusted), 
+                    <span class="dt">min.price =</span> <span class="kw">min</span>(price.adjusted),
+                    <span class="dt">max.ret =</span> <span class="kw">max</span>(ret),
+                    <span class="dt">min.ret =</span> <span class="kw">min</span>(ret))
+
+<span class="co"># print result                        </span>
+<span class="kw">print</span>(my.tab)</code></pre></div>
+<pre><code>## Source: local data frame [2,355 x 7]
+## Groups: ticker [?]
+## 
+##    ticker  week.day mean.price max.price min.price
+##     &lt;chr&gt;     &lt;chr&gt;      &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
+## 1       A    Friday   33.02034  47.88207 18.370543
+## 2       A    Monday   33.11657  48.18046 18.458895
+## 3       A  Thursday   33.03899  47.87212 18.696768
+## 4       A   Tuesday   33.05971  48.02132 18.329764
+## 5       A Wednesday   33.03401  48.17052 18.744342
+## 6     AAL    Friday   23.30720  54.66265  3.913153
+## 7     AAL    Monday   23.63982  54.24885  4.137040
+## 8     AAL  Thursday   23.27089  54.38582  4.283053
+## 9     AAL   Tuesday   23.48269  52.86867  3.942356
+## 10    AAL Wednesday   23.43472  53.06473  3.893684
+## # ... with 2,345 more rows, and 2 more variables:
+## #   max.ret &lt;dbl&gt;, min.ret &lt;dbl&gt;</code></pre>
+<p>And that’s it! To group the data to a new <code>factor</code>, all we need to do is add it in <code>group_by</code>.</p>
+<p>Using <code>dplyr</code> to do simple group calculations is straightforward. The resulting code is efficient, self-contained, and elegant.</p>
+</div>
+<div id="complex-group-operations-with-dplyr" class="section level3">
+<h3><span class="header-section-number">7.5.4</span> Complex Group Operations with <code>dplyr</code></h3>
+<p>The previous example shows a simple case of group calculations. We can say it was simple because all argument operations in <code>summarise</code> had one value as the result. We had a mean for ticker X in weekday Z, another mean for ticker Y in weekday L, and so on.</p>
+<p>Package <code>dplyr</code> also supports more complex operations, where the output is not a single value, but a complex object. This is useful in data processing tasks, as you can manipulate the data in the same tabular structure you usually think. We can estimate a different model for each ticker in our sample of financial data and store the whole result as a more complex table, where an element may not be a single value.</p>
+<p>Let’s look at the following example, where we use stock returns to calculate their accumulated value over time and store it as a whole vector.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
+
+<span class="co"># load data</span>
+<span class="kw">load</span>(<span class="st">&#39;data/SP500-Stocks-WithRet.RData&#39;</span>)
+
+<span class="co"># get acum ret of stoks</span>
+my.tab &lt;-<span class="st"> </span>my.df <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">group_by</span>(ticker) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">do</span>(<span class="dt">acum.ret =</span> <span class="kw">cumprod</span>(<span class="dv">1</span><span class="op">+</span>.<span class="op">$</span>ret)) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">last.cumret =</span> acum.ret[<span class="kw">length</span>(acum.ret)],
+         <span class="dt">min.cumret =</span> <span class="kw">min</span>(acum.ret))
+
+<span class="kw">print</span>(<span class="kw">head</span>(my.tab))</code></pre></div>
+<pre><code>## # A tibble: 6 × 4
+##   ticker      acum.ret last.cumret min.cumret
+##    &lt;chr&gt;        &lt;list&gt;       &lt;dbl&gt;      &lt;dbl&gt;
+## 1      A &lt;dbl [1,761]&gt;    2.141724  0.8616613
+## 2    AAL &lt;dbl [1,761]&gt;   10.033208  0.8385743
+## 3    AAP &lt;dbl [1,761]&gt;    4.269025  0.9697870
+## 4   AAPL &lt;dbl [1,761]&gt;    4.159118  0.8973880
+## 5    ABC &lt;dbl [1,761]&gt;    3.233432  0.9677057
+## 6    ABT &lt;dbl [1,761]&gt;    1.771201  0.8553816</code></pre>
+<p>Notice how column <code>acum.ret</code> is not a single value but an atomic vector containing several values. In fact, <code>acum.ret</code> is a list-column, meaning it can store any kind of object. We achieved this result by using function <code>do</code> in the previous code. As for the other columns, <code>last.cumret</code> and <code>min.cumret</code> are simple manipulations of <code>acum.ret</code>. An important observation is we used symbol <code>.$</code> to access the columns of <code>my.df</code> in the call to <code>do</code>. Whenever you use the <code>do</code> function, you must use this notation.</p>
+<p>The greatest advantage of using complex group operations with <code>dplyr</code> is you can keep the same tabular representation. We can read the object <code>my.tab</code> as “for each stock, define a vector of accumulated returns”. Using function <code>dplyr::do</code> is particularly interesting in the estimation of several models from the data. We will cover this topic in chapter <a href="models.html#models">9</a>.</p>
+
+</div>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-dplyr">
+<p>Wickham, Hadley, and Romain Francois. 2016. <em>Dplyr: A Grammar of Data Manipulation</em>. <a href="https://CRAN.R-project.org/package=dplyr" class="uri">https://CRAN.R-project.org/package=dplyr</a>.</p>
+</div>
+<div id="ref-magrittr">
+<p>Bache, Stefan Milton, and Hadley Wickham. 2014. <em>Magrittr: A Forward-Pipe Operator for R</em>. <a href="https://CRAN.R-project.org/package=magrittr" class="uri">https://CRAN.R-project.org/package=magrittr</a>.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="importing.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="Figures.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "Sepia",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

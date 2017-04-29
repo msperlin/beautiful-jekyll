@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Processing and Analyzing Financial Data with R</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="Processing and Analyzing Financial Data with R">
+  <meta name="generator" content="bookdown 0.3 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Processing and Analyzing Financial Data with R" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="figs/CAPADigital_FinancialDataR.jpg" />
+  <meta property="og:description" content="Processing and Analyzing Financial Data with R" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Processing and Analyzing Financial Data with R" />
+  
+  <meta name="twitter:description" content="Processing and Analyzing Financial Data with R" />
+  <meta name="twitter:image" content="figs/CAPADigital_FinancialDataR.jpg" />
+
+<meta name="author" content="Marcelo S. Perlin (marcelo.perlin@ufrgs.br)">
+
+
+<meta name="date" content="2017-04-29">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="programming.html">
+<link rel="next" href="models.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Processing and Analyzing Financial Data with R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome!</a></li>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#what-is-r"><i class="fa fa-check"></i><b>1.1</b> What is R</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#why-choose-r"><i class="fa fa-check"></i><b>1.2</b> Why Choose R</a></li>
+<li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#what-can-you-do-with-r-and-rstudio"><i class="fa fa-check"></i><b>1.3</b> What Can You Do With R and RStudio?</a></li>
+<li class="chapter" data-level="1.4" data-path="introduction.html"><a href="introduction.html#installing-r-and-rstudio"><i class="fa fa-check"></i><b>1.4</b> Installing R and RStudio</a></li>
+<li class="chapter" data-level="1.5" data-path="introduction.html"><a href="introduction.html#resources-in-the-web"><i class="fa fa-check"></i><b>1.5</b> Resources in the Web</a></li>
+<li class="chapter" data-level="1.6" data-path="introduction.html"><a href="introduction.html#structure-and-organization"><i class="fa fa-check"></i><b>1.6</b> Structure and Organization</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html"><i class="fa fa-check"></i><b>2</b> Basic Operations in R</a><ul>
+<li class="chapter" data-level="2.1" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#working-with-r"><i class="fa fa-check"></i><b>2.1</b> Working With R</a></li>
+<li class="chapter" data-level="2.2" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#objects-in-r"><i class="fa fa-check"></i><b>2.2</b> Objects in R</a></li>
+<li class="chapter" data-level="2.3" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#international-and-local-formats"><i class="fa fa-check"></i><b>2.3</b> International and Local Formats</a></li>
+<li class="chapter" data-level="2.4" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#types-of-files-in-r"><i class="fa fa-check"></i><b>2.4</b> Types of Files in R</a></li>
+<li class="chapter" data-level="2.5" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#explaining-the-rstudio-screen"><i class="fa fa-check"></i><b>2.5</b> Explaining the RStudio Screen</a></li>
+<li class="chapter" data-level="2.6" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#running-scripts-from-rstudio"><i class="fa fa-check"></i><b>2.6</b> Running Scripts from RStudio</a></li>
+<li class="chapter" data-level="2.7" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#testing-and-debugging-code"><i class="fa fa-check"></i><b>2.7</b> Testing and Debugging Code</a></li>
+<li class="chapter" data-level="2.8" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#creating-simple-objects"><i class="fa fa-check"></i><b>2.8</b> Creating Simple Objects</a></li>
+<li class="chapter" data-level="2.9" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#creating-vectors"><i class="fa fa-check"></i><b>2.9</b> Creating Vectors</a></li>
+<li class="chapter" data-level="2.10" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#knowing-your-environment"><i class="fa fa-check"></i><b>2.10</b> Knowing Your Environment</a></li>
+<li class="chapter" data-level="2.11" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#displaying-and-formatting-output"><i class="fa fa-check"></i><b>2.11</b> Displaying and Formatting Output</a><ul>
+<li class="chapter" data-level="2.11.1" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#customizing-the-output"><i class="fa fa-check"></i><b>2.11.1</b> Customizing the Output</a></li>
+</ul></li>
+<li class="chapter" data-level="2.12" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#finding-the-size-of-objects"><i class="fa fa-check"></i><b>2.12</b> Finding the Size of Objects</a></li>
+<li class="chapter" data-level="2.13" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#selecting-the-elements-of-an-atomic-vector"><i class="fa fa-check"></i><b>2.13</b> Selecting the Elements of an Atomic Vector</a></li>
+<li class="chapter" data-level="2.14" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#removing-objects-from-the-memory"><i class="fa fa-check"></i><b>2.14</b> Removing Objects from the Memory</a></li>
+<li class="chapter" data-level="2.15" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#displaying-and-setting-the-working-directory"><i class="fa fa-check"></i><b>2.15</b> Displaying and Setting the Working Directory</a></li>
+<li class="chapter" data-level="2.16" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#cancelling-code-execution"><i class="fa fa-check"></i><b>2.16</b> Cancelling Code Execution</a></li>
+<li class="chapter" data-level="2.17" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#code-comments"><i class="fa fa-check"></i><b>2.17</b> Code Comments</a></li>
+<li class="chapter" data-level="2.18" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#looking-for-help"><i class="fa fa-check"></i><b>2.18</b> Looking for Help</a></li>
+<li class="chapter" data-level="2.19" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#r-packages"><i class="fa fa-check"></i><b>2.19</b> R Packages</a><ul>
+<li class="chapter" data-level="2.19.1" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#installing-packages-from-cran"><i class="fa fa-check"></i><b>2.19.1</b> Installing Packages from CRAN</a></li>
+<li class="chapter" data-level="2.19.2" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#installing-packages-from-github"><i class="fa fa-check"></i><b>2.19.2</b> Installing Packages from Github</a></li>
+<li class="chapter" data-level="2.19.3" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#loading-packages"><i class="fa fa-check"></i><b>2.19.3</b> Loading Packages</a></li>
+<li class="chapter" data-level="2.19.4" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#upgrading-packages"><i class="fa fa-check"></i><b>2.19.4</b> Upgrading Packages</a></li>
+</ul></li>
+<li class="chapter" data-level="2.20" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#using-code-completion-with-tab"><i class="fa fa-check"></i><b>2.20</b> Using Code Completion with <em>tab</em></a></li>
+<li class="chapter" data-level="2.21" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#interacting-with-files-and-the-operating-system"><i class="fa fa-check"></i><b>2.21</b> Interacting with Files and the Operating System</a><ul>
+<li class="chapter" data-level="2.21.1" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#listing-files-and-folders"><i class="fa fa-check"></i><b>2.21.1</b> Listing Files and Folders</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="BasicObjects.html"><a href="BasicObjects.html"><i class="fa fa-check"></i><b>3</b> Basic Object Classes</a><ul>
+<li class="chapter" data-level="3.1" data-path="BasicObjects.html"><a href="BasicObjects.html#numeric-objects"><i class="fa fa-check"></i><b>3.1</b> <code>Numeric</code> Objects</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-and-manipulating-numeric-objects"><i class="fa fa-check"></i><b>3.1.1</b> Creating and Manipulating <code>numeric</code> Objects</a></li>
+<li class="chapter" data-level="3.1.2" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-a-numeric-sequence"><i class="fa fa-check"></i><b>3.1.2</b> Creating a <code>numeric</code> Sequence</a></li>
+<li class="chapter" data-level="3.1.3" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-vectors-with-repeated-elements"><i class="fa fa-check"></i><b>3.1.3</b> Creating Vectors with Repeated Elements</a></li>
+<li class="chapter" data-level="3.1.4" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-vectors-with-random-numbers"><i class="fa fa-check"></i><b>3.1.4</b> Creating Vectors with Random Numbers</a></li>
+<li class="chapter" data-level="3.1.5" data-path="BasicObjects.html"><a href="BasicObjects.html#accessing-the-elements-of-a-numeric-vector"><i class="fa fa-check"></i><b>3.1.5</b> Accessing the Elements of a <code>numeric</code> Vector</a></li>
+<li class="chapter" data-level="3.1.6" data-path="BasicObjects.html"><a href="BasicObjects.html#modifying-and-removing-elements-of-a-numeric-vector"><i class="fa fa-check"></i><b>3.1.6</b> Modifying and Removing Elements of a <code>numeric</code> Vector</a></li>
+<li class="chapter" data-level="3.1.7" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-groups-from-a-numeric-vector"><i class="fa fa-check"></i><b>3.1.7</b> Creating Groups from a <code>numeric</code> Vector</a></li>
+<li class="chapter" data-level="3.1.8" data-path="BasicObjects.html"><a href="BasicObjects.html#other-functions-for-manipulating-numerical-vectors"><i class="fa fa-check"></i><b>3.1.8</b> Other Functions for Manipulating Numerical Vectors</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="BasicObjects.html"><a href="BasicObjects.html#character-objects"><i class="fa fa-check"></i><b>3.2</b> <code>Character</code> Objects</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-a-simple-character-object"><i class="fa fa-check"></i><b>3.2.1</b> Creating a Simple <code>character</code> Object</a></li>
+<li class="chapter" data-level="3.2.2" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-structured-character-objects"><i class="fa fa-check"></i><b>3.2.2</b> Creating Structured <code>character</code> Objects</a></li>
+<li class="chapter" data-level="3.2.3" data-path="BasicObjects.html"><a href="BasicObjects.html#character-constants"><i class="fa fa-check"></i><b>3.2.3</b> <code>character</code> Constants</a></li>
+<li class="chapter" data-level="3.2.4" data-path="BasicObjects.html"><a href="BasicObjects.html#selecting-characters-of-a-text-object"><i class="fa fa-check"></i><b>3.2.4</b> Selecting Characters of a Text Object</a></li>
+<li class="chapter" data-level="3.2.5" data-path="BasicObjects.html"><a href="BasicObjects.html#finding-and-replacing-characters-of-a-text"><i class="fa fa-check"></i><b>3.2.5</b> Finding and Replacing Characters of a Text</a></li>
+<li class="chapter" data-level="3.2.6" data-path="BasicObjects.html"><a href="BasicObjects.html#splitting-text"><i class="fa fa-check"></i><b>3.2.6</b> Splitting Text</a></li>
+<li class="chapter" data-level="3.2.7" data-path="BasicObjects.html"><a href="BasicObjects.html#finding-the-number-of-characters-in-a-text"><i class="fa fa-check"></i><b>3.2.7</b> Finding the Number of Characters in a Text</a></li>
+<li class="chapter" data-level="3.2.8" data-path="BasicObjects.html"><a href="BasicObjects.html#generating-combinations-of-text"><i class="fa fa-check"></i><b>3.2.8</b> Generating Combinations of Text</a></li>
+<li class="chapter" data-level="3.2.9" data-path="BasicObjects.html"><a href="BasicObjects.html#encoding-of-character-objects"><i class="fa fa-check"></i><b>3.2.9</b> Encoding of <code>character</code> Objects</a></li>
+<li class="chapter" data-level="3.2.10" data-path="BasicObjects.html"><a href="BasicObjects.html#other-functions-for-manipulating-character"><i class="fa fa-check"></i><b>3.2.10</b> Other Functions for Manipulating <code>character</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="BasicObjects.html"><a href="BasicObjects.html#factor-objects"><i class="fa fa-check"></i><b>3.3</b> <code>Factor</code> Objects</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-factors"><i class="fa fa-check"></i><b>3.3.1</b> Creating <code>factors</code></a></li>
+<li class="chapter" data-level="3.3.2" data-path="BasicObjects.html"><a href="BasicObjects.html#modifying-factors"><i class="fa fa-check"></i><b>3.3.2</b> Modifying <code>factors</code></a></li>
+<li class="chapter" data-level="3.3.3" data-path="BasicObjects.html"><a href="BasicObjects.html#converting-factors-to-other-classes"><i class="fa fa-check"></i><b>3.3.3</b> Converting <code>factors</code> to Other Classes</a></li>
+<li class="chapter" data-level="3.3.4" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-contingency-tables"><i class="fa fa-check"></i><b>3.3.4</b> Creating Contingency Tables</a></li>
+<li class="chapter" data-level="3.3.5" data-path="BasicObjects.html"><a href="BasicObjects.html#other-functions-for-manipulating-factors"><i class="fa fa-check"></i><b>3.3.5</b> Other Functions for Manipulating <code>factors</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="BasicObjects.html"><a href="BasicObjects.html#logical-objects"><i class="fa fa-check"></i><b>3.4</b> <code>Logical</code> Objects</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-logical-objects"><i class="fa fa-check"></i><b>3.4.1</b> Creating <code>logical</code> Objects</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="BasicObjects.html"><a href="BasicObjects.html#date-and-time-objects"><i class="fa fa-check"></i><b>3.5</b> Date and Time Objects</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-simple-dates"><i class="fa fa-check"></i><b>3.5.1</b> Creating Simple Dates</a></li>
+<li class="chapter" data-level="3.5.2" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-a-sequence-of-dates"><i class="fa fa-check"></i><b>3.5.2</b> Creating a Sequence of <code>Dates</code></a></li>
+<li class="chapter" data-level="3.5.3" data-path="BasicObjects.html"><a href="BasicObjects.html#operations-with-dates"><i class="fa fa-check"></i><b>3.5.3</b> Operations with <code>Dates</code></a></li>
+<li class="chapter" data-level="3.5.4" data-path="BasicObjects.html"><a href="BasicObjects.html#dealing-with-time"><i class="fa fa-check"></i><b>3.5.4</b> Dealing with Time</a></li>
+<li class="chapter" data-level="3.5.5" data-path="BasicObjects.html"><a href="BasicObjects.html#customizing-the-output-format-of-dates-and-times"><i class="fa fa-check"></i><b>3.5.5</b> Customizing the Output Format of Dates and Times</a></li>
+<li class="chapter" data-level="3.5.6" data-path="BasicObjects.html"><a href="BasicObjects.html#find-the-current-date-and-time"><i class="fa fa-check"></i><b>3.5.6</b> Find the Current Date and Time</a></li>
+<li class="chapter" data-level="3.5.7" data-path="BasicObjects.html"><a href="BasicObjects.html#other-functions-for-manipulating-dates-and-time"><i class="fa fa-check"></i><b>3.5.7</b> Other Functions for Manipulating Dates and Time</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="BasicObjects.html"><a href="BasicObjects.html#missing-data---na-not-available"><i class="fa fa-check"></i><b>3.6</b> Missing Data - <code>NA</code> (<em>Not available</em>)</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="BasicObjects.html"><a href="BasicObjects.html#defining-na-values"><i class="fa fa-check"></i><b>3.6.1</b> Defining <code>NA</code> Values</a></li>
+<li class="chapter" data-level="3.6.2" data-path="BasicObjects.html"><a href="BasicObjects.html#finding-and-replacing-na"><i class="fa fa-check"></i><b>3.6.2</b> Finding and Replacing <code>NA</code></a></li>
+<li class="chapter" data-level="3.6.3" data-path="BasicObjects.html"><a href="BasicObjects.html#other-useful-functions-for-treating-na"><i class="fa fa-check"></i><b>3.6.3</b> Other Useful Functions for Treating <code>NA</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html"><i class="fa fa-check"></i><b>4</b> Data Structure Objects</a><ul>
+<li class="chapter" data-level="4.1" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#lists"><i class="fa fa-check"></i><b>4.1</b> <code>Lists</code></a><ul>
+<li class="chapter" data-level="4.1.1" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#creating-lists"><i class="fa fa-check"></i><b>4.1.1</b> Creating <code>lists</code></a></li>
+<li class="chapter" data-level="4.1.2" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#accessing-the-elements-of-a-list"><i class="fa fa-check"></i><b>4.1.2</b> Accessing the Elements of a <code>list</code></a></li>
+<li class="chapter" data-level="4.1.3" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#adding-and-removing-elements-from-a-list"><i class="fa fa-check"></i><b>4.1.3</b> Adding and Removing Elements from a <code>list</code></a></li>
+<li class="chapter" data-level="4.1.4" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#processing-the-elements-of-a-list"><i class="fa fa-check"></i><b>4.1.4</b> Processing the Elements of a <code>list</code></a></li>
+<li class="chapter" data-level="4.1.5" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#other-functions-for-manipulating-lists"><i class="fa fa-check"></i><b>4.1.5</b> Other Functions for Manipulating <code>lists</code></a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#matrices"><i class="fa fa-check"></i><b>4.2</b> <code>Matrices</code></a><ul>
+<li class="chapter" data-level="4.2.1" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#selecting-elements-from-a-matrix"><i class="fa fa-check"></i><b>4.2.1</b> Selecting Elements from a <code>matrix</code></a></li>
+<li class="chapter" data-level="4.2.2" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#other-useful-functions-for-manipulating-matrices"><i class="fa fa-check"></i><b>4.2.2</b> Other Useful Functions for Manipulating Matrices</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#dataframes"><i class="fa fa-check"></i><b>4.3</b> <code>Dataframes</code></a><ul>
+<li class="chapter" data-level="4.3.1" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#creating-dataframes"><i class="fa fa-check"></i><b>4.3.1</b> Creating <code>dataframes</code></a></li>
+<li class="chapter" data-level="4.3.2" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#accessing-information-from-a-dataframe"><i class="fa fa-check"></i><b>4.3.2</b> Accessing Information from a <code>dataframe</code></a></li>
+<li class="chapter" data-level="4.3.3" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#modifying-a-dataframe"><i class="fa fa-check"></i><b>4.3.3</b> Modifying a <code>dataframe</code></a></li>
+<li class="chapter" data-level="4.3.4" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#sorting-a-dataframe"><i class="fa fa-check"></i><b>4.3.4</b> Sorting a <code>dataframe</code></a></li>
+<li class="chapter" data-level="4.3.5" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#combining-and-aggregating-dataframes"><i class="fa fa-check"></i><b>4.3.5</b> Combining and Aggregating <code>dataframes</code></a></li>
+<li class="chapter" data-level="4.3.6" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#reporting-a-dataframe-table"><i class="fa fa-check"></i><b>4.3.6</b> Reporting a <code>Dataframe</code> Table</a></li>
+<li class="chapter" data-level="4.3.7" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#the-format-of-the-dataframe-long-and-wide"><i class="fa fa-check"></i><b>4.3.7</b> The Format of the <code>dataframe</code> (<em>long</em> and <em>wide</em>)</a></li>
+<li class="chapter" data-level="4.3.8" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#extensions-of-the-dataframe-class"><i class="fa fa-check"></i><b>4.3.8</b> Extensions of the <code>dataframe</code> Class</a></li>
+<li class="chapter" data-level="4.3.9" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#other-useful-functions-for-handling-dataframes"><i class="fa fa-check"></i><b>4.3.9</b> Other Useful Functions for Handling <code>dataframes</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="Financial-data.html"><a href="Financial-data.html"><i class="fa fa-check"></i><b>5</b> Financial Data and Common Operations</a><ul>
+<li class="chapter" data-level="5.1" data-path="Financial-data.html"><a href="Financial-data.html#data-from-financial-markets"><i class="fa fa-check"></i><b>5.1</b> Data from Financial Markets</a></li>
+<li class="chapter" data-level="5.2" data-path="Financial-data.html"><a href="Financial-data.html#data-from-the-financial-evaluation-of-projects"><i class="fa fa-check"></i><b>5.2</b> Data from the Financial Evaluation of Projects</a></li>
+<li class="chapter" data-level="5.3" data-path="Financial-data.html"><a href="Financial-data.html#data-from-financial-statements"><i class="fa fa-check"></i><b>5.3</b> Data from Financial Statements</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="importing.html"><a href="importing.html"><i class="fa fa-check"></i><b>6</b> Importing and Exporting Data</a><ul>
+<li class="chapter" data-level="6.1" data-path="importing.html"><a href="importing.html#importing-data-from-local-files"><i class="fa fa-check"></i><b>6.1</b> Importing Data from Local Files</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="importing.html"><a href="importing.html#importing-data-from-a-.csv-file-comma-separated-values"><i class="fa fa-check"></i><b>6.1.1</b> Importing Data from a <em>.csv</em> File (<em>comma separated values</em>)</a></li>
+<li class="chapter" data-level="6.1.2" data-path="importing.html"><a href="importing.html#importing-data-from-an-excel-file"><i class="fa fa-check"></i><b>6.1.2</b> Importing Data from an <em>Excel</em> File</a></li>
+<li class="chapter" data-level="6.1.3" data-path="importing.html"><a href="importing.html#importing-data-from-a-.rdata-file"><i class="fa fa-check"></i><b>6.1.3</b> Importing Data from a <em>.RData</em> File</a></li>
+<li class="chapter" data-level="6.1.4" data-path="importing.html"><a href="importing.html#importing-data-from-sqlite"><i class="fa fa-check"></i><b>6.1.4</b> Importing Data from SQLITE</a></li>
+<li class="chapter" data-level="6.1.5" data-path="importing.html"><a href="importing.html#importing-data-from-a-text-file"><i class="fa fa-check"></i><b>6.1.5</b> Importing Data from a Text File</a></li>
+<li class="chapter" data-level="6.1.6" data-path="importing.html"><a href="importing.html#other-file-formats"><i class="fa fa-check"></i><b>6.1.6</b> Other File Formats</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="importing.html"><a href="importing.html#importing-data-using-the-internet"><i class="fa fa-check"></i><b>6.2</b> Importing Data Using the Internet</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="importing.html"><a href="importing.html#package-quantmod"><i class="fa fa-check"></i><b>6.2.1</b> Package <code>quantmod</code></a></li>
+<li class="chapter" data-level="6.2.2" data-path="importing.html"><a href="importing.html#package-batchgetsymbols"><i class="fa fa-check"></i><b>6.2.2</b> Package <code>BatchGetSymbols</code></a></li>
+<li class="chapter" data-level="6.2.3" data-path="importing.html"><a href="importing.html#package-finreportr"><i class="fa fa-check"></i><b>6.2.3</b> Package <code>finreportr</code></a></li>
+<li class="chapter" data-level="6.2.4" data-path="importing.html"><a href="importing.html#package-tidyquant"><i class="fa fa-check"></i><b>6.2.4</b> Package <code>tidyquant</code></a></li>
+<li class="chapter" data-level="6.2.5" data-path="importing.html"><a href="importing.html#package-gethfdata"><i class="fa fa-check"></i><b>6.2.5</b> Package <code>GetHFData</code></a></li>
+<li class="chapter" data-level="6.2.6" data-path="importing.html"><a href="importing.html#package-ustyc"><i class="fa fa-check"></i><b>6.2.6</b> Package <code>ustyc</code></a></li>
+<li class="chapter" data-level="6.2.7" data-path="importing.html"><a href="importing.html#quandl"><i class="fa fa-check"></i><b>6.2.7</b> Package <code>Quandl</code></a></li>
+<li class="chapter" data-level="6.2.8" data-path="importing.html"><a href="importing.html#package-rbitcoin"><i class="fa fa-check"></i><b>6.2.8</b> Package <code>Rbitcoin</code></a></li>
+<li class="chapter" data-level="6.2.9" data-path="importing.html"><a href="importing.html#other-packages"><i class="fa fa-check"></i><b>6.2.9</b> Other Packages</a></li>
+<li class="chapter" data-level="6.2.10" data-path="importing.html"><a href="importing.html#accessing-data-from-web-pages-webscraping"><i class="fa fa-check"></i><b>6.2.10</b> Accessing Data from Web Pages (<em>webscraping</em>)</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="importing.html"><a href="importing.html#exporting-to-local-file"><i class="fa fa-check"></i><b>6.3</b> Exporting to Local File</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="importing.html"><a href="importing.html#exporting-data-to-a-.csv-file"><i class="fa fa-check"></i><b>6.3.1</b> Exporting Data to a <em>.csv</em> File</a></li>
+<li class="chapter" data-level="6.3.2" data-path="importing.html"><a href="importing.html#exporting-data-to-a-rdata-file"><i class="fa fa-check"></i><b>6.3.2</b> Exporting Data to a <em>RData</em> File</a></li>
+<li class="chapter" data-level="6.3.3" data-path="importing.html"><a href="importing.html#exporting-data-to-an-excel-file"><i class="fa fa-check"></i><b>6.3.3</b> Exporting Data to an Excel File</a></li>
+<li class="chapter" data-level="6.3.4" data-path="importing.html"><a href="importing.html#exporting-data-to-a-text-file"><i class="fa fa-check"></i><b>6.3.4</b> Exporting Data to a Text File</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="programming.html"><a href="programming.html"><i class="fa fa-check"></i><b>7</b> Programming and Data Analysis with R</a><ul>
+<li class="chapter" data-level="7.1" data-path="programming.html"><a href="programming.html#creating-functions"><i class="fa fa-check"></i><b>7.1</b> Creating Functions</a></li>
+<li class="chapter" data-level="7.2" data-path="programming.html"><a href="programming.html#using-loops-for"><i class="fa fa-check"></i><b>7.2</b> Using Loops (<code>for</code>)</a></li>
+<li class="chapter" data-level="7.3" data-path="programming.html"><a href="programming.html#conditional-statements-if-else-switch"><i class="fa fa-check"></i><b>7.3</b> Conditional Statements (<code>if</code>, <code>else</code>, <code>switch</code>)</a></li>
+<li class="chapter" data-level="7.4" data-path="programming.html"><a href="programming.html#using-apply-functions"><i class="fa fa-check"></i><b>7.4</b> Using <code>apply</code> Functions</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="programming.html"><a href="programming.html#using-lapply"><i class="fa fa-check"></i><b>7.4.1</b> Using <code>lapply</code></a></li>
+<li class="chapter" data-level="7.4.2" data-path="programming.html"><a href="programming.html#using-sapply"><i class="fa fa-check"></i><b>7.4.2</b> Using <code>sapply</code></a></li>
+<li class="chapter" data-level="7.4.3" data-path="programming.html"><a href="programming.html#using-tapply"><i class="fa fa-check"></i><b>7.4.3</b> Using <code>tapply</code></a></li>
+<li class="chapter" data-level="7.4.4" data-path="programming.html"><a href="programming.html#using-mapply"><i class="fa fa-check"></i><b>7.4.4</b> Using <code>mapply</code></a></li>
+<li class="chapter" data-level="7.4.5" data-path="programming.html"><a href="programming.html#using-apply"><i class="fa fa-check"></i><b>7.4.5</b> Using <code>apply</code></a></li>
+<li class="chapter" data-level="7.4.6" data-path="programming.html"><a href="programming.html#using-by"><i class="fa fa-check"></i><b>7.4.6</b> Using <code>by</code></a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="programming.html"><a href="programming.html#data-manipulation-with-package-dplyr"><i class="fa fa-check"></i><b>7.5</b> Data Manipulation with Package <code>dplyr</code></a><ul>
+<li class="chapter" data-level="7.5.1" data-path="programming.html"><a href="programming.html#manipulating-a-dataframe-with-dplyr"><i class="fa fa-check"></i><b>7.5.1</b> Manipulating a <code>dataframe</code> with <code>dplyr</code></a></li>
+<li class="chapter" data-level="7.5.2" data-path="programming.html"><a href="programming.html#the-pipeline-operator"><i class="fa fa-check"></i><b>7.5.2</b> The Pipeline Operator (<code>%&gt;%</code>)</a></li>
+<li class="chapter" data-level="7.5.3" data-path="programming.html"><a href="programming.html#simple-group-operations-with-dplyr"><i class="fa fa-check"></i><b>7.5.3</b> Simple Group Operations with <code>dplyr</code></a></li>
+<li class="chapter" data-level="7.5.4" data-path="programming.html"><a href="programming.html#complex-group-operations-with-dplyr"><i class="fa fa-check"></i><b>7.5.4</b> Complex Group Operations with <code>dplyr</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="Figures.html"><a href="Figures.html"><i class="fa fa-check"></i><b>8</b> Creating and Saving Figures with <code>ggplot2</code></a><ul>
+<li class="chapter" data-level="8.1" data-path="Figures.html"><a href="Figures.html#using-graphic-windows"><i class="fa fa-check"></i><b>8.1</b> Using Graphic Windows</a></li>
+<li class="chapter" data-level="8.2" data-path="Figures.html"><a href="Figures.html#creating-figures-with-function-qplot"><i class="fa fa-check"></i><b>8.2</b> Creating Figures with Function <code>qplot</code></a></li>
+<li class="chapter" data-level="8.3" data-path="Figures.html"><a href="Figures.html#using-ggplot"><i class="fa fa-check"></i><b>8.3</b> Creating Figures with Function <code>ggplot</code></a><ul>
+<li class="chapter" data-level="8.3.1" data-path="Figures.html"><a href="Figures.html#using-themes"><i class="fa fa-check"></i><b>8.3.1</b> Using Themes</a></li>
+<li class="chapter" data-level="8.3.2" data-path="Figures.html"><a href="Figures.html#creating-panels-with-facet_wrap"><i class="fa fa-check"></i><b>8.3.2</b> Creating Panels with <code>facet_wrap</code></a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="Figures.html"><a href="Figures.html#using-pipelines-for-data-analysis-and-figures"><i class="fa fa-check"></i><b>8.4</b> Using Pipelines for Data Analysis and Figures</a></li>
+<li class="chapter" data-level="8.5" data-path="Figures.html"><a href="Figures.html#creating-statistical-graphics"><i class="fa fa-check"></i><b>8.5</b> Creating Statistical Graphics</a><ul>
+<li class="chapter" data-level="8.5.1" data-path="Figures.html"><a href="Figures.html#creating-histograms"><i class="fa fa-check"></i><b>8.5.1</b> Creating Histograms</a></li>
+<li class="chapter" data-level="8.5.2" data-path="Figures.html"><a href="Figures.html#creating-boxplot-figures"><i class="fa fa-check"></i><b>8.5.2</b> Creating <em>boxplot</em> Figures</a></li>
+<li class="chapter" data-level="8.5.3" data-path="Figures.html"><a href="Figures.html#creating-qq-plots"><i class="fa fa-check"></i><b>8.5.3</b> Creating <em>QQ</em> Plots</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="Figures.html"><a href="Figures.html#saving-graphics-to-a-file"><i class="fa fa-check"></i><b>8.6</b> Saving Graphics to a File</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="models.html"><a href="models.html"><i class="fa fa-check"></i><b>9</b> Financial Econometrics with R</a><ul>
+<li class="chapter" data-level="9.1" data-path="models.html"><a href="models.html#linear-models-ols"><i class="fa fa-check"></i><b>9.1</b> Linear Models (OLS)</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="models.html"><a href="models.html#simulating-a-linear-model"><i class="fa fa-check"></i><b>9.1.1</b> Simulating a Linear Model</a></li>
+<li class="chapter" data-level="9.1.2" data-path="models.html"><a href="models.html#estimating-ols"><i class="fa fa-check"></i><b>9.1.2</b> Estimating a Linear Model</a></li>
+<li class="chapter" data-level="9.1.3" data-path="models.html"><a href="models.html#testing-ols"><i class="fa fa-check"></i><b>9.1.3</b> Statistical Inference in Linear Models</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="models.html"><a href="models.html#generalized-linear-models-glm"><i class="fa fa-check"></i><b>9.2</b> Generalized Linear Models (GLM)</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="models.html"><a href="models.html#simulating-a-glm-model"><i class="fa fa-check"></i><b>9.2.1</b> Simulating a GLM Model</a></li>
+<li class="chapter" data-level="9.2.2" data-path="models.html"><a href="models.html#estimating-a-glm-model"><i class="fa fa-check"></i><b>9.2.2</b> Estimating a GLM Model</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="models.html"><a href="models.html#panel-data-models"><i class="fa fa-check"></i><b>9.3</b> Panel Data Models</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="models.html"><a href="models.html#simulating-panel-data-models"><i class="fa fa-check"></i><b>9.3.1</b> Simulating Panel Data Models</a></li>
+<li class="chapter" data-level="9.3.2" data-path="models.html"><a href="models.html#estimating-panel-data-models"><i class="fa fa-check"></i><b>9.3.2</b> Estimating Panel Data Models</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="models.html"><a href="models.html#arima-models"><i class="fa fa-check"></i><b>9.4</b> Arima Models</a><ul>
+<li class="chapter" data-level="9.4.1" data-path="models.html"><a href="models.html#simulating-arima-models"><i class="fa fa-check"></i><b>9.4.1</b> Simulating Arima Models</a></li>
+<li class="chapter" data-level="9.4.2" data-path="models.html"><a href="models.html#arima-estimating"><i class="fa fa-check"></i><b>9.4.2</b> Estimating Arima Models</a></li>
+<li class="chapter" data-level="9.4.3" data-path="models.html"><a href="models.html#forecasting-arima-models"><i class="fa fa-check"></i><b>9.4.3</b> Forecasting Arima Models</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="models.html"><a href="models.html#garch-models"><i class="fa fa-check"></i><b>9.5</b> Garch Models</a><ul>
+<li class="chapter" data-level="9.5.1" data-path="models.html"><a href="models.html#simulating-garch-models"><i class="fa fa-check"></i><b>9.5.1</b> Simulating Garch Models</a></li>
+<li class="chapter" data-level="9.5.2" data-path="models.html"><a href="models.html#estimating-garch"><i class="fa fa-check"></i><b>9.5.2</b> Estimating Garch Models</a></li>
+<li class="chapter" data-level="9.5.3" data-path="models.html"><a href="models.html#forecasting-garch-models"><i class="fa fa-check"></i><b>9.5.3</b> Forecasting Garch Models</a></li>
+</ul></li>
+<li class="chapter" data-level="9.6" data-path="models.html"><a href="models.html#regime-switching-models"><i class="fa fa-check"></i><b>9.6</b> Regime Switching Models</a><ul>
+<li class="chapter" data-level="9.6.1" data-path="models.html"><a href="models.html#simulating-regime-switching-models"><i class="fa fa-check"></i><b>9.6.1</b> Simulating Regime Switching Models</a></li>
+<li class="chapter" data-level="9.6.2" data-path="models.html"><a href="models.html#estimating-regime-switching-models"><i class="fa fa-check"></i><b>9.6.2</b> Estimating Regime Switching Models</a></li>
+<li class="chapter" data-level="9.6.3" data-path="models.html"><a href="models.html#forecasting-regime-switching-models"><i class="fa fa-check"></i><b>9.6.3</b> Forecasting Regime Switching Models</a></li>
+</ul></li>
+<li class="chapter" data-level="9.7" data-path="models.html"><a href="models.html#dealing-with-several-models"><i class="fa fa-check"></i><b>9.7</b> Dealing with Several Models</a></li>
+<li class="chapter" data-level="9.8" data-path="models.html"><a href="models.html#reporting-models"><i class="fa fa-check"></i><b>9.8</b> Reporting Models with <code>texreg</code></a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="research-scripts.html"><a href="research-scripts.html"><i class="fa fa-check"></i><b>10</b> Writing Research Scripts</a><ul>
+<li class="chapter" data-level="10.1" data-path="research-scripts.html"><a href="research-scripts.html#structure-of-a-research-script"><i class="fa fa-check"></i><b>10.1</b> Structure of a Research Script</a></li>
+<li class="chapter" data-level="10.2" data-path="research-scripts.html"><a href="research-scripts.html#folder-structure"><i class="fa fa-check"></i><b>10.2</b> Folder Structure</a></li>
+<li class="chapter" data-level="10.3" data-path="research-scripts.html"><a href="research-scripts.html#ExampleResearch"><i class="fa fa-check"></i><b>10.3</b> Examples of Research Scripts</a><ul>
+<li class="chapter" data-level="10.3.1" data-path="research-scripts.html"><a href="research-scripts.html#research-performance"><i class="fa fa-check"></i><b>10.3.1</b> The performance of international investments</a></li>
+<li class="chapter" data-level="10.3.2" data-path="research-scripts.html"><a href="research-scripts.html#research-prophet"><i class="fa fa-check"></i><b>10.3.2</b> Can we predict stock’s returns with Prophet?</a></li>
+<li class="chapter" data-level="10.3.3" data-path="research-scripts.html"><a href="research-scripts.html#research-gethfdata"><i class="fa fa-check"></i><b>10.3.3</b> An Analysis of High Frequency trade Data</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://sites.google.com/view/pmfdr/home" target="blank">Book Companion Site</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Processing and Analyzing Financial Data with R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="Figures" class="section level1">
+<h1><span class="header-section-number">Chapter 8</span> Creating and Saving Figures with <code>ggplot2</code></h1>
+<p>Using graphical resources in technical reports and academic documents is widespread. Sometimes, this is simply what your audience expects. R has built-in functions for creating figures, such as <code>plot</code> and <code>hist</code>. Using the native plotting functions, however, is not recommended. The customization of the graphic is not straightforward and the options are limited. This deficiency was remedied by users. In 2005, Hadley Wickham, author of many other packages featured in this book, proposed a new way of structuring and creating figures in R, with a package called <code>ggplot2</code> <span class="citation">(Wickham <a href="#ref-wickham2009ggplot2">2009</a>)</span>. It provides functions to generate graphics, structuring the process with an accessible and intuitive <em>layer</em> notation. This means graphics can be customized quickly and easily. </p>
+<p>In this book, we will not go deep into <code>ggplot2</code> and all the details of its capacity. We will show the main features of the package for most situations of data analysis in finance. For advanced users who want to know more about <code>ggplot2</code>, my advice is to consult the author’s own book <span class="citation">(Wickham <a href="#ref-wickham2009ggplot2">2009</a>)</span>.</p>
+<p>For most examples given here, we will work with the data available in file <code>SP500-Stocks-WithRet.RData</code>. It contains daily closing prices and returns data for all components of the SP500 index. This file was created in chapter <a href="programming.html#programming">7</a>.</p>
+<p>First, let’s load the data.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set file and load data</span>
+my.f &lt;-<span class="st"> &#39;data/SP500-Stocks-WithRet.RData&#39;</span>
+<span class="kw">load</span>(my.f)
+
+<span class="co"># print first 5 rows</span>
+<span class="kw">print</span>(<span class="kw">head</span>(my.df))</code></pre></div>
+<pre><code>## # A tibble: 6 × 4
+##   price.adjusted   ref.date ticker          ret
+##            &lt;dbl&gt;     &lt;date&gt;  &lt;chr&gt;        &lt;dbl&gt;
+## 1       68.72509 2010-01-05    MMM -0.006263503
+## 2       69.69973 2010-01-06    MMM  0.014181794
+## 3       69.74972 2010-01-07    MMM  0.000717162
+## 4       70.24120 2010-01-08    MMM  0.007046423
+## 5       69.95798 2010-01-11    MMM -0.004032220
+## 6       70.01629 2010-01-12    MMM  0.000833529</code></pre>
+<div id="using-graphic-windows" class="section level2">
+<h2><span class="header-section-number">8.1</span> Using Graphic Windows</h2>
+<p>Before studying the use of <code>ggplot2</code>, we need to understand how these images are handled within the RStudio platform. When a new figure is created, as in <code>plot(1:20)</code>, it appears in the <em>Plots</em> panel (bottom right corner of RStudio). This panel, however, is small, making it difficult to visualize the figure in standard monitors. You can increase the panel’s size manually, but this creates unnecessary work, as you might need to resize it later to give space for other panels.</p>
+<p>A more intelligent approach to managing figures is to create an external window in RStudio, so the graphic can be displayed and resized independently of the main interface. To create a window, just use command <code>x11()</code> before the line of code that creates the figure, as in: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">x11</span>()
+<span class="kw">plot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</code></pre></div>
+<p>The visual result in RStudio should be similar to Figure <a href="Figures.html#fig:UseOfX11">8.1</a>.</p>
+<div class="figure" style="text-align: center"><span id="fig:UseOfX11"></span>
+<img src="figs/UseOfX11.png" alt="Screen of RStudio with the use of command x11()" width="100%" />
+<p class="caption">
+Figure 8.1: Screen of RStudio with the use of command x11()
+</p>
+</div>
+<p>Each call to <code>x11()</code> will create a new window. Therefore, we can create various figures and allocate them in different windows, making it easy to analyze each individually or together, side by side.</p>
+<p>After creating so many windows, it is best to close them. You can use <code>graphics.off</code> for that. This function, called with no argument, as in <code>graphics.off()</code>, will close all opened windows. It is common practice to use it in the beginning of a research script, so all graphic windows are closed.</p>
+</div>
+<div id="creating-figures-with-function-qplot" class="section level2">
+<h2><span class="header-section-number">8.2</span> Creating Figures with Function <code>qplot</code></h2>
+<p>Package <code>ggplot2</code> has an introductory function, called <code>qplot</code> (<em>quick plot</em>), that mimics the behaviour of the native R function <code>plot</code>. To use it, all you need to know are the points that define the horizontal axis (x), the points of the vertical axis (y), and the geometric shape used in the plot. </p>
+<p>To build a time series plot with the prices of stock <code>MMM</code>, we use the following code:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
+
+<span class="co"># filter stock data</span>
+temp.df &lt;-<span class="st"> </span>my.df[my.df<span class="op">$</span>ticker <span class="op">==</span><span class="st"> &#39;MMM&#39;</span>, ]
+
+<span class="co"># plot its prices</span>
+<span class="kw">qplot</span>(<span class="dt">data =</span> temp.df, 
+      <span class="dt">x =</span> ref.date, 
+      <span class="dt">y =</span> price.adjusted, 
+      <span class="dt">geom =</span> <span class="st">&#39;line&#39;</span>)</code></pre></div>
+<p><img src="ProcAnFinDataR_ed_1_files/figure-html/unnamed-chunk-448-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>In the previous example, the name of the axis corresponds to the names of the columns in <code>temp.df</code>. If we want to customize it for a given text, we use arguments <code>xlab</code> and <code>ylab</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">qplot</span>(<span class="dt">data =</span> temp.df, 
+      <span class="dt">x =</span> ref.date, 
+      <span class="dt">y =</span> price.adjusted, 
+      <span class="dt">geom =</span> <span class="st">&#39;line&#39;</span>, 
+      <span class="dt">xlab =</span> <span class="st">&#39;Dates&#39;</span>, 
+      <span class="dt">ylab =</span> <span class="st">&#39;Adjusted closing prices&#39;</span>)</code></pre></div>
+<p><img src="ProcAnFinDataR_ed_1_files/figure-html/unnamed-chunk-449-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>Notice how the horizontal axis of dates in the previous figures is formatted to show only the years. It adapts automatically according to the length of time in the plot. This only happened because the <code>ref.date</code> column is correctly defined as a <code>Date</code> object.</p>
+</div>
+<div id="using-ggplot" class="section level2">
+<h2><span class="header-section-number">8.3</span> Creating Figures with Function <code>ggplot</code></h2>
+<p>Using function <code>qplot</code> is recommended when you want to create a plot quickly for immediate viewing. This function has restrictions in the way it works, making it more difficult to customize the output.The recommended function to use in <code>ggplot2</code> is <code>ggplot</code>. It uses a specific framework that allows a series of complex graphical constructions. </p>
+<p>Before presenting examples using <code>ggplot</code>, let’s discuss the philosophy behind how <code>ggplot</code> works. First, every figure has horizontal and vertical coordinates. These points define where the symbols or lines should be drawn. Second, we have a geometric shape placed in the coordinates. It can be a circle, a point or a line, as in the previous figures. We set the size and colour of these objects and, finally, by combining all these elements, we create the full figure.</p>
+<p>The distinction between the steps of creating a figure is important, because it is precisely this way that <code>ggplot2</code> works. We make choices for x, y, colour, and size based on data, and then chose the desired format of the graphic. Everything works within each step, as if we are drawing layers in the figure.</p>
+<p>Look at the syntax of the following example that recreates the figure previously created with <code>qplot</code>.   </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> temp.df, <span class="kw">aes</span>(<span class="dt">x =</span> ref.date, <span class="dt">y =</span> price.adjusted))
+p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>()
+p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&#39;Dates&#39;</span>, <span class="dt">y =</span> <span class="st">&#39;Adjusted closing prices&#39;</span>)
+<span class="kw">print</span>(p)</code></pre></div>
+<p><img src="ProcAnFinDataR_ed_1_files/figure-html/unnamed-chunk-450-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>In using <code>ggplot</code>, it is always necessary to provide a <code>dataframe</code>. If you want to create figures from atomic vectors, you must allocate them to a <code>dataframe</code> first. After defining the data, we use function <code>aes</code> to set the aesthetics of the graph with the <em>x</em> and <em>y</em> coordinates. Here, we set the horizontal axis using column <code>date</code> and the vertical axis as prices (column <code>price.adjusted</code>). As we will soon see, it is possible to use other information in <code>aes</code>, such as colour and shapes.</p>
+<p>Once the data and axis are defined, we save it in object <code>p</code>. This object registers the current information as new layers are added with the <code>+</code> sign. The second line of the code, <code>p &lt;- p + geom_line()</code>, defines the type of figure. Here, we used function <code>geom_lines</code>, which is a simple line graph that connects the points. In <code>ggplot2</code>, the functions that define the geometric type begins with <code>geom_</code> character. So, using the <em>autocomplete</em> function of RStudio, you can see there a lot of options. We can use <code>stringr</code> to find the list of functions in <code>ggplot2</code>, version 2.2.1 (2017-04-29), that starts with <code>geom_</code>: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
+<span class="kw">library</span>(stringr)
+
+<span class="co"># get names of functions in ggplot2</span>
+fcts &lt;-<span class="st"> </span><span class="kw">ls</span>(<span class="st">&#39;package:ggplot2&#39;</span>)
+
+<span class="co"># select those that starts with geom_</span>
+idx &lt;-<span class="st"> </span><span class="kw">str_sub</span>(fcts, <span class="dv">1</span>, <span class="dv">5</span>) <span class="op">==</span><span class="st"> &#39;geom_&#39;</span>
+fcts &lt;-<span class="st"> </span>fcts[idx]
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(fcts)</code></pre></div>
+<pre><code>##  [1] &quot;geom_abline&quot;     &quot;geom_area&quot;       &quot;geom_bar&quot;       
+##  [4] &quot;geom_bin2d&quot;      &quot;geom_blank&quot;      &quot;geom_boxplot&quot;   
+##  [7] &quot;geom_col&quot;        &quot;geom_contour&quot;    &quot;geom_count&quot;     
+## [10] &quot;geom_crossbar&quot;   &quot;geom_curve&quot;      &quot;geom_density&quot;   
+## [13] &quot;geom_density_2d&quot; &quot;geom_density2d&quot;  &quot;geom_dotplot&quot;   
+## [16] &quot;geom_errorbar&quot;   &quot;geom_errorbarh&quot;  &quot;geom_freqpoly&quot;  
+## [19] &quot;geom_hex&quot;        &quot;geom_histogram&quot;  &quot;geom_hline&quot;     
+## [22] &quot;geom_jitter&quot;     &quot;geom_label&quot;      &quot;geom_line&quot;      
+## [25] &quot;geom_linerange&quot;  &quot;geom_map&quot;        &quot;geom_path&quot;      
+## [28] &quot;geom_point&quot;      &quot;geom_pointrange&quot; &quot;geom_polygon&quot;   
+## [31] &quot;geom_qq&quot;         &quot;geom_quantile&quot;   &quot;geom_raster&quot;    
+## [34] &quot;geom_rect&quot;       &quot;geom_ribbon&quot;     &quot;geom_rug&quot;       
+## [37] &quot;geom_segment&quot;    &quot;geom_smooth&quot;     &quot;geom_spoke&quot;     
+## [40] &quot;geom_step&quot;       &quot;geom_text&quot;       &quot;geom_tile&quot;      
+## [43] &quot;geom_violin&quot;     &quot;geom_vline&quot;</code></pre>
+<p>As you can see, there are plenty of options. Package <code>ggplot2</code> offers a significant quantity of geometrics shapes in creating figures. Going back to our example, the third line of the code defines the name of axis <em>x</em> and <em>y</em> with function <code>labs</code>. Finally, we print the figure stored in <code>p</code> with function <code>print</code>. It is important to highlight this modular approach in using <code>ggplot</code>: each layer of the figure was created in a line of code. For example, if we did not want to set the axes as <em>Dates</em> and <em>Adjusted closing prices</em>, we can simply comment the line in the script, as in:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> temp.df, <span class="kw">aes</span>(<span class="dt">x =</span> ref.date, <span class="dt">y =</span> price.adjusted))
+p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>()
+<span class="co">#p &lt;- p + labs(x = &#39;Dates&#39;, y = &#39;Adjusted closing prices&#39;)</span>
+<span class="kw">print</span>(p)</code></pre></div>
+<p>One of the great advantages of using <code>ggplot</code> is when creating figures for different groups. Let’s create a figure that shows, on the same axis, prices of four stocks selected randomly. The first step is to create a temporary <code>dataframe</code> that contains these stocks only.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># fix seed</span>
+<span class="kw">set.seed</span>(<span class="dv">10</span>)
+
+<span class="co"># select 4 stocks randomly</span>
+my.tickers &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="kw">unique</span>(my.df<span class="op">$</span>ticker), <span class="dv">4</span>)
+
+<span class="co"># find all rows that contain the stocks</span>
+idx &lt;-<span class="st"> </span>my.df<span class="op">$</span>ticker <span class="op">%in%</span><span class="st"> </span>my.tickers
+
+<span class="co"># create temporary df</span>
+temp.df &lt;-<span class="st"> </span>my.df[idx, ]</code></pre></div>
+<p>In this code, first, we set a random seed, so anyone can reproduce the result. We use operator <code>%in%</code> to find out the rows of <code>my.df</code> that contain data for the tickers in <code>my.tickers</code>. It returns <code>TRUE</code> when any <em>ticker</em> in <code>my.tickers</code> is found and <code>FALSE</code> otherwise. After finding the rows, we create a temporary <code>dataframe</code> that contains the data of the selected stocks. Now, we create the figure with the following code: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> temp.df, <span class="kw">aes</span>(<span class="dt">x =</span> ref.date, 
+                                <span class="dt">y =</span> price.adjusted, 
+                                <span class="dt">colour=</span>ticker))
+p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>()
+p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&#39;Dates&#39;</span>, <span class="dt">y =</span> <span class="st">&#39;Adjusted closing prices&#39;</span>)
+<span class="kw">print</span>(p)</code></pre></div>
+<p><img src="ProcAnFinDataR_ed_1_files/figure-html/unnamed-chunk-455-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>A difference from the previous examples is that we defined the colour of the lines using argument <code>colour</code> in <code>aes</code>. Each line colour is defined by the elements in column <code>ticker</code> of <code>temp.df</code>. The actual choices of colour, e.g., red, blue, and so on, is automatically defined by <code>ggplot</code>.</p>
+<p>Now, let’s use what we learned so far to create the current yield curve of the US market. The yield curve is one of the standard plots in finance, showing the market assessment of interest rates according to different time horizons. In the following code, we will first download the related data using package <code>ustyc</code>, structure and clean the raw data, and plot the yields for the last available date in 2016 using <code>ggplot2</code>. </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ustyc)
+<span class="kw">library</span>(tidyr)
+<span class="kw">library</span>(ggplot2)
+<span class="kw">library</span>(stringr)
+
+<span class="co"># get yield curve</span>
+my.df.yc &lt;-<span class="st"> </span><span class="kw">getYieldCurve</span>(<span class="dt">year =</span> <span class="dv">2016</span>)<span class="op">$</span>df
+
+<span class="co"># set date.col</span>
+my.df.yc<span class="op">$</span>ref.date &lt;-<span class="st"> </span><span class="kw">as.Date</span>(<span class="kw">rownames</span>(my.df.yc))
+
+<span class="co"># change to long format and convert to factor</span>
+my.df.yc &lt;-<span class="st"> </span><span class="kw">gather</span>(<span class="dt">data=</span>my.df.yc, <span class="dt">key =</span>ref.date)
+<span class="kw">names</span>(my.df.yc) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;ref.date&#39;</span>, <span class="st">&#39;maturity&#39;</span>, <span class="st">&#39;rate&#39;</span>)
+my.df.yc<span class="op">$</span>maturity &lt;-<span class="st"> </span><span class="kw">as.factor</span>(my.df.yc<span class="op">$</span>maturity)
+
+<span class="co"># keep only longer term yields (names with YEAR)</span>
+idx &lt;-<span class="st"> </span><span class="kw">str_detect</span>(my.df.yc<span class="op">$</span>maturity, <span class="st">&#39;YEAR&#39;</span>)
+my.df.yc &lt;-<span class="st"> </span>my.df.yc[idx, ]
+
+<span class="co"># change name to year number with </span>
+<span class="co"># obs: regex ([0-9]+) extracts all numbers within a string</span>
+out &lt;-<span class="st"> </span><span class="kw">str_extract_all</span>(<span class="dt">string =</span> my.df.yc<span class="op">$</span>maturity,
+                       <span class="dt">pattern =</span> <span class="st">&#39;([0-9]+)&#39;</span>)
+my.df.yc<span class="op">$</span>maturity &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(out)
+
+<span class="co"># keep only last date of each</span>
+last.date &lt;-<span class="st"> </span><span class="kw">max</span>(my.df.yc<span class="op">$</span>ref.date)
+my.df.yc.last.date &lt;-<span class="st"> </span>my.df.yc[my.df.yc<span class="op">$</span>ref.date <span class="op">==</span><span class="st"> </span>last.date, ]
+
+<span class="co"># plot it!</span>
+p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(my.df.yc.last.date, <span class="kw">aes</span>(<span class="dt">x=</span>maturity, <span class="dt">y=</span>rate))
+p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">size=</span><span class="dv">2</span>)
+p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">size=</span><span class="dv">1</span>)
+p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&#39;Maturity (years)&#39;</span>, 
+              <span class="dt">y=</span><span class="st">&#39;Yield Rate&#39;</span>,
+              <span class="dt">title =</span> <span class="kw">paste0</span>(<span class="st">&#39;US Yield Curve (&#39;</span>,last.date,<span class="st">&#39;)&#39;</span> ))
+
+<span class="kw">print</span>(p)</code></pre></div>
+<p><img src="ProcAnFinDataR_ed_1_files/figure-html/unnamed-chunk-456-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>As expected, the current yield curve is upward rising, meaning the yield rate increases with the maturity of the debt. As an extension of the example, we can add some dynamic to the figure by using several dates. Have a look in the following code, where we use five yield curves covering the whole year of 2016.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set number of periods </span>
+n.periods &lt;-<span class="st"> </span><span class="dv">5</span>
+
+<span class="co"># set sequence of observations</span>
+my.seq &lt;-<span class="st"> </span><span class="kw">floor</span>(<span class="kw">seq</span>(<span class="dv">1</span>,<span class="kw">nrow</span>(my.df.yc), <span class="dt">length.out =</span> n.periods))
+
+<span class="co"># get actual dates from sequence</span>
+my.dates &lt;-<span class="st"> </span>my.df.yc<span class="op">$</span>ref.date[my.seq]
+
+<span class="co"># find rows for dates in df</span>
+idx &lt;-<span class="st"> </span>my.df.yc<span class="op">$</span>ref.date <span class="op">%in%</span><span class="st"> </span>my.dates
+my.df.yc.periods &lt;-<span class="st"> </span>my.df.yc[idx, ]
+
+<span class="co"># plot it!</span>
+p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(my.df.yc.periods, <span class="kw">aes</span>(<span class="dt">x=</span>maturity, 
+                                  <span class="dt">y=</span>rate, 
+                                  <span class="dt">color=</span> <span class="kw">factor</span>(ref.date)))
+p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">size=</span><span class="dv">2</span>)
+p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">size=</span><span class="dv">1</span>)
+p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&#39;Maturity (years)&#39;</span>, 
+              <span class="dt">y=</span><span class="st">&#39;Yield Rate&#39;</span>,
+              <span class="dt">title =</span> <span class="st">&#39;US Yield Curve&#39;</span>)
+
+<span class="kw">print</span>(p)</code></pre></div>
+<p><img src="ProcAnFinDataR_ed_1_files/figure-html/unnamed-chunk-457-1.png" width="60%" style="display: block; margin: auto;" /> The US yield curve changed significantly in 2016. In empirical applications, the information in the US yield curve can be used as a benchmark for the calculation of cost of capital.</p>
+<p>As another example of geometric shape in <code>ggplot</code>, let’s create a bar plot with the daily sharpe ratio, mean divided by standard deviation of returns, for 10 assets from the database, ordered from high to low. First, we need to calculate the sharpe ratio for each stock. This is easily done with <code>dplyr</code>. Once the data is available, we use <code>geom_bar</code> to create the bar figure. Notice input <code>x</code> in <code>aes</code> is set using <code>reorder(ticker, -sharpe.ratio)</code>. It forces the horizontal axis to display descending values of sharpe ratio.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
+<span class="co"># fix seed</span>
+<span class="kw">set.seed</span>(<span class="dv">10</span>)
+
+<span class="co"># select 10 stocks randomly</span>
+my.tickers &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="kw">unique</span>(my.df<span class="op">$</span>ticker), <span class="dv">10</span>)
+
+<span class="co"># find all rows that contain the stocks</span>
+idx &lt;-<span class="st"> </span>my.df<span class="op">$</span>ticker <span class="op">%in%</span><span class="st"> </span>my.tickers
+
+<span class="co"># create temporary df</span>
+temp.df &lt;-<span class="st"> </span>my.df[idx, ]
+
+plot.df &lt;-<span class="st"> </span>temp.df <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">group_by</span>(ticker) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">sharpe.ratio =</span> <span class="kw">mean</span>(ret)<span class="op">/</span><span class="kw">sd</span>(ret))
+  
+
+p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> plot.df, 
+            <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">reorder</span>(ticker, <span class="op">-</span>sharpe.ratio), 
+            <span class="dt">y =</span> sharpe.ratio))
+p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">&#39;identity&#39;</span>)
+p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&#39;Tickers&#39;</span>, <span class="dt">y =</span> <span class="st">&#39;Daily Sharpe Ratio&#39;</span>)
+<span class="kw">print</span>(p)</code></pre></div>
+<p><img src="ProcAnFinDataR_ed_1_files/figure-html/unnamed-chunk-458-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<div id="using-themes" class="section level3">
+<h3><span class="header-section-number">8.3.1</span> Using Themes</h3>
+<p>One way of customizing graphics in <code>ggplot2</code> is using themes. A theme is a collection of options that defines the organization of the figure, its points and line colours, notation of axis, background colour, and several other features. Package <code>ggplot</code> has a collection of functions for setting themes, and their name start with text <em>theme</em>. Next, we show the list of theme related functions in <code>ggplot</code>, version 2.2.1 (2017-04-29).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
+<span class="kw">library</span>(stringr)
+
+<span class="co"># get all functions</span>
+fcts &lt;-<span class="st"> </span><span class="kw">ls</span>(<span class="st">&#39;package:ggplot2&#39;</span>)
+
+<span class="co"># find out those that start with theme_</span>
+idx &lt;-<span class="st"> </span><span class="kw">str_sub</span>(fcts, <span class="dv">1</span>, <span class="dv">6</span>) <span class="op">==</span><span class="st"> &#39;theme_&#39;</span>
+fcts &lt;-<span class="st"> </span>fcts[idx]
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(fcts)</code></pre></div>
+<pre><code>##  [1] &quot;theme_bw&quot;       &quot;theme_classic&quot;  &quot;theme_dark&quot;    
+##  [4] &quot;theme_get&quot;      &quot;theme_gray&quot;     &quot;theme_grey&quot;    
+##  [7] &quot;theme_light&quot;    &quot;theme_linedraw&quot; &quot;theme_minimal&quot; 
+## [10] &quot;theme_replace&quot;  &quot;theme_set&quot;      &quot;theme_update&quot;  
+## [13] &quot;theme_void&quot;</code></pre>
+<p>Let’s try it with the theme of function <code>theme_bw</code>. From the manual: “theme_bw sets the classic dark-on-light ggplot2 theme. May work better for presentations displayed with a projector.” Let’s look at it visually. We need only to add a new line <code>p &lt;- p + theme_bw()</code> in the previous code. </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> temp.df, <span class="kw">aes</span>(<span class="dt">x =</span> ref.date, 
+                                <span class="dt">y =</span> price.adjusted, 
+                                <span class="dt">colour=</span>ticker))
+p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>()
+p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&#39;Dates&#39;</span>, <span class="dt">y =</span> <span class="st">&#39;Adjusted closing prices&#39;</span>)
+p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">theme_bw</span>()
+
+<span class="kw">print</span>(p)</code></pre></div>
+<p><img src="ProcAnFinDataR_ed_1_files/figure-html/unnamed-chunk-460-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>As you can see, the new theme was a white background and a frame box. You can try other themes on your computer and see which one you like the most. You can also create your own theme. Have a look at <span class="citation">Wickham (<a href="#ref-wickham2009ggplot2">2009</a>)</span> for instructions on this specific task.</p>
+<p>In the previous example, notice how the structure of the figure has changed, but not the colours of the lines. These selection of the colours follows a cycle. When the whole sequence of colours ends, it restarts. Sometimes, especially in the submission to scientific journals, it is expected that all figures have a grey theme; they must be in black and white. We can use function <code>scale_colour_grey</code> to set a colour cycle between white and black in our previous figure: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">scale_colour_grey</span>(<span class="dt">start =</span> <span class="fl">0.0</span>, <span class="dt">end =</span> <span class="fl">0.6</span>)
+<span class="kw">print</span>(p)  </code></pre></div>
+<p><img src="ProcAnFinDataR_ed_1_files/figure-html/unnamed-chunk-461-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>The lines of the plot are now in grey. The inputs <code>start</code> and <code>end</code> at <code>scale_color_grey</code> set the minimum and maximum of “whiteness”. So, never use <code>end=1</code> with a white background. Otherwise, some lines will will not be visible.</p>
+</div>
+<div id="creating-panels-with-facet_wrap" class="section level3">
+<h3><span class="header-section-number">8.3.2</span> Creating Panels with <code>facet_wrap</code></h3>
+<p>Another possibility in creating graphics for different groups is to use panels. It allocates each group in a different part of the figure. When placed side by side and with the same axis, the visual comparison is straightforward.</p>
+<p>Facets are possible with function <code>facet_wrap</code>, which takes as input a formula containing the name of a column with groups that will define each panel. In the following example, we use <code>facet_wrap</code> with option <code>facets = ~ ticker</code> to create a panel of prices for four selected assets. </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
+<span class="co"># fix seed</span>
+<span class="kw">set.seed</span>(<span class="dv">20</span>)
+
+<span class="co"># select 4 stocks randomly</span>
+my.tickers &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="kw">unique</span>(my.df<span class="op">$</span>ticker), <span class="dv">4</span>)
+
+p &lt;-<span class="st"> </span>my.df <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">filter</span>(ticker <span class="op">%in%</span><span class="st"> </span>my.tickers) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> ref.date, <span class="dt">y =</span> price.adjusted)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&#39;Date&#39;</span>, 
+       <span class="dt">y =</span> <span class="st">&#39;Adjusted closing prices&#39;</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="dt">facets =</span> <span class="op">~</span>ticker)
+    
+<span class="kw">print</span>(p)</code></pre></div>
+<p><img src="ProcAnFinDataR_ed_1_files/figure-html/unnamed-chunk-462-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>Using panels is recommended when the data of the groups are similar and tend to agglomerate. This makes it difficult to analyze the differences between the groups in a single graphic. This is the case of stock returns of different assets. Consider the following example, where we create a panel for the returns of four randomly selected shares.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># fix seed</span>
+<span class="kw">set.seed</span>(<span class="dv">25</span>)
+
+<span class="co"># select 4 stocks randomly</span>
+my.tickers &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="kw">unique</span>(my.df<span class="op">$</span>ticker), <span class="dv">4</span>)
+
+p &lt;-<span class="st"> </span>my.df <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">filter</span>(ticker <span class="op">%in%</span><span class="st"> </span>my.tickers) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> ref.date, <span class="dt">y =</span> ret)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">size=</span><span class="dv">1</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&#39;Date&#39;</span>, 
+       <span class="dt">y =</span> <span class="st">&#39;Returns&#39;</span>) <span class="op">+</span><span class="st">   </span>
+<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="dt">facets =</span> <span class="op">~</span>ticker)
+    
+<span class="kw">print</span>(p)</code></pre></div>
+<p><img src="ProcAnFinDataR_ed_1_files/figure-html/unnamed-chunk-463-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>Notice how the vertical axis of the panels is fixed for all stocks, facilitating the visual analysis. We can also set the scales free by using option <code>scales='free'</code> in <code>facet_wrap</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">facet_wrap</span>(<span class="dt">facets =</span> <span class="op">~</span>ticker, <span class="dt">scales =</span> <span class="st">&#39;free&#39;</span>)
+    
+<span class="kw">print</span>(p)</code></pre></div>
+<p><img src="ProcAnFinDataR_ed_1_files/figure-html/unnamed-chunk-464-1.png" width="60%" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="using-pipelines-for-data-analysis-and-figures" class="section level2">
+<h2><span class="header-section-number">8.4</span> Using Pipelines for Data Analysis and Figures</h2>
+<p>Another great thing about <code>ggplot2</code> is you can use the pipeline operator and write a code where data processing and plotting are integrated. Look at the next example, where we plot the average return and standard deviation of all stocks from the dataset available in <code>my.df</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
+<span class="kw">library</span>(ggplot2)
+
+<span class="co"># calculated mean and sd of returns, plot result</span>
+p &lt;-<span class="st"> </span>my.df <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">group_by</span>(ticker) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean.ret =</span> <span class="kw">mean</span>(ret),
+            <span class="dt">std.ret =</span> <span class="kw">sd</span>(ret)) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> std.ret, <span class="dt">y =</span> mean.ret)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&#39;Standard deviation of returns&#39;</span>, 
+       <span class="dt">y =</span> <span class="st">&#39;Average Returns&#39;</span>)
+
+
+<span class="kw">print</span>(p)</code></pre></div>
+<p><img src="ProcAnFinDataR_ed_1_files/figure-html/unnamed-chunk-465-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>Notice how the previous code is self-contained, easy to read, and elegant. It goes from raw data to the plot, with no object created in the intermediate steps. Anyone can clearly see the steps taken to build the plot. Modifications in the data processing stage are also straightforward. One detail about using pipelines with <code>ggplot</code> is the steps in the plot creation are incremented with the <code>+</code> sign, not <code>%&gt;%</code>. From this section on, we will use the pipeline notation to simplify the code, whenever possible.</p>
+<p>We only scratched the surface of <code>ggplot2</code>. Many other aspects of the resulting figure can be controlled. Users with a specific need may consult the manual or the main reference of the package, <span class="citation">Wickham (<a href="#ref-wickham2009ggplot2">2009</a>)</span>. Forums and <em>mailing lists</em> are also a great source of information.</p>
+</div>
+<div id="creating-statistical-graphics" class="section level2">
+<h2><span class="header-section-number">8.5</span> Creating Statistical Graphics</h2>
+<p>Package <code>ggplot</code> has several options for creating graphs with statistical content. This includes histograms, <em>boxplot</em> graphics, QQ plots, and more.</p>
+<div id="creating-histograms" class="section level3">
+<h3><span class="header-section-number">8.5.1</span> Creating Histograms</h3>
+<p>A histogram shows the empirical distribution of the data. We can easily create them with <code>ggplot</code> and function <code>geom_histogram</code>. An example is given in the following code, where we generate a histogram for all returns found in <code>my.df</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> my.df, <span class="kw">aes</span>(<span class="dt">x =</span> ret))
+p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">25</span>)
+  
+<span class="kw">print</span>(p)</code></pre></div>
+<p><img src="ProcAnFinDataR_ed_1_files/figure-html/unnamed-chunk-466-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>Here, we only need to define the <em>x</em> value, without the <em>y</em>. The size of the intervals in the histogram is defined by input <code>bins</code>.</p>
+<p>We can also use groups and facets as we did for point and line plots. Have a look.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># fix seed</span>
+<span class="kw">set.seed</span>(<span class="dv">30</span>)
+
+<span class="co"># select 4 stocks randomly</span>
+my.tickers &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="kw">unique</span>(my.df<span class="op">$</span>ticker), <span class="dv">4</span>)
+
+p &lt;-<span class="st"> </span>my.df <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">filter</span>(ticker <span class="op">%in%</span><span class="st"> </span>my.tickers) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> ret)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">50</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="dt">facets =</span> <span class="op">~</span>ticker)
+  
+<span class="kw">print</span>(p)</code></pre></div>
+<p><img src="ProcAnFinDataR_ed_1_files/figure-html/unnamed-chunk-467-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>A histogram with the empirical densities of the data can be created using function <code>geom_density</code>. While histograms built with <code>geom_histogram</code> count the number of times the data is located within an interval, a density histogram uses the relative frequency and interpolates the values, resulting in a more visually appealing representation of a distribution. See an example next.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">p &lt;-<span class="st"> </span>my.df <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">filter</span>(ticker <span class="op">%in%</span><span class="st"> </span>my.tickers) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> ret)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_density</span>() <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="dt">facets =</span> <span class="op">~</span>ticker)
+  
+<span class="kw">print</span>(p)</code></pre></div>
+<p><img src="ProcAnFinDataR_ed_1_files/figure-html/unnamed-chunk-468-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>The previous figure allows a clear visual comparison of the differences between the distributions of returns of the different stocks.</p>
+</div>
+<div id="creating-boxplot-figures" class="section level3">
+<h3><span class="header-section-number">8.5.2</span> Creating <em>boxplot</em> Figures</h3>
+<p>Figures of type <em>boxplot</em> (or box and whisker diagram) show the distribution of a variable conditional on some category or group. Using the median, maximum, minimum, and quartiles of the data, this statistical display highlights the distribution of a variable in a specific visual pattern. We can easily create them with <code>ggplot</code>. See an example next, where we show the price distribution of four randomly selected stocks.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># fix seed</span>
+<span class="kw">set.seed</span>(<span class="dv">35</span>)
+
+<span class="co"># select 4 stocks randomly</span>
+my.tickers &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="kw">unique</span>(my.df<span class="op">$</span>ticker), <span class="dv">4</span>)
+
+p &lt;-<span class="st"> </span>my.df <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">filter</span>(ticker <span class="op">%in%</span><span class="st"> </span>my.tickers) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> ticker, <span class="dt">y =</span> price.adjusted)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_boxplot</span>()
+  
+<span class="kw">print</span>(p)</code></pre></div>
+<p><img src="ProcAnFinDataR_ed_1_files/figure-html/unnamed-chunk-469-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>As we can see from the previous figure, the stocks have different distributions for their prices. The middle line defines the median value, while the upper and lower lines of the box define the first and third quartile.</p>
+</div>
+<div id="creating-qq-plots" class="section level3">
+<h3><span class="header-section-number">8.5.3</span> Creating <em>QQ</em> Plots</h3>
+<p>QQ plots show a comparison between the distribution of a variable and a theoretical distribution, such as the Normal. It is a scatter plot between cumulative distributions. The closest to a straight line, the more similar is the empirical distribution to the theoretical.</p>
+<p>Let’s try an example with some simulated data.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># fix seed</span>
+<span class="kw">set.seed</span>(<span class="dv">40</span>)
+
+N=<span class="dv">1000</span>
+my.mean &lt;-<span class="st"> </span><span class="dv">10</span>
+my.sd &lt;-<span class="st"> </span><span class="dv">2</span>
+
+temp.df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">y=</span><span class="kw">rnorm</span>(<span class="dt">n =</span> N, <span class="dt">mean =</span> my.mean, <span class="dt">sd =</span> my.sd))
+
+p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> temp.df, <span class="kw">aes</span>(<span class="dt">sample =</span> y)) 
+<span class="co">#p &lt;- p + labs(title = &#39;QQ plot for simulated data&#39;)</span>
+p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">geom_qq</span>(<span class="dt">distribution =</span> qnorm, 
+                 <span class="dt">dparams =</span> <span class="kw">c</span>(<span class="dt">mean=</span>my.mean, <span class="dt">sd=</span>my.sd))
+  
+<span class="kw">print</span>(p)</code></pre></div>
+<p><img src="ProcAnFinDataR_ed_1_files/figure-html/unnamed-chunk-470-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>In the previous code, we simulate random normal variables with mean 10 and standard deviation equal to 2. As you can see, the QQ plot is close to a straight line, meaning the empirical distribution of the simulated data is close to a Normal distribution. Since we used artificial data from the aforementioned distribution, this result is not surprising!</p>
+<p>Now, let’s try it for our dataset of stock’s returns. We will randomly select 4 stocks, create a new column, called <code>norm.ret</code>, with the normalized values of the returns. The normalization procedure works as follows; we subtract the mean for each return and divide the result by the standard deviations. This procedure must be executed on an individual basis for each stock. After that, we compare the resulting distribution against a standard Normal with mean zero and deviation equal to 1. The following code does this operation.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># fix seed</span>
+<span class="kw">set.seed</span>(<span class="dv">45</span>)
+
+<span class="co"># select 4 stock randomly and filter from my.df</span>
+my.tickers &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="kw">unique</span>(my.df<span class="op">$</span>ticker), <span class="dv">4</span>)
+temp.df &lt;-<span class="st"> </span><span class="kw">filter</span>(my.df, ticker <span class="op">%in%</span><span class="st"> </span>my.tickers)
+
+<span class="co"># set function for normalization</span>
+norm.vec &lt;-<span class="st"> </span><span class="cf">function</span>(y){
+  <span class="co"># Normalizes a vector by subtracting mean and dividing</span>
+  <span class="co"># by the standard deviation</span>
+  <span class="co">#</span>
+  <span class="co"># Args:</span>
+  <span class="co">#   y - numerical vector</span>
+  <span class="co">#</span>
+  <span class="co"># Returns:</span>
+  <span class="co">#   A normalized vector</span>
+  
+  y.norm &lt;-<span class="st"> </span>(y<span class="op">-</span><span class="kw">mean</span>(y, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>))<span class="op">/</span><span class="kw">sd</span>(y, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)
+  <span class="kw">return</span>(y.norm)
+}
+
+<span class="co"># apply function  </span>
+my.l &lt;-<span class="st"> </span><span class="kw">tapply</span>(<span class="dt">X =</span> temp.df<span class="op">$</span>ret, 
+               <span class="dt">INDEX =</span> <span class="kw">factor</span>(temp.df<span class="op">$</span>ticker), 
+               <span class="dt">FUN =</span> norm.vec)
+
+<span class="co"># reorder list (tapply sorts alphabetically)</span>
+my.l &lt;-<span class="st"> </span>my.l[<span class="kw">as.character</span>(<span class="kw">unique</span>(temp.df<span class="op">$</span>ticker))]
+
+<span class="co"># save new column norm.ret</span>
+temp.df<span class="op">$</span>norm.ret &lt;-<span class="st"> </span><span class="kw">unlist</span>(my.l)
+
+<span class="co"># plot it!</span>
+p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> temp.df, <span class="kw">aes</span>(<span class="dt">sample =</span> norm.ret)) 
+p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">geom_qq</span>()
+p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">facet_wrap</span>(<span class="op">~</span>ticker)
+
+<span class="kw">print</span>(p)</code></pre></div>
+<p><img src="ProcAnFinDataR_ed_1_files/figure-html/unnamed-chunk-471-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>As you can see, the result is not visually similar to the result found for the simulated distribution. In the extreme values of the normalized returns distributions, we see a higher proportion of cases, when comparing to the theoretical distribution. Such a result is well-known and called <em>fat tails</em>. This means the Normal distribution does a bad job describing empirical returns from the stock market. This issue is particularly important in the calculation of risk estimates, where a <em>fat tail</em> will underestimate the likelihood of an extreme loss.</p>
+</div>
+</div>
+<div id="saving-graphics-to-a-file" class="section level2">
+<h2><span class="header-section-number">8.6</span> Saving Graphics to a File</h2>
+<p>To save pictures created with <code>ggplot</code>, use function <code>ggsave</code>. It takes as input the name of the file, including path and extension (<em>.jpg</em>, <em>.png</em>, etc). If the figure object <code>p</code> is not explicitly set, the last generated graph will be saved. One suggestion is to give preference to the <em>png</em> format, which is more commonly accepted for publication due to its higher printing quality. If necessary, you can set the resolution using argument <code>dpi</code>.</p>
+<p>Consider the following example, where we create a graph and save it to a file, called <code>MyPrices.png</code>, available at folder <code>fig_ggplot</code>:  </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
+<span class="co"># fix seed</span>
+<span class="kw">set.seed</span>(<span class="dv">40</span>)
+
+<span class="co"># select 4 stocks randomly</span>
+my.tickers &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="kw">unique</span>(my.df<span class="op">$</span>ticker), <span class="dv">4</span>)
+
+p &lt;-<span class="st"> </span>my.df <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">filter</span>(ticker <span class="op">%in%</span><span class="st"> </span>my.tickers) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> ref.date, <span class="dt">y =</span> price.adjusted, <span class="dt">color =</span> ticker)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&#39;Date&#39;</span>, 
+       <span class="dt">y =</span> <span class="st">&#39;Adjusted closing prices&#39;</span>)
+    
+my.fig.file &lt;-<span class="st"> &#39;fig_ggplot/MyPrices.png&#39;</span>
+<span class="kw">ggsave</span>(<span class="dt">filename =</span> my.fig.file, 
+       <span class="dt">plot=</span>p,
+       <span class="dt">dpi =</span> <span class="dv">600</span>)</code></pre></div>
+<p>You can verify the creation of the file with function <code>list.files</code>: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(<span class="kw">list.files</span>(<span class="st">&#39;fig_ggplot&#39;</span>))</code></pre></div>
+<pre><code>## [1] &quot;MyPrices.png&quot;</code></pre>
+<p>As expected, the file is available in folder <code>fig_ggplot</code>, and it is ready to be inserted into a technical report or scientific article.</p>
+
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-wickham2009ggplot2">
+<p>Wickham, Hadley. 2009. <em>Ggplot2: Elegant Graphics for Data Analysis</em>. Springer Science &amp; Business Media.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="programming.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="models.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "Sepia",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

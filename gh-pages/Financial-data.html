@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Processing and Analyzing Financial Data with R</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="Processing and Analyzing Financial Data with R">
+  <meta name="generator" content="bookdown 0.3 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Processing and Analyzing Financial Data with R" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="figs/CAPADigital_FinancialDataR.jpg" />
+  <meta property="og:description" content="Processing and Analyzing Financial Data with R" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Processing and Analyzing Financial Data with R" />
+  
+  <meta name="twitter:description" content="Processing and Analyzing Financial Data with R" />
+  <meta name="twitter:image" content="figs/CAPADigital_FinancialDataR.jpg" />
+
+<meta name="author" content="Marcelo S. Perlin (marcelo.perlin@ufrgs.br)">
+
+
+<meta name="date" content="2017-04-29">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="DataStructureObjects.html">
+<link rel="next" href="importing.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Processing and Analyzing Financial Data with R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome!</a></li>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#what-is-r"><i class="fa fa-check"></i><b>1.1</b> What is R</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#why-choose-r"><i class="fa fa-check"></i><b>1.2</b> Why Choose R</a></li>
+<li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#what-can-you-do-with-r-and-rstudio"><i class="fa fa-check"></i><b>1.3</b> What Can You Do With R and RStudio?</a></li>
+<li class="chapter" data-level="1.4" data-path="introduction.html"><a href="introduction.html#installing-r-and-rstudio"><i class="fa fa-check"></i><b>1.4</b> Installing R and RStudio</a></li>
+<li class="chapter" data-level="1.5" data-path="introduction.html"><a href="introduction.html#resources-in-the-web"><i class="fa fa-check"></i><b>1.5</b> Resources in the Web</a></li>
+<li class="chapter" data-level="1.6" data-path="introduction.html"><a href="introduction.html#structure-and-organization"><i class="fa fa-check"></i><b>1.6</b> Structure and Organization</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html"><i class="fa fa-check"></i><b>2</b> Basic Operations in R</a><ul>
+<li class="chapter" data-level="2.1" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#working-with-r"><i class="fa fa-check"></i><b>2.1</b> Working With R</a></li>
+<li class="chapter" data-level="2.2" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#objects-in-r"><i class="fa fa-check"></i><b>2.2</b> Objects in R</a></li>
+<li class="chapter" data-level="2.3" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#international-and-local-formats"><i class="fa fa-check"></i><b>2.3</b> International and Local Formats</a></li>
+<li class="chapter" data-level="2.4" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#types-of-files-in-r"><i class="fa fa-check"></i><b>2.4</b> Types of Files in R</a></li>
+<li class="chapter" data-level="2.5" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#explaining-the-rstudio-screen"><i class="fa fa-check"></i><b>2.5</b> Explaining the RStudio Screen</a></li>
+<li class="chapter" data-level="2.6" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#running-scripts-from-rstudio"><i class="fa fa-check"></i><b>2.6</b> Running Scripts from RStudio</a></li>
+<li class="chapter" data-level="2.7" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#testing-and-debugging-code"><i class="fa fa-check"></i><b>2.7</b> Testing and Debugging Code</a></li>
+<li class="chapter" data-level="2.8" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#creating-simple-objects"><i class="fa fa-check"></i><b>2.8</b> Creating Simple Objects</a></li>
+<li class="chapter" data-level="2.9" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#creating-vectors"><i class="fa fa-check"></i><b>2.9</b> Creating Vectors</a></li>
+<li class="chapter" data-level="2.10" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#knowing-your-environment"><i class="fa fa-check"></i><b>2.10</b> Knowing Your Environment</a></li>
+<li class="chapter" data-level="2.11" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#displaying-and-formatting-output"><i class="fa fa-check"></i><b>2.11</b> Displaying and Formatting Output</a><ul>
+<li class="chapter" data-level="2.11.1" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#customizing-the-output"><i class="fa fa-check"></i><b>2.11.1</b> Customizing the Output</a></li>
+</ul></li>
+<li class="chapter" data-level="2.12" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#finding-the-size-of-objects"><i class="fa fa-check"></i><b>2.12</b> Finding the Size of Objects</a></li>
+<li class="chapter" data-level="2.13" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#selecting-the-elements-of-an-atomic-vector"><i class="fa fa-check"></i><b>2.13</b> Selecting the Elements of an Atomic Vector</a></li>
+<li class="chapter" data-level="2.14" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#removing-objects-from-the-memory"><i class="fa fa-check"></i><b>2.14</b> Removing Objects from the Memory</a></li>
+<li class="chapter" data-level="2.15" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#displaying-and-setting-the-working-directory"><i class="fa fa-check"></i><b>2.15</b> Displaying and Setting the Working Directory</a></li>
+<li class="chapter" data-level="2.16" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#cancelling-code-execution"><i class="fa fa-check"></i><b>2.16</b> Cancelling Code Execution</a></li>
+<li class="chapter" data-level="2.17" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#code-comments"><i class="fa fa-check"></i><b>2.17</b> Code Comments</a></li>
+<li class="chapter" data-level="2.18" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#looking-for-help"><i class="fa fa-check"></i><b>2.18</b> Looking for Help</a></li>
+<li class="chapter" data-level="2.19" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#r-packages"><i class="fa fa-check"></i><b>2.19</b> R Packages</a><ul>
+<li class="chapter" data-level="2.19.1" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#installing-packages-from-cran"><i class="fa fa-check"></i><b>2.19.1</b> Installing Packages from CRAN</a></li>
+<li class="chapter" data-level="2.19.2" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#installing-packages-from-github"><i class="fa fa-check"></i><b>2.19.2</b> Installing Packages from Github</a></li>
+<li class="chapter" data-level="2.19.3" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#loading-packages"><i class="fa fa-check"></i><b>2.19.3</b> Loading Packages</a></li>
+<li class="chapter" data-level="2.19.4" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#upgrading-packages"><i class="fa fa-check"></i><b>2.19.4</b> Upgrading Packages</a></li>
+</ul></li>
+<li class="chapter" data-level="2.20" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#using-code-completion-with-tab"><i class="fa fa-check"></i><b>2.20</b> Using Code Completion with <em>tab</em></a></li>
+<li class="chapter" data-level="2.21" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#interacting-with-files-and-the-operating-system"><i class="fa fa-check"></i><b>2.21</b> Interacting with Files and the Operating System</a><ul>
+<li class="chapter" data-level="2.21.1" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#listing-files-and-folders"><i class="fa fa-check"></i><b>2.21.1</b> Listing Files and Folders</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="BasicObjects.html"><a href="BasicObjects.html"><i class="fa fa-check"></i><b>3</b> Basic Object Classes</a><ul>
+<li class="chapter" data-level="3.1" data-path="BasicObjects.html"><a href="BasicObjects.html#numeric-objects"><i class="fa fa-check"></i><b>3.1</b> <code>Numeric</code> Objects</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-and-manipulating-numeric-objects"><i class="fa fa-check"></i><b>3.1.1</b> Creating and Manipulating <code>numeric</code> Objects</a></li>
+<li class="chapter" data-level="3.1.2" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-a-numeric-sequence"><i class="fa fa-check"></i><b>3.1.2</b> Creating a <code>numeric</code> Sequence</a></li>
+<li class="chapter" data-level="3.1.3" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-vectors-with-repeated-elements"><i class="fa fa-check"></i><b>3.1.3</b> Creating Vectors with Repeated Elements</a></li>
+<li class="chapter" data-level="3.1.4" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-vectors-with-random-numbers"><i class="fa fa-check"></i><b>3.1.4</b> Creating Vectors with Random Numbers</a></li>
+<li class="chapter" data-level="3.1.5" data-path="BasicObjects.html"><a href="BasicObjects.html#accessing-the-elements-of-a-numeric-vector"><i class="fa fa-check"></i><b>3.1.5</b> Accessing the Elements of a <code>numeric</code> Vector</a></li>
+<li class="chapter" data-level="3.1.6" data-path="BasicObjects.html"><a href="BasicObjects.html#modifying-and-removing-elements-of-a-numeric-vector"><i class="fa fa-check"></i><b>3.1.6</b> Modifying and Removing Elements of a <code>numeric</code> Vector</a></li>
+<li class="chapter" data-level="3.1.7" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-groups-from-a-numeric-vector"><i class="fa fa-check"></i><b>3.1.7</b> Creating Groups from a <code>numeric</code> Vector</a></li>
+<li class="chapter" data-level="3.1.8" data-path="BasicObjects.html"><a href="BasicObjects.html#other-functions-for-manipulating-numerical-vectors"><i class="fa fa-check"></i><b>3.1.8</b> Other Functions for Manipulating Numerical Vectors</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="BasicObjects.html"><a href="BasicObjects.html#character-objects"><i class="fa fa-check"></i><b>3.2</b> <code>Character</code> Objects</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-a-simple-character-object"><i class="fa fa-check"></i><b>3.2.1</b> Creating a Simple <code>character</code> Object</a></li>
+<li class="chapter" data-level="3.2.2" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-structured-character-objects"><i class="fa fa-check"></i><b>3.2.2</b> Creating Structured <code>character</code> Objects</a></li>
+<li class="chapter" data-level="3.2.3" data-path="BasicObjects.html"><a href="BasicObjects.html#character-constants"><i class="fa fa-check"></i><b>3.2.3</b> <code>character</code> Constants</a></li>
+<li class="chapter" data-level="3.2.4" data-path="BasicObjects.html"><a href="BasicObjects.html#selecting-characters-of-a-text-object"><i class="fa fa-check"></i><b>3.2.4</b> Selecting Characters of a Text Object</a></li>
+<li class="chapter" data-level="3.2.5" data-path="BasicObjects.html"><a href="BasicObjects.html#finding-and-replacing-characters-of-a-text"><i class="fa fa-check"></i><b>3.2.5</b> Finding and Replacing Characters of a Text</a></li>
+<li class="chapter" data-level="3.2.6" data-path="BasicObjects.html"><a href="BasicObjects.html#splitting-text"><i class="fa fa-check"></i><b>3.2.6</b> Splitting Text</a></li>
+<li class="chapter" data-level="3.2.7" data-path="BasicObjects.html"><a href="BasicObjects.html#finding-the-number-of-characters-in-a-text"><i class="fa fa-check"></i><b>3.2.7</b> Finding the Number of Characters in a Text</a></li>
+<li class="chapter" data-level="3.2.8" data-path="BasicObjects.html"><a href="BasicObjects.html#generating-combinations-of-text"><i class="fa fa-check"></i><b>3.2.8</b> Generating Combinations of Text</a></li>
+<li class="chapter" data-level="3.2.9" data-path="BasicObjects.html"><a href="BasicObjects.html#encoding-of-character-objects"><i class="fa fa-check"></i><b>3.2.9</b> Encoding of <code>character</code> Objects</a></li>
+<li class="chapter" data-level="3.2.10" data-path="BasicObjects.html"><a href="BasicObjects.html#other-functions-for-manipulating-character"><i class="fa fa-check"></i><b>3.2.10</b> Other Functions for Manipulating <code>character</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="BasicObjects.html"><a href="BasicObjects.html#factor-objects"><i class="fa fa-check"></i><b>3.3</b> <code>Factor</code> Objects</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-factors"><i class="fa fa-check"></i><b>3.3.1</b> Creating <code>factors</code></a></li>
+<li class="chapter" data-level="3.3.2" data-path="BasicObjects.html"><a href="BasicObjects.html#modifying-factors"><i class="fa fa-check"></i><b>3.3.2</b> Modifying <code>factors</code></a></li>
+<li class="chapter" data-level="3.3.3" data-path="BasicObjects.html"><a href="BasicObjects.html#converting-factors-to-other-classes"><i class="fa fa-check"></i><b>3.3.3</b> Converting <code>factors</code> to Other Classes</a></li>
+<li class="chapter" data-level="3.3.4" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-contingency-tables"><i class="fa fa-check"></i><b>3.3.4</b> Creating Contingency Tables</a></li>
+<li class="chapter" data-level="3.3.5" data-path="BasicObjects.html"><a href="BasicObjects.html#other-functions-for-manipulating-factors"><i class="fa fa-check"></i><b>3.3.5</b> Other Functions for Manipulating <code>factors</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="BasicObjects.html"><a href="BasicObjects.html#logical-objects"><i class="fa fa-check"></i><b>3.4</b> <code>Logical</code> Objects</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-logical-objects"><i class="fa fa-check"></i><b>3.4.1</b> Creating <code>logical</code> Objects</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="BasicObjects.html"><a href="BasicObjects.html#date-and-time-objects"><i class="fa fa-check"></i><b>3.5</b> Date and Time Objects</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-simple-dates"><i class="fa fa-check"></i><b>3.5.1</b> Creating Simple Dates</a></li>
+<li class="chapter" data-level="3.5.2" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-a-sequence-of-dates"><i class="fa fa-check"></i><b>3.5.2</b> Creating a Sequence of <code>Dates</code></a></li>
+<li class="chapter" data-level="3.5.3" data-path="BasicObjects.html"><a href="BasicObjects.html#operations-with-dates"><i class="fa fa-check"></i><b>3.5.3</b> Operations with <code>Dates</code></a></li>
+<li class="chapter" data-level="3.5.4" data-path="BasicObjects.html"><a href="BasicObjects.html#dealing-with-time"><i class="fa fa-check"></i><b>3.5.4</b> Dealing with Time</a></li>
+<li class="chapter" data-level="3.5.5" data-path="BasicObjects.html"><a href="BasicObjects.html#customizing-the-output-format-of-dates-and-times"><i class="fa fa-check"></i><b>3.5.5</b> Customizing the Output Format of Dates and Times</a></li>
+<li class="chapter" data-level="3.5.6" data-path="BasicObjects.html"><a href="BasicObjects.html#find-the-current-date-and-time"><i class="fa fa-check"></i><b>3.5.6</b> Find the Current Date and Time</a></li>
+<li class="chapter" data-level="3.5.7" data-path="BasicObjects.html"><a href="BasicObjects.html#other-functions-for-manipulating-dates-and-time"><i class="fa fa-check"></i><b>3.5.7</b> Other Functions for Manipulating Dates and Time</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="BasicObjects.html"><a href="BasicObjects.html#missing-data---na-not-available"><i class="fa fa-check"></i><b>3.6</b> Missing Data - <code>NA</code> (<em>Not available</em>)</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="BasicObjects.html"><a href="BasicObjects.html#defining-na-values"><i class="fa fa-check"></i><b>3.6.1</b> Defining <code>NA</code> Values</a></li>
+<li class="chapter" data-level="3.6.2" data-path="BasicObjects.html"><a href="BasicObjects.html#finding-and-replacing-na"><i class="fa fa-check"></i><b>3.6.2</b> Finding and Replacing <code>NA</code></a></li>
+<li class="chapter" data-level="3.6.3" data-path="BasicObjects.html"><a href="BasicObjects.html#other-useful-functions-for-treating-na"><i class="fa fa-check"></i><b>3.6.3</b> Other Useful Functions for Treating <code>NA</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html"><i class="fa fa-check"></i><b>4</b> Data Structure Objects</a><ul>
+<li class="chapter" data-level="4.1" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#lists"><i class="fa fa-check"></i><b>4.1</b> <code>Lists</code></a><ul>
+<li class="chapter" data-level="4.1.1" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#creating-lists"><i class="fa fa-check"></i><b>4.1.1</b> Creating <code>lists</code></a></li>
+<li class="chapter" data-level="4.1.2" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#accessing-the-elements-of-a-list"><i class="fa fa-check"></i><b>4.1.2</b> Accessing the Elements of a <code>list</code></a></li>
+<li class="chapter" data-level="4.1.3" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#adding-and-removing-elements-from-a-list"><i class="fa fa-check"></i><b>4.1.3</b> Adding and Removing Elements from a <code>list</code></a></li>
+<li class="chapter" data-level="4.1.4" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#processing-the-elements-of-a-list"><i class="fa fa-check"></i><b>4.1.4</b> Processing the Elements of a <code>list</code></a></li>
+<li class="chapter" data-level="4.1.5" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#other-functions-for-manipulating-lists"><i class="fa fa-check"></i><b>4.1.5</b> Other Functions for Manipulating <code>lists</code></a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#matrices"><i class="fa fa-check"></i><b>4.2</b> <code>Matrices</code></a><ul>
+<li class="chapter" data-level="4.2.1" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#selecting-elements-from-a-matrix"><i class="fa fa-check"></i><b>4.2.1</b> Selecting Elements from a <code>matrix</code></a></li>
+<li class="chapter" data-level="4.2.2" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#other-useful-functions-for-manipulating-matrices"><i class="fa fa-check"></i><b>4.2.2</b> Other Useful Functions for Manipulating Matrices</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#dataframes"><i class="fa fa-check"></i><b>4.3</b> <code>Dataframes</code></a><ul>
+<li class="chapter" data-level="4.3.1" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#creating-dataframes"><i class="fa fa-check"></i><b>4.3.1</b> Creating <code>dataframes</code></a></li>
+<li class="chapter" data-level="4.3.2" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#accessing-information-from-a-dataframe"><i class="fa fa-check"></i><b>4.3.2</b> Accessing Information from a <code>dataframe</code></a></li>
+<li class="chapter" data-level="4.3.3" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#modifying-a-dataframe"><i class="fa fa-check"></i><b>4.3.3</b> Modifying a <code>dataframe</code></a></li>
+<li class="chapter" data-level="4.3.4" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#sorting-a-dataframe"><i class="fa fa-check"></i><b>4.3.4</b> Sorting a <code>dataframe</code></a></li>
+<li class="chapter" data-level="4.3.5" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#combining-and-aggregating-dataframes"><i class="fa fa-check"></i><b>4.3.5</b> Combining and Aggregating <code>dataframes</code></a></li>
+<li class="chapter" data-level="4.3.6" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#reporting-a-dataframe-table"><i class="fa fa-check"></i><b>4.3.6</b> Reporting a <code>Dataframe</code> Table</a></li>
+<li class="chapter" data-level="4.3.7" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#the-format-of-the-dataframe-long-and-wide"><i class="fa fa-check"></i><b>4.3.7</b> The Format of the <code>dataframe</code> (<em>long</em> and <em>wide</em>)</a></li>
+<li class="chapter" data-level="4.3.8" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#extensions-of-the-dataframe-class"><i class="fa fa-check"></i><b>4.3.8</b> Extensions of the <code>dataframe</code> Class</a></li>
+<li class="chapter" data-level="4.3.9" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#other-useful-functions-for-handling-dataframes"><i class="fa fa-check"></i><b>4.3.9</b> Other Useful Functions for Handling <code>dataframes</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="Financial-data.html"><a href="Financial-data.html"><i class="fa fa-check"></i><b>5</b> Financial Data and Common Operations</a><ul>
+<li class="chapter" data-level="5.1" data-path="Financial-data.html"><a href="Financial-data.html#data-from-financial-markets"><i class="fa fa-check"></i><b>5.1</b> Data from Financial Markets</a></li>
+<li class="chapter" data-level="5.2" data-path="Financial-data.html"><a href="Financial-data.html#data-from-the-financial-evaluation-of-projects"><i class="fa fa-check"></i><b>5.2</b> Data from the Financial Evaluation of Projects</a></li>
+<li class="chapter" data-level="5.3" data-path="Financial-data.html"><a href="Financial-data.html#data-from-financial-statements"><i class="fa fa-check"></i><b>5.3</b> Data from Financial Statements</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="importing.html"><a href="importing.html"><i class="fa fa-check"></i><b>6</b> Importing and Exporting Data</a><ul>
+<li class="chapter" data-level="6.1" data-path="importing.html"><a href="importing.html#importing-data-from-local-files"><i class="fa fa-check"></i><b>6.1</b> Importing Data from Local Files</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="importing.html"><a href="importing.html#importing-data-from-a-.csv-file-comma-separated-values"><i class="fa fa-check"></i><b>6.1.1</b> Importing Data from a <em>.csv</em> File (<em>comma separated values</em>)</a></li>
+<li class="chapter" data-level="6.1.2" data-path="importing.html"><a href="importing.html#importing-data-from-an-excel-file"><i class="fa fa-check"></i><b>6.1.2</b> Importing Data from an <em>Excel</em> File</a></li>
+<li class="chapter" data-level="6.1.3" data-path="importing.html"><a href="importing.html#importing-data-from-a-.rdata-file"><i class="fa fa-check"></i><b>6.1.3</b> Importing Data from a <em>.RData</em> File</a></li>
+<li class="chapter" data-level="6.1.4" data-path="importing.html"><a href="importing.html#importing-data-from-sqlite"><i class="fa fa-check"></i><b>6.1.4</b> Importing Data from SQLITE</a></li>
+<li class="chapter" data-level="6.1.5" data-path="importing.html"><a href="importing.html#importing-data-from-a-text-file"><i class="fa fa-check"></i><b>6.1.5</b> Importing Data from a Text File</a></li>
+<li class="chapter" data-level="6.1.6" data-path="importing.html"><a href="importing.html#other-file-formats"><i class="fa fa-check"></i><b>6.1.6</b> Other File Formats</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="importing.html"><a href="importing.html#importing-data-using-the-internet"><i class="fa fa-check"></i><b>6.2</b> Importing Data Using the Internet</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="importing.html"><a href="importing.html#package-quantmod"><i class="fa fa-check"></i><b>6.2.1</b> Package <code>quantmod</code></a></li>
+<li class="chapter" data-level="6.2.2" data-path="importing.html"><a href="importing.html#package-batchgetsymbols"><i class="fa fa-check"></i><b>6.2.2</b> Package <code>BatchGetSymbols</code></a></li>
+<li class="chapter" data-level="6.2.3" data-path="importing.html"><a href="importing.html#package-finreportr"><i class="fa fa-check"></i><b>6.2.3</b> Package <code>finreportr</code></a></li>
+<li class="chapter" data-level="6.2.4" data-path="importing.html"><a href="importing.html#package-tidyquant"><i class="fa fa-check"></i><b>6.2.4</b> Package <code>tidyquant</code></a></li>
+<li class="chapter" data-level="6.2.5" data-path="importing.html"><a href="importing.html#package-gethfdata"><i class="fa fa-check"></i><b>6.2.5</b> Package <code>GetHFData</code></a></li>
+<li class="chapter" data-level="6.2.6" data-path="importing.html"><a href="importing.html#package-ustyc"><i class="fa fa-check"></i><b>6.2.6</b> Package <code>ustyc</code></a></li>
+<li class="chapter" data-level="6.2.7" data-path="importing.html"><a href="importing.html#quandl"><i class="fa fa-check"></i><b>6.2.7</b> Package <code>Quandl</code></a></li>
+<li class="chapter" data-level="6.2.8" data-path="importing.html"><a href="importing.html#package-rbitcoin"><i class="fa fa-check"></i><b>6.2.8</b> Package <code>Rbitcoin</code></a></li>
+<li class="chapter" data-level="6.2.9" data-path="importing.html"><a href="importing.html#other-packages"><i class="fa fa-check"></i><b>6.2.9</b> Other Packages</a></li>
+<li class="chapter" data-level="6.2.10" data-path="importing.html"><a href="importing.html#accessing-data-from-web-pages-webscraping"><i class="fa fa-check"></i><b>6.2.10</b> Accessing Data from Web Pages (<em>webscraping</em>)</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="importing.html"><a href="importing.html#exporting-to-local-file"><i class="fa fa-check"></i><b>6.3</b> Exporting to Local File</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="importing.html"><a href="importing.html#exporting-data-to-a-.csv-file"><i class="fa fa-check"></i><b>6.3.1</b> Exporting Data to a <em>.csv</em> File</a></li>
+<li class="chapter" data-level="6.3.2" data-path="importing.html"><a href="importing.html#exporting-data-to-a-rdata-file"><i class="fa fa-check"></i><b>6.3.2</b> Exporting Data to a <em>RData</em> File</a></li>
+<li class="chapter" data-level="6.3.3" data-path="importing.html"><a href="importing.html#exporting-data-to-an-excel-file"><i class="fa fa-check"></i><b>6.3.3</b> Exporting Data to an Excel File</a></li>
+<li class="chapter" data-level="6.3.4" data-path="importing.html"><a href="importing.html#exporting-data-to-a-text-file"><i class="fa fa-check"></i><b>6.3.4</b> Exporting Data to a Text File</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="programming.html"><a href="programming.html"><i class="fa fa-check"></i><b>7</b> Programming and Data Analysis with R</a><ul>
+<li class="chapter" data-level="7.1" data-path="programming.html"><a href="programming.html#creating-functions"><i class="fa fa-check"></i><b>7.1</b> Creating Functions</a></li>
+<li class="chapter" data-level="7.2" data-path="programming.html"><a href="programming.html#using-loops-for"><i class="fa fa-check"></i><b>7.2</b> Using Loops (<code>for</code>)</a></li>
+<li class="chapter" data-level="7.3" data-path="programming.html"><a href="programming.html#conditional-statements-if-else-switch"><i class="fa fa-check"></i><b>7.3</b> Conditional Statements (<code>if</code>, <code>else</code>, <code>switch</code>)</a></li>
+<li class="chapter" data-level="7.4" data-path="programming.html"><a href="programming.html#using-apply-functions"><i class="fa fa-check"></i><b>7.4</b> Using <code>apply</code> Functions</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="programming.html"><a href="programming.html#using-lapply"><i class="fa fa-check"></i><b>7.4.1</b> Using <code>lapply</code></a></li>
+<li class="chapter" data-level="7.4.2" data-path="programming.html"><a href="programming.html#using-sapply"><i class="fa fa-check"></i><b>7.4.2</b> Using <code>sapply</code></a></li>
+<li class="chapter" data-level="7.4.3" data-path="programming.html"><a href="programming.html#using-tapply"><i class="fa fa-check"></i><b>7.4.3</b> Using <code>tapply</code></a></li>
+<li class="chapter" data-level="7.4.4" data-path="programming.html"><a href="programming.html#using-mapply"><i class="fa fa-check"></i><b>7.4.4</b> Using <code>mapply</code></a></li>
+<li class="chapter" data-level="7.4.5" data-path="programming.html"><a href="programming.html#using-apply"><i class="fa fa-check"></i><b>7.4.5</b> Using <code>apply</code></a></li>
+<li class="chapter" data-level="7.4.6" data-path="programming.html"><a href="programming.html#using-by"><i class="fa fa-check"></i><b>7.4.6</b> Using <code>by</code></a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="programming.html"><a href="programming.html#data-manipulation-with-package-dplyr"><i class="fa fa-check"></i><b>7.5</b> Data Manipulation with Package <code>dplyr</code></a><ul>
+<li class="chapter" data-level="7.5.1" data-path="programming.html"><a href="programming.html#manipulating-a-dataframe-with-dplyr"><i class="fa fa-check"></i><b>7.5.1</b> Manipulating a <code>dataframe</code> with <code>dplyr</code></a></li>
+<li class="chapter" data-level="7.5.2" data-path="programming.html"><a href="programming.html#the-pipeline-operator"><i class="fa fa-check"></i><b>7.5.2</b> The Pipeline Operator (<code>%&gt;%</code>)</a></li>
+<li class="chapter" data-level="7.5.3" data-path="programming.html"><a href="programming.html#simple-group-operations-with-dplyr"><i class="fa fa-check"></i><b>7.5.3</b> Simple Group Operations with <code>dplyr</code></a></li>
+<li class="chapter" data-level="7.5.4" data-path="programming.html"><a href="programming.html#complex-group-operations-with-dplyr"><i class="fa fa-check"></i><b>7.5.4</b> Complex Group Operations with <code>dplyr</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="Figures.html"><a href="Figures.html"><i class="fa fa-check"></i><b>8</b> Creating and Saving Figures with <code>ggplot2</code></a><ul>
+<li class="chapter" data-level="8.1" data-path="Figures.html"><a href="Figures.html#using-graphic-windows"><i class="fa fa-check"></i><b>8.1</b> Using Graphic Windows</a></li>
+<li class="chapter" data-level="8.2" data-path="Figures.html"><a href="Figures.html#creating-figures-with-function-qplot"><i class="fa fa-check"></i><b>8.2</b> Creating Figures with Function <code>qplot</code></a></li>
+<li class="chapter" data-level="8.3" data-path="Figures.html"><a href="Figures.html#using-ggplot"><i class="fa fa-check"></i><b>8.3</b> Creating Figures with Function <code>ggplot</code></a><ul>
+<li class="chapter" data-level="8.3.1" data-path="Figures.html"><a href="Figures.html#using-themes"><i class="fa fa-check"></i><b>8.3.1</b> Using Themes</a></li>
+<li class="chapter" data-level="8.3.2" data-path="Figures.html"><a href="Figures.html#creating-panels-with-facet_wrap"><i class="fa fa-check"></i><b>8.3.2</b> Creating Panels with <code>facet_wrap</code></a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="Figures.html"><a href="Figures.html#using-pipelines-for-data-analysis-and-figures"><i class="fa fa-check"></i><b>8.4</b> Using Pipelines for Data Analysis and Figures</a></li>
+<li class="chapter" data-level="8.5" data-path="Figures.html"><a href="Figures.html#creating-statistical-graphics"><i class="fa fa-check"></i><b>8.5</b> Creating Statistical Graphics</a><ul>
+<li class="chapter" data-level="8.5.1" data-path="Figures.html"><a href="Figures.html#creating-histograms"><i class="fa fa-check"></i><b>8.5.1</b> Creating Histograms</a></li>
+<li class="chapter" data-level="8.5.2" data-path="Figures.html"><a href="Figures.html#creating-boxplot-figures"><i class="fa fa-check"></i><b>8.5.2</b> Creating <em>boxplot</em> Figures</a></li>
+<li class="chapter" data-level="8.5.3" data-path="Figures.html"><a href="Figures.html#creating-qq-plots"><i class="fa fa-check"></i><b>8.5.3</b> Creating <em>QQ</em> Plots</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="Figures.html"><a href="Figures.html#saving-graphics-to-a-file"><i class="fa fa-check"></i><b>8.6</b> Saving Graphics to a File</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="models.html"><a href="models.html"><i class="fa fa-check"></i><b>9</b> Financial Econometrics with R</a><ul>
+<li class="chapter" data-level="9.1" data-path="models.html"><a href="models.html#linear-models-ols"><i class="fa fa-check"></i><b>9.1</b> Linear Models (OLS)</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="models.html"><a href="models.html#simulating-a-linear-model"><i class="fa fa-check"></i><b>9.1.1</b> Simulating a Linear Model</a></li>
+<li class="chapter" data-level="9.1.2" data-path="models.html"><a href="models.html#estimating-ols"><i class="fa fa-check"></i><b>9.1.2</b> Estimating a Linear Model</a></li>
+<li class="chapter" data-level="9.1.3" data-path="models.html"><a href="models.html#testing-ols"><i class="fa fa-check"></i><b>9.1.3</b> Statistical Inference in Linear Models</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="models.html"><a href="models.html#generalized-linear-models-glm"><i class="fa fa-check"></i><b>9.2</b> Generalized Linear Models (GLM)</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="models.html"><a href="models.html#simulating-a-glm-model"><i class="fa fa-check"></i><b>9.2.1</b> Simulating a GLM Model</a></li>
+<li class="chapter" data-level="9.2.2" data-path="models.html"><a href="models.html#estimating-a-glm-model"><i class="fa fa-check"></i><b>9.2.2</b> Estimating a GLM Model</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="models.html"><a href="models.html#panel-data-models"><i class="fa fa-check"></i><b>9.3</b> Panel Data Models</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="models.html"><a href="models.html#simulating-panel-data-models"><i class="fa fa-check"></i><b>9.3.1</b> Simulating Panel Data Models</a></li>
+<li class="chapter" data-level="9.3.2" data-path="models.html"><a href="models.html#estimating-panel-data-models"><i class="fa fa-check"></i><b>9.3.2</b> Estimating Panel Data Models</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="models.html"><a href="models.html#arima-models"><i class="fa fa-check"></i><b>9.4</b> Arima Models</a><ul>
+<li class="chapter" data-level="9.4.1" data-path="models.html"><a href="models.html#simulating-arima-models"><i class="fa fa-check"></i><b>9.4.1</b> Simulating Arima Models</a></li>
+<li class="chapter" data-level="9.4.2" data-path="models.html"><a href="models.html#arima-estimating"><i class="fa fa-check"></i><b>9.4.2</b> Estimating Arima Models</a></li>
+<li class="chapter" data-level="9.4.3" data-path="models.html"><a href="models.html#forecasting-arima-models"><i class="fa fa-check"></i><b>9.4.3</b> Forecasting Arima Models</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="models.html"><a href="models.html#garch-models"><i class="fa fa-check"></i><b>9.5</b> Garch Models</a><ul>
+<li class="chapter" data-level="9.5.1" data-path="models.html"><a href="models.html#simulating-garch-models"><i class="fa fa-check"></i><b>9.5.1</b> Simulating Garch Models</a></li>
+<li class="chapter" data-level="9.5.2" data-path="models.html"><a href="models.html#estimating-garch"><i class="fa fa-check"></i><b>9.5.2</b> Estimating Garch Models</a></li>
+<li class="chapter" data-level="9.5.3" data-path="models.html"><a href="models.html#forecasting-garch-models"><i class="fa fa-check"></i><b>9.5.3</b> Forecasting Garch Models</a></li>
+</ul></li>
+<li class="chapter" data-level="9.6" data-path="models.html"><a href="models.html#regime-switching-models"><i class="fa fa-check"></i><b>9.6</b> Regime Switching Models</a><ul>
+<li class="chapter" data-level="9.6.1" data-path="models.html"><a href="models.html#simulating-regime-switching-models"><i class="fa fa-check"></i><b>9.6.1</b> Simulating Regime Switching Models</a></li>
+<li class="chapter" data-level="9.6.2" data-path="models.html"><a href="models.html#estimating-regime-switching-models"><i class="fa fa-check"></i><b>9.6.2</b> Estimating Regime Switching Models</a></li>
+<li class="chapter" data-level="9.6.3" data-path="models.html"><a href="models.html#forecasting-regime-switching-models"><i class="fa fa-check"></i><b>9.6.3</b> Forecasting Regime Switching Models</a></li>
+</ul></li>
+<li class="chapter" data-level="9.7" data-path="models.html"><a href="models.html#dealing-with-several-models"><i class="fa fa-check"></i><b>9.7</b> Dealing with Several Models</a></li>
+<li class="chapter" data-level="9.8" data-path="models.html"><a href="models.html#reporting-models"><i class="fa fa-check"></i><b>9.8</b> Reporting Models with <code>texreg</code></a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="research-scripts.html"><a href="research-scripts.html"><i class="fa fa-check"></i><b>10</b> Writing Research Scripts</a><ul>
+<li class="chapter" data-level="10.1" data-path="research-scripts.html"><a href="research-scripts.html#structure-of-a-research-script"><i class="fa fa-check"></i><b>10.1</b> Structure of a Research Script</a></li>
+<li class="chapter" data-level="10.2" data-path="research-scripts.html"><a href="research-scripts.html#folder-structure"><i class="fa fa-check"></i><b>10.2</b> Folder Structure</a></li>
+<li class="chapter" data-level="10.3" data-path="research-scripts.html"><a href="research-scripts.html#ExampleResearch"><i class="fa fa-check"></i><b>10.3</b> Examples of Research Scripts</a><ul>
+<li class="chapter" data-level="10.3.1" data-path="research-scripts.html"><a href="research-scripts.html#research-performance"><i class="fa fa-check"></i><b>10.3.1</b> The performance of international investments</a></li>
+<li class="chapter" data-level="10.3.2" data-path="research-scripts.html"><a href="research-scripts.html#research-prophet"><i class="fa fa-check"></i><b>10.3.2</b> Can we predict stock’s returns with Prophet?</a></li>
+<li class="chapter" data-level="10.3.3" data-path="research-scripts.html"><a href="research-scripts.html#research-gethfdata"><i class="fa fa-check"></i><b>10.3.3</b> An Analysis of High Frequency trade Data</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://sites.google.com/view/pmfdr/home" target="blank">Book Companion Site</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Processing and Analyzing Financial Data with R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="Financial-data" class="section level1">
+<h1><span class="header-section-number">Chapter 5</span> Financial Data and Common Operations</h1>
+<p>Before learning how to import data into R, it is wise to discuss the types and properties of the typical cases of financial data. These are datasets you are likely to encounter in your work. This chapter will provide you context and help you understand where the data is coming from and what it represents. Let’s start by looking into datasets from financial markets.</p>
+<div id="data-from-financial-markets" class="section level2">
+<h2><span class="header-section-number">5.1</span> Data from Financial Markets</h2>
+<p>Without a doubt, the most popular dataset in finance is related to the prices of financial contracts. In financial markets, investors can buy contracts that entitle a claim to a cash flow. An example, governments fund their operations by issuing bonds (debt contracts). When you buy a government bond, what you acquire is a contract where the government promises to pay you a value, in specified dates and within a period of time. From the viewpoint of the investor, money is spent today to acquire a cash flow in the future.</p>
+<p>What differs one financial contract to the other is the underlying uncertainty, the structure of how payments are set and the rights acquired by the buyer. With stock markets, when a company needs money, it can raise capital by selling ownership. Several rights, including a share of future profits, are granted to whoever buy its new stocks. Since it is difficult to forecast future profits, the usual equity contract is far riskier than the usual debt contract.</p>
+<p>Issuing stocks is an elaborate process. For most financial exchanges, when a company opens its capital, it first sells it through the primary market, composed of selected investors. This is where the <em>initial public offering</em> (IPO) takes place. At this stage, the company usually retains part of the shares in its treasury, so it can sell later for another raise of capital. In the second stage of the IPO, the secondary market, shares are traded in the <em>common</em> market, such as NYSE, where everyone has access. This is where most of the financial data for capital markets comes from.</p>
+<p>Prices in financial markets move according to supply and demand. For example, if many investors buy a stock, its price is likely to rise. Every time that a seller meets a buyer, a trade is recorded, and a cash transaction occurs. New information and market expectations about future performance play a prominent role in the dynamics of demand. If the market understands that a company will do well in the future, investors will likely buy the stock, and its price will rise. The prices of the financial contracts are, therefore, an indication of how the market perceives the future.</p>
+<p>Certain events can also alter the price of a stock, even though no new information or shift in the demand is seen. This is the typical case of a <em>split</em> operation, where a single stock is fractioned into several. For a one to two split, an investor with 100 stocks at 10$ will now have 200 shares at 5$ each. The value of the portfolio stays the same. When looking at the price series, a split operation results in a big drop of price.</p>
+<p>Another event that impacts price is the payment of dividends. In the date previous to the payment, a stock will drop its price regarding the value of the dividend per share. This happens because a new buyer loses its right to the upcoming dividend payment and, therefore, a discount is expected. It is important to understand and recognize these events as you may have to deal with raw price data. In general, data providers give the option for <em>adjusted prices</em>, that is, the price is already adjusted to these events.</p>
+<p>In it raw form, price data is sampled whenever there is a trade. Sites like <a href="https://finance.yahoo.com/">Yahoo Finance</a> and <a href="https://www.google.com/finance">Google finance</a> offers daily statistics about share prices such as highest/lowest price, traded volume and closing prices for the day. The variety of datasets is wide, covering almost every financial exchange in the world. Anyone can download this data using the website or a custom access point. Many of the CRAN packages that imports financial data from the web offer functions that make it easy to download datasets from these websites.</p>
+<p>The data from Yahoo Finance or others is in the daily frequency. Obtaining information about trades within the day is far more difficult.<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a> This is usually called tick-by-tick, or high-frequency data (HFD). For liquid markets, the size of this database can be restrictive. One exchange that offers free access to tick-by-tick data is Bovespa, the Brazilian exchange. We will discuss this dataset in chapters <a href="importing.html#importing">6</a> and <a href="research-scripts.html#research-scripts">10</a>.</p>
+<p>From the viewpoint of data analysis, price datasets usually have three dimensions, an identifier (ticker), a date/time reference and a price. This means that, in the long format, you can represent this data in R with a three column <code>dataframe</code>. When new stocks are added to the dataset, this <code>dataframe</code> will increase in rows. When new variables, such as traded volume, are inserted, a new column can be added. As we saw in chapter <a href="DataStructureObjects.html#DataStructureObjects">4</a>, the long format facilitates data processing tasks and is recommended. While we only discussed data for equity markets, other types of markets have similar datasets, but with extra information. For example, financial contracts from the debt and derivative markets usually have an expiration (maturity) date. Option contracts have a strike price. Additional information regarding debt and derivative contracts can be easily added to a long <code>dataframe</code> with extra columns.</p>
+<div id="calculating-returns" class="section level4">
+<h4><span class="header-section-number">5.1.0.1</span> Calculating Returns</h4>
+<p>After importing price data, one of the most common operation is to calculate returns based on prices. Nominal prices are not usually used for research as they are difficult to compare for different assets. A price change of 1$ is almost insignificant to an 800$ stock, but not to 10 dollar stock. Very few methods in finance use prices as input. Almost all research in capital markets uses the return vector as the primary information in the analysis.</p>
+<p>Returns are simply the percentage difference of prices from one day to the next. By calculating it to several stocks, it normalizes the price differences, allowing a cross section analysis. From the financial side, the intuition behind calculating returns is that they provide the percentage return of an investor that bought the stock in day <em>t</em> and sold it in next day, <em>t+1</em>. We can use these percentages to calculate the nominal profit or loss for an investment of any size.</p>
+<p>There are two types of returns, arithmetic and logarithmic. The simplest one is the arithmetic return, or percentage. Its formula is given by:</p>
+<p><span class="math display">\[AritRet_t = \frac{P_t-P_{t-1}}{P_{t-1}} =\frac{P_t}{P_{t-1}}-1 \]</span></p>
+<p>So, based on a series of prices, we can create a return vector by calculating the percentage increase or decrease of prices from one period to the next. An important information here is that we always lose the first observation when calculating returns. So, if you have a price series with 10 elements, the resulting return vector will have 9 elements. My recommendation is to always match the size of the original vector by adding one extra element. An <code>NA</code> value for the first observation of a return series seems appropriate. By using vectors with the same size, the organization of the objects and code is simpler, and that can avoid errors in the code.</p>
+<p>In R, let’s first simulate a price series with the following code:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">10</span>)
+<span class="co"># simulate artificial prices</span>
+nT &lt;-<span class="st"> </span><span class="dv">5</span>
+P &lt;-<span class="st"> </span><span class="dv">10</span><span class="op">*</span>(<span class="kw">cumprod</span>(<span class="dv">1</span><span class="op">+</span><span class="kw">rnorm</span>(nT, 
+                         <span class="dt">mean =</span> <span class="dv">0</span>, 
+                         <span class="dt">sd =</span> <span class="fl">0.1</span>)))
+
+<span class="co"># print prices</span>
+<span class="kw">print</span>(P)</code></pre></div>
+<pre><code>## [1] 10.018746  9.834148  8.485561  7.977134  8.212097</code></pre>
+<p>Now, we can calculate a return vector based on the artificial price series with:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># calculate arit. return</span>
+arit.ret &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="ot">NA</span>, P[<span class="dv">2</span><span class="op">:</span><span class="kw">length</span>(P)]<span class="op">/</span>
+<span class="st">                  </span>P[<span class="dv">1</span><span class="op">:</span>(<span class="kw">length</span>(P)<span class="op">-</span><span class="dv">1</span>)] <span class="op">-</span><span class="dv">1</span>)
+                  
+<span class="co"># print result</span>
+<span class="kw">print</span>(arit.ret)</code></pre></div>
+<pre><code>## [1]          NA -0.01842525 -0.13713305 -0.05991677
+## [5]  0.02945451</code></pre>
+<p>Arithmetic returns can also be compounded, which tell how much return over time one would get by keeping the investment. Compounding arithmetic returns are given by this formula:</p>
+<p><span class="math display">\[AcumAritRet_t = \prod\left (1+AritRet _t \right ) \]</span></p>
+<p>In R, we can calculate it using function <code>cumprod</code>: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># calculate accumulated arit. return</span>
+acum.arit.ret &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="kw">cumprod</span>(<span class="dv">1</span><span class="op">+</span><span class="kw">na.omit</span>(arit.ret)))
+                  
+<span class="co"># print result</span>
+<span class="kw">print</span>(acum.arit.ret)</code></pre></div>
+<pre><code>## [1] 1.0000000 0.9815747 0.8469684 0.7962208 0.8196731</code></pre>
+<p>Notice how it was necessary to omit all <code>NA</code> values from object <code>arit.ret</code> using function <code>na.omit</code>. We also set value 1 for the first element of <code>acum.arit.ret</code>.</p>
+<p>The second return is the logarithmic (or log-return). This is commonly used in academic research as some properties facilitate modelling. For example, if prices follow a log-Normal distribution, the log-returns will follow a Normal distribution. This property is convenient as some statistical procedures assume a Normal distribution. Another property of log-returns is they can be accumulated in a much simpler way than arithmetic returns. First, let’s have a look in its formula. A log return is given by:</p>
+<p><span class="math display">\[LogRet_t = \log\left ( \frac{P_t}{P_{t-1}} \right )\]</span></p>
+<p>The biggest difference between arithmetic and log returns is the use of the log function. In R, we can calculate log returns using the following code:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">log.ret &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="ot">NA</span>, <span class="kw">log</span>(P[<span class="dv">2</span><span class="op">:</span><span class="kw">length</span>(P)]<span class="op">/</span>
+<span class="st">                     </span>P[<span class="dv">1</span><span class="op">:</span>(<span class="kw">length</span>(P)<span class="op">-</span><span class="dv">1</span>)]))</code></pre></div>
+<p>As for compounding log returns, the additive property makes it much simpler. You can compound a log return vector by simply summing its elements. Have a look.</p>
+<p><span class="math display">\[AcumLogRet_t = 1+ \sum\left (LogRet _t \right ) \]</span></p>
+<p>We can use function <code>cumsum</code> to calculate the compound log return: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># calculate accumulated log. return</span>
+acum.log.ret &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">1</span><span class="op">+</span><span class="kw">cumsum</span>(<span class="kw">na.omit</span>(arit.ret)))
+                  
+<span class="co"># print result</span>
+<span class="kw">print</span>(acum.log.ret)</code></pre></div>
+<pre><code>## [1] 1.0000000 0.9815747 0.8444417 0.7845249 0.8139794</code></pre>
+<p>The conversion from log to arithmetic return is simple. Consider the following conversion formulas:</p>
+<p><span class="math display">\[AritRet_t = \exp(LogRet _t)-1 \]</span></p>
+<p><span class="math display">\[LogRet _t = \log(1+AritRet _t)\]</span></p>
+<p>Let’s try it out:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># converting arit ret to log ret and vice-versa</span>
+arit.ret.from.log &lt;-<span class="st"> </span><span class="kw">exp</span>(log.ret)<span class="op">-</span><span class="dv">1</span>
+log.ret.from.arit &lt;-<span class="st"> </span><span class="kw">log</span>(arit.ret<span class="op">+</span><span class="dv">1</span>)
+
+<span class="co"># print result as df</span>
+<span class="kw">print</span>(<span class="kw">data.frame</span>(arit.ret, arit.ret.from.log,
+                 log.ret, log.ret.from.arit))</code></pre></div>
+<pre><code>##      arit.ret arit.ret.from.log     log.ret
+## 1          NA                NA          NA
+## 2 -0.01842525       -0.01842525 -0.01859711
+## 3 -0.13713305       -0.13713305 -0.14749478
+## 4 -0.05991677       -0.05991677 -0.06178687
+## 5  0.02945451        0.02945451  0.02902906
+##   log.ret.from.arit
+## 1                NA
+## 2       -0.01859711
+## 3       -0.14749478
+## 4       -0.06178687
+## 5        0.02902906</code></pre>
+<p>As you can see from the printed <code>dataframe</code>, the returns from the conversion match the ones from the log or arithmetic return formula.</p>
+</div>
+<div id="calculating-returns-for-a-portfolio" class="section level4">
+<h4><span class="header-section-number">5.1.0.2</span> Calculating Returns for a Portfolio</h4>
+<p>Another common operation in using data from financial markets is to calculate returns for a portfolio, where an investor divides its capital in different assets. For a portfolio with total value <em>V</em>, each investment <em>i</em> will have <span class="math inline">\(m_i\)</span> invested. I.e, The percentage position of each investment is <span class="math inline">\(w_i = m_i/V\)</span>. Based on these percentages, we can calculate the return of the portfolio as a weighted average of the returns of the assets individually. Formally:</p>
+<p><span class="math display">\[ R_{P,t} = \sum_{i=1}^{N} w_i R_{i,t} \]</span></p>
+<p>Now, let’s try an example where the investor has its capital evenly divided within three assets. First, we will create a <code>dataframe</code> in the long format with the price information.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set seed for reproducibility</span>
+<span class="kw">set.seed</span>(<span class="dv">10</span>)
+
+<span class="co"># set number of time periods</span>
+nT &lt;-<span class="st"> </span><span class="dv">5</span>
+
+<span class="co"># simulate prices</span>
+P.<span class="dv">1</span> &lt;-<span class="st"> </span><span class="dv">10</span><span class="op">*</span>(<span class="kw">cumprod</span>(<span class="dv">1</span><span class="op">+</span><span class="kw">rnorm</span>(nT,<span class="dt">mean =</span> <span class="dv">0</span>, <span class="dt">sd =</span> <span class="fl">0.1</span>)))
+P.<span class="dv">2</span> &lt;-<span class="st"> </span><span class="dv">20</span><span class="op">*</span>(<span class="kw">cumprod</span>(<span class="dv">1</span><span class="op">+</span><span class="kw">rnorm</span>(nT,<span class="dt">mean =</span> <span class="dv">0</span>, <span class="dt">sd =</span> <span class="fl">0.1</span>)))
+P.<span class="dv">3</span> &lt;-<span class="st"> </span><span class="dv">30</span><span class="op">*</span>(<span class="kw">cumprod</span>(<span class="dv">1</span><span class="op">+</span><span class="kw">rnorm</span>(nT,<span class="dt">mean =</span> <span class="dv">0</span>, <span class="dt">sd =</span> <span class="fl">0.1</span>)))
+
+<span class="co"># gather info in df</span>
+my.df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">ref.date =</span> <span class="kw">Sys.Date</span>()<span class="op">+</span><span class="dv">1</span><span class="op">:</span>nT,
+                    <span class="dt">prices =</span> <span class="kw">c</span>(P.<span class="dv">1</span>,P.<span class="dv">2</span>,P.<span class="dv">3</span>),
+                    <span class="dt">ticker =</span> <span class="kw">paste</span>(<span class="st">&#39;Stock &#39;</span>,<span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&#39;A&#39;</span>,nT),
+                                              <span class="kw">rep</span>(<span class="st">&#39;B&#39;</span>,nT),
+                                              <span class="kw">rep</span>(<span class="st">&#39;C&#39;</span>,nT))))
+
+<span class="co"># print result  </span>
+<span class="kw">print</span>(my.df)</code></pre></div>
+<pre><code>##      ref.date    prices   ticker
+## 1  2017-04-30 10.018746 Stock  A
+## 2  2017-05-01  9.834148 Stock  A
+## 3  2017-05-02  8.485561 Stock  A
+## 4  2017-05-03  7.977134 Stock  A
+## 5  2017-05-04  8.212097 Stock  A
+## 6  2017-04-30 20.779589 Stock  B
+## 7  2017-05-01 18.269256 Stock  B
+## 8  2017-05-02 17.604847 Stock  B
+## 9  2017-05-03 14.741115 Stock  B
+## 10 2017-05-04 14.363037 Stock  B
+## 11 2017-04-30 33.305339 Stock  C
+## 12 2017-05-01 35.822494 Stock  C
+## 13 2017-05-02 34.969082 Stock  C
+## 14 2017-05-03 38.422086 Stock  C
+## 15 2017-05-04 41.270661 Stock  C</code></pre>
+<p>As mentioned before, using a matrix notation facilitates calculations for the portfolio. With that in mind, we will first transform the long <code>dataframe</code> in a <code>matrix</code> of prices:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set price matrix</span>
+my.price.mat &lt;-<span class="st"> </span><span class="kw">matrix</span>(my.df<span class="op">$</span>prices, <span class="dt">nrow =</span> nT)
+
+<span class="co"># set row and col names</span>
+<span class="kw">colnames</span>(my.price.mat) &lt;-<span class="st"> </span><span class="kw">unique</span>(my.df<span class="op">$</span>ticker)
+<span class="kw">rownames</span>(my.price.mat) &lt;-<span class="st"> </span><span class="kw">as.character</span>(<span class="kw">unique</span>(my.df<span class="op">$</span>ref.date))
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(my.price.mat)</code></pre></div>
+<pre><code>##             Stock  A Stock  B Stock  C
+## 2017-04-30 10.018746 20.77959 33.30534
+## 2017-05-01  9.834148 18.26926 35.82249
+## 2017-05-02  8.485561 17.60485 34.96908
+## 2017-05-03  7.977134 14.74111 38.42209
+## 2017-05-04  8.212097 14.36304 41.27066</code></pre>
+<p>Now, from the price matrix, we can calculate a return matrix using simple element by element operation with the whole matrix:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># apply return formula for each column</span>
+my.ret.mat &lt;-<span class="st"> </span>my.price.mat[<span class="dv">2</span><span class="op">:</span><span class="st"> </span><span class="kw">nrow</span>(my.price.mat)   , ]<span class="op">/</span>
+<span class="st">              </span>my.price.mat[<span class="dv">1</span><span class="op">:</span>(<span class="kw">nrow</span>(my.price.mat)<span class="op">-</span><span class="dv">1</span>), ] <span class="op">-</span><span class="dv">1</span> 
+
+<span class="co"># print it!</span>
+<span class="kw">print</span>(my.ret.mat)</code></pre></div>
+<pre><code>##               Stock  A    Stock  B    Stock  C
+## 2017-05-01 -0.01842525 -0.12080762  0.07557815
+## 2017-05-02 -0.13713305 -0.03636760 -0.02382336
+## 2017-05-03 -0.05991677 -0.16266727  0.09874447
+## 2017-05-04  0.02945451 -0.02564784  0.07413901</code></pre>
+<p>Finally, we use the weight vector in a <code>matrix</code> object to calculate the return of the portfolio over time:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set weight of portfolio (evenly weighted)</span>
+w &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">rep</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">3</span>,<span class="dv">3</span>), <span class="dt">nrow =</span> <span class="dv">3</span>)
+
+<span class="co"># calculate return of portfolio over time</span>
+ret.port &lt;-<span class="st"> </span>my.ret.mat <span class="op">%*%</span><span class="st"> </span>w
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(ret.port)</code></pre></div>
+<pre><code>##                   [,1]
+## 2017-05-01 -0.02121824
+## 2017-05-02 -0.06577467
+## 2017-05-03 -0.04127986
+## 2017-05-04  0.02598190</code></pre>
+<p>Vector <code>ret.port</code> show the return an investor would receive if the total value of the portfolio is evenly divided between the stocks.</p>
+</div>
+</div>
+<div id="data-from-the-financial-evaluation-of-projects" class="section level2">
+<h2><span class="header-section-number">5.2</span> Data from the Financial Evaluation of Projects</h2>
+<p>In corporate finance, we can evaluate a project by looking at its future cash-flow, that is, the predicted amount of cash to be spent and gained from the project. Based on these cash flows, we calculate measures such as NPV (net present value), IRR (internal rate of return) and payback time, that help indicate whether a project has financial merit and should be executed. We will not go into the theoretical details that pertain each measure. If this is the first time hearing about these measures, I suggest looking into <span class="citation">Ross, Westerfield, and Jordan (<a href="#ref-ross2008fundamentals">2008</a>)</span>, which provides excellent material about project evaluation.</p>
+<p>As for the data side, the cash-flow of projects is a one dimensional information and can be represented as atomic vectors of the <code>numeric</code> type, where the first element is the initial investment at time <em>0</em>. An example:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set project cashflow</span>
+CF &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="op">-</span><span class="dv">8000</span>, <span class="dv">2500</span>, <span class="dv">3000</span>, <span class="dv">3000</span>, <span class="dv">5000</span>)
+<span class="kw">names</span>(CF) &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&#39;Year&#39;</span>, <span class="dv">0</span><span class="op">:</span>(<span class="kw">length</span>(CF)<span class="op">-</span><span class="dv">1</span>))
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(CF)</code></pre></div>
+<pre><code>## Year 0 Year 1 Year 2 Year 3 Year 4 
+##  -8000   2500   3000   3000   5000</code></pre>
+<p>Notice how the first element is negative. This means that, at time zero, cash will be spent. Now, we can use package <code>FinCalc</code> <span class="citation">(Fan <a href="#ref-fincal">2016</a>)</span> to evaluate the project using NPV and IRR.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(FinCal)
+
+<span class="co"># set discount rate</span>
+r &lt;-<span class="st"> </span><span class="fl">0.1</span>
+
+<span class="co"># calculate npv</span>
+my.NPV &lt;-<span class="st"> </span><span class="kw">npv</span>(<span class="dt">r =</span> r, <span class="dt">cf =</span> CF)
+
+<span class="co"># calculate irr</span>
+my.IRR &lt;-<span class="st"> </span><span class="kw">irr</span>(<span class="dt">cf =</span> CF)
+
+<span class="co"># calculate payback</span>
+my.payback &lt;-<span class="st"> </span><span class="kw">min</span>(<span class="kw">which</span>(<span class="kw">cumsum</span>(CF) <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>)) <span class="op">-</span><span class="st"> </span><span class="dv">1</span>
+
+<span class="co"># print results</span>
+<span class="kw">cat</span>(<span class="st">&#39;NPV = &#39;</span>, my.NPV )</code></pre></div>
+<pre><code>## NPV =  2421.078</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cat</span>(<span class="st">&#39;IRR = &#39;</span>, my.IRR)</code></pre></div>
+<pre><code>## IRR =  0.2183874</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cat</span>(<span class="st">&#39;Payback = &#39;</span>, my.payback, <span class="st">&#39;years&#39;</span>)</code></pre></div>
+<pre><code>## Payback =  3 years</code></pre>
+<p>In this simple example, the net present value of the project is positive and equal to 2421, the internal rate of return is 21.84%. The initial investment is paid back in 3 years. From the financial side, this fictional project creates value and should be accepted.</p>
+<p>Package <code>FinCal</code> offers many more functions for standard operations in cash flow analysis, such as the calculation of present and future values. It also includes functions for manipulating fixed income datasets. If analyzing financial cash flows or fixed income markets is part of your job, I strongly suggest studying the functions from this package.</p>
+</div>
+<div id="data-from-financial-statements" class="section level2">
+<h2><span class="header-section-number">5.3</span> Data from Financial Statements</h2>
+<p>Another popular dataset in finance relates to financial statements from companies. In most financial exchanges, companies must report their financial result on a quarterly basis. This is related to balance sheets, the assets and liabilities of the company and cash flow statements, its financial performance in the last period. These documents are important to keep markets aware of the current financial health of each traded company and any other event that might be of interest of current and potential investors. You can find more details about financial statements in <span class="citation">Penman and Penman (<a href="#ref-penman2007financial">2007</a>)</span> and <span class="citation">Ittelson (<a href="#ref-ittelson1998financial">1998</a>)</span>. Most of the data for financial statements is available on the financial exchange site or research and government agencies. As we will see in a later chapter, several packages are available for downloading this type of financial data.</p>
+<p>When looking at data for just one company in one period of time, financial statements are one dimensional and using simple vectors suffice. Then we have a single company and many periods of time, this data has two dimensions, and it should be represented as a <code>dataframe</code> in R. As for the case of financial statements from several companies and many time periods, we can use a <code>dataframe</code> in the long format with five columns:</p>
+<ul>
+<li>RefTime - reference date or time period</li>
+<li>CompanyID - unique identifier for companies</li>
+<li>TypeOfFinStatement - the type of financial statement (balance sheets, cash-flows, ..)</li>
+<li>TypeAccount - type/name of account (total assets, net profit, …)</li>
+<li>Value - the value of the account</li>
+</ul>
+<p>The previous format is flexible and can hold a large number of different financial statements from different companies and different time periods.</p>
+
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-ross2008fundamentals">
+<p>Ross, Stephen A, Randolph Westerfield, and Bradford D Jordan. 2008. <em>Fundamentals of Corporate Finance</em>. Tata McGraw-Hill Education.</p>
+</div>
+<div id="ref-fincal">
+<p>Fan, Felix Yanhui. 2016. <em>FinCal: Time Value of Money, Time Series Analysis and Computational Finance</em>. <a href="https://CRAN.R-project.org/package=FinCal" class="uri">https://CRAN.R-project.org/package=FinCal</a>.</p>
+</div>
+<div id="ref-penman2007financial">
+<p>Penman, Stephen H, and Stephen H Penman. 2007. <em>Financial Statement Analysis and Security Valuation</em>. McGraw-Hill New York.</p>
+</div>
+<div id="ref-ittelson1998financial">
+<p>Ittelson, Thomas R. 1998. <em>Financial Statements: A Step-by-Step Guide to Understanding and Creating Financial Reports</em>. Career PressInc.</p>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="2">
+<li id="fn2"><p>Some companies, such as <a href="http://www.kibot.com">kibot</a>, <a href="http://www.pitrading.com/">pitrading</a> and <a href="https://www.backtestmarket.com/">backtestmarket</a>, sell this data to the public.<a href="Financial-data.html#fnref2">↩</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="DataStructureObjects.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="importing.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "Sepia",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

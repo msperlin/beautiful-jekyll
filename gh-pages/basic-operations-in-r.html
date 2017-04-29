@@ -1,0 +1,1307 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Processing and Analyzing Financial Data with R</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="Processing and Analyzing Financial Data with R">
+  <meta name="generator" content="bookdown 0.3 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Processing and Analyzing Financial Data with R" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="figs/CAPADigital_FinancialDataR.jpg" />
+  <meta property="og:description" content="Processing and Analyzing Financial Data with R" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Processing and Analyzing Financial Data with R" />
+  
+  <meta name="twitter:description" content="Processing and Analyzing Financial Data with R" />
+  <meta name="twitter:image" content="figs/CAPADigital_FinancialDataR.jpg" />
+
+<meta name="author" content="Marcelo S. Perlin (marcelo.perlin@ufrgs.br)">
+
+
+<meta name="date" content="2017-04-29">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="introduction.html">
+<link rel="next" href="BasicObjects.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Processing and Analyzing Financial Data with R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome!</a></li>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#what-is-r"><i class="fa fa-check"></i><b>1.1</b> What is R</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#why-choose-r"><i class="fa fa-check"></i><b>1.2</b> Why Choose R</a></li>
+<li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#what-can-you-do-with-r-and-rstudio"><i class="fa fa-check"></i><b>1.3</b> What Can You Do With R and RStudio?</a></li>
+<li class="chapter" data-level="1.4" data-path="introduction.html"><a href="introduction.html#installing-r-and-rstudio"><i class="fa fa-check"></i><b>1.4</b> Installing R and RStudio</a></li>
+<li class="chapter" data-level="1.5" data-path="introduction.html"><a href="introduction.html#resources-in-the-web"><i class="fa fa-check"></i><b>1.5</b> Resources in the Web</a></li>
+<li class="chapter" data-level="1.6" data-path="introduction.html"><a href="introduction.html#structure-and-organization"><i class="fa fa-check"></i><b>1.6</b> Structure and Organization</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html"><i class="fa fa-check"></i><b>2</b> Basic Operations in R</a><ul>
+<li class="chapter" data-level="2.1" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#working-with-r"><i class="fa fa-check"></i><b>2.1</b> Working With R</a></li>
+<li class="chapter" data-level="2.2" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#objects-in-r"><i class="fa fa-check"></i><b>2.2</b> Objects in R</a></li>
+<li class="chapter" data-level="2.3" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#international-and-local-formats"><i class="fa fa-check"></i><b>2.3</b> International and Local Formats</a></li>
+<li class="chapter" data-level="2.4" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#types-of-files-in-r"><i class="fa fa-check"></i><b>2.4</b> Types of Files in R</a></li>
+<li class="chapter" data-level="2.5" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#explaining-the-rstudio-screen"><i class="fa fa-check"></i><b>2.5</b> Explaining the RStudio Screen</a></li>
+<li class="chapter" data-level="2.6" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#running-scripts-from-rstudio"><i class="fa fa-check"></i><b>2.6</b> Running Scripts from RStudio</a></li>
+<li class="chapter" data-level="2.7" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#testing-and-debugging-code"><i class="fa fa-check"></i><b>2.7</b> Testing and Debugging Code</a></li>
+<li class="chapter" data-level="2.8" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#creating-simple-objects"><i class="fa fa-check"></i><b>2.8</b> Creating Simple Objects</a></li>
+<li class="chapter" data-level="2.9" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#creating-vectors"><i class="fa fa-check"></i><b>2.9</b> Creating Vectors</a></li>
+<li class="chapter" data-level="2.10" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#knowing-your-environment"><i class="fa fa-check"></i><b>2.10</b> Knowing Your Environment</a></li>
+<li class="chapter" data-level="2.11" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#displaying-and-formatting-output"><i class="fa fa-check"></i><b>2.11</b> Displaying and Formatting Output</a><ul>
+<li class="chapter" data-level="2.11.1" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#customizing-the-output"><i class="fa fa-check"></i><b>2.11.1</b> Customizing the Output</a></li>
+</ul></li>
+<li class="chapter" data-level="2.12" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#finding-the-size-of-objects"><i class="fa fa-check"></i><b>2.12</b> Finding the Size of Objects</a></li>
+<li class="chapter" data-level="2.13" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#selecting-the-elements-of-an-atomic-vector"><i class="fa fa-check"></i><b>2.13</b> Selecting the Elements of an Atomic Vector</a></li>
+<li class="chapter" data-level="2.14" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#removing-objects-from-the-memory"><i class="fa fa-check"></i><b>2.14</b> Removing Objects from the Memory</a></li>
+<li class="chapter" data-level="2.15" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#displaying-and-setting-the-working-directory"><i class="fa fa-check"></i><b>2.15</b> Displaying and Setting the Working Directory</a></li>
+<li class="chapter" data-level="2.16" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#cancelling-code-execution"><i class="fa fa-check"></i><b>2.16</b> Cancelling Code Execution</a></li>
+<li class="chapter" data-level="2.17" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#code-comments"><i class="fa fa-check"></i><b>2.17</b> Code Comments</a></li>
+<li class="chapter" data-level="2.18" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#looking-for-help"><i class="fa fa-check"></i><b>2.18</b> Looking for Help</a></li>
+<li class="chapter" data-level="2.19" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#r-packages"><i class="fa fa-check"></i><b>2.19</b> R Packages</a><ul>
+<li class="chapter" data-level="2.19.1" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#installing-packages-from-cran"><i class="fa fa-check"></i><b>2.19.1</b> Installing Packages from CRAN</a></li>
+<li class="chapter" data-level="2.19.2" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#installing-packages-from-github"><i class="fa fa-check"></i><b>2.19.2</b> Installing Packages from Github</a></li>
+<li class="chapter" data-level="2.19.3" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#loading-packages"><i class="fa fa-check"></i><b>2.19.3</b> Loading Packages</a></li>
+<li class="chapter" data-level="2.19.4" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#upgrading-packages"><i class="fa fa-check"></i><b>2.19.4</b> Upgrading Packages</a></li>
+</ul></li>
+<li class="chapter" data-level="2.20" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#using-code-completion-with-tab"><i class="fa fa-check"></i><b>2.20</b> Using Code Completion with <em>tab</em></a></li>
+<li class="chapter" data-level="2.21" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#interacting-with-files-and-the-operating-system"><i class="fa fa-check"></i><b>2.21</b> Interacting with Files and the Operating System</a><ul>
+<li class="chapter" data-level="2.21.1" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#listing-files-and-folders"><i class="fa fa-check"></i><b>2.21.1</b> Listing Files and Folders</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="BasicObjects.html"><a href="BasicObjects.html"><i class="fa fa-check"></i><b>3</b> Basic Object Classes</a><ul>
+<li class="chapter" data-level="3.1" data-path="BasicObjects.html"><a href="BasicObjects.html#numeric-objects"><i class="fa fa-check"></i><b>3.1</b> <code>Numeric</code> Objects</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-and-manipulating-numeric-objects"><i class="fa fa-check"></i><b>3.1.1</b> Creating and Manipulating <code>numeric</code> Objects</a></li>
+<li class="chapter" data-level="3.1.2" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-a-numeric-sequence"><i class="fa fa-check"></i><b>3.1.2</b> Creating a <code>numeric</code> Sequence</a></li>
+<li class="chapter" data-level="3.1.3" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-vectors-with-repeated-elements"><i class="fa fa-check"></i><b>3.1.3</b> Creating Vectors with Repeated Elements</a></li>
+<li class="chapter" data-level="3.1.4" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-vectors-with-random-numbers"><i class="fa fa-check"></i><b>3.1.4</b> Creating Vectors with Random Numbers</a></li>
+<li class="chapter" data-level="3.1.5" data-path="BasicObjects.html"><a href="BasicObjects.html#accessing-the-elements-of-a-numeric-vector"><i class="fa fa-check"></i><b>3.1.5</b> Accessing the Elements of a <code>numeric</code> Vector</a></li>
+<li class="chapter" data-level="3.1.6" data-path="BasicObjects.html"><a href="BasicObjects.html#modifying-and-removing-elements-of-a-numeric-vector"><i class="fa fa-check"></i><b>3.1.6</b> Modifying and Removing Elements of a <code>numeric</code> Vector</a></li>
+<li class="chapter" data-level="3.1.7" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-groups-from-a-numeric-vector"><i class="fa fa-check"></i><b>3.1.7</b> Creating Groups from a <code>numeric</code> Vector</a></li>
+<li class="chapter" data-level="3.1.8" data-path="BasicObjects.html"><a href="BasicObjects.html#other-functions-for-manipulating-numerical-vectors"><i class="fa fa-check"></i><b>3.1.8</b> Other Functions for Manipulating Numerical Vectors</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="BasicObjects.html"><a href="BasicObjects.html#character-objects"><i class="fa fa-check"></i><b>3.2</b> <code>Character</code> Objects</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-a-simple-character-object"><i class="fa fa-check"></i><b>3.2.1</b> Creating a Simple <code>character</code> Object</a></li>
+<li class="chapter" data-level="3.2.2" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-structured-character-objects"><i class="fa fa-check"></i><b>3.2.2</b> Creating Structured <code>character</code> Objects</a></li>
+<li class="chapter" data-level="3.2.3" data-path="BasicObjects.html"><a href="BasicObjects.html#character-constants"><i class="fa fa-check"></i><b>3.2.3</b> <code>character</code> Constants</a></li>
+<li class="chapter" data-level="3.2.4" data-path="BasicObjects.html"><a href="BasicObjects.html#selecting-characters-of-a-text-object"><i class="fa fa-check"></i><b>3.2.4</b> Selecting Characters of a Text Object</a></li>
+<li class="chapter" data-level="3.2.5" data-path="BasicObjects.html"><a href="BasicObjects.html#finding-and-replacing-characters-of-a-text"><i class="fa fa-check"></i><b>3.2.5</b> Finding and Replacing Characters of a Text</a></li>
+<li class="chapter" data-level="3.2.6" data-path="BasicObjects.html"><a href="BasicObjects.html#splitting-text"><i class="fa fa-check"></i><b>3.2.6</b> Splitting Text</a></li>
+<li class="chapter" data-level="3.2.7" data-path="BasicObjects.html"><a href="BasicObjects.html#finding-the-number-of-characters-in-a-text"><i class="fa fa-check"></i><b>3.2.7</b> Finding the Number of Characters in a Text</a></li>
+<li class="chapter" data-level="3.2.8" data-path="BasicObjects.html"><a href="BasicObjects.html#generating-combinations-of-text"><i class="fa fa-check"></i><b>3.2.8</b> Generating Combinations of Text</a></li>
+<li class="chapter" data-level="3.2.9" data-path="BasicObjects.html"><a href="BasicObjects.html#encoding-of-character-objects"><i class="fa fa-check"></i><b>3.2.9</b> Encoding of <code>character</code> Objects</a></li>
+<li class="chapter" data-level="3.2.10" data-path="BasicObjects.html"><a href="BasicObjects.html#other-functions-for-manipulating-character"><i class="fa fa-check"></i><b>3.2.10</b> Other Functions for Manipulating <code>character</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="BasicObjects.html"><a href="BasicObjects.html#factor-objects"><i class="fa fa-check"></i><b>3.3</b> <code>Factor</code> Objects</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-factors"><i class="fa fa-check"></i><b>3.3.1</b> Creating <code>factors</code></a></li>
+<li class="chapter" data-level="3.3.2" data-path="BasicObjects.html"><a href="BasicObjects.html#modifying-factors"><i class="fa fa-check"></i><b>3.3.2</b> Modifying <code>factors</code></a></li>
+<li class="chapter" data-level="3.3.3" data-path="BasicObjects.html"><a href="BasicObjects.html#converting-factors-to-other-classes"><i class="fa fa-check"></i><b>3.3.3</b> Converting <code>factors</code> to Other Classes</a></li>
+<li class="chapter" data-level="3.3.4" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-contingency-tables"><i class="fa fa-check"></i><b>3.3.4</b> Creating Contingency Tables</a></li>
+<li class="chapter" data-level="3.3.5" data-path="BasicObjects.html"><a href="BasicObjects.html#other-functions-for-manipulating-factors"><i class="fa fa-check"></i><b>3.3.5</b> Other Functions for Manipulating <code>factors</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="BasicObjects.html"><a href="BasicObjects.html#logical-objects"><i class="fa fa-check"></i><b>3.4</b> <code>Logical</code> Objects</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-logical-objects"><i class="fa fa-check"></i><b>3.4.1</b> Creating <code>logical</code> Objects</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="BasicObjects.html"><a href="BasicObjects.html#date-and-time-objects"><i class="fa fa-check"></i><b>3.5</b> Date and Time Objects</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-simple-dates"><i class="fa fa-check"></i><b>3.5.1</b> Creating Simple Dates</a></li>
+<li class="chapter" data-level="3.5.2" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-a-sequence-of-dates"><i class="fa fa-check"></i><b>3.5.2</b> Creating a Sequence of <code>Dates</code></a></li>
+<li class="chapter" data-level="3.5.3" data-path="BasicObjects.html"><a href="BasicObjects.html#operations-with-dates"><i class="fa fa-check"></i><b>3.5.3</b> Operations with <code>Dates</code></a></li>
+<li class="chapter" data-level="3.5.4" data-path="BasicObjects.html"><a href="BasicObjects.html#dealing-with-time"><i class="fa fa-check"></i><b>3.5.4</b> Dealing with Time</a></li>
+<li class="chapter" data-level="3.5.5" data-path="BasicObjects.html"><a href="BasicObjects.html#customizing-the-output-format-of-dates-and-times"><i class="fa fa-check"></i><b>3.5.5</b> Customizing the Output Format of Dates and Times</a></li>
+<li class="chapter" data-level="3.5.6" data-path="BasicObjects.html"><a href="BasicObjects.html#find-the-current-date-and-time"><i class="fa fa-check"></i><b>3.5.6</b> Find the Current Date and Time</a></li>
+<li class="chapter" data-level="3.5.7" data-path="BasicObjects.html"><a href="BasicObjects.html#other-functions-for-manipulating-dates-and-time"><i class="fa fa-check"></i><b>3.5.7</b> Other Functions for Manipulating Dates and Time</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="BasicObjects.html"><a href="BasicObjects.html#missing-data---na-not-available"><i class="fa fa-check"></i><b>3.6</b> Missing Data - <code>NA</code> (<em>Not available</em>)</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="BasicObjects.html"><a href="BasicObjects.html#defining-na-values"><i class="fa fa-check"></i><b>3.6.1</b> Defining <code>NA</code> Values</a></li>
+<li class="chapter" data-level="3.6.2" data-path="BasicObjects.html"><a href="BasicObjects.html#finding-and-replacing-na"><i class="fa fa-check"></i><b>3.6.2</b> Finding and Replacing <code>NA</code></a></li>
+<li class="chapter" data-level="3.6.3" data-path="BasicObjects.html"><a href="BasicObjects.html#other-useful-functions-for-treating-na"><i class="fa fa-check"></i><b>3.6.3</b> Other Useful Functions for Treating <code>NA</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html"><i class="fa fa-check"></i><b>4</b> Data Structure Objects</a><ul>
+<li class="chapter" data-level="4.1" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#lists"><i class="fa fa-check"></i><b>4.1</b> <code>Lists</code></a><ul>
+<li class="chapter" data-level="4.1.1" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#creating-lists"><i class="fa fa-check"></i><b>4.1.1</b> Creating <code>lists</code></a></li>
+<li class="chapter" data-level="4.1.2" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#accessing-the-elements-of-a-list"><i class="fa fa-check"></i><b>4.1.2</b> Accessing the Elements of a <code>list</code></a></li>
+<li class="chapter" data-level="4.1.3" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#adding-and-removing-elements-from-a-list"><i class="fa fa-check"></i><b>4.1.3</b> Adding and Removing Elements from a <code>list</code></a></li>
+<li class="chapter" data-level="4.1.4" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#processing-the-elements-of-a-list"><i class="fa fa-check"></i><b>4.1.4</b> Processing the Elements of a <code>list</code></a></li>
+<li class="chapter" data-level="4.1.5" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#other-functions-for-manipulating-lists"><i class="fa fa-check"></i><b>4.1.5</b> Other Functions for Manipulating <code>lists</code></a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#matrices"><i class="fa fa-check"></i><b>4.2</b> <code>Matrices</code></a><ul>
+<li class="chapter" data-level="4.2.1" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#selecting-elements-from-a-matrix"><i class="fa fa-check"></i><b>4.2.1</b> Selecting Elements from a <code>matrix</code></a></li>
+<li class="chapter" data-level="4.2.2" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#other-useful-functions-for-manipulating-matrices"><i class="fa fa-check"></i><b>4.2.2</b> Other Useful Functions for Manipulating Matrices</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#dataframes"><i class="fa fa-check"></i><b>4.3</b> <code>Dataframes</code></a><ul>
+<li class="chapter" data-level="4.3.1" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#creating-dataframes"><i class="fa fa-check"></i><b>4.3.1</b> Creating <code>dataframes</code></a></li>
+<li class="chapter" data-level="4.3.2" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#accessing-information-from-a-dataframe"><i class="fa fa-check"></i><b>4.3.2</b> Accessing Information from a <code>dataframe</code></a></li>
+<li class="chapter" data-level="4.3.3" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#modifying-a-dataframe"><i class="fa fa-check"></i><b>4.3.3</b> Modifying a <code>dataframe</code></a></li>
+<li class="chapter" data-level="4.3.4" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#sorting-a-dataframe"><i class="fa fa-check"></i><b>4.3.4</b> Sorting a <code>dataframe</code></a></li>
+<li class="chapter" data-level="4.3.5" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#combining-and-aggregating-dataframes"><i class="fa fa-check"></i><b>4.3.5</b> Combining and Aggregating <code>dataframes</code></a></li>
+<li class="chapter" data-level="4.3.6" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#reporting-a-dataframe-table"><i class="fa fa-check"></i><b>4.3.6</b> Reporting a <code>Dataframe</code> Table</a></li>
+<li class="chapter" data-level="4.3.7" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#the-format-of-the-dataframe-long-and-wide"><i class="fa fa-check"></i><b>4.3.7</b> The Format of the <code>dataframe</code> (<em>long</em> and <em>wide</em>)</a></li>
+<li class="chapter" data-level="4.3.8" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#extensions-of-the-dataframe-class"><i class="fa fa-check"></i><b>4.3.8</b> Extensions of the <code>dataframe</code> Class</a></li>
+<li class="chapter" data-level="4.3.9" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#other-useful-functions-for-handling-dataframes"><i class="fa fa-check"></i><b>4.3.9</b> Other Useful Functions for Handling <code>dataframes</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="Financial-data.html"><a href="Financial-data.html"><i class="fa fa-check"></i><b>5</b> Financial Data and Common Operations</a><ul>
+<li class="chapter" data-level="5.1" data-path="Financial-data.html"><a href="Financial-data.html#data-from-financial-markets"><i class="fa fa-check"></i><b>5.1</b> Data from Financial Markets</a></li>
+<li class="chapter" data-level="5.2" data-path="Financial-data.html"><a href="Financial-data.html#data-from-the-financial-evaluation-of-projects"><i class="fa fa-check"></i><b>5.2</b> Data from the Financial Evaluation of Projects</a></li>
+<li class="chapter" data-level="5.3" data-path="Financial-data.html"><a href="Financial-data.html#data-from-financial-statements"><i class="fa fa-check"></i><b>5.3</b> Data from Financial Statements</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="importing.html"><a href="importing.html"><i class="fa fa-check"></i><b>6</b> Importing and Exporting Data</a><ul>
+<li class="chapter" data-level="6.1" data-path="importing.html"><a href="importing.html#importing-data-from-local-files"><i class="fa fa-check"></i><b>6.1</b> Importing Data from Local Files</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="importing.html"><a href="importing.html#importing-data-from-a-.csv-file-comma-separated-values"><i class="fa fa-check"></i><b>6.1.1</b> Importing Data from a <em>.csv</em> File (<em>comma separated values</em>)</a></li>
+<li class="chapter" data-level="6.1.2" data-path="importing.html"><a href="importing.html#importing-data-from-an-excel-file"><i class="fa fa-check"></i><b>6.1.2</b> Importing Data from an <em>Excel</em> File</a></li>
+<li class="chapter" data-level="6.1.3" data-path="importing.html"><a href="importing.html#importing-data-from-a-.rdata-file"><i class="fa fa-check"></i><b>6.1.3</b> Importing Data from a <em>.RData</em> File</a></li>
+<li class="chapter" data-level="6.1.4" data-path="importing.html"><a href="importing.html#importing-data-from-sqlite"><i class="fa fa-check"></i><b>6.1.4</b> Importing Data from SQLITE</a></li>
+<li class="chapter" data-level="6.1.5" data-path="importing.html"><a href="importing.html#importing-data-from-a-text-file"><i class="fa fa-check"></i><b>6.1.5</b> Importing Data from a Text File</a></li>
+<li class="chapter" data-level="6.1.6" data-path="importing.html"><a href="importing.html#other-file-formats"><i class="fa fa-check"></i><b>6.1.6</b> Other File Formats</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="importing.html"><a href="importing.html#importing-data-using-the-internet"><i class="fa fa-check"></i><b>6.2</b> Importing Data Using the Internet</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="importing.html"><a href="importing.html#package-quantmod"><i class="fa fa-check"></i><b>6.2.1</b> Package <code>quantmod</code></a></li>
+<li class="chapter" data-level="6.2.2" data-path="importing.html"><a href="importing.html#package-batchgetsymbols"><i class="fa fa-check"></i><b>6.2.2</b> Package <code>BatchGetSymbols</code></a></li>
+<li class="chapter" data-level="6.2.3" data-path="importing.html"><a href="importing.html#package-finreportr"><i class="fa fa-check"></i><b>6.2.3</b> Package <code>finreportr</code></a></li>
+<li class="chapter" data-level="6.2.4" data-path="importing.html"><a href="importing.html#package-tidyquant"><i class="fa fa-check"></i><b>6.2.4</b> Package <code>tidyquant</code></a></li>
+<li class="chapter" data-level="6.2.5" data-path="importing.html"><a href="importing.html#package-gethfdata"><i class="fa fa-check"></i><b>6.2.5</b> Package <code>GetHFData</code></a></li>
+<li class="chapter" data-level="6.2.6" data-path="importing.html"><a href="importing.html#package-ustyc"><i class="fa fa-check"></i><b>6.2.6</b> Package <code>ustyc</code></a></li>
+<li class="chapter" data-level="6.2.7" data-path="importing.html"><a href="importing.html#quandl"><i class="fa fa-check"></i><b>6.2.7</b> Package <code>Quandl</code></a></li>
+<li class="chapter" data-level="6.2.8" data-path="importing.html"><a href="importing.html#package-rbitcoin"><i class="fa fa-check"></i><b>6.2.8</b> Package <code>Rbitcoin</code></a></li>
+<li class="chapter" data-level="6.2.9" data-path="importing.html"><a href="importing.html#other-packages"><i class="fa fa-check"></i><b>6.2.9</b> Other Packages</a></li>
+<li class="chapter" data-level="6.2.10" data-path="importing.html"><a href="importing.html#accessing-data-from-web-pages-webscraping"><i class="fa fa-check"></i><b>6.2.10</b> Accessing Data from Web Pages (<em>webscraping</em>)</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="importing.html"><a href="importing.html#exporting-to-local-file"><i class="fa fa-check"></i><b>6.3</b> Exporting to Local File</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="importing.html"><a href="importing.html#exporting-data-to-a-.csv-file"><i class="fa fa-check"></i><b>6.3.1</b> Exporting Data to a <em>.csv</em> File</a></li>
+<li class="chapter" data-level="6.3.2" data-path="importing.html"><a href="importing.html#exporting-data-to-a-rdata-file"><i class="fa fa-check"></i><b>6.3.2</b> Exporting Data to a <em>RData</em> File</a></li>
+<li class="chapter" data-level="6.3.3" data-path="importing.html"><a href="importing.html#exporting-data-to-an-excel-file"><i class="fa fa-check"></i><b>6.3.3</b> Exporting Data to an Excel File</a></li>
+<li class="chapter" data-level="6.3.4" data-path="importing.html"><a href="importing.html#exporting-data-to-a-text-file"><i class="fa fa-check"></i><b>6.3.4</b> Exporting Data to a Text File</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="programming.html"><a href="programming.html"><i class="fa fa-check"></i><b>7</b> Programming and Data Analysis with R</a><ul>
+<li class="chapter" data-level="7.1" data-path="programming.html"><a href="programming.html#creating-functions"><i class="fa fa-check"></i><b>7.1</b> Creating Functions</a></li>
+<li class="chapter" data-level="7.2" data-path="programming.html"><a href="programming.html#using-loops-for"><i class="fa fa-check"></i><b>7.2</b> Using Loops (<code>for</code>)</a></li>
+<li class="chapter" data-level="7.3" data-path="programming.html"><a href="programming.html#conditional-statements-if-else-switch"><i class="fa fa-check"></i><b>7.3</b> Conditional Statements (<code>if</code>, <code>else</code>, <code>switch</code>)</a></li>
+<li class="chapter" data-level="7.4" data-path="programming.html"><a href="programming.html#using-apply-functions"><i class="fa fa-check"></i><b>7.4</b> Using <code>apply</code> Functions</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="programming.html"><a href="programming.html#using-lapply"><i class="fa fa-check"></i><b>7.4.1</b> Using <code>lapply</code></a></li>
+<li class="chapter" data-level="7.4.2" data-path="programming.html"><a href="programming.html#using-sapply"><i class="fa fa-check"></i><b>7.4.2</b> Using <code>sapply</code></a></li>
+<li class="chapter" data-level="7.4.3" data-path="programming.html"><a href="programming.html#using-tapply"><i class="fa fa-check"></i><b>7.4.3</b> Using <code>tapply</code></a></li>
+<li class="chapter" data-level="7.4.4" data-path="programming.html"><a href="programming.html#using-mapply"><i class="fa fa-check"></i><b>7.4.4</b> Using <code>mapply</code></a></li>
+<li class="chapter" data-level="7.4.5" data-path="programming.html"><a href="programming.html#using-apply"><i class="fa fa-check"></i><b>7.4.5</b> Using <code>apply</code></a></li>
+<li class="chapter" data-level="7.4.6" data-path="programming.html"><a href="programming.html#using-by"><i class="fa fa-check"></i><b>7.4.6</b> Using <code>by</code></a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="programming.html"><a href="programming.html#data-manipulation-with-package-dplyr"><i class="fa fa-check"></i><b>7.5</b> Data Manipulation with Package <code>dplyr</code></a><ul>
+<li class="chapter" data-level="7.5.1" data-path="programming.html"><a href="programming.html#manipulating-a-dataframe-with-dplyr"><i class="fa fa-check"></i><b>7.5.1</b> Manipulating a <code>dataframe</code> with <code>dplyr</code></a></li>
+<li class="chapter" data-level="7.5.2" data-path="programming.html"><a href="programming.html#the-pipeline-operator"><i class="fa fa-check"></i><b>7.5.2</b> The Pipeline Operator (<code>%&gt;%</code>)</a></li>
+<li class="chapter" data-level="7.5.3" data-path="programming.html"><a href="programming.html#simple-group-operations-with-dplyr"><i class="fa fa-check"></i><b>7.5.3</b> Simple Group Operations with <code>dplyr</code></a></li>
+<li class="chapter" data-level="7.5.4" data-path="programming.html"><a href="programming.html#complex-group-operations-with-dplyr"><i class="fa fa-check"></i><b>7.5.4</b> Complex Group Operations with <code>dplyr</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="Figures.html"><a href="Figures.html"><i class="fa fa-check"></i><b>8</b> Creating and Saving Figures with <code>ggplot2</code></a><ul>
+<li class="chapter" data-level="8.1" data-path="Figures.html"><a href="Figures.html#using-graphic-windows"><i class="fa fa-check"></i><b>8.1</b> Using Graphic Windows</a></li>
+<li class="chapter" data-level="8.2" data-path="Figures.html"><a href="Figures.html#creating-figures-with-function-qplot"><i class="fa fa-check"></i><b>8.2</b> Creating Figures with Function <code>qplot</code></a></li>
+<li class="chapter" data-level="8.3" data-path="Figures.html"><a href="Figures.html#using-ggplot"><i class="fa fa-check"></i><b>8.3</b> Creating Figures with Function <code>ggplot</code></a><ul>
+<li class="chapter" data-level="8.3.1" data-path="Figures.html"><a href="Figures.html#using-themes"><i class="fa fa-check"></i><b>8.3.1</b> Using Themes</a></li>
+<li class="chapter" data-level="8.3.2" data-path="Figures.html"><a href="Figures.html#creating-panels-with-facet_wrap"><i class="fa fa-check"></i><b>8.3.2</b> Creating Panels with <code>facet_wrap</code></a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="Figures.html"><a href="Figures.html#using-pipelines-for-data-analysis-and-figures"><i class="fa fa-check"></i><b>8.4</b> Using Pipelines for Data Analysis and Figures</a></li>
+<li class="chapter" data-level="8.5" data-path="Figures.html"><a href="Figures.html#creating-statistical-graphics"><i class="fa fa-check"></i><b>8.5</b> Creating Statistical Graphics</a><ul>
+<li class="chapter" data-level="8.5.1" data-path="Figures.html"><a href="Figures.html#creating-histograms"><i class="fa fa-check"></i><b>8.5.1</b> Creating Histograms</a></li>
+<li class="chapter" data-level="8.5.2" data-path="Figures.html"><a href="Figures.html#creating-boxplot-figures"><i class="fa fa-check"></i><b>8.5.2</b> Creating <em>boxplot</em> Figures</a></li>
+<li class="chapter" data-level="8.5.3" data-path="Figures.html"><a href="Figures.html#creating-qq-plots"><i class="fa fa-check"></i><b>8.5.3</b> Creating <em>QQ</em> Plots</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="Figures.html"><a href="Figures.html#saving-graphics-to-a-file"><i class="fa fa-check"></i><b>8.6</b> Saving Graphics to a File</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="models.html"><a href="models.html"><i class="fa fa-check"></i><b>9</b> Financial Econometrics with R</a><ul>
+<li class="chapter" data-level="9.1" data-path="models.html"><a href="models.html#linear-models-ols"><i class="fa fa-check"></i><b>9.1</b> Linear Models (OLS)</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="models.html"><a href="models.html#simulating-a-linear-model"><i class="fa fa-check"></i><b>9.1.1</b> Simulating a Linear Model</a></li>
+<li class="chapter" data-level="9.1.2" data-path="models.html"><a href="models.html#estimating-ols"><i class="fa fa-check"></i><b>9.1.2</b> Estimating a Linear Model</a></li>
+<li class="chapter" data-level="9.1.3" data-path="models.html"><a href="models.html#testing-ols"><i class="fa fa-check"></i><b>9.1.3</b> Statistical Inference in Linear Models</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="models.html"><a href="models.html#generalized-linear-models-glm"><i class="fa fa-check"></i><b>9.2</b> Generalized Linear Models (GLM)</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="models.html"><a href="models.html#simulating-a-glm-model"><i class="fa fa-check"></i><b>9.2.1</b> Simulating a GLM Model</a></li>
+<li class="chapter" data-level="9.2.2" data-path="models.html"><a href="models.html#estimating-a-glm-model"><i class="fa fa-check"></i><b>9.2.2</b> Estimating a GLM Model</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="models.html"><a href="models.html#panel-data-models"><i class="fa fa-check"></i><b>9.3</b> Panel Data Models</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="models.html"><a href="models.html#simulating-panel-data-models"><i class="fa fa-check"></i><b>9.3.1</b> Simulating Panel Data Models</a></li>
+<li class="chapter" data-level="9.3.2" data-path="models.html"><a href="models.html#estimating-panel-data-models"><i class="fa fa-check"></i><b>9.3.2</b> Estimating Panel Data Models</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="models.html"><a href="models.html#arima-models"><i class="fa fa-check"></i><b>9.4</b> Arima Models</a><ul>
+<li class="chapter" data-level="9.4.1" data-path="models.html"><a href="models.html#simulating-arima-models"><i class="fa fa-check"></i><b>9.4.1</b> Simulating Arima Models</a></li>
+<li class="chapter" data-level="9.4.2" data-path="models.html"><a href="models.html#arima-estimating"><i class="fa fa-check"></i><b>9.4.2</b> Estimating Arima Models</a></li>
+<li class="chapter" data-level="9.4.3" data-path="models.html"><a href="models.html#forecasting-arima-models"><i class="fa fa-check"></i><b>9.4.3</b> Forecasting Arima Models</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="models.html"><a href="models.html#garch-models"><i class="fa fa-check"></i><b>9.5</b> Garch Models</a><ul>
+<li class="chapter" data-level="9.5.1" data-path="models.html"><a href="models.html#simulating-garch-models"><i class="fa fa-check"></i><b>9.5.1</b> Simulating Garch Models</a></li>
+<li class="chapter" data-level="9.5.2" data-path="models.html"><a href="models.html#estimating-garch"><i class="fa fa-check"></i><b>9.5.2</b> Estimating Garch Models</a></li>
+<li class="chapter" data-level="9.5.3" data-path="models.html"><a href="models.html#forecasting-garch-models"><i class="fa fa-check"></i><b>9.5.3</b> Forecasting Garch Models</a></li>
+</ul></li>
+<li class="chapter" data-level="9.6" data-path="models.html"><a href="models.html#regime-switching-models"><i class="fa fa-check"></i><b>9.6</b> Regime Switching Models</a><ul>
+<li class="chapter" data-level="9.6.1" data-path="models.html"><a href="models.html#simulating-regime-switching-models"><i class="fa fa-check"></i><b>9.6.1</b> Simulating Regime Switching Models</a></li>
+<li class="chapter" data-level="9.6.2" data-path="models.html"><a href="models.html#estimating-regime-switching-models"><i class="fa fa-check"></i><b>9.6.2</b> Estimating Regime Switching Models</a></li>
+<li class="chapter" data-level="9.6.3" data-path="models.html"><a href="models.html#forecasting-regime-switching-models"><i class="fa fa-check"></i><b>9.6.3</b> Forecasting Regime Switching Models</a></li>
+</ul></li>
+<li class="chapter" data-level="9.7" data-path="models.html"><a href="models.html#dealing-with-several-models"><i class="fa fa-check"></i><b>9.7</b> Dealing with Several Models</a></li>
+<li class="chapter" data-level="9.8" data-path="models.html"><a href="models.html#reporting-models"><i class="fa fa-check"></i><b>9.8</b> Reporting Models with <code>texreg</code></a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="research-scripts.html"><a href="research-scripts.html"><i class="fa fa-check"></i><b>10</b> Writing Research Scripts</a><ul>
+<li class="chapter" data-level="10.1" data-path="research-scripts.html"><a href="research-scripts.html#structure-of-a-research-script"><i class="fa fa-check"></i><b>10.1</b> Structure of a Research Script</a></li>
+<li class="chapter" data-level="10.2" data-path="research-scripts.html"><a href="research-scripts.html#folder-structure"><i class="fa fa-check"></i><b>10.2</b> Folder Structure</a></li>
+<li class="chapter" data-level="10.3" data-path="research-scripts.html"><a href="research-scripts.html#ExampleResearch"><i class="fa fa-check"></i><b>10.3</b> Examples of Research Scripts</a><ul>
+<li class="chapter" data-level="10.3.1" data-path="research-scripts.html"><a href="research-scripts.html#research-performance"><i class="fa fa-check"></i><b>10.3.1</b> The performance of international investments</a></li>
+<li class="chapter" data-level="10.3.2" data-path="research-scripts.html"><a href="research-scripts.html#research-prophet"><i class="fa fa-check"></i><b>10.3.2</b> Can we predict stock’s returns with Prophet?</a></li>
+<li class="chapter" data-level="10.3.3" data-path="research-scripts.html"><a href="research-scripts.html#research-gethfdata"><i class="fa fa-check"></i><b>10.3.3</b> An Analysis of High Frequency trade Data</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://sites.google.com/view/pmfdr/home" target="blank">Book Companion Site</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Processing and Analyzing Financial Data with R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="basic-operations-in-r" class="section level1">
+<h1><span class="header-section-number">Chapter 2</span> Basic Operations in R</h1>
+<p>Before you start developing your code, you need to understand how to work with R and RStudio. This includes work patterns, language components, basic commands and RStudio shortcuts. Understanding the software and how to take advantage of the platform is essential for the development of data-based research scripts. This is the main chapter for those who are not familiar with R or other programming languages.</p>
+<p>In this section, we will go through the initial steps from the point of view of someone who has never worked with R and possibly never had contact with another programming language. Those already familiar with the program will not find novel information here and therefore, I suggest you skip to the next section. It is recommended, however, that you at least check the topics discussed here so that you can confirm your knowledge about the features of the program.</p>
+<div id="working-with-r" class="section level2">
+<h2><span class="header-section-number">2.1</span> Working With R</h2>
+<p>The greatest difficulty a new user experiences when starting to develop routines in R is the format of work. Our interaction with computers has been simplified over the years and we are currently comfortable with the <em>point&amp;click</em> format. That is, if you want to perform some operation on the computer, just point the <em>mouse</em> to the specific location on the screen and click the button that performs the operation. Visual cues and a series of steps in this direction allows the execution of complex tasks. But, be aware that this form of interaction is just one layer above what actually happens on the computer. Behind all these <em>clicks</em>, there is a command being executed. Any common task such as opening a <em>pdf</em> file, a spreadsheet document, directing a <em>browser</em> to a web page has an underlying call to a command. This command was created by the program developer to run within your operating system.</p>
+<p>While this visual and motor interaction format has its benefits in facilitating and popularizing the use of computers, it is not flexible and effective when working with computational procedures. By knowing the commands available to the user, it is possible to create a file containing several instructions in sequence and, in the future, simply request that the computer <strong>execute</strong> this file using the recorded procedures. There is no need to do a “scripted” point&amp;click operation. You need to spend some time creating the program but, in the future, it will always execute the recorded procedure in the same way. In the medium and long term, there is a significant gain in productivity between the use of a <em>script</em> (sequence of commands) and a <em>point&amp;click</em> type of interface. Going further, the risk of human error in executing the procedure is almost nil because the commands and their sequence are recorded in the text file and will always be executed in the same way. This is one of the main reasons why programming languages are popular in science. All steps of data based research can be replicated.</p>
+<p>In the use of R, the ideal format of work is to merge the use of the mouse with commands. R and RStudio have some functionality with the <em>mouse</em>, but their capacity is optimized when we perform operations using code. When a group of commands is performed in a smart way, we have an R script that should preferably produce something important to us at the end of its execution. In Finance, this can be the updated value of an investment, the calculation of the risk of a portfolio, the historical performance of an investment strategy, the result of an academic research, among many other possibilities.</p>
+<p>Like other software, R allows us to import data and export files. We can use code to import a dataset stored in a local file (or the web), do an analysis of this data and save the results to later import it into a technical report. In fact, we can use RStudio to write a dynamic report, where code and content are integrated, using <em>knitr</em> and <em>Sweave</em> <span class="citation">(Leisch <a href="#ref-leisch2002sweave">2002</a>)</span>. For example, the book you’re reading was written using <em>knitr</em> and the <code>bookdown</code> package <span class="citation">(Xie <a href="#ref-xie2016bookdown">2016</a>)</span>. The book is compiled with the execution of the R codes and their outputs are recorded in the scope of the text. All figures and data tasks in the book can be updated with the execution of a simple command. Needless to say that by using the capabilities of R and RStudio, you will work smarter and faster.  </p>
+</div>
+<div id="objects-in-r" class="section level2">
+<h2><span class="header-section-number">2.2</span> Objects in R</h2>
+<p><strong>In R, everything is an object, and each type of object has its properties</strong>. For example, the daily market closing prices of a stock can be represented as a numerical vector, where each element is a price recorded at the end of a trading day. Dates and times related to these prices can be represented as text (<em>string</em>) or one of the <code>datetime</code> classes. Finally, we can represent the price data and the dates together by storing them in a single object of type <em>dataframe</em>, which is nothing more than a table with rows and columns. These objects are part of the R ecosystem, and it is through their manipulation that we take full advantage of the software.</p>
+<p>While we represent data as objects in R, a special type is a <code>function</code>, which stores a pre-established procedure that is available to the user. R has an extremely large number of functions, which enable the user to perform a wide range of operations. For example, the basic commands of R, available in the package <code>base</code>, adds up to a total of 1217 functions. Each function has its own name and a programmer can write their own functions. For example, the <code>mean</code> function is a procedure that calculates the average values of a vector. If we wanted to calculate the average value of the sequence <code>1, 2, 3, 4, 5</code>, simply insert the following command in the <em>prompt</em> (left bottom of RStudio) and press <em>enter</em>:  </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<p>The <em>:</em> symbol used above creates a sequence starting at 1 and ending at 5 (more details about this operator in a later section). Note that the <code>mean</code> function is used with start and end parentheses. These parentheses serve to highlight the entries (<em>inputs</em>), that is, the information sent to the function to produce something. Note that each entry is separated by a comma, as in <code>MyFct(input1, input2, input3, ...)</code>. We also set option <code>na.rm = TRUE</code>. This is a specific directive for the <code>mean</code> function to ignore elements of type <code>NA</code> (<em>not available</em>), if they exist. This specific type of object will also be discussed in a future chapter.</p>
+<p>Functions are at the heart of R and we will dedicate a large part of this book to them. You can use the available functions or write your own. You can also publish your functions and let other people use your code. In a later chapter, we will learn how to use functions to do data analysis in an efficient way.</p>
+</div>
+<div id="international-and-local-formats" class="section level2">
+<h2><span class="header-section-number">2.3</span> International and Local Formats</h2>
+<p>Before beginning to explain the use of R and RStudio, it is important to highlight some rules of formatting numbers, Latin characters and date formats.</p>
+<ul>
+<li><p><strong>decimal:</strong> Following an international notation, the decimal point in R is defined by the period symbol (.), as in <code>2.5</code> and not comma, as in <code>2,5</code>. In some countries, this might not be the case. This difference can create a lot of confusion and errors at the beginning. Some software, such as Microsoft Excel, does the conversion automatically when the data is imported. This, however, is generally an exception. As a general rule of using R, only use commas to separate the inputs of a function. Under no circumstances should the comma symbol be used as the decimal point separator. Always give priority to the international format because it will be compatible with the vast majority of data. Other researchers may experience some difficulty in understanding your code if you use your local notation for the decimal. </p></li>
+<li><p><strong>Latin characters:</strong> Due to its international standard, R has problems understanding Latin characters, such as the cedilla and accents. If you can avoid it, do not use these characters in the names of your variables or files. In character objects (text), you can use them without problems as long as the encoding is correctly specified (e.g. UTF-8, Latin1). Given that, it is recommended that the R code be written in the English language. This automatically eliminates the use of Latin characters and facilitates the usability of the code by people outside of your country.   </p></li>
+<li><p><strong>date format:</strong> Dates in R are formatted according to the <code>YYYY-MM-DD</code> pattern, where <code>YYYY</code> is the year in four numbers, <code>MM</code> is the month and <code>DD</code> is the day. An example is 2017-04-29. This may not be the case in your country. When importing local datasets, make sure that the dates are in this format or do a conversion. Again, while you can work with your local format of dates in R, it is best advised to use the international notation. The conversion between one format and another is quite easy and will be presented in a future chapter. </p></li>
+</ul>
+<p>If you want to learn more about your local format in R, use the following command by typing it in the prompt and pressing enter:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">Sys.localeconv</span>()</code></pre></div>
+<pre><code>##     decimal_point     thousands_sep          grouping 
+##               &quot;.&quot;                &quot;&quot;                &quot;&quot; 
+##   int_curr_symbol   currency_symbol mon_decimal_point 
+##             &quot;BRL&quot;              &quot;R$&quot;               &quot;,&quot; 
+## mon_thousands_sep      mon_grouping     positive_sign 
+##               &quot;.&quot;            &quot;\003&quot;                &quot;&quot; 
+##     negative_sign   int_frac_digits       frac_digits 
+##               &quot;-&quot;               &quot;2&quot;               &quot;2&quot; 
+##     p_cs_precedes    p_sep_by_space     n_cs_precedes 
+##               &quot;1&quot;               &quot;1&quot;               &quot;1&quot; 
+##    n_sep_by_space       p_sign_posn       n_sign_posn 
+##               &quot;1&quot;               &quot;3&quot;               &quot;3&quot;</code></pre>
+<p>The output of <code>Sys.localeconv()</code> shows how R interprets decimal points and the thousands separator, among other things. As you can see from the previous output, this book was compiled using the Brazilian notation for currency but uses the dot point for decimals. As mentioned before, it is good policy to follow international notation, especially for the decimal point. If necessary, you can change your local format to the US/international notation using the following command.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">Sys.setlocale</span>(<span class="st">&quot;LC_ALL&quot;</span>, <span class="st">&quot;English&quot;</span>)</code></pre></div>
+<p>A note, however, is that you’ll need to run this command every time that R starts or incorporate it in the initialization of the software.</p>
+</div>
+<div id="types-of-files-in-r" class="section level2">
+<h2><span class="header-section-number">2.4</span> Types of Files in R</h2>
+<p>Like any other programming platform, R has a file ecosystem and each type of file has a different purpose. In the vast majority of cases, however, the work will focus mostly on two types: <em>.R</em> and <em>.RData</em> files. Next, I provide a description of various file extensions. The items in the list are ordered by importance. Note that we omit graphic files such as <em>.png</em>, <em>.jpg</em>, <em>.gif</em> and data storage files (<em>.csv</em>, <em>.xlsx</em>, ..) among others, as they are not exclusive to R.   </p>
+<ul>
+<li><p><strong>Files with the extension <em>.R </em></strong>: text files containing several instructions for R. These are the files that will contain the sequence of commands that configures the main script and subroutines of the data research. Examples: My-Research.R, My_Functions.R.</p></li>
+<li><p><strong>Files with extension <em>.RData</em></strong>: files that store data in R native format. These files are used to save (write) objects created in different sessions. For example, you can use a <em>.RData</em> file to save a table after processing and cleaning up the raw database. This file can be later loaded for a subsequent analysis. Examples: My_data.RData, Research_Results.RData.</p></li>
+<li><p><strong>Files with extension <em>.Rmd</em>, <em>.md</em> and <em>.Rnw</em></strong>: represent files used for editing dynamic documents related to the <em>Rmarkdown</em> and <em>markdown</em> formats. The use of these files allows the creation of documents where text and code output are integrated. This is an advanced topic and will not be covered in this book. For those interested, I suggest reading <span class="citation">Baumer et al. (<a href="#ref-baumer2014r">2014</a>)</span> and a tutorial at this <a href="http://rmarkdown.rstudio.com/index.html">link</a>. Example: My_Report.Rmd.  </p></li>
+<li><p><strong>Files with extension <em>.Rproj</em></strong>: contain files for editing projects in RStudio, such as a new package, a <em>shiny</em> application or a book. This is also an advanced topic and will not be dealt with here. While you can use the functionalities of RStudio projects to write R scripts, it is not a necessity. For those interested in learning more about this functionality, I suggest the <a href="https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects">RStudio manual</a>. Example: MyProject.Rproj. </p></li>
+</ul>
+</div>
+<div id="explaining-the-rstudio-screen" class="section level2">
+<h2><span class="header-section-number">2.5</span> Explaining the RStudio Screen</h2>
+<p>After installing the two programs, R and RStudio, open RStudio by double clicking its icon. It should be noted that R also has an interface program and this often causes confusion. You should find the correct shortcut for RStudio by going through your software folders. In Windows, you can search for RStudio using the <em>Start</em> button. </p>
+<p>After opening RStudio, the resulting window should look like Figure <a href="basic-operations-in-r.html#fig:RStudio1">2.1</a>.</p>
+<div class="figure" style="text-align: center"><span id="fig:RStudio1"></span>
+<img src="figs/RStudio1.png" alt="The RStudio screen" width="100%" />
+<p class="caption">
+Figure 2.1: The RStudio screen
+</p>
+</div>
+<p>Note that RStudio automatically detected the installation of R and initialized your screen on the left side.</p>
+<p>If you do not see something like this on the screen of RStudio:</p>
+<pre><code>R version 3.3.3 (2017-03-06) -- &quot;Another Canoe&quot;
+Copyright (C) 2017 The R Foundation for Statistical Computing
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type &#39;license()&#39; or &#39;licence()&#39; for distribution details.
+
+R is a collaborative project with many contributors.
+Type &#39;contributors()&#39; for more information and
+&#39;citation()&#39; on how to cite R or R packages in publications.
+
+Type &#39;demo()&#39; for some demos, &#39;help()&#39; for on-line help, or
+&#39;help.start()&#39; for an HTML browser interface to help.
+Type &#39;q()&#39; to quit R.</code></pre>
+<p>then R was not installed correctly. Repeat the installation steps in the previous chapter and confirm the startup message on the lower left side of RStudio.</p>
+<p>As a first exercise, click <em>file</em>, <em>New File</em>, and <em>R Script</em>. A text editor should appear on the left side of the screen. It is there that we will enter our commands, which are executed from top to bottom, in the same direction that we normally read text. A side note, all <em>.R</em> files created in RStudio are just text files and can be edited in other editors as well. It is not uncommon for experienced programmers to use a specific software to write code and another to run it. The resulting screen should look like the following:</p>
+<div class="figure" style="text-align: center"><span id="fig:RStudio2"></span>
+<img src="figs/RStudio2.png" alt="Explaining the RStudio screen" width="100%" />
+<p class="caption">
+Figure 2.2: Explaining the RStudio screen
+</p>
+</div>
+<p>The main items/panels of the RStudio screen in Figure <a href="basic-operations-in-r.html#fig:RStudio2">2.2</a> are:</p>
+<ul>
+<li><p><strong>Script Editor:</strong> located on the left side and above the screen. This panel is used to write scripts and functions; </p></li>
+<li><p><strong>R prompt:</strong> located on the left side and below the script editor. It displays the <em>prompt</em> of R, which can also be used to give commands to R. The main function of the prompt is to test code and display the results of the commands entered in the script editor; </p></li>
+<li><p><strong>Environment:</strong> located on the top-right of the screen. Shows all objects, including variables and functions currently available to the user. Also note a <em>History</em> panel, which shows the history of the commands previously executed by the user; </p></li>
+<li><p><strong>Panel Packages:</strong> shows the packages installed and loaded by R. Here you have four tabs: <em>Files</em>, to load and view system files; <em>Plots</em>, to view pictures; <em>Help</em> to access the help system and <em>Viewer</em> to display dynamic and interactive results, such as a web page. </p></li>
+</ul>
+<p>As an introductory exercise, let’s initialize two objects in R. Inside the prompt (lower left side), insert the following commands and press <em>enter</em> at the end of each. The <code>&lt;-</code> symbol is nothing more than the result of joining <code>&lt;</code> (less than) with the <code>-</code> (minus sign). The <code>'</code> symbol represents a single quotation mark and, in the computer keyboard, it is found under the escape (<em>esc</em>) key.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set x</span>
+x &lt;-<span class="st"> </span><span class="dv">1</span>
+
+<span class="co"># set y</span>
+y &lt;-<span class="st"> &#39;My humble text&#39;</span></code></pre></div>
+<p>If done correctly, notice that two objects appeared in the <em>environment</em> panel, one called <code>x</code> with a value of 1, and another called <code>y</code> with the text content <code>&quot;My humble text&quot;</code>. Notice how we used specific symbols to define objects <code>x</code> and <code>y</code>. The use of double quotes (<code>&quot; &quot;</code>) or single quotes (<code>' '</code>) defines objects of the class <code>character</code>. Numbers are defined by the value itself. As will be discussed later, each object in R has a class and each class has a different behaviour. After sending the previous commands to R, the <em>history tab</em> has been updated.</p>
+<p>Now, let’s show the values of <code>x</code> on the screen. To do this, type the following command:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># print contents of x</span>
+<span class="kw">print</span>(x)</code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<p>The <code>print</code> function is one of the main functions for displaying values in the <em>prompt</em> of R. The text displayed as <code>[1]</code> indicates the index of the first line number. To verify this, enter the following command, which will show a lengthy sequence of numbers on the screen: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># print a sequence</span>
+<span class="kw">print</span>(<span class="dv">50</span><span class="op">:</span><span class="dv">100</span>)</code></pre></div>
+<pre><code>##  [1]  50  51  52  53  54  55  56  57  58  59  60  61  62  63
+## [15]  64  65  66  67  68  69  70  71  72  73  74  75  76  77
+## [29]  78  79  80  81  82  83  84  85  86  87  88  89  90  91
+## [43]  92  93  94  95  96  97  98  99 100</code></pre>
+<p>In this case, we use the <code>:</code> symbol in <code>50:100</code> to create a sequence starting at 50 and ending at 100. Note that on the left side of each line, we have the values 1, 15, and 29. These represent the index of the first element presented in the line. For example, the fifteenth element of <code>50:100</code> is 64.</p>
+</div>
+<div id="running-scripts-from-rstudio" class="section level2">
+<h2><span class="header-section-number">2.6</span> Running Scripts from RStudio</h2>
+<p>Now, let’s combine all the previously typed codes into a single file by copying and pasting all commands into the editor’s screen (upper left side). The result looks like Figure <a href="basic-operations-in-r.html#fig:example-script">2.3</a>.</p>
+<div class="figure" style="text-align: center"><span id="fig:example-script"></span>
+<img src="figs/RStudio_example_script.png" alt="Example of a R script" width="100%" />
+<p class="caption">
+Figure 2.3: Example of a R script
+</p>
+</div>
+<p>After pasting all the commands in the editor, save the <em>.R</em> file to a personal folder where you have read and write permissions. One possibility is to save it in the <code>My Documents</code> folder with a name like <code>'MyFirstRScript.R'</code>. This saved file, which at the moment does nothing special, records the steps of a simple algorithm that creates several objects and shows their content. In the future, this file can take an expressive size by containing all stages of the data analysis such as importing data, cleaning it, performing the data analysis and exporting tables and figures.</p>
+<p>In RStudio, there are some predefined and time-saving shortcuts for running code from the editor. To execute an entire script, simply press <code>control + shift + s</code>. This is the <em>source</em> command. With RStudio open, I suggest testing this key combination and checking how the code saved in a <em>.R</em> file is executed. The output of the script is shown in the prompt of R. The result in RStudio should look like Figure <a href="basic-operations-in-r.html#fig:example-script-source">2.4</a>. </p>
+<div class="figure" style="text-align: center"><span id="fig:example-script-source"></span>
+<img src="figs/RStudio_example_script_source.png" alt="Example of a R script after execution" width="100%" />
+<p class="caption">
+Figure 2.4: Example of a R script after execution
+</p>
+</div>
+<p>Another very useful command is code execution by the lines. In this case, the whole file is not executed, but only the line where the cursor is located. For that, just press <code>control + enter</code>. This shortcut is very useful in developing scripts because it allows each line of the code to be tested before running the entire program. As an example of usage, point the cursor to the <code>print(x)</code> line and press <code>control + enter</code>. As you will notice, only the line <code>print(x)</code> was executed. Therefore, before running the whole script, you can test it line by line and check for possible errors.</p>
+<p>Next, I highlight these and other RStudio shortcuts, which are also very useful.</p>
+<ul>
+<li><strong>control + shift + s</strong>: executes (source) the current RStudio file;</li>
+<li><strong>control + shift + enter</strong>: executes the current file with echo, showing the commands on the prompt;</li>
+<li><strong>control + enter</strong>: executes the selected line, showing on-screen commands;</li>
+<li><strong>control + shift + b</strong>: executes the codes from the beginning of the file to the current line where the cursor is;</li>
+<li><strong>control + shift + e</strong>: executes the codes of the lines where the cursor is until the end of the file.</li>
+</ul>
+<p>My suggestion is to use these shortcuts from day one. They greatly facilitate the use of the program. For those who like to use the <em>mouse</em>, an alternate way to execute code is to click the <em>source</em> button in the upper-right corner of the text editor. If you want to set your own shortcuts in RStudio, go to option, “Tools” and “Modify Keyboard Shortcuts”. One suggestion here is to set the <em>source</em> command to F5, which is used by several other software as an “execute” shortcut.</p>
+<p>If you want to run code in a <em>.R</em> file within another .R file, you can use the <code>source</code> command. For example, imagine that you have a main script with your data analysis and another script that performs some support operation such as importing data to R. These operations have been dismembered as a way of organizing the code. </p>
+<p>To run the support <em>script</em>, just call it with function <code>source</code> in the main script, as in the following code:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># execute import script</span>
+<span class="kw">source</span>(<span class="st">&#39;import-data.R&#39;</span>)</code></pre></div>
+<p>In this case, all code in <code>import-data.R</code> will be executed. This is equivalent to manually opening file <code>import-data.R</code> and hitting <em>control + shift + s</em>.</p>
+</div>
+<div id="testing-and-debugging-code" class="section level2">
+<h2><span class="header-section-number">2.7</span> Testing and Debugging Code</h2>
+<p>The development of code follows a cycle. At first, you will write a command line on a script, try it using <em>control + enter</em> and check the output. A new line of code is written once the previous line worked as expected. A moving cycle is clear, writing code is followed by line execution, followed by result checking, modify and repeat if necessary. This is a normal process. You need to make sure that every line of code is correctly specified before moving to the next one.</p>
+<p>When you are trying to find an error in a preexisting script, R offers some tools for controlling and assessing its execution. This is specially useful when you have a long and complicated script. The simplest and easiest tool that R and RStudio offers is code breakpoint. In RStudio, you can click in the left side of the script editor and a red circle will appear, as in Figure <a href="basic-operations-in-r.html#fig:example-debug">2.5</a>.</p>
+<div class="figure" style="text-align: center"><span id="fig:example-debug"></span>
+<img src="figs/RStudio_example_debug.png" alt="Example of breakpoint in an R script" width="75%" />
+<p class="caption">
+Figure 2.5: Example of breakpoint in an R script
+</p>
+</div>
+<p>This red circle indicate a code breakpoint that will force the code to stop at that line. You can use it to test existing code and check its objects at a certain part of the execution. When the execution hits the breakpoint, the prompt will change to <code>Browse[1]&gt;</code> and you’ll be able to try new code of verify the content of the objects. From the Console, you have the option to continue the execution to the next breakpoint or stop it. The same result can be achieved using function <code>browser</code>. Have a look:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set x</span>
+x &lt;-<span class="st"> </span><span class="dv">1</span>
+
+<span class="co"># set y</span>
+<span class="kw">browser</span>()
+y &lt;-<span class="st"> &#39;My humble text&#39;</span>
+
+<span class="co"># print contents of x</span>
+<span class="kw">print</span>(x)</code></pre></div>
+<p>The practical result is the same as using RStudio’s red circle, but it gives you more control for the case of several commands in the same line.</p>
+</div>
+<div id="creating-simple-objects" class="section level2">
+<h2><span class="header-section-number">2.8</span> Creating Simple Objects</h2>
+<p>One of the most basic and most used commands in R is the creation of objects. As shown in previous sections, you can define an object using the <code>&lt;-</code> command, which is verbally translated to <em>assign</em>. For example, consider the following code: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set x</span>
+x &lt;-<span class="st"> </span><span class="dv">123</span>
+
+<span class="co"># set x, y and z in one line</span>
+my.x &lt;-<span class="st"> </span><span class="dv">1</span> ; my.x &lt;-<span class="st"> </span><span class="dv">2</span>; my.z &lt;-<span class="st"> </span><span class="dv">3</span></code></pre></div>
+<p>We can read this code as <em>the value 123 is assigned to x</em>. The direction of the arrow defines where the value is stored. For example, using <code>123 -&gt; x</code> also works, although this is not recommended as the code becomes less readable. Also notice that you can create objects within the same line by separating the commands using a semi-colon.</p>
+<p>The use of an arrow symbol <code>&lt;-</code> for object definition is specific to R. The reason for this choice was that, at the time of conception of the <em>S</em> language, keyboards with a key that directly defined the arrow symbol were available and used. This means that the programmer only had to hit one key in the keyboard in order to set the arrow symbol. Modern keyboards, however, do not have this format any more. If you find it troublesome to use this symbol, you can use shortcuts as well. In <em>Windows</em>, the shortcut for the the symbol <code>&lt;-</code> is <code>alt</code> plus <code>-</code>.</p>
+<p>You can also use the <code>=</code> symbol to define objects such as in <code>x = 123</code>, but the use of <code>=</code> with this specific purpose is not recommended. The symbol of equality has a special use within the definition of function arguments. This case will be better explained and demonstrated in future section.</p>
+<p>The name of the object is important in R. With the exception of very specific cases, the user can name objects as he likes. This freedom, however, can be a problem. It is desirable to always give short names that make sense to the content of the script and which are simple to understand. This facilitates the understanding of the code by other users and is part of the suggested set of rules for structuring code. Note that all objects created in this book have nomenclature in English and specific formatting, where the white space between nouns are replaced by a dot, as in <code>my.x &lt;- 1</code> and <code>name.of.file &lt;- 'my_file.csv'</code>.</p>
+<p>R executes the code looking for objects available in the environment, including functions. Be aware that R is case sensitive, that is, object <code>m</code> is different than <code>M</code>. If we try to access an object that does not exist, R will return an error message and stop the execution. Have a look:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(z)</code></pre></div>
+<pre><code>## Error in print(z): object &#39;z&#39; not found</code></pre>
+<p>The error occurred because object <code>z</code> does not exist in the current environment. If we create a variable <code>z</code> as <code>z &lt;- 321</code> and repeat the command <code>print(z)</code>, we will not have the same error message.</p>
+</div>
+<div id="creating-vectors" class="section level2">
+<h2><span class="header-section-number">2.9</span> Creating Vectors</h2>
+<p>In the previous examples, we have created simple objects such as <code>x &lt;- 1</code> and <code>x &lt;- 'abc'</code>. While this is sufficient to demonstrate the basic commands in R, in practice, such commands are very limited. A real problem of data analysis will certainly have a greater volume of information.</p>
+<p>One of the most used procedures in R is the creation of atomic vectors. These are objects that can have several elements. All elements of an atomic vector must have the same class, which justifies its <em>atomic</em> property. An example would be the representation of a series of daily stock prices as an atomic vector of the class <code>numeric</code>. Once you have a vector, you can manipulate it anyway you want.</p>
+<p>Atomic vectors are created in R using the <code>c</code> command, which comes from the verb <em>combine</em>. For example, if we wanted to combine the values 1, 2 and 3 in one object, we could do it with the following command: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># create numeric atomic vector</span>
+x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)
+
+<span class="co"># print it</span>
+<span class="kw">print</span>(x)</code></pre></div>
+<pre><code>## [1] 1 2 3</code></pre>
+<p>This command works the same way for any other class of object, such as <em>character</em>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># create character atomic vector</span>
+y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;text 1&#39;</span>, <span class="st">&#39;text 2&#39;</span>, <span class="st">&#39;text 3&#39;</span>, <span class="st">&#39;text 4&#39;</span>)
+
+<span class="co"># print it</span>
+<span class="kw">print</span>(y)</code></pre></div>
+<pre><code>## [1] &quot;text 1&quot; &quot;text 2&quot; &quot;text 3&quot; &quot;text 4&quot;</code></pre>
+<p>The only restriction on the use of the <code>c</code> command is that all elements must have the same class. If we insert data from different classes in a call to <code>c()</code>, R will try to mutate all elements into the same class following its own logic. If the conversion of all elements to a single class is not possible, an error message is returned. Note the following example, where numeric values are set in the first and second element of <code>x</code> and a character in the last element.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># a mixed vector</span>
+x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="st">&#39;3&#39;</span>)
+
+<span class="co"># print result of forced conversion</span>
+<span class="kw">print</span>(x)</code></pre></div>
+<pre><code>## [1] &quot;1&quot; &quot;2&quot; &quot;3&quot;</code></pre>
+<p>The values of <code>x</code> are all of type <code>character</code>. The use of <code>class</code> command confirms this result:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># print class of x</span>
+<span class="kw">class</span>(x)</code></pre></div>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+</div>
+<div id="knowing-your-environment" class="section level2">
+<h2><span class="header-section-number">2.10</span> Knowing Your Environment</h2>
+<p>After using various commands, further development of the script requires you to understand what objects are available and what is their content. You can find this information simply by looking at the upper right screen of RStudio. However, there is a command that shows the same information in the prompt. In order to know what objects are currently available in R’s memory, you can use command <code>ls</code>. Note the following example: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set some objects</span>
+x &lt;-<span class="st"> </span><span class="dv">1</span>
+y &lt;-<span class="st"> </span><span class="dv">2</span>
+z &lt;-<span class="st"> </span><span class="dv">3</span>
+
+<span class="co"># print all objects in the environment</span>
+<span class="kw">print</span>(<span class="kw">ls</span>())</code></pre></div>
+<pre><code>## [1] &quot;x&quot; &quot;y&quot; &quot;z&quot;</code></pre>
+<p>The objects <code>x</code>, <code>y</code> and <code>z</code> were created and are available in the current working environment. If we had other objects, they would also appear in the output to <code>ls</code>. Notice that object returned from <code>ls</code> is a <code>character</code> vector.</p>
+<p>To display the content of each object, just enter the names of objects and press <code>enter</code> in the <em>prompt</em>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># print objects by their name</span>
+x</code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">y</code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">z</code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<p>Typing the object name on the screen has the same effect as using the <code>print</code> command. In fact, when executing the sole name of a variable in the prompt or script, R internally passes the object to the <code>print</code> function.</p>
+<p>In R, all objects belong to a class. As previously mentioned, to find the class of an object, simply use the <code>class</code> function. In the following example, <code>x</code> is an object of the class <code>numeric</code>, <code>y</code> is a text (<code>character</code>) object and <code>my.fct</code> is a function object. </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set objects</span>
+x &lt;-<span class="st"> </span><span class="dv">1</span>
+y &lt;-<span class="st"> &#39;a&#39;</span>
+my.fct &lt;-<span class="st"> </span><span class="cf">function</span>(){}
+
+<span class="co"># print their classes</span>
+<span class="kw">print</span>(<span class="kw">class</span>(x))</code></pre></div>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(<span class="kw">class</span>(y))</code></pre></div>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(<span class="kw">class</span>(my.fct))</code></pre></div>
+<pre><code>## [1] &quot;function&quot;</code></pre>
+<p>Another way to learn more about an object is to check their textual representation. Every object in R has a textual representation and we can find it with function <code>str</code>: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># print the textual representation of a vector</span>
+<span class="kw">print</span>(<span class="kw">str</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>))</code></pre></div>
+<pre><code>##  int [1:10] 1 2 3 4 5 6 7 8 9 10
+## NULL</code></pre>
+<p>This function is particularly useful when trying to understand the details of a more complex object, such as a <code>dataframe</code>. We will learn more about using function <code>str</code> for learning the contents of a <code>dataframe</code> in chapter <a href="importing.html#importing">6</a>.</p>
+</div>
+<div id="displaying-and-formatting-output" class="section level2">
+<h2><span class="header-section-number">2.11</span> Displaying and Formatting Output</h2>
+<p>So far, we saw that you can show the value of an R object on the screen in two ways. You can either enter its name in the prompt or use the <code>print</code> function. Explaining it further, the <code>print</code> function focuses on the presentation of objects and can be customized for any type. For example, if we had an object of a class called <code>MyTable</code> to represent a specific type of table, we could create a function called <code>print.MyTable</code> that would show a table on the screen with a special format for the rows and column names. Function <code>print</code>, therefore, is oriented towards presenting objects and the user can customize it for different classes. The <code>base</code> package, which is automatically initialized with R, contains several <code>print</code> function for various kinds of objects.</p>
+<p>However, there are other specific functions to display text in the prompt. The main one is <code>cat</code> (<em>concatenate and print</em>). This function takes a text as input, processes it for specific symbols and displays the result on the screen. Function <code>cat</code> is more powerful and customizable than <code>print</code>. </p>
+<p>For example, if we wanted to show the text, <code>The value of x is equal to 2</code> on screen using a numerical object, we could do it as follows:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set x</span>
+x &lt;-<span class="st"> </span><span class="dv">2</span>
+
+<span class="co"># print customized message</span>
+<span class="kw">cat</span>(<span class="st">&#39;The value of x is &#39;</span>, x)</code></pre></div>
+<pre><code>## The value of x is  2</code></pre>
+<p>You can also customize the screen output using specific commands. For example, if we wanted to break a line in the screen output, we could do it through the use of the reserved character <code>\n</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set text with break line</span>
+my.text &lt;-<span class="st"> &#39; First Line,</span><span class="ch">\n</span><span class="st"> Second line&#39;</span>
+
+<span class="co"># print it</span>
+<span class="kw">cat</span>(my.text)</code></pre></div>
+<pre><code>##  First Line,
+##  Second line</code></pre>
+<p>Note that the use of <code>print</code> would not result in the same effect as this command displays the text as it is, without processing it for specific symbols:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(my.text)</code></pre></div>
+<pre><code>## [1] &quot; First Line,\n Second line&quot;</code></pre>
+<p>Another example in the use of specific commands for text is to add a <em>tab</em> space with the symbol <code>\t</code>. See an example next:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set text with tab</span>
+my.text &lt;-<span class="st"> &#39;A-&gt;</span><span class="ch">\t</span><span class="st">&lt;-B&#39;</span>
+
+<span class="co"># concatenate and print it!</span>
+<span class="kw">cat</span>(my.text)</code></pre></div>
+<pre><code>## A-&gt;  &lt;-B</code></pre>
+<p>We’ve only scratched the surface on the possible ways to manipulate text output. Other ways to manipulate text output based on specific symbols can be found in the <a href="https://cran.r-project.org/doc/manuals/R-lang.html#Literal-constants">official R manual</a>, available on the book website.</p>
+<div id="customizing-the-output" class="section level3">
+<h3><span class="header-section-number">2.11.1</span> Customizing the Output</h3>
+<p>Another way to customize text output is using specific functions to manipulate objects of the class <code>character</code>. For that, there are two very useful functions: <code>paste</code> and <code>format</code>.  </p>
+<p>Function <code>paste</code> <em>glues</em> a series of objects together. It is a very useful function, and will be used intensely for the rest of the examples in this book. Consider the following example:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set some text objects</span>
+my.text.<span class="dv">1</span> &lt;-<span class="st"> &#39;I am a text&#39;</span>
+my.text.<span class="dv">2</span> &lt;-<span class="st"> &#39;very beautiful&#39;</span>
+my.text.<span class="dv">3</span> &lt;-<span class="st"> &#39;and informative.&#39;</span>
+
+<span class="co"># paste all objects together and print</span>
+<span class="kw">cat</span>(<span class="kw">paste</span>(my.text.<span class="dv">1</span>, my.text.<span class="dv">2</span>, my.text.<span class="dv">3</span>))</code></pre></div>
+<pre><code>## I am a text very beautiful and informative.</code></pre>
+<p>The previous result is not far from what we did in the example with the <code>print</code> function. Note, however, that the <code>paste</code> function adds a space between each text. If we did not want this space, we could use function <code>paste0</code> as in:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># example of paste0</span>
+<span class="kw">cat</span>(<span class="kw">paste0</span>(my.text.<span class="dv">1</span>, my.text.<span class="dv">2</span>, my.text.<span class="dv">3</span>))</code></pre></div>
+<pre><code>## I am a textvery beautifuland informative.</code></pre>
+<p>Another very useful possibility with the <code>paste</code> function is to insert a text or symbol between the junction of texts. For example, if we wanted to add a comma (<code>,</code>) between each item to be pasted, we could do this by using the input option <code>sep</code> as follows:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># example using the argument sep</span>
+<span class="kw">cat</span>(<span class="kw">paste</span>(my.text.<span class="dv">1</span>, my.text.<span class="dv">2</span>, my.text.<span class="dv">3</span>, <span class="dt">sep =</span> <span class="st">&#39;, &#39;</span>)) </code></pre></div>
+<pre><code>## I am a text, very beautiful, and informative.</code></pre>
+<p>If we had an atomic vector with all elements to be glued in an single object, we could achieve the same result using the <code>collapse</code> argument. See an example next.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set character object </span>
+my.text &lt;-<span class="kw">c</span>(<span class="st">&#39;I am a text&#39;</span>, <span class="st">&#39;very beautiful&#39;</span>, <span class="st">&#39;and informative.&#39;</span>)
+
+<span class="co"># example of using the collapse argument in paste</span>
+<span class="kw">cat</span>(<span class="kw">paste</span>(my.text, <span class="dt">collapse =</span> <span class="st">&#39;, &#39;</span>)) </code></pre></div>
+<pre><code>## I am a text, very beautiful, and informative.</code></pre>
+<p>Going forward, command <code>format</code> is used to format numbers and dates. It is especially useful when we create tables and we want to present the numbers in a visually appealing way. By definition, R presents a set number of digits after the decimal point: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># example of decimal points in R</span>
+<span class="kw">cat</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">3</span>)</code></pre></div>
+<pre><code>## 0.3333333</code></pre>
+<p>If we wanted only two digits on the screen, we could use the following code:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># example of using format on numerical objects</span>
+<span class="kw">cat</span>(<span class="kw">format</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">3</span>, <span class="dt">digits=</span><span class="dv">2</span>))</code></pre></div>
+<pre><code>## 0.33</code></pre>
+<p>Likewise, if we wanted to use a scientific format in the display, we could do the following:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># example of using scientific format</span>
+<span class="kw">cat</span>(<span class="kw">format</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">3</span>, <span class="dt">scientific=</span><span class="ot">TRUE</span>))</code></pre></div>
+<pre><code>## 3.333333e-01</code></pre>
+<p>Function <code>format</code> has many more options. If you need your numbers to come out in a specific way, have a look at the help manual for this function. It is also a generic function and can be used for many types of objects.</p>
+</div>
+</div>
+<div id="finding-the-size-of-objects" class="section level2">
+<h2><span class="header-section-number">2.12</span> Finding the Size of Objects</h2>
+<p>In the practice of programming with R, it is very important to know the size of the objects being used. Here, size means the number of individual elements. This information serves not only to assist the programmer in checking possible code errors, but also to know the length of iteration procedures such as <em>loops</em>, which will be treated in a later chapter of this book.</p>
+<p>In R, the size of an object can be checked with the use of four main functions: <code>length</code>, <code>nrow</code>, <code>ncol</code> and <code>dim</code>.    </p>
+<p>Function <code>length</code> is intended for objects with a single dimension, such as atomic vectors:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># create atomic vector</span>
+x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">1</span>)
+
+<span class="co"># get length of x</span>
+n &lt;-<span class="st"> </span><span class="kw">length</span>(x)
+
+<span class="co"># display message</span>
+<span class="kw">cat</span>(<span class="st">&#39;The size of x is &#39;</span>, n)</code></pre></div>
+<pre><code>## The size of x is  6</code></pre>
+<p>For objects with more than one dimension, such as matrices, use functions <code>nrow</code>, <code>ncol</code> and <code>dim</code> (dimension) to find the number of rows (first dimension) and the number of columns (second dimension). See the difference in usage below.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># create a matrix</span>
+M &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">20</span>, <span class="dt">nrow =</span> <span class="dv">4</span>, <span class="dt">ncol =</span> <span class="dv">5</span>)
+
+<span class="co"># print matrix</span>
+<span class="kw">print</span>(M)</code></pre></div>
+<pre><code>##      [,1] [,2] [,3] [,4] [,5]
+## [1,]    1    5    9   13   17
+## [2,]    2    6   10   14   18
+## [3,]    3    7   11   15   19
+## [4,]    4    8   12   16   20</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># calculate size in different ways</span>
+my.nrow &lt;-<span class="st"> </span><span class="kw">nrow</span>(M)
+my.ncol &lt;-<span class="st"> </span><span class="kw">ncol</span>(M)
+my.length &lt;-<span class="st"> </span><span class="kw">length</span>(M)
+
+<span class="co"># display message </span>
+<span class="kw">cat</span>(<span class="st">&#39;The number of lines in M is &#39;</span>, my.nrow)</code></pre></div>
+<pre><code>## The number of lines in M is  4</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cat</span>(<span class="st">&#39;The number of columns in M is &#39;</span>, my.ncol)</code></pre></div>
+<pre><code>## The number of columns in M is  5</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cat</span>(<span class="st">&#39;The number of elements in M is &#39;</span>, my.length)</code></pre></div>
+<pre><code>## The number of elements in M is  20</code></pre>
+<p>The <code>dim</code> function shows the dimension of the object, resulting in a numeric vector as output. This function should be used when the object has more than two dimensions. In practice, however, such cases are rare. An example is given next:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># get dimension of M</span>
+my.dim &lt;-<span class="st"> </span><span class="kw">dim</span>(M)
+
+<span class="co"># print it</span>
+<span class="kw">print</span>(my.dim)</code></pre></div>
+<pre><code>## [1] 4 5</code></pre>
+<p>In the case of objects with more than two dimensions, we can use the <code>array</code> function to create the object and <code>dim</code> to find its size. Have a look in the next example:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># create an array with three dimensions</span>
+my.array &lt;-<span class="st"> </span><span class="kw">array</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>, <span class="dt">dim =</span> <span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>))
+
+<span class="co"># print it</span>
+<span class="kw">print</span>(my.array)</code></pre></div>
+<pre><code>## , , 1
+## 
+##      [,1] [,2] [,3]
+## [1,]    1    4    7
+## [2,]    2    5    8
+## [3,]    3    6    9
+## 
+## , , 2
+## 
+##      [,1] [,2] [,3]
+## [1,]    1    4    7
+## [2,]    2    5    8
+## [3,]    3    6    9
+## 
+## , , 3
+## 
+##      [,1] [,2] [,3]
+## [1,]    1    4    7
+## [2,]    2    5    8
+## [3,]    3    6    9</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># display its dimensions</span>
+<span class="kw">print</span>(<span class="kw">dim</span>(my.array))</code></pre></div>
+<pre><code>## [1] 3 3 3</code></pre>
+<p>An important note here is that the use of the functions, <code>length</code>, <code>nrow</code>, <code>dim</code> and <code>ncol</code> are not intended to discover the number of letters in a text. This is a common mistake. For example, if we had a <code>character</code> type of object and we use the <code>length</code> function, the result would be the following:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set text object</span>
+my.char &lt;-<span class="st"> &#39;abcde&#39;</span>
+
+<span class="co"># print result of length</span>
+<span class="kw">print</span>(<span class="kw">length</span>(my.char))</code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<p>This occurred because the <code>length</code> function returns the number of elements in an object. In this case, <code>my.char</code> has only one element. To find out the number of characters in the object, we use the <code>nchar</code> function as follows: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># find the number of characters in an character object</span>
+<span class="kw">print</span>(<span class="kw">nchar</span>(my.char))</code></pre></div>
+<pre><code>## [1] 5</code></pre>
+</div>
+<div id="selecting-the-elements-of-an-atomic-vector" class="section level2">
+<h2><span class="header-section-number">2.13</span> Selecting the Elements of an Atomic Vector</h2>
+<p>After creating an atomic vector of a class, it is possible that the user is interested in only one or more elements of it. For example, if we were updating the value of an investment portfolio, our interest in a vector containing stock prices is only for the latest price. All other prices were not relevant to our analysis and therefore could be ignored.</p>
+<p>The selection of <em>pieces</em> of an atomic vector is called indexing and it is accomplished with the use of square brackets (<code>[ ]</code>). Consider the following example:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set x</span>
+my.x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">7</span>, <span class="fl">3.5</span>, <span class="fl">4.3</span>)</code></pre></div>
+<p>If we wanted only the third element of <code>my.x</code>, we use the bracket operator as follows:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># get third element of x</span>
+elem.x &lt;-<span class="st"> </span>my.x[<span class="dv">3</span>]
+
+<span class="co"># print it</span>
+<span class="kw">print</span>(elem.x)</code></pre></div>
+<pre><code>## [1] 4</code></pre>
+<p>The procedure of indexing also works with vectors. If we are only interested in the last and penultimate values of <code>my.x</code>, we use the following code:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># get last and penultimate value of my.x</span>
+piece.x.<span class="dv">1</span> &lt;-<span class="st"> </span>my.x[ (<span class="kw">length</span>(my.x)<span class="op">-</span><span class="dv">1</span>)<span class="op">:</span><span class="kw">length</span>(my.x) ]
+
+<span class="co"># print it</span>
+<span class="kw">print</span>(piece.x.<span class="dv">1</span>)</code></pre></div>
+<pre><code>## [1] 3.5 4.3</code></pre>
+<p>A cautionary note. <strong>A unique property of the R language is that if a non existing element is accessed, the program returns the value <code>NA</code> (<em>not available</em>)</strong>. See the next example code, where we attempt to obtain the fourth value of a vector with only three components.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set object</span>
+my.vec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)
+
+<span class="co"># print non-existing fourth element</span>
+<span class="kw">print</span>(my.vec[<span class="dv">4</span>])</code></pre></div>
+<pre><code>## [1] NA</code></pre>
+<p>It is important to know this behaviour because the lack of treatment of these errors can lead to problems that are difficult to identify in more complex code. In other programming languages, attempting to access non-existing elements generally returns an error and cancels the execution of the rest of the code. In the case of R, given that access to non-existent elements does not generate an error or <em>warning</em> message, it is possible that this will create a problem in other parts of the script as <code>NA</code> objects are contagious. That is, anything that interacts with <code>NA</code> will also become <code>NA</code>. The user should pay attention every time that <code>NA</code> values are found unexpectedly. An inspection in the length and indexation of vectors may be required.</p>
+<p>The use of indices is very useful when you are looking for items of a vector that satisfy some condition. For example, if we wanted to find out all values in <code>my.x</code> that are greater than 3, we could use the following command:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># find all values in my.x that are greater than 3</span>
+piece.x.<span class="dv">2</span> &lt;-<span class="st"> </span>my.x[my.x<span class="op">&gt;</span><span class="dv">3</span>]
+
+<span class="co"># print it</span>
+<span class="kw">print</span>(piece.x.<span class="dv">2</span>) </code></pre></div>
+<pre><code>## [1] 5.0 4.0 7.0 3.5 4.3</code></pre>
+<p>It is also possible to index elements by more than one condition using the logical operators <code>&amp;</code> (<em>is</em>) and <code>|</code> (<em>or</em>). For example, if we wanted the values of <code>my.x</code> greater than 2 <strong>and</strong> lower than 4, we could use the following command: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># find all values of my.x that are greater than 2 and lower then 4</span>
+piece.x.<span class="dv">3</span> &lt;-<span class="st"> </span>my.x[ (my.x<span class="op">&gt;</span><span class="dv">2</span>) <span class="op">&amp;</span><span class="st"> </span>(my.x<span class="op">&lt;</span><span class="dv">4</span>) ]
+<span class="kw">print</span>(piece.x.<span class="dv">3</span>)</code></pre></div>
+<pre><code>## [1] 3.0 3.5</code></pre>
+<p>Likewise, if we wanted all items that are lower than 3 <strong>or</strong> greater than 6, we use:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># find all values of my.x that are lower than 3 or higher than 6</span>
+piece.x.<span class="dv">4</span> &lt;-<span class="st"> </span>my.x[ (my.x<span class="op">&lt;</span><span class="dv">3</span>)<span class="op">|</span>(my.x<span class="op">&gt;</span><span class="dv">6</span>) ]
+
+<span class="co"># print it</span>
+<span class="kw">print</span>(piece.x.<span class="dv">4</span>)</code></pre></div>
+<pre><code>## [1] 1 2 7</code></pre>
+<p>Moreover, logic indexing also works with the interaction of different objects. That is, we can use a logical condition in one object to select items from another:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set my.x and my.y</span>
+my.x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">8</span>,<span class="dv">12</span>)
+my.y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="op">-</span><span class="dv">2</span>,<span class="op">-</span><span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">10</span>,<span class="dv">14</span>)
+
+<span class="co"># find all elements of my.x where my.y is higher than 0</span>
+my.piece.x &lt;-<span class="st"> </span>my.x[ my.y <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span> ]
+
+<span class="co"># print it</span>
+<span class="kw">print</span>(my.piece.x)</code></pre></div>
+<pre><code>## [1]  6  8 12</code></pre>
+<p>Looking more closely at the indexing process, it is worth noting that, when we use a data indexing condition, we are in fact creating a variable of the <code>logical</code> type. This object takes only two values: <code>TRUE</code> and <code>FALSE</code>. Have a look in the code presented next, where we create a <code>logical</code> object, print it and present its class.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># create a logical object</span>
+my.logical &lt;-<span class="st"> </span>my.y <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>
+
+<span class="co"># print it </span>
+<span class="kw">print</span>(my.logical) </code></pre></div>
+<pre><code>## [1] FALSE FALSE  TRUE  TRUE  TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># find its class</span>
+<span class="kw">class</span>(my.logical)</code></pre></div>
+<pre><code>## [1] &quot;logical&quot;</code></pre>
+</div>
+<div id="removing-objects-from-the-memory" class="section level2">
+<h2><span class="header-section-number">2.14</span> Removing Objects from the Memory</h2>
+<p>After creating several variables, the R environment can become full of content that’s already been used and is dispensable. In this case, it is desirable to clear the memory to erase objects that are no longer needed. Generally, this is accomplished at the beginning of a script, so that every time the script runs, the memory will be cleared before any calculation. In addition to cleaning the computer’s memory, it also helps to avoid possible errors in the code. In most cases, cleaning the working environment should be performed only once at the beginning of the script.</p>
+<p>For example, given an object <code>x</code>, we can delete it from memory with the command <code>rm</code>, as shown next: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set x</span>
+x &lt;-<span class="st"> </span><span class="dv">1</span>
+
+<span class="co"># print all available objects</span>
+<span class="kw">ls</span>()</code></pre></div>
+<pre><code>##  [1] &quot;elem.x&quot;       &quot;M&quot;            &quot;my.array&quot;    
+##  [4] &quot;my.char&quot;      &quot;my.dim&quot;       &quot;my.engine&quot;   
+##  [7] &quot;my.fct&quot;       &quot;my.length&quot;    &quot;my.logical&quot;  
+## [10] &quot;my.ncol&quot;      &quot;my.nrow&quot;      &quot;my.out.width&quot;
+## [13] &quot;my.piece.x&quot;   &quot;my.str&quot;       &quot;my.text&quot;     
+## [16] &quot;my.text.1&quot;    &quot;my.text.2&quot;    &quot;my.text.3&quot;   
+## [19] &quot;my.vec&quot;       &quot;my.x&quot;         &quot;my.y&quot;        
+## [22] &quot;my.z&quot;         &quot;n&quot;            &quot;piece.x.1&quot;   
+## [25] &quot;piece.x.2&quot;    &quot;piece.x.3&quot;    &quot;piece.x.4&quot;   
+## [28] &quot;stay.quiet&quot;   &quot;x&quot;            &quot;y&quot;           
+## [31] &quot;z&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># remove x</span>
+<span class="kw">rm</span>(<span class="st">&#39;x&#39;</span>)
+
+<span class="co"># print again all available objects</span>
+<span class="kw">ls</span>()</code></pre></div>
+<pre><code>##  [1] &quot;elem.x&quot;       &quot;M&quot;            &quot;my.array&quot;    
+##  [4] &quot;my.char&quot;      &quot;my.dim&quot;       &quot;my.engine&quot;   
+##  [7] &quot;my.fct&quot;       &quot;my.length&quot;    &quot;my.logical&quot;  
+## [10] &quot;my.ncol&quot;      &quot;my.nrow&quot;      &quot;my.out.width&quot;
+## [13] &quot;my.piece.x&quot;   &quot;my.str&quot;       &quot;my.text&quot;     
+## [16] &quot;my.text.1&quot;    &quot;my.text.2&quot;    &quot;my.text.3&quot;   
+## [19] &quot;my.vec&quot;       &quot;my.x&quot;         &quot;my.y&quot;        
+## [22] &quot;my.z&quot;         &quot;n&quot;            &quot;piece.x.1&quot;   
+## [25] &quot;piece.x.2&quot;    &quot;piece.x.3&quot;    &quot;piece.x.4&quot;   
+## [28] &quot;stay.quiet&quot;   &quot;y&quot;            &quot;z&quot;</code></pre>
+<p>Note that after executing the command <code>rm('x')</code>, the value of <code>x</code> is no longer available in the output of <code>ls()</code>. In practical situations, however, it is desirable to clean up all the memory used by all objects created in R. We can achieve this goal with the following code:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">ls</span>())</code></pre></div>
+<p>The term <code>list</code> in <code>rm(list=ls())</code> is a function argument of <code>rm</code> that defines which objects will be deleted. The <code>ls()</code> command shows all the currently available objects. Therefore, by chaining together both commands, we erase all current objects available in the environment. As mentioned before, it is good programming policy to always start the script by clearing the memory. However, you should only wipe out all of R’s memory if you have already saved the results of interest or if you can replicate them.</p>
+</div>
+<div id="displaying-and-setting-the-working-directory" class="section level2">
+<h2><span class="header-section-number">2.15</span> Displaying and Setting the Working Directory</h2>
+<p>Like other programming platforms, <strong>R always works in a directory</strong>. If no directory is set, a default value is used when R starts up. It is based on the current directory that R searches for files to load data or other R scripts. It is in this directory that R saves any output we want if we do not explicitly define an address on the computer. This output can be a graphic file, text or a spreadsheet like file. A good programming policy is to change the working directory to the same place where the <em>script</em> is located. In chapter <a href="research-scripts.html#research-scripts">10</a> we discuss the topic of file and folder organization.</p>
+<p>To show the current working directory, use function <code>getwd</code>: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># get current dir</span>
+my.dir &lt;-<span class="st"> </span><span class="kw">getwd</span>()
+
+<span class="co"># display it</span>
+<span class="kw">print</span>(my.dir)</code></pre></div>
+<pre><code>## [1] &quot;C:/Dropbox/My Books/pmfdR (en)/Book Content&quot;</code></pre>
+<p>The result of the previous code shows the folder in which this book was written and compiled. As you can see, the book files are saved in a subfolder of my Dropbox directory. From the path, you should also realize that I’m working in a Windows OS. The root directory <code>C:/</code> gives that information away.</p>
+<p>The change of working directory is performed with the <code>setwd</code> command. For example, if we wanted to change our working directory to <em>C:/My Research/</em>, simply type in the <em>prompt</em>: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set where to change directory</span>
+my.d &lt;-<span class="st"> &#39;C:/My Research/&#39;</span>
+
+<span class="co"># change it</span>
+<span class="kw">setwd</span>(my.d)</code></pre></div>
+<p>As for simple cases such as the above, remembering the directory name is easy. In practical cases, however, the working directory can be in a deeper directory of the file system. In this situation, an efficient strategy to locate the path is to use a file explorer, like Windows <em>explorer</em>. To do so, open the <em>explorer</em> application and navigate to the location where you want to work with your <em>script</em>. Place the cursor in the address bar and select the whole path. Press <em>control + c</em> to copy the address to the clipboard. Go back to your code and paste it in. <strong>An important step here: Windows uses the backslash to set addresses on the computer, while the R uses the forward slash</strong>. If you try to use backslashes, an error is displayed on the screen. See the following example.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set directory (WRONG WAY)</span>
+my.d &lt;-<span class="st"> &#39;C:\My Research</span><span class="ch">\&#39;</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cat</span>(<span class="st">&quot;##Error: &#39;</span><span class="ch">\\</span><span class="st">M&#39; is an unrecognized escape in character string&quot;</span>)</code></pre></div>
+<p>This message means that R was not able to understand the use of backslashes. This is a reserved symbol for macros and should not be used anywhere in a code. Therefore, after copying the address, modify all backslashes to forward slashes, as in the following code:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set directory (CORRECT WAY)</span>
+my.d &lt;-<span class="st"> &#39;C:/My Research/&#39;</span>
+
+<span class="co"># change dir</span>
+<span class="kw">setwd</span>(my.d)</code></pre></div>
+<p>You can also use double backslashes <code>\\</code> but this is not recommended as it is not compatible with other operating systems.</p>
+<p>Another important information here is that you can also use relative paths. For example, if you are working in a folder that contains a subdirectory called <code>Data</code>, you can enter this subfolder with the code:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># change to subfolder</span>
+<span class="kw">setwd</span>(<span class="st">&#39;Data&#39;</span>)</code></pre></div>
+<p>Another possibility is to go to a previous level of directory using <code>..</code>, as in:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># change to previous level</span>
+<span class="kw">setwd</span>(<span class="st">&#39;..&#39;</span>)</code></pre></div>
+<p>So, if you are working in the directory <code>C:/My Research/</code> and execute the command <code>setwd('..')</code>, the current folder becomes <code>C:/</code>, which is one level above <code>C:/My Research/</code>.</p>
+<p>Another, more modern, way of setting the directory is to use RStudio API functions. This is a set of functions that only work inside RStudio and provides information about current file, project and many more. To find out the path of the current R script being edited in RStudio and set the working directory to there, you can write:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my.path &lt;-<span class="st"> </span><span class="kw">dirname</span>(rstudioapi<span class="op">::</span><span class="kw">getActiveDocumentContext</span>()<span class="op">$</span>path)
+<span class="kw">setwd</span>(my.path)</code></pre></div>
+<p>This way, the script will change the directory to its own location, no matter where you copy it. Be aware, however, that this trick only works in RStudio script editor and within a saved file. It will not work from the prompt.</p>
+</div>
+<div id="cancelling-code-execution" class="section level2">
+<h2><span class="header-section-number">2.16</span> Cancelling Code Execution</h2>
+<p>Whenever R is running some code, a visual cue in the shape of a small red circle in the right corner of the <em>prompt</em> will appear. If you read it, the text shows the <em>stop</em> word. This button is not only an indicator for running code but also a shortcut for cancelling its execution. Another way to cancel an execution is to point the mouse to the <em>prompt</em> and press the <em>escape</em> (<em>esc</em>) button from the keyboard.</p>
+<p>To try it out, run the next chunk of code in RStudio and cancel its execution using <em>esc</em>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">100</span>) {
+  <span class="kw">cat</span>(<span class="st">&#39;</span><span class="ch">\n</span><span class="st">Running code (please make it stop by hitting esc!)&#39;</span>)
+  <span class="kw">Sys.sleep</span>(<span class="dv">1</span>)
+}</code></pre></div>
+<p>In the previous code, we used a <code>for</code> loop to display the message <code>'\nRunning code (please make it stop by hitting esc!)'</code> every second. For now, do not worry about the code and functions used in the example. We will discuss the use of loops chapter <a href="programming.html#programming">7</a>.</p>
+</div>
+<div id="code-comments" class="section level2">
+<h2><span class="header-section-number">2.17</span> Code Comments</h2>
+<p>In R, comments are set using the hash tag symbol <code>#</code>. Anything after this symbol will not be processed by R. This gives you freedom to write whatever you want within the script. An example:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># this is a comment (R will not parse it)</span>
+<span class="co"># this is another comment (R will not parse it)</span>
+
+x &lt;-<span class="st"> &#39;abc&#39;</span> <span class="co"># this is an inline comment </span></code></pre></div>
+<p>Comments are a way to communicate any important information that cannot be directly inferred from the code. In general, you should avoid using comments that are too obvious or too generic. For example:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># read csv file</span>
+df &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&#39;MyDataFile.csv&#39;</span>)</code></pre></div>
+<p>As you can see, it is quite obvious from line <code>df &lt;- read.csv('MyDataFile.csv)</code> that the code is reading a .csv file. The name of the function already states that. So, the comment was not a good one as it did not add any new information to the user. A better approach at commenting would be to set the author, description of script and better explain the origin and last update of the data file. Have a look:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Script for analysing a dataset</span>
+<span class="co"># Author: Mr data analyst (dontspamme@emailprovider.com)</span>
+<span class="co"># Last script update: 2017-03-10</span>
+<span class="co">#</span>
+<span class="co"># File downloaded from www.sitewithdatafiles.com/data-files/</span>
+<span class="co"># The description of the data goes here</span>
+<span class="co"># Last file update: 2017-03-10</span>
+df &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&#39;MyDataFile.csv&#39;</span>)</code></pre></div>
+<p>So, by reading the comments, the user will know the purpose of the script, who wrote it and the date of the last edit. It also includes the origin of the data file and the date of the latest update. If the user wants to update the data, all he has to do is to go to the referred website and download the new file. If the datafile is updated, a new date should be placed in “Last file update”.</p>
+<p>Another use of comments is to set sections in the code, such as in:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Script for analysing a dataset</span>
+<span class="co"># Author: Mr data analyst (dontspamme@emailprovider.com)</span>
+<span class="co"># Last script update: 2017-03-10</span>
+<span class="co">#</span>
+<span class="co"># File downloaded from www.sitewithdatafiles.com/data-files/</span>
+<span class="co"># The description of the data goes here</span>
+<span class="co"># Last file update: 2017-03-10</span>
+...
+
+<span class="co"># Clean data</span>
+<span class="co"># - remove outliers</span>
+<span class="co"># - remove unnecessary columns</span>
+
+...
+
+<span class="co"># Report results</span>
+<span class="co"># - remove outliers</span>
+<span class="co"># - remove unnecessary columns</span>
+
+...</code></pre></div>
+<p>This way, once you need to change a particular part of the code, you can look for the related section in the comments. If you share code with other people, you’ll soon realize that comments are essential and expected. They help transmit information that is not available from the code. A note here, throughout the book you’ll see that the code comments are, most of the time, a bit obvious. This was intentional as clear and direct messages are important for new users, which is part of the audience of this book.</p>
+</div>
+<div id="looking-for-help" class="section level2">
+<h2><span class="header-section-number">2.18</span> Looking for Help</h2>
+<p>A common task in the use of R is to seek help. Even advanced users often seek instructions on specific tasks, whether it is to better understand the details of some functions or simply to study a new procedure. The use of the R help system is part of everyday routine with the software.</p>
+<p>You can get help by using the <em>help</em> panel in RStudio or directly from the <em>prompt</em>. Simply enter the question mark next to the object on which you want help, as in <code>?mean</code>. In this case, object <code>mean</code> is a function and the use of the <code>help</code> command will open a panel on the right side of RStudio. </p>
+<p>In R, the help screen of a function is the same as shown in Figure <a href="basic-operations-in-r.html#fig:ExampleHelp">2.6</a>. It presents a general description of the function, explains its input arguments and the format of the output. The help screen follows with references and suggestions for other related functions. More importantly, examples of usage are given last and can be copied to the prompt or script in order to accelerate the learning process.</p>
+<div class="figure" style="text-align: center"><span id="fig:ExampleHelp"></span>
+<img src="figs/ExemploAjuda.png" alt="Help screen for function mean" width="100%" />
+<p class="caption">
+Figure 2.6: Help screen for function mean
+</p>
+</div>
+<p>If we are looking for help for a given text and not a function name, we can use double question marks as in <code>??&quot;standard deviation&quot;</code>. This operation will search for the occurrence of the term in all packages of R and it is very useful to learn how to perform a particular task. In this case, we looked for the available functions to calculate the standard deviation of a vector.</p>
+<p>As a suggestion of usage, the easiest and most direct way to learn a new function is trying out the examples in the manual. This way, you can see which type of input objects the function expects and what type of output it gives. Once you have it working, read the help screen to understand if it does exactly what you expected and what are the options for its use. If the function performs the desired procedure, you can copy and paste the code example for your own <em>script</em>, adjusting where necessary.</p>
+<p>Another very important source of help is the Internet itself. Sites like <a href="http://stackoverflow.com/">stackoverflow</a> and specific <em>mailing lists</em>, whose content is also on the Internet, are a valuable source of information. If you find a problem that could not be solved by reading the standard help files, the next logical step is to seek a solution using your error message or the description of the problem in search engines. In many cases, your problem, no matter how specific it is, has already occurred and has been solved by other users. In fact, it is more surprising not to find the solution for a programming problem on the internet, than the other way around.</p>
+</div>
+<div id="r-packages" class="section level2">
+<h2><span class="header-section-number">2.19</span> R Packages</h2>
+<p>One of the greatest benefits of using R is its package collection. A package is nothing more than a group of procedures aimed at solving a particular computational problem. R has at its core a collaborative philosophy. Users provide their codes for others to use. And, most importantly, <strong>all packages are free</strong>. For example, consider a case where the user is interested in accessing data about historical inflation in the USA. He can install and use a R package that is specifically designed for importing economic statistics for a country.</p>
+<p>Every function in R belongs to a package. When R initializes, packages <code>stats</code>, <code>graphics</code>, <code>grDevices</code>, <code>utils</code>, <code>datasets</code>, <code>methods</code> and <code>base</code> are loaded by default. Almost every function we have used so far belongs to the package <code>base</code>. R packages can be accessed and installed from different sources. The main being <strong>CRAN</strong> (<em>The Comprehensive R Archive network</em>), <strong>R-Forge</strong> and <strong>Github</strong>. The quantity and diversity of R packages increases every day. At the time of the publication of this book, the author of this book has six packages available on CRAN:   </p>
+<ul>
+<li><p><a href="https://CRAN.R-project.org/package=GetHFData">GetHFData</a> - Allows direct access to high frequency financial transaction data from Bovespa (Brazilian Financial Exchange);</p></li>
+<li><p><a href="https://CRAN.R-project.org/package=GetTDData">GetTDData</a> - Enables access to prices and yields of bonds issued by the Brazilian government;</p></li>
+<li><p><a href="https://CRAN.R-project.org/package=RndTexExams">RndTexExams</a> - Enables the creation and correction of single choice exams with randomized content;</p></li>
+<li><p><a href="https://CRAN.R-project.org/package=BatchGetSymbols">BatchGetSymbols</a> - Package for easy access to daily data from Yahoo! Finance and Google Finance;</p></li>
+<li><p><a href="https://CRAN.R-project.org/package=predatory">Predatory</a> - Package to identify predatory journals based on the Beall site data;</p></li>
+<li><p><a href="https://CRAN.R-project.org/package=pmfdR">pmfdR</a> - Provides code, data and exercises for this book.</p></li>
+</ul>
+<p>CRAN is the official repository of R and it is built by the community. Anyone can send a package. However, there is an evaluation process to ensure that the certain strict rules about code format are respected. For those interested in creating and distributing packages, a clear and easy to learn material on how to create and send packages to CRAN is presented on the site <a href="http://r-pkgs.had.co.nz/intro.html">R packages</a>. Complete rules are available on the <a href="https://cran.r-project.org/web/packages/policies.html">CRAN website</a>. The suitability of the code to CRAN standards is the developer’s responsibility. By personal experience, sending and publishing a package on CRAN demands a significant amount of work, especially in the first submission. After that, it becomes a lot easier. Don’t be angry if you package is rejected. My own packages were rejected several times before entering CRAN. Listen to what the maintainers tell you and try fixing all problems before resubmitting. If you’re having issues that you cannot solve or find a solution in the Internet, look for help in the <a href="https://www.r-project.org/mail.html">R-packages mailing list</a>. You’ll be surprised at how accessible and helpful the R community can be.</p>
+<p>The complete list of packages available on CRAN, along with a brief description, can be accessed at the <a href="https://cran.r-project.org/">packages link</a> on the R site. A practical way to check if there is a package that does a specific procedure is to load the previous page and search in your <em>browser</em> for a keyword. If there is a package that does what you want, it is very likely that the keyword is used in the description of the package.</p>
+<p>Another important source for finding packages is <a href="https://cran.r-project.org/web/views/">Task Views</a>. There you can find the most important packages for a given area of expertise. See the <em>Task Views</em> screen in Figure <a href="basic-operations-in-r.html#fig:TaskViews">2.7</a>.</p>
+<div class="figure" style="text-align: center"><span id="fig:TaskViews"></span>
+<img src="figs/TaskViews.png" alt="Task View screen" width="100%" />
+<p class="caption">
+Figure 2.7: Task View screen
+</p>
+</div>
+<p>Unlike CRAN, R-Forge and Github have no restriction on the code sent to their repository and, because of this, these repositories tend to be chosen by developers. Responsibility in the use, however, is with the user. In practice, it is very common for developers to maintain a development version on Github or R-Forge and the official version in CRAN. When the development version reaches a certain stage of maturity, it is then sent to CRAN.</p>
+<p>The most interesting part of this is that the packages can be accessed and installed directly from the prompt using the internet. To find out the current amount of packages on CRAN, type and execute the following commands in the prompt:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># get matrix with available packages</span>
+df.cran.pkgs &lt;-<span class="st"> </span><span class="kw">available.packages</span>()
+
+<span class="co"># find the number of packages</span>
+n.cran.packages &lt;-<span class="st"> </span><span class="kw">nrow</span>(df.cran.pkgs)
+
+<span class="co"># print it</span>
+<span class="kw">print</span>(n.cran.packages)</code></pre></div>
+<pre><code>## [1] 10455</code></pre>
+<p>If asked about which mirror to use, simply select the one closest to you. Currently (2017-04-29 09:51:31), there are 10455 packages available on the CRAN servers. We can see some details of the first three packages in <code>df.cran.pkgs</code> with function <code>print</code> and some indexing: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># print information about the first three packages</span>
+<span class="kw">print</span>(df.cran.pkgs[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, ])</code></pre></div>
+<pre><code>##        Package  Version Priority
+## A3     &quot;A3&quot;     &quot;1.0.0&quot; NA      
+## abbyyR &quot;abbyyR&quot; &quot;0.5.1&quot; NA      
+## abc    &quot;abc&quot;    &quot;2.1&quot;   NA      
+##        Depends                                              
+## A3     &quot;R (&gt;= 2.15.0), xtable, pbapply&quot;                     
+## abbyyR &quot;R (&gt;= 3.2.0)&quot;                                       
+## abc    &quot;R (&gt;= 2.10), abc.data, nnet, quantreg, MASS, locfit&quot;
+##        Imports                                  LinkingTo
+## A3     NA                                       NA       
+## abbyyR &quot;httr, XML, curl, readr, plyr, progress&quot; NA       
+## abc    NA                                       NA       
+##        Suggests                               Enhances
+## A3     &quot;randomForest, e1071&quot;                  NA      
+## abbyyR &quot;testthat, rmarkdown, knitr (&gt;= 1.11)&quot; NA      
+## abc    NA                                     NA      
+##        License              License_is_FOSS
+## A3     &quot;GPL (&gt;= 2)&quot;         NA             
+## abbyyR &quot;MIT + file LICENSE&quot; NA             
+## abc    &quot;GPL (&gt;= 3)&quot;         NA             
+##        License_restricts_use OS_type Archs MD5sum
+## A3     NA                    NA      NA    NA    
+## abbyyR NA                    NA      NA    NA    
+## abc    NA                    NA      NA    NA    
+##        NeedsCompilation File
+## A3     &quot;no&quot;             NA  
+## abbyyR &quot;no&quot;             NA  
+## abc    &quot;no&quot;             NA  
+##        Repository                               
+## A3     &quot;https://cloud.r-project.org/src/contrib&quot;
+## abbyyR &quot;https://cloud.r-project.org/src/contrib&quot;
+## abc    &quot;https://cloud.r-project.org/src/contrib&quot;</code></pre>
+<p>In short, object <code>df.cran.pkgs</code> displays the names of packages, its current version, its dependencies, along with various other information.</p>
+<p>You can also check the amount of locally installed packages in R with the <code>installed.packages</code> command: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># find number of packages currently installed</span>
+n.local.packages &lt;-<span class="st"> </span><span class="kw">nrow</span>(<span class="kw">installed.packages</span>())
+
+<span class="co"># print it </span>
+<span class="kw">print</span>(n.local.packages)</code></pre></div>
+<pre><code>## [1] 358</code></pre>
+<p>In this case, the computer on which the book was written has 358 packages currently installed. This value is probably different from yours. Give it a try!</p>
+<div id="installing-packages-from-cran" class="section level3">
+<h3><span class="header-section-number">2.19.1</span> Installing Packages from CRAN</h3>
+<p>To install a package, simply use the command <code>install.packages</code>. You only need to do it once for each new package. As an example, we will install a package called <code>quantmod</code> that will be used in future chapters. </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># install package quantmod</span>
+<span class="kw">install.packages</span>(<span class="st">&quot;quantmod&quot;</span>)</code></pre></div>
+<p>That’s it! After executing this simple command, package <code>quantmod</code> and all of its dependencies will be installed and the functions related to the package will be ready for use once the package is loaded in a script. Note that we defined the package name in the installation as if it were text with the use of quotation marks (<code>&quot; &quot;</code>). If the installed package is dependent on another package, R detects this dependency and automatically installs the missing packages. Thus, all the requirements for using the installed package will already be satisfied and everything will work perfectly. It is possible, however, that a package has an external dependency. As an example, package <code>RndTexExams</code> depends on the existence of a LaTeX installation. These cases are usually announced in the description of the package and an error informs that a requirement is missing. External dependencies for R packages are not common, but they do happen.</p>
+</div>
+<div id="installing-packages-from-github" class="section level3">
+<h3><span class="header-section-number">2.19.2</span> Installing Packages from Github</h3>
+<p>To install a package hosted in Github, you must install the <em>devtools</em> package, available on CRAN: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># install devtools</span>
+<span class="kw">install.packages</span>(<span class="st">&#39;devtools&#39;</span>)</code></pre></div>
+<p>After that, load up the package <code>devtools</code> and use the function <code>install_github</code> to install a package directly from Github. In the following example, we install the development version of the package <code>ggplot2</code>, whose official version is also available at CRAN: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># load up devtools</span>
+<span class="kw">library</span>(devtools)
+
+<span class="co"># install ggplot2 from github</span>
+<span class="kw">install_github</span>(<span class="st">&quot;hadley/ggplot2&quot;</span>)</code></pre></div>
+<p>Note that the username of the developer is also included. In this case, the <em>hadley</em> name belongs to the developer of <code>ggplot2</code>, Hadley Wickham. Throughout the book, you will notice that this name appears several times. Hadley is a prolific and competent developer of several R packages and currently works for RStudio.</p>
+</div>
+<div id="loading-packages" class="section level3">
+<h3><span class="header-section-number">2.19.3</span> Loading Packages</h3>
+<p>Within a script, use function <code>library</code> to load a package, as in the following example. </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># load package quantmod</span>
+<span class="kw">library</span>(quantmod)</code></pre></div>
+<p>After running this command, all functions of the package will be available to the user. In this case, it is not necessary to use <code>&quot; &quot;</code> to load the package. If the package you want to use is not available, R will throw an error message. See an example next, where we try to load a non-existing package called <code>unicorn</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(unicorn)</code></pre></div>
+<pre><code>## Error in library(unicorn): there is no package called &#39;unicorn&#39;</code></pre>
+<p>Remember this error message. It will appear every time a package is not found. If you got the same message when running code from this book, you need to check what are the required packages of the example and install them using <code>install.packages</code>, as in <code>install.packages('unicorn')</code>.</p>
+<p>If you use a specific package function and do not want to load all functions from the package, you can do it through the special symbol <code>::</code>, as in the following example. </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># example of using a function without loading package</span>
+fortunes<span class="op">::</span><span class="kw">fortune</span>(<span class="dv">10</span>)</code></pre></div>
+<pre><code>## 
+## Overall, SAS is about 11 years behind R and S-Plus in
+## statistical capabilities (last year it was about 10 years
+## behind) in my estimation.
+##    -- Frank Harrell (SAS User, 1969-1991)
+##       R-help (September 2003)</code></pre>
+<p>In this case, we use the function <code>fortune</code> from the package <code>fortunes</code>, which shows on screen a potentially funny phrase chosen from the R mailing list. For our example, we selected message number 10. One interesting use of the package <code>fortune</code> is to display a different message every time R starts. As mentioned before, you can find many tutorials on how to achieve this effect by searching on the web for “customizing R startup”.</p>
+<p>Another way of loading a package is using the <code>require</code> function. A call to <code>require</code> has a different behaviour than a call to <code>library</code>. When using <code>library</code>, if the package is not found in the local libraries, it returns an error. This means that the script stops and no further code is evaluated. As for <code>require</code>, if a package is not found, it returns an object with value <code>FALSE</code> and the rest of the code is evaluated. So, in order to avoid code being executed without its explicit dependencies, it is advised to always use <code>library</code> for loading package in scripts. </p>
+<p>The use of <code>require</code> is left for loading up packages inside of functions. If you create a custom function that requires procedures from a particular package, you must load the package within the scope of the function. For example, see the following code, where we create a new function called <code>my.fct</code> that depends on the package <code>quantmod</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my.fct &lt;-<span class="st"> </span><span class="cf">function</span>(x){
+    <span class="kw">require</span>(quantmod)
+    
+    df &lt;-<span class="st"> </span><span class="kw">getSymbols</span>(x, <span class="dt">auto.assign =</span> F)
+    <span class="kw">return</span>(df)
+}</code></pre></div>
+<p>In this case, the first time that <code>my.fct</code> is called, it loads up the package <code>quantmod</code> and all of its functions. Using <code>require</code> inside a function is good programming policy because the function becomes self contained, making it easier to use it in the future. This was the first time where the complete definition of a function in R is presented. Do not worry about it now. We will explain it further in chapter <a href="programming.html#programming">7</a>.</p>
+</div>
+<div id="upgrading-packages" class="section level3">
+<h3><span class="header-section-number">2.19.4</span> Upgrading Packages</h3>
+<p>Over time, it is natural that the packages available on CRAN are upgraded to accommodate new features, correct bugs and adapt to changes. Thus, it is recommended that users update their installed packages to a new version over the internet. In R, this procedure is quite easy. A direct way of upgrading packages is to click the button <em>update</em> located in the package panel, lower right corner of RStudio, as shown in Figure <a href="basic-operations-in-r.html#fig:RStudio-update">2.8</a>.</p>
+<div class="figure" style="text-align: center"><span id="fig:RStudio-update"></span>
+<img src="figs/RStudio_update.png" alt="Updating R packages" width="100%" />
+<p class="caption">
+Figure 2.8: Updating R packages
+</p>
+</div>
+<p>The user can also update packages through the prompt. Simply type command <code>update.packages()</code> and hit <em>enter</em>, as shown below. </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># update all installed packages</span>
+<span class="kw">update.packages</span>()</code></pre></div>
+<p>The command <code>update.packages</code> compares the version of the installed packages with the versions available in CRAN. If it finds any difference, the new versions are downloaded and installed. After running the command, all packages will be synchronized with the versions available in CRAN.</p>
+</div>
+</div>
+<div id="using-code-completion-with-tab" class="section level2">
+<h2><span class="header-section-number">2.20</span> Using Code Completion with <em>tab</em></h2>
+<p>A very useful feature of Studio is <em>code completion</em>. This is an editing tool that facilitates the search of names for objects, packages, function arguments and files. Its usage is very simple. After you type any first character, just press the <em>tab</em> (left side of keyboard, above <em>capslock</em>) and a number of options will appear. See Figure <a href="basic-operations-in-r.html#fig:autocomplete">2.9</a> where, after entering the <em>f</em> letter and pressing <em>tab</em>, a window appears with a list of object names that begins with that letter. </p>
+<div class="figure" style="text-align: center"><span id="fig:autocomplete"></span>
+<img src="figs/autocomplete.png" alt="Usage of autocomplete for object name" width="100%" />
+<p class="caption">
+Figure 2.9: Usage of autocomplete for object name
+</p>
+</div>
+<p>This also works for packages. To check it, type <code>library(r)</code> in the prompt or editor, place the cursor in between the parentheses and press <em>tab</em>. The result should look something like Figure <a href="basic-operations-in-r.html#fig:autocomplete-packages">2.10</a>, shown next.</p>
+<div class="figure" style="text-align: center"><span id="fig:autocomplete-packages"></span>
+<img src="figs/autocomplete_pacotes.png" alt="Usage of autocomplete for packages" width="100%" />
+<p class="caption">
+Figure 2.10: Usage of autocomplete for packages
+</p>
+</div>
+<p>Note that a description of the package or object is also offered by the code completion tool. This greatly facilitates the day to day work as the memorization of package names and R objects is not an easy task. The use of the <em>tab</em> decreases the time to look up names, also avoiding possible coding errors.</p>
+<p>The use of this tool becomes even more beneficial when objects and functions are named with some sort of pattern. In the rest of the book, you will notice that objects tend to be named with the prefix <em>my.</em>, as <em>my.x</em>, <em>my.num</em>. Using this naming rule (or any other) facilitates the lookup for names of objects created by the user. You can just type <em>my.</em>, press <em>tab</em>, and a list of all objects previously created by the user will appear.</p>
+<p>You can also find files and folders on your computer using <em>tab</em>. To try it, write the command <code>my.file &lt;- &quot;&quot;</code> in the prompt or a script, point the cursor to the middle of the quotes and press the <em>tab</em> key. A screen with the files and folders from the current working directory should appear, as shown in Figure <a href="basic-operations-in-r.html#fig:autocomplete-files">2.11</a>. You can use the keyboard arrow keys to navigate.</p>
+<div class="figure" style="text-align: center"><span id="fig:autocomplete-files"></span>
+<img src="figs/autocomplete_arquivos.png" alt="Usage of autocomplete for files and folders" width="100%" />
+<p class="caption">
+Figure 2.11: Usage of autocomplete for files and folders
+</p>
+</div>
+<p>The use of autocomplete is also possible for finding the name and description of function arguments. To try it out, write <code>cat()</code> and place the mouse cursor inside the parentheses. After that, press <em>tab</em>. The result should be similar to Figure <a href="basic-operations-in-r.html#fig:autocomplete-args">2.12</a>.</p>
+<div class="figure" style="text-align: center"><span id="fig:autocomplete-args"></span>
+<img src="figs/autocomplete_args.png" alt="Usage of autocomplete for function arguments" width="75%" />
+<p class="caption">
+Figure 2.12: Usage of autocomplete for function arguments
+</p>
+</div>
+<p>By using <em>tab</em> inside of a function, we have the names of all arguments and their description. This is the same information found in the help files.</p>
+<p>Summing up, using code completion will make you more productive. You’ll find names of files, objects, arguments and packages much faster. Use it whenever possible.</p>
+</div>
+<div id="interacting-with-files-and-the-operating-system" class="section level2">
+<h2><span class="header-section-number">2.21</span> Interacting with Files and the Operating System</h2>
+<p>In many data analysis situations, it will be necessary to interact with files in the computer, either by creating new folders, decompressing and compressing files, listing and removing files from the hard drive of the computer or any other type of operation. In most cases, R will interact with files containing data.</p>
+<div id="listing-files-and-folders" class="section level3">
+<h3><span class="header-section-number">2.21.1</span> Listing Files and Folders</h3>
+<p>To list files from your computer, use function <code>list.files</code>, where the <code>path</code> argument sets the directory to list the files from. For the compilation of the book, I’ve created a directory called <em>data</em>. This folder contains all the data needed to recreate the book’s examples. You can check the files in the subfolder <code>data</code> with the following code: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># list files in data folder</span>
+my.f &lt;-<span class="st"> </span><span class="kw">list.files</span>(<span class="dt">path =</span> <span class="st">&quot;data&quot;</span>, <span class="dt">full.names =</span> <span class="ot">TRUE</span>)
+<span class="kw">print</span>(my.f)</code></pre></div>
+<pre><code>##  [1] &quot;data/AdjustedPrices-InternacionalIndices.RDATA&quot;
+##  [2] &quot;data/BovStocks_2011-12-01_2016-11-29.csv&quot;      
+##  [3] &quot;data/BovStocks_2011-12-01_2016-11-29.RData&quot;    
+##  [4] &quot;data/example_gethfdata.RDATA&quot;                  
+##  [5] &quot;data/FileWithLatinChar.txt&quot;                    
+##  [6] &quot;data/grunfeld.csv&quot;                             
+##  [7] &quot;data/HFData.csv&quot;                               
+##  [8] &quot;data/HFData_6_Assets_15 min.RData&quot;             
+##  [9] &quot;data/MktIndices_and_Symbols.csv&quot;               
+## [10] &quot;data/MySQLiteDatabase.SQLITE&quot;                  
+## [11] &quot;data/SP500-Excel.xlsx&quot;                         
+## [12] &quot;data/SP500-Stocks-WithRet.RData&quot;               
+## [13] &quot;data/SP500-Stocks_long.csv&quot;                    
+## [14] &quot;data/SP500-Stocks_wide.csv&quot;                    
+## [15] &quot;data/SP500.csv&quot;                                
+## [16] &quot;data/SP500_2011-11-13_2016-11-11.csv&quot;          
+## [17] &quot;data/TDData.csv&quot;                               
+## [18] &quot;data/temp.csv&quot;                                 
+## [19] &quot;data/temp.RData&quot;                               
+## [20] &quot;data/temp.txt&quot;                                 
+## [21] &quot;data/temp.xlsx&quot;                                
+## [22] &quot;data/temp_xts.RData&quot;</code></pre>
+<p>Note that in this directory, there are several files with different extensions. These files contain data that will be used in future chapters. When using <code>list.files</code>, it is recommended to set input <code>full.names</code> as <code>TRUE</code>. This option makes sure that the names returned by the function contains the full path of the found files. This facilitates further manipulation, such as reading and importing information from data files. It is worth noting that you can also list the files recursively, that is, list all files from all subfolders contained in the original address. To check it, try using the following code in your computer:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># list all files for all subfolders (IT MAY TAKE SOME TIME...)</span>
+<span class="kw">list.files</span>(<span class="dt">path =</span> <span class="kw">getwd</span>(), <span class="dt">recursive =</span> T, <span class="dt">full.names =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<p>The previous command will list all files in the current folder and subfolders. Depending on the current working directory, it may take some time to run it all. If you executed it, be patient or just cancel it pressing <code>esc</code>.</p>
+<p>To list folders (directories) on your computer, use the command <code>list.dirs</code>. See below. </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># store names of directories</span>
+my.dirs &lt;-<span class="st"> </span><span class="kw">list.dirs</span>(<span class="dt">recursive =</span> F)
+
+<span class="co"># print it</span>
+<span class="kw">print</span>(my.dirs)</code></pre></div>
+<pre><code>##  [1] &quot;./.Rproj.user&quot;                 
+##  [2] &quot;./_book&quot;                       
+##  [3] &quot;./_bookdown_files&quot;             
+##  [4] &quot;./data&quot;                        
+##  [5] &quot;./eqs&quot;                         
+##  [6] &quot;./fig_ggplot&quot;                  
+##  [7] &quot;./figs&quot;                        
+##  [8] &quot;./ftp files&quot;                   
+##  [9] &quot;./latex_files&quot;                 
+## [10] &quot;./many_datafiles&quot;              
+## [11] &quot;./ProcAnFinDataR_ed_1_cache&quot;   
+## [12] &quot;./ProcAnFinDataR_ed_1_files&quot;   
+## [13] &quot;./procmodelfindatar_ed_1_cache&quot;
+## [14] &quot;./procmodelfindatar_ed_1_files&quot;
+## [15] &quot;./Removed chapters&quot;            
+## [16] &quot;./Scripts&quot;                     
+## [17] &quot;./tabs&quot;</code></pre>
+<p>The command <code>list.dirs(recursive = F)</code> listed all directories of the current path without recursion. The output shows the directories that I have used to write this book. It includes the output directory of the book ( <code>./_book</code>), the directory with the data (<code>./data</code>), among others. In this same directory, you can find the chapters of the book, organized by files and based on the <em>RMarkdown</em> language (<code>.Rmd</code> file extension). To list only files with the extension <code>.Rmd</code>, we can use the <code>pattern</code> input in function <code>list.files</code> as follows:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># list all files with extension .Rmd</span>
+<span class="kw">list.files</span>(<span class="dt">pattern =</span> <span class="st">&quot;*.Rmd&quot;</span>)</code></pre></div>
+<pre><code>##  [1] &quot;_Welcome.Rmd&quot;                               
+##  [2] &quot;00-Preface.Rmd&quot;                             
+##  [3] &quot;01-Introduction.Rmd&quot;                        
+##  [4] &quot;02-BasicOperations.Rmd&quot;                     
+##  [5] &quot;03-BasicObjects.Rmd&quot;                        
+##  [6] &quot;04-DataStructureObjects.Rmd&quot;                
+##  [7] &quot;05-Financial-data-and-common-operations.Rmd&quot;
+##  [8] &quot;06-ImportingExporting.Rmd&quot;                  
+##  [9] &quot;07-Programming.Rmd&quot;                         
+## [10] &quot;08-Figures.Rmd&quot;                             
+## [11] &quot;09-Models.Rmd&quot;                              
+## [12] &quot;10-ResearchScripts.Rmd&quot;                     
+## [13] &quot;11-references.Rmd&quot;                          
+## [14] &quot;index.Rmd&quot;                                  
+## [15] &quot;ProcAnFinDataR_ed_1.Rmd&quot;</code></pre>
+<p>The files presented above contain all the contents of this book, including this specific paragraph, located in file <code>02-BasicOperations.Rmd</code>!</p>
+
+</div>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-leisch2002sweave">
+<p>Leisch, Friedrich. 2002. “Sweave: Dynamic Generation of Statistical Reports Using Literate Data Analysis.” In <em>Compstat</em>, 575–80. Springer.</p>
+</div>
+<div id="ref-xie2016bookdown">
+<p>Xie, Yihui. 2016. <em>Bookdown: Authoring Books and Technical Documents with R Markdown</em>. CRC Press.</p>
+</div>
+<div id="ref-baumer2014r">
+<p>Baumer, Ben, Mine Cetinkaya-Rundel, Andrew Bray, Linda Loi, and Nicholas J Horton. 2014. “R Markdown: Integrating a Reproducible Analysis Tool into Introductory Statistics.” <em>arXiv Preprint arXiv:1402.1894</em>.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="introduction.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="BasicObjects.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "Sepia",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

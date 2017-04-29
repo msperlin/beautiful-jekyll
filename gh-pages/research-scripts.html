@@ -1,0 +1,1394 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Processing and Analyzing Financial Data with R</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="Processing and Analyzing Financial Data with R">
+  <meta name="generator" content="bookdown 0.3 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Processing and Analyzing Financial Data with R" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="figs/CAPADigital_FinancialDataR.jpg" />
+  <meta property="og:description" content="Processing and Analyzing Financial Data with R" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Processing and Analyzing Financial Data with R" />
+  
+  <meta name="twitter:description" content="Processing and Analyzing Financial Data with R" />
+  <meta name="twitter:image" content="figs/CAPADigital_FinancialDataR.jpg" />
+
+<meta name="author" content="Marcelo S. Perlin (marcelo.perlin@ufrgs.br)">
+
+
+<meta name="date" content="2017-04-29">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="models.html">
+<link rel="next" href="references.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Processing and Analyzing Financial Data with R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome!</a></li>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#what-is-r"><i class="fa fa-check"></i><b>1.1</b> What is R</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#why-choose-r"><i class="fa fa-check"></i><b>1.2</b> Why Choose R</a></li>
+<li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#what-can-you-do-with-r-and-rstudio"><i class="fa fa-check"></i><b>1.3</b> What Can You Do With R and RStudio?</a></li>
+<li class="chapter" data-level="1.4" data-path="introduction.html"><a href="introduction.html#installing-r-and-rstudio"><i class="fa fa-check"></i><b>1.4</b> Installing R and RStudio</a></li>
+<li class="chapter" data-level="1.5" data-path="introduction.html"><a href="introduction.html#resources-in-the-web"><i class="fa fa-check"></i><b>1.5</b> Resources in the Web</a></li>
+<li class="chapter" data-level="1.6" data-path="introduction.html"><a href="introduction.html#structure-and-organization"><i class="fa fa-check"></i><b>1.6</b> Structure and Organization</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html"><i class="fa fa-check"></i><b>2</b> Basic Operations in R</a><ul>
+<li class="chapter" data-level="2.1" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#working-with-r"><i class="fa fa-check"></i><b>2.1</b> Working With R</a></li>
+<li class="chapter" data-level="2.2" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#objects-in-r"><i class="fa fa-check"></i><b>2.2</b> Objects in R</a></li>
+<li class="chapter" data-level="2.3" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#international-and-local-formats"><i class="fa fa-check"></i><b>2.3</b> International and Local Formats</a></li>
+<li class="chapter" data-level="2.4" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#types-of-files-in-r"><i class="fa fa-check"></i><b>2.4</b> Types of Files in R</a></li>
+<li class="chapter" data-level="2.5" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#explaining-the-rstudio-screen"><i class="fa fa-check"></i><b>2.5</b> Explaining the RStudio Screen</a></li>
+<li class="chapter" data-level="2.6" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#running-scripts-from-rstudio"><i class="fa fa-check"></i><b>2.6</b> Running Scripts from RStudio</a></li>
+<li class="chapter" data-level="2.7" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#testing-and-debugging-code"><i class="fa fa-check"></i><b>2.7</b> Testing and Debugging Code</a></li>
+<li class="chapter" data-level="2.8" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#creating-simple-objects"><i class="fa fa-check"></i><b>2.8</b> Creating Simple Objects</a></li>
+<li class="chapter" data-level="2.9" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#creating-vectors"><i class="fa fa-check"></i><b>2.9</b> Creating Vectors</a></li>
+<li class="chapter" data-level="2.10" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#knowing-your-environment"><i class="fa fa-check"></i><b>2.10</b> Knowing Your Environment</a></li>
+<li class="chapter" data-level="2.11" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#displaying-and-formatting-output"><i class="fa fa-check"></i><b>2.11</b> Displaying and Formatting Output</a><ul>
+<li class="chapter" data-level="2.11.1" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#customizing-the-output"><i class="fa fa-check"></i><b>2.11.1</b> Customizing the Output</a></li>
+</ul></li>
+<li class="chapter" data-level="2.12" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#finding-the-size-of-objects"><i class="fa fa-check"></i><b>2.12</b> Finding the Size of Objects</a></li>
+<li class="chapter" data-level="2.13" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#selecting-the-elements-of-an-atomic-vector"><i class="fa fa-check"></i><b>2.13</b> Selecting the Elements of an Atomic Vector</a></li>
+<li class="chapter" data-level="2.14" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#removing-objects-from-the-memory"><i class="fa fa-check"></i><b>2.14</b> Removing Objects from the Memory</a></li>
+<li class="chapter" data-level="2.15" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#displaying-and-setting-the-working-directory"><i class="fa fa-check"></i><b>2.15</b> Displaying and Setting the Working Directory</a></li>
+<li class="chapter" data-level="2.16" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#cancelling-code-execution"><i class="fa fa-check"></i><b>2.16</b> Cancelling Code Execution</a></li>
+<li class="chapter" data-level="2.17" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#code-comments"><i class="fa fa-check"></i><b>2.17</b> Code Comments</a></li>
+<li class="chapter" data-level="2.18" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#looking-for-help"><i class="fa fa-check"></i><b>2.18</b> Looking for Help</a></li>
+<li class="chapter" data-level="2.19" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#r-packages"><i class="fa fa-check"></i><b>2.19</b> R Packages</a><ul>
+<li class="chapter" data-level="2.19.1" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#installing-packages-from-cran"><i class="fa fa-check"></i><b>2.19.1</b> Installing Packages from CRAN</a></li>
+<li class="chapter" data-level="2.19.2" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#installing-packages-from-github"><i class="fa fa-check"></i><b>2.19.2</b> Installing Packages from Github</a></li>
+<li class="chapter" data-level="2.19.3" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#loading-packages"><i class="fa fa-check"></i><b>2.19.3</b> Loading Packages</a></li>
+<li class="chapter" data-level="2.19.4" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#upgrading-packages"><i class="fa fa-check"></i><b>2.19.4</b> Upgrading Packages</a></li>
+</ul></li>
+<li class="chapter" data-level="2.20" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#using-code-completion-with-tab"><i class="fa fa-check"></i><b>2.20</b> Using Code Completion with <em>tab</em></a></li>
+<li class="chapter" data-level="2.21" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#interacting-with-files-and-the-operating-system"><i class="fa fa-check"></i><b>2.21</b> Interacting with Files and the Operating System</a><ul>
+<li class="chapter" data-level="2.21.1" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#listing-files-and-folders"><i class="fa fa-check"></i><b>2.21.1</b> Listing Files and Folders</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="BasicObjects.html"><a href="BasicObjects.html"><i class="fa fa-check"></i><b>3</b> Basic Object Classes</a><ul>
+<li class="chapter" data-level="3.1" data-path="BasicObjects.html"><a href="BasicObjects.html#numeric-objects"><i class="fa fa-check"></i><b>3.1</b> <code>Numeric</code> Objects</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-and-manipulating-numeric-objects"><i class="fa fa-check"></i><b>3.1.1</b> Creating and Manipulating <code>numeric</code> Objects</a></li>
+<li class="chapter" data-level="3.1.2" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-a-numeric-sequence"><i class="fa fa-check"></i><b>3.1.2</b> Creating a <code>numeric</code> Sequence</a></li>
+<li class="chapter" data-level="3.1.3" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-vectors-with-repeated-elements"><i class="fa fa-check"></i><b>3.1.3</b> Creating Vectors with Repeated Elements</a></li>
+<li class="chapter" data-level="3.1.4" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-vectors-with-random-numbers"><i class="fa fa-check"></i><b>3.1.4</b> Creating Vectors with Random Numbers</a></li>
+<li class="chapter" data-level="3.1.5" data-path="BasicObjects.html"><a href="BasicObjects.html#accessing-the-elements-of-a-numeric-vector"><i class="fa fa-check"></i><b>3.1.5</b> Accessing the Elements of a <code>numeric</code> Vector</a></li>
+<li class="chapter" data-level="3.1.6" data-path="BasicObjects.html"><a href="BasicObjects.html#modifying-and-removing-elements-of-a-numeric-vector"><i class="fa fa-check"></i><b>3.1.6</b> Modifying and Removing Elements of a <code>numeric</code> Vector</a></li>
+<li class="chapter" data-level="3.1.7" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-groups-from-a-numeric-vector"><i class="fa fa-check"></i><b>3.1.7</b> Creating Groups from a <code>numeric</code> Vector</a></li>
+<li class="chapter" data-level="3.1.8" data-path="BasicObjects.html"><a href="BasicObjects.html#other-functions-for-manipulating-numerical-vectors"><i class="fa fa-check"></i><b>3.1.8</b> Other Functions for Manipulating Numerical Vectors</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="BasicObjects.html"><a href="BasicObjects.html#character-objects"><i class="fa fa-check"></i><b>3.2</b> <code>Character</code> Objects</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-a-simple-character-object"><i class="fa fa-check"></i><b>3.2.1</b> Creating a Simple <code>character</code> Object</a></li>
+<li class="chapter" data-level="3.2.2" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-structured-character-objects"><i class="fa fa-check"></i><b>3.2.2</b> Creating Structured <code>character</code> Objects</a></li>
+<li class="chapter" data-level="3.2.3" data-path="BasicObjects.html"><a href="BasicObjects.html#character-constants"><i class="fa fa-check"></i><b>3.2.3</b> <code>character</code> Constants</a></li>
+<li class="chapter" data-level="3.2.4" data-path="BasicObjects.html"><a href="BasicObjects.html#selecting-characters-of-a-text-object"><i class="fa fa-check"></i><b>3.2.4</b> Selecting Characters of a Text Object</a></li>
+<li class="chapter" data-level="3.2.5" data-path="BasicObjects.html"><a href="BasicObjects.html#finding-and-replacing-characters-of-a-text"><i class="fa fa-check"></i><b>3.2.5</b> Finding and Replacing Characters of a Text</a></li>
+<li class="chapter" data-level="3.2.6" data-path="BasicObjects.html"><a href="BasicObjects.html#splitting-text"><i class="fa fa-check"></i><b>3.2.6</b> Splitting Text</a></li>
+<li class="chapter" data-level="3.2.7" data-path="BasicObjects.html"><a href="BasicObjects.html#finding-the-number-of-characters-in-a-text"><i class="fa fa-check"></i><b>3.2.7</b> Finding the Number of Characters in a Text</a></li>
+<li class="chapter" data-level="3.2.8" data-path="BasicObjects.html"><a href="BasicObjects.html#generating-combinations-of-text"><i class="fa fa-check"></i><b>3.2.8</b> Generating Combinations of Text</a></li>
+<li class="chapter" data-level="3.2.9" data-path="BasicObjects.html"><a href="BasicObjects.html#encoding-of-character-objects"><i class="fa fa-check"></i><b>3.2.9</b> Encoding of <code>character</code> Objects</a></li>
+<li class="chapter" data-level="3.2.10" data-path="BasicObjects.html"><a href="BasicObjects.html#other-functions-for-manipulating-character"><i class="fa fa-check"></i><b>3.2.10</b> Other Functions for Manipulating <code>character</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="BasicObjects.html"><a href="BasicObjects.html#factor-objects"><i class="fa fa-check"></i><b>3.3</b> <code>Factor</code> Objects</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-factors"><i class="fa fa-check"></i><b>3.3.1</b> Creating <code>factors</code></a></li>
+<li class="chapter" data-level="3.3.2" data-path="BasicObjects.html"><a href="BasicObjects.html#modifying-factors"><i class="fa fa-check"></i><b>3.3.2</b> Modifying <code>factors</code></a></li>
+<li class="chapter" data-level="3.3.3" data-path="BasicObjects.html"><a href="BasicObjects.html#converting-factors-to-other-classes"><i class="fa fa-check"></i><b>3.3.3</b> Converting <code>factors</code> to Other Classes</a></li>
+<li class="chapter" data-level="3.3.4" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-contingency-tables"><i class="fa fa-check"></i><b>3.3.4</b> Creating Contingency Tables</a></li>
+<li class="chapter" data-level="3.3.5" data-path="BasicObjects.html"><a href="BasicObjects.html#other-functions-for-manipulating-factors"><i class="fa fa-check"></i><b>3.3.5</b> Other Functions for Manipulating <code>factors</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="BasicObjects.html"><a href="BasicObjects.html#logical-objects"><i class="fa fa-check"></i><b>3.4</b> <code>Logical</code> Objects</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-logical-objects"><i class="fa fa-check"></i><b>3.4.1</b> Creating <code>logical</code> Objects</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="BasicObjects.html"><a href="BasicObjects.html#date-and-time-objects"><i class="fa fa-check"></i><b>3.5</b> Date and Time Objects</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-simple-dates"><i class="fa fa-check"></i><b>3.5.1</b> Creating Simple Dates</a></li>
+<li class="chapter" data-level="3.5.2" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-a-sequence-of-dates"><i class="fa fa-check"></i><b>3.5.2</b> Creating a Sequence of <code>Dates</code></a></li>
+<li class="chapter" data-level="3.5.3" data-path="BasicObjects.html"><a href="BasicObjects.html#operations-with-dates"><i class="fa fa-check"></i><b>3.5.3</b> Operations with <code>Dates</code></a></li>
+<li class="chapter" data-level="3.5.4" data-path="BasicObjects.html"><a href="BasicObjects.html#dealing-with-time"><i class="fa fa-check"></i><b>3.5.4</b> Dealing with Time</a></li>
+<li class="chapter" data-level="3.5.5" data-path="BasicObjects.html"><a href="BasicObjects.html#customizing-the-output-format-of-dates-and-times"><i class="fa fa-check"></i><b>3.5.5</b> Customizing the Output Format of Dates and Times</a></li>
+<li class="chapter" data-level="3.5.6" data-path="BasicObjects.html"><a href="BasicObjects.html#find-the-current-date-and-time"><i class="fa fa-check"></i><b>3.5.6</b> Find the Current Date and Time</a></li>
+<li class="chapter" data-level="3.5.7" data-path="BasicObjects.html"><a href="BasicObjects.html#other-functions-for-manipulating-dates-and-time"><i class="fa fa-check"></i><b>3.5.7</b> Other Functions for Manipulating Dates and Time</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="BasicObjects.html"><a href="BasicObjects.html#missing-data---na-not-available"><i class="fa fa-check"></i><b>3.6</b> Missing Data - <code>NA</code> (<em>Not available</em>)</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="BasicObjects.html"><a href="BasicObjects.html#defining-na-values"><i class="fa fa-check"></i><b>3.6.1</b> Defining <code>NA</code> Values</a></li>
+<li class="chapter" data-level="3.6.2" data-path="BasicObjects.html"><a href="BasicObjects.html#finding-and-replacing-na"><i class="fa fa-check"></i><b>3.6.2</b> Finding and Replacing <code>NA</code></a></li>
+<li class="chapter" data-level="3.6.3" data-path="BasicObjects.html"><a href="BasicObjects.html#other-useful-functions-for-treating-na"><i class="fa fa-check"></i><b>3.6.3</b> Other Useful Functions for Treating <code>NA</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html"><i class="fa fa-check"></i><b>4</b> Data Structure Objects</a><ul>
+<li class="chapter" data-level="4.1" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#lists"><i class="fa fa-check"></i><b>4.1</b> <code>Lists</code></a><ul>
+<li class="chapter" data-level="4.1.1" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#creating-lists"><i class="fa fa-check"></i><b>4.1.1</b> Creating <code>lists</code></a></li>
+<li class="chapter" data-level="4.1.2" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#accessing-the-elements-of-a-list"><i class="fa fa-check"></i><b>4.1.2</b> Accessing the Elements of a <code>list</code></a></li>
+<li class="chapter" data-level="4.1.3" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#adding-and-removing-elements-from-a-list"><i class="fa fa-check"></i><b>4.1.3</b> Adding and Removing Elements from a <code>list</code></a></li>
+<li class="chapter" data-level="4.1.4" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#processing-the-elements-of-a-list"><i class="fa fa-check"></i><b>4.1.4</b> Processing the Elements of a <code>list</code></a></li>
+<li class="chapter" data-level="4.1.5" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#other-functions-for-manipulating-lists"><i class="fa fa-check"></i><b>4.1.5</b> Other Functions for Manipulating <code>lists</code></a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#matrices"><i class="fa fa-check"></i><b>4.2</b> <code>Matrices</code></a><ul>
+<li class="chapter" data-level="4.2.1" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#selecting-elements-from-a-matrix"><i class="fa fa-check"></i><b>4.2.1</b> Selecting Elements from a <code>matrix</code></a></li>
+<li class="chapter" data-level="4.2.2" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#other-useful-functions-for-manipulating-matrices"><i class="fa fa-check"></i><b>4.2.2</b> Other Useful Functions for Manipulating Matrices</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#dataframes"><i class="fa fa-check"></i><b>4.3</b> <code>Dataframes</code></a><ul>
+<li class="chapter" data-level="4.3.1" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#creating-dataframes"><i class="fa fa-check"></i><b>4.3.1</b> Creating <code>dataframes</code></a></li>
+<li class="chapter" data-level="4.3.2" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#accessing-information-from-a-dataframe"><i class="fa fa-check"></i><b>4.3.2</b> Accessing Information from a <code>dataframe</code></a></li>
+<li class="chapter" data-level="4.3.3" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#modifying-a-dataframe"><i class="fa fa-check"></i><b>4.3.3</b> Modifying a <code>dataframe</code></a></li>
+<li class="chapter" data-level="4.3.4" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#sorting-a-dataframe"><i class="fa fa-check"></i><b>4.3.4</b> Sorting a <code>dataframe</code></a></li>
+<li class="chapter" data-level="4.3.5" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#combining-and-aggregating-dataframes"><i class="fa fa-check"></i><b>4.3.5</b> Combining and Aggregating <code>dataframes</code></a></li>
+<li class="chapter" data-level="4.3.6" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#reporting-a-dataframe-table"><i class="fa fa-check"></i><b>4.3.6</b> Reporting a <code>Dataframe</code> Table</a></li>
+<li class="chapter" data-level="4.3.7" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#the-format-of-the-dataframe-long-and-wide"><i class="fa fa-check"></i><b>4.3.7</b> The Format of the <code>dataframe</code> (<em>long</em> and <em>wide</em>)</a></li>
+<li class="chapter" data-level="4.3.8" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#extensions-of-the-dataframe-class"><i class="fa fa-check"></i><b>4.3.8</b> Extensions of the <code>dataframe</code> Class</a></li>
+<li class="chapter" data-level="4.3.9" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#other-useful-functions-for-handling-dataframes"><i class="fa fa-check"></i><b>4.3.9</b> Other Useful Functions for Handling <code>dataframes</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="Financial-data.html"><a href="Financial-data.html"><i class="fa fa-check"></i><b>5</b> Financial Data and Common Operations</a><ul>
+<li class="chapter" data-level="5.1" data-path="Financial-data.html"><a href="Financial-data.html#data-from-financial-markets"><i class="fa fa-check"></i><b>5.1</b> Data from Financial Markets</a></li>
+<li class="chapter" data-level="5.2" data-path="Financial-data.html"><a href="Financial-data.html#data-from-the-financial-evaluation-of-projects"><i class="fa fa-check"></i><b>5.2</b> Data from the Financial Evaluation of Projects</a></li>
+<li class="chapter" data-level="5.3" data-path="Financial-data.html"><a href="Financial-data.html#data-from-financial-statements"><i class="fa fa-check"></i><b>5.3</b> Data from Financial Statements</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="importing.html"><a href="importing.html"><i class="fa fa-check"></i><b>6</b> Importing and Exporting Data</a><ul>
+<li class="chapter" data-level="6.1" data-path="importing.html"><a href="importing.html#importing-data-from-local-files"><i class="fa fa-check"></i><b>6.1</b> Importing Data from Local Files</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="importing.html"><a href="importing.html#importing-data-from-a-.csv-file-comma-separated-values"><i class="fa fa-check"></i><b>6.1.1</b> Importing Data from a <em>.csv</em> File (<em>comma separated values</em>)</a></li>
+<li class="chapter" data-level="6.1.2" data-path="importing.html"><a href="importing.html#importing-data-from-an-excel-file"><i class="fa fa-check"></i><b>6.1.2</b> Importing Data from an <em>Excel</em> File</a></li>
+<li class="chapter" data-level="6.1.3" data-path="importing.html"><a href="importing.html#importing-data-from-a-.rdata-file"><i class="fa fa-check"></i><b>6.1.3</b> Importing Data from a <em>.RData</em> File</a></li>
+<li class="chapter" data-level="6.1.4" data-path="importing.html"><a href="importing.html#importing-data-from-sqlite"><i class="fa fa-check"></i><b>6.1.4</b> Importing Data from SQLITE</a></li>
+<li class="chapter" data-level="6.1.5" data-path="importing.html"><a href="importing.html#importing-data-from-a-text-file"><i class="fa fa-check"></i><b>6.1.5</b> Importing Data from a Text File</a></li>
+<li class="chapter" data-level="6.1.6" data-path="importing.html"><a href="importing.html#other-file-formats"><i class="fa fa-check"></i><b>6.1.6</b> Other File Formats</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="importing.html"><a href="importing.html#importing-data-using-the-internet"><i class="fa fa-check"></i><b>6.2</b> Importing Data Using the Internet</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="importing.html"><a href="importing.html#package-quantmod"><i class="fa fa-check"></i><b>6.2.1</b> Package <code>quantmod</code></a></li>
+<li class="chapter" data-level="6.2.2" data-path="importing.html"><a href="importing.html#package-batchgetsymbols"><i class="fa fa-check"></i><b>6.2.2</b> Package <code>BatchGetSymbols</code></a></li>
+<li class="chapter" data-level="6.2.3" data-path="importing.html"><a href="importing.html#package-finreportr"><i class="fa fa-check"></i><b>6.2.3</b> Package <code>finreportr</code></a></li>
+<li class="chapter" data-level="6.2.4" data-path="importing.html"><a href="importing.html#package-tidyquant"><i class="fa fa-check"></i><b>6.2.4</b> Package <code>tidyquant</code></a></li>
+<li class="chapter" data-level="6.2.5" data-path="importing.html"><a href="importing.html#package-gethfdata"><i class="fa fa-check"></i><b>6.2.5</b> Package <code>GetHFData</code></a></li>
+<li class="chapter" data-level="6.2.6" data-path="importing.html"><a href="importing.html#package-ustyc"><i class="fa fa-check"></i><b>6.2.6</b> Package <code>ustyc</code></a></li>
+<li class="chapter" data-level="6.2.7" data-path="importing.html"><a href="importing.html#quandl"><i class="fa fa-check"></i><b>6.2.7</b> Package <code>Quandl</code></a></li>
+<li class="chapter" data-level="6.2.8" data-path="importing.html"><a href="importing.html#package-rbitcoin"><i class="fa fa-check"></i><b>6.2.8</b> Package <code>Rbitcoin</code></a></li>
+<li class="chapter" data-level="6.2.9" data-path="importing.html"><a href="importing.html#other-packages"><i class="fa fa-check"></i><b>6.2.9</b> Other Packages</a></li>
+<li class="chapter" data-level="6.2.10" data-path="importing.html"><a href="importing.html#accessing-data-from-web-pages-webscraping"><i class="fa fa-check"></i><b>6.2.10</b> Accessing Data from Web Pages (<em>webscraping</em>)</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="importing.html"><a href="importing.html#exporting-to-local-file"><i class="fa fa-check"></i><b>6.3</b> Exporting to Local File</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="importing.html"><a href="importing.html#exporting-data-to-a-.csv-file"><i class="fa fa-check"></i><b>6.3.1</b> Exporting Data to a <em>.csv</em> File</a></li>
+<li class="chapter" data-level="6.3.2" data-path="importing.html"><a href="importing.html#exporting-data-to-a-rdata-file"><i class="fa fa-check"></i><b>6.3.2</b> Exporting Data to a <em>RData</em> File</a></li>
+<li class="chapter" data-level="6.3.3" data-path="importing.html"><a href="importing.html#exporting-data-to-an-excel-file"><i class="fa fa-check"></i><b>6.3.3</b> Exporting Data to an Excel File</a></li>
+<li class="chapter" data-level="6.3.4" data-path="importing.html"><a href="importing.html#exporting-data-to-a-text-file"><i class="fa fa-check"></i><b>6.3.4</b> Exporting Data to a Text File</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="programming.html"><a href="programming.html"><i class="fa fa-check"></i><b>7</b> Programming and Data Analysis with R</a><ul>
+<li class="chapter" data-level="7.1" data-path="programming.html"><a href="programming.html#creating-functions"><i class="fa fa-check"></i><b>7.1</b> Creating Functions</a></li>
+<li class="chapter" data-level="7.2" data-path="programming.html"><a href="programming.html#using-loops-for"><i class="fa fa-check"></i><b>7.2</b> Using Loops (<code>for</code>)</a></li>
+<li class="chapter" data-level="7.3" data-path="programming.html"><a href="programming.html#conditional-statements-if-else-switch"><i class="fa fa-check"></i><b>7.3</b> Conditional Statements (<code>if</code>, <code>else</code>, <code>switch</code>)</a></li>
+<li class="chapter" data-level="7.4" data-path="programming.html"><a href="programming.html#using-apply-functions"><i class="fa fa-check"></i><b>7.4</b> Using <code>apply</code> Functions</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="programming.html"><a href="programming.html#using-lapply"><i class="fa fa-check"></i><b>7.4.1</b> Using <code>lapply</code></a></li>
+<li class="chapter" data-level="7.4.2" data-path="programming.html"><a href="programming.html#using-sapply"><i class="fa fa-check"></i><b>7.4.2</b> Using <code>sapply</code></a></li>
+<li class="chapter" data-level="7.4.3" data-path="programming.html"><a href="programming.html#using-tapply"><i class="fa fa-check"></i><b>7.4.3</b> Using <code>tapply</code></a></li>
+<li class="chapter" data-level="7.4.4" data-path="programming.html"><a href="programming.html#using-mapply"><i class="fa fa-check"></i><b>7.4.4</b> Using <code>mapply</code></a></li>
+<li class="chapter" data-level="7.4.5" data-path="programming.html"><a href="programming.html#using-apply"><i class="fa fa-check"></i><b>7.4.5</b> Using <code>apply</code></a></li>
+<li class="chapter" data-level="7.4.6" data-path="programming.html"><a href="programming.html#using-by"><i class="fa fa-check"></i><b>7.4.6</b> Using <code>by</code></a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="programming.html"><a href="programming.html#data-manipulation-with-package-dplyr"><i class="fa fa-check"></i><b>7.5</b> Data Manipulation with Package <code>dplyr</code></a><ul>
+<li class="chapter" data-level="7.5.1" data-path="programming.html"><a href="programming.html#manipulating-a-dataframe-with-dplyr"><i class="fa fa-check"></i><b>7.5.1</b> Manipulating a <code>dataframe</code> with <code>dplyr</code></a></li>
+<li class="chapter" data-level="7.5.2" data-path="programming.html"><a href="programming.html#the-pipeline-operator"><i class="fa fa-check"></i><b>7.5.2</b> The Pipeline Operator (<code>%&gt;%</code>)</a></li>
+<li class="chapter" data-level="7.5.3" data-path="programming.html"><a href="programming.html#simple-group-operations-with-dplyr"><i class="fa fa-check"></i><b>7.5.3</b> Simple Group Operations with <code>dplyr</code></a></li>
+<li class="chapter" data-level="7.5.4" data-path="programming.html"><a href="programming.html#complex-group-operations-with-dplyr"><i class="fa fa-check"></i><b>7.5.4</b> Complex Group Operations with <code>dplyr</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="Figures.html"><a href="Figures.html"><i class="fa fa-check"></i><b>8</b> Creating and Saving Figures with <code>ggplot2</code></a><ul>
+<li class="chapter" data-level="8.1" data-path="Figures.html"><a href="Figures.html#using-graphic-windows"><i class="fa fa-check"></i><b>8.1</b> Using Graphic Windows</a></li>
+<li class="chapter" data-level="8.2" data-path="Figures.html"><a href="Figures.html#creating-figures-with-function-qplot"><i class="fa fa-check"></i><b>8.2</b> Creating Figures with Function <code>qplot</code></a></li>
+<li class="chapter" data-level="8.3" data-path="Figures.html"><a href="Figures.html#using-ggplot"><i class="fa fa-check"></i><b>8.3</b> Creating Figures with Function <code>ggplot</code></a><ul>
+<li class="chapter" data-level="8.3.1" data-path="Figures.html"><a href="Figures.html#using-themes"><i class="fa fa-check"></i><b>8.3.1</b> Using Themes</a></li>
+<li class="chapter" data-level="8.3.2" data-path="Figures.html"><a href="Figures.html#creating-panels-with-facet_wrap"><i class="fa fa-check"></i><b>8.3.2</b> Creating Panels with <code>facet_wrap</code></a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="Figures.html"><a href="Figures.html#using-pipelines-for-data-analysis-and-figures"><i class="fa fa-check"></i><b>8.4</b> Using Pipelines for Data Analysis and Figures</a></li>
+<li class="chapter" data-level="8.5" data-path="Figures.html"><a href="Figures.html#creating-statistical-graphics"><i class="fa fa-check"></i><b>8.5</b> Creating Statistical Graphics</a><ul>
+<li class="chapter" data-level="8.5.1" data-path="Figures.html"><a href="Figures.html#creating-histograms"><i class="fa fa-check"></i><b>8.5.1</b> Creating Histograms</a></li>
+<li class="chapter" data-level="8.5.2" data-path="Figures.html"><a href="Figures.html#creating-boxplot-figures"><i class="fa fa-check"></i><b>8.5.2</b> Creating <em>boxplot</em> Figures</a></li>
+<li class="chapter" data-level="8.5.3" data-path="Figures.html"><a href="Figures.html#creating-qq-plots"><i class="fa fa-check"></i><b>8.5.3</b> Creating <em>QQ</em> Plots</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="Figures.html"><a href="Figures.html#saving-graphics-to-a-file"><i class="fa fa-check"></i><b>8.6</b> Saving Graphics to a File</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="models.html"><a href="models.html"><i class="fa fa-check"></i><b>9</b> Financial Econometrics with R</a><ul>
+<li class="chapter" data-level="9.1" data-path="models.html"><a href="models.html#linear-models-ols"><i class="fa fa-check"></i><b>9.1</b> Linear Models (OLS)</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="models.html"><a href="models.html#simulating-a-linear-model"><i class="fa fa-check"></i><b>9.1.1</b> Simulating a Linear Model</a></li>
+<li class="chapter" data-level="9.1.2" data-path="models.html"><a href="models.html#estimating-ols"><i class="fa fa-check"></i><b>9.1.2</b> Estimating a Linear Model</a></li>
+<li class="chapter" data-level="9.1.3" data-path="models.html"><a href="models.html#testing-ols"><i class="fa fa-check"></i><b>9.1.3</b> Statistical Inference in Linear Models</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="models.html"><a href="models.html#generalized-linear-models-glm"><i class="fa fa-check"></i><b>9.2</b> Generalized Linear Models (GLM)</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="models.html"><a href="models.html#simulating-a-glm-model"><i class="fa fa-check"></i><b>9.2.1</b> Simulating a GLM Model</a></li>
+<li class="chapter" data-level="9.2.2" data-path="models.html"><a href="models.html#estimating-a-glm-model"><i class="fa fa-check"></i><b>9.2.2</b> Estimating a GLM Model</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="models.html"><a href="models.html#panel-data-models"><i class="fa fa-check"></i><b>9.3</b> Panel Data Models</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="models.html"><a href="models.html#simulating-panel-data-models"><i class="fa fa-check"></i><b>9.3.1</b> Simulating Panel Data Models</a></li>
+<li class="chapter" data-level="9.3.2" data-path="models.html"><a href="models.html#estimating-panel-data-models"><i class="fa fa-check"></i><b>9.3.2</b> Estimating Panel Data Models</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="models.html"><a href="models.html#arima-models"><i class="fa fa-check"></i><b>9.4</b> Arima Models</a><ul>
+<li class="chapter" data-level="9.4.1" data-path="models.html"><a href="models.html#simulating-arima-models"><i class="fa fa-check"></i><b>9.4.1</b> Simulating Arima Models</a></li>
+<li class="chapter" data-level="9.4.2" data-path="models.html"><a href="models.html#arima-estimating"><i class="fa fa-check"></i><b>9.4.2</b> Estimating Arima Models</a></li>
+<li class="chapter" data-level="9.4.3" data-path="models.html"><a href="models.html#forecasting-arima-models"><i class="fa fa-check"></i><b>9.4.3</b> Forecasting Arima Models</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="models.html"><a href="models.html#garch-models"><i class="fa fa-check"></i><b>9.5</b> Garch Models</a><ul>
+<li class="chapter" data-level="9.5.1" data-path="models.html"><a href="models.html#simulating-garch-models"><i class="fa fa-check"></i><b>9.5.1</b> Simulating Garch Models</a></li>
+<li class="chapter" data-level="9.5.2" data-path="models.html"><a href="models.html#estimating-garch"><i class="fa fa-check"></i><b>9.5.2</b> Estimating Garch Models</a></li>
+<li class="chapter" data-level="9.5.3" data-path="models.html"><a href="models.html#forecasting-garch-models"><i class="fa fa-check"></i><b>9.5.3</b> Forecasting Garch Models</a></li>
+</ul></li>
+<li class="chapter" data-level="9.6" data-path="models.html"><a href="models.html#regime-switching-models"><i class="fa fa-check"></i><b>9.6</b> Regime Switching Models</a><ul>
+<li class="chapter" data-level="9.6.1" data-path="models.html"><a href="models.html#simulating-regime-switching-models"><i class="fa fa-check"></i><b>9.6.1</b> Simulating Regime Switching Models</a></li>
+<li class="chapter" data-level="9.6.2" data-path="models.html"><a href="models.html#estimating-regime-switching-models"><i class="fa fa-check"></i><b>9.6.2</b> Estimating Regime Switching Models</a></li>
+<li class="chapter" data-level="9.6.3" data-path="models.html"><a href="models.html#forecasting-regime-switching-models"><i class="fa fa-check"></i><b>9.6.3</b> Forecasting Regime Switching Models</a></li>
+</ul></li>
+<li class="chapter" data-level="9.7" data-path="models.html"><a href="models.html#dealing-with-several-models"><i class="fa fa-check"></i><b>9.7</b> Dealing with Several Models</a></li>
+<li class="chapter" data-level="9.8" data-path="models.html"><a href="models.html#reporting-models"><i class="fa fa-check"></i><b>9.8</b> Reporting Models with <code>texreg</code></a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="research-scripts.html"><a href="research-scripts.html"><i class="fa fa-check"></i><b>10</b> Writing Research Scripts</a><ul>
+<li class="chapter" data-level="10.1" data-path="research-scripts.html"><a href="research-scripts.html#structure-of-a-research-script"><i class="fa fa-check"></i><b>10.1</b> Structure of a Research Script</a></li>
+<li class="chapter" data-level="10.2" data-path="research-scripts.html"><a href="research-scripts.html#folder-structure"><i class="fa fa-check"></i><b>10.2</b> Folder Structure</a></li>
+<li class="chapter" data-level="10.3" data-path="research-scripts.html"><a href="research-scripts.html#ExampleResearch"><i class="fa fa-check"></i><b>10.3</b> Examples of Research Scripts</a><ul>
+<li class="chapter" data-level="10.3.1" data-path="research-scripts.html"><a href="research-scripts.html#research-performance"><i class="fa fa-check"></i><b>10.3.1</b> The performance of international investments</a></li>
+<li class="chapter" data-level="10.3.2" data-path="research-scripts.html"><a href="research-scripts.html#research-prophet"><i class="fa fa-check"></i><b>10.3.2</b> Can we predict stock’s returns with Prophet?</a></li>
+<li class="chapter" data-level="10.3.3" data-path="research-scripts.html"><a href="research-scripts.html#research-gethfdata"><i class="fa fa-check"></i><b>10.3.3</b> An Analysis of High Frequency trade Data</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://sites.google.com/view/pmfdr/home" target="blank">Book Companion Site</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Processing and Analyzing Financial Data with R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="research-scripts" class="section level1">
+<h1><span class="header-section-number">Chapter 10</span> Writing Research Scripts</h1>
+<p>In previous chapters, we learned how to use R for many different tasks. Here we will discuss best practices in structuring and organizing a research script. Three practical and replicable cases of data analysis in finance are presented. All the knowledge learned in previous chapters will be used to provide examples of the full cycle of research, from the acquisition of the data, to the reporting of results.</p>
+<div id="structure-of-a-research-script" class="section level2">
+<h2><span class="header-section-number">10.1</span> Structure of a Research Script</h2>
+<p>Doing research with R will generally involve a set of steps. Each stage of a data processing script evolves in a recursive fashion. The data processing stage depends on the code that imports and cleans the raw data. We can organize a research script in four consecutive steps:</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>Importation of data</strong>: At this stage, the raw (original) data is imported from a source, internet or a local file. When the origin of the data is not obvious, it is important to use comments to register where the data is coming and its last update.</p></li>
+<li><p><strong>Cleaning and structuring the data</strong>: The dataset imported in the previous step is further cleaned and structured according to the need of the research. Abnormal records and errors in observations can be removed or treated. In R, as already mentioned in the previous chapters, it is advised to structure all the data in a single <code>dataframe</code>, guided by lines (<em>long</em> format).</p></li>
+<li><p><strong>Modelling and hypothesis testing</strong>: After cleansing and structuring the data, the script should continue with the implementation of the main procedure of the research, hypothesis testing. Here, you can use models or direct statistical tests. This is the <em>heart</em> of the research and the part that is most likely to take more development time.</p></li>
+<li><p><strong>Reporting the results</strong>: The final stage of a research script is reporting the results. This step is related to exporting tables and figures to a text processing software such as Latex, Writer (LibreOffice) or Word (Microsoft).</p></li>
+</ol>
+<p>Each of the mentioned steps can be structured in a single <em>.R</em> file or in several separate files. The use of multiple files is preferable when the first steps of the research demand a significant amount of processing time. For example, in importing and organizing a large volume database, it is worth the trouble to separate the procedures in different files.</p>
+<p>A practical example would be the analysis of a large dataset of financial transactions. Importing and cleansing the data takes too much computer time. A smart organization of the work would be to insert these primary data procedures in a <em>.R</em> file and save the final objects of this stage in an external storage file. This local archive serves as a bridge to the next step. In the next stage, hypothesis testing, the previously created file with clean data is imported. Every time a change is made to the hypothesis testing script, it is not necessary to rebuild the whole dataset. This simple organization of files saves a lot of time. The underlying logic is simple, isolate the parts of the script that demand more computational time and less development, and connect them to the rest of the code using external data files. This way you’ll be able to work more efficiently.</p>
+<p>If you are working with multiple files, one suggestion is to create a naming structure that informs the steps of the research in an intuitive way. An example would be to name the data importing code <code>1-Import-and-clean-data.R</code>, the modeling code as <code>2-build-report-models.R</code> and so on. The practical effect is that the use of a number in the first letter of the filenames makes the order of execution clear. We can also create a <em>master</em> script called <code>0-run-it-all.R</code> or <code>0-main.R</code> that runs (<code>source</code>) all other scripts. So, every time we make an update to the original data, we can simply run <code>0-run-it-all.R</code> and will have the new results, without the need to run each script individually.</p>
+</div>
+<div id="folder-structure" class="section level2">
+<h2><span class="header-section-number">10.2</span> Folder Structure</h2>
+<p>A proper, thought out, folder structure also benefits the reproducibility and organization of research. In simple scripts, with a small database and a low number of procedures, it is not necessary to spend much time thinking about the organization of files. This is certainly the case for most of the code in this book. More complex programs, with several stages of data cleansing, hypothesis testing, and several sources of data, organizing the file structure is essential.</p>
+<p>A suggestion for an effective folder structure is to create a single directory with the title of the research and, within it, create subdirectories for each input and output element. For example, you can create a subdirectory called <code>data</code>, where all the original data will be stored, a directory <code>fig</code> and <code>tables</code>, where figures and tables with final results will be exported. If you are using many custom written functions in the scripts, you can also create a directory called <code>R-Fcts</code> and save all files with function definitions at this location. As for the root of the directory, you should only find the main research scripts there. An example of a file structure that summarizes this structure is: </p>
+<pre><code>/My Research about capital markets/
+    /data/
+        datafile1.csv
+        datafile2.csv
+        datafile2.csv
+    /fig/
+        MyImpressiveFigure.png
+    /table/
+        Table_with_publishable_results.tex
+        DescriptiveTable.tex
+    /R-Fcts/
+        estimate_model.R
+        get_results.R
+        read_my_files.R
+    0-run-it-all.R
+    1-import-and-clean-data.R
+    2-run-research.R</code></pre>
+<p>The research code should also be self-contained, with all files available within a subfolder of the root directory. If you are using many different R packages, it is advisable to add a comment in the first lines of <code>0-run-it-all.R</code> that indicates which packages are necessary to run the code. The most friendly way to inform this is adding a commented line that install all required packages, as in <code>#install.packages('pkg1', 'pkg2', ...)</code>. So, when someone receives the code for the first time, all he (or she) needs to do is uncomment the line and execute it. External dependencies and steps for their installation should also be informed.</p>
+<p>The benefits of this directory format are clear. If you need to share the code with other researchers, simply compress the directory to a format such as <em>.zip</em> and send the file to the recipient. After uncompressing the file, the structure of the folder immediately informs the user where to change the original data, the order of execution of the scripts, and where the outputs are saved. The same benefit goes when you reuse your code in the future. By working smarter, you will produce faster and spend less time with repetitive and unnecessary steps.</p>
+<p>An example of the contents of file <code>0-run-it-all.R</code> would be:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Example script for executing a research</span>
+<span class="co">#</span>
+<span class="co"># Output:</span>
+<span class="co">#   Figure in folder fig, tables in folder table</span>
+<span class="co">#</span>
+<span class="co"># Author: Mr R programmer</span>
+<span class="co"># Date: 01/01/2017</span>
+
+
+<span class="co">#install.packages(c(&#39;BatchGetSymbols&#39;, &#39;plm&#39;))</span>
+
+<span class="co"># clean up workspace</span>
+<span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">ls</span>())
+
+<span class="co"># close all figure windows created with x11()</span>
+<span class="kw">graphics.off</span>()
+
+<span class="co"># change directory</span>
+my.d &lt;-<span class="st"> &#39;My Dir here!&#39;</span>
+<span class="kw">setwd</span>(my.d)
+
+<span class="co"># load all functions</span>
+my.R.files &lt;-<span class="st"> </span><span class="kw">list.files</span>(<span class="dt">path=</span><span class="st">&#39;R-Fcts&#39;</span>, 
+                         <span class="dt">pattern =</span> <span class="st">&#39;*.R&#39;</span>, 
+                         <span class="dt">full.names=</span><span class="ot">TRUE</span>)
+                         
+<span class="co"># source all function file</span>
+<span class="kw">sapply</span>(my.R.files,source)
+
+<span class="co"># run all steps of research</span>
+my.R.files &lt;-<span class="st"> </span><span class="kw">list.files</span>(<span class="dt">path=</span><span class="st">&#39;&#39;</span>, 
+                         <span class="dt">pattern =</span> <span class="st">&#39;*.R&#39;</span>, 
+                         <span class="dt">full.names=</span><span class="ot">TRUE</span>)
+                         
+<span class="co"># source all main scripts</span>
+<span class="kw">sapply</span>(my.R.files,source)</code></pre></div>
+<p>Notice that to run the above code on another computer, all you need to do is change the directory in <code>my.d</code>. The installation of the packages used in the research may also be required. We could also automate the copy of figure and table files used in the report with <code>file.copy</code>. From there, you can create a link in the text for each figure file. As an example, in LaTeX you can include a figure file with the command <code>\includegraphics{filenamehere}</code>. You can also create a direct link for the figure file in the research folder, although this method is not recommended, since it creates an external dependency to the written report. Either way, whenever the main code is executed, all research figures will be automatically updated in the text. As previously mentioned in chapter <a href="DataStructureObjects.html#DataStructureObjects">4</a>, you can also produce table files in different formats using packages <code>xtable</code> and <code>texreg</code>.</p>
+</div>
+<div id="ExampleResearch" class="section level2">
+<h2><span class="header-section-number">10.3</span> Examples of Research Scripts</h2>
+<p>Here we will present three elaborate examples of financial research with R. Every script provided here is reproducible. You can download the code and replicate all results. Each research script is saved in a single <em>.Rmd</em> file and is available in the book repository, folder <code>Research Scripts</code>.</p>
+<p>The first example of research is the analysis of the historical performance of several international stock indices using data from Yahoo Finance and Quandl. In the second example we investigate the forecasting accuracy of <code>prophet</code>, a open source forecasting algorithm from the Facebook team. In the last and final example, we present a simple study about importing and dealing with high frequency trade data from the Brazilian exchange.</p>
+<div id="research-performance" class="section level3">
+<h3><span class="header-section-number">10.3.1</span> The performance of international investments</h3>
+<p>One of the most popular subjects in Finance is the historical analysis of performance in the financial markets. The possibility of earning money in capital markets is real and instigates a systematic curiosity about how different investments performed historically. This topic is also popular in academic research. Financial theory predicts that financial instruments with greater risk are those which, on average, would offer greatest return. This premise is part of the main theoretical models of asset pricing. The topic of investment performance, therefore, attracts the attention of practitioners and academics.</p>
+<p>In this example of research, we will analyze the long term performance of international market indices from the point of view of an investor that operates in dollar. This choice is justified by the fact that market indices are priced in local currencies. Using dollar adjusted prices removes the effect of local inflation. Since the US exchange (dollar) is one of the most liquid assets, it becomes easier to find data about local exchange rates and make the conversion from local currency to dollar. While we could use derivatives contracts to hedge currency risk, using adjusted indices is a simpler and a more data intensive approach, which suits our needs.</p>
+<div id="the-data" class="section level4">
+<h4><span class="header-section-number">10.3.1.1</span> The Data</h4>
+<p>The first step of the study is to identify the indices used in the research. For that, we look into all assets available at the <a href="https://finance.yahoo.com/world-indices">Yahoo Finance World Indices page</a>. We select equity indices according to the following rules:</p>
+<ul>
+<li>The index must be composed of stocks. No volatility index is allowed.</li>
+<li>Data about about the local exchange rate to dollar must be available in Quandl (see section <a href="importing.html#quandl">6.2.7</a>).</li>
+<li>There must be at least 10 year of data about local currency and index price.</li>
+</ul>
+<p>After verifying these conditions for all assets in the list of tickers from Yahoo, we save the information about those that fit the criteria in a <em>.csv</em> file. We add a column that includes information about the local exchange rate and also the Quandl symbol related to the conversion to dollar. This file was manually built and is available in data/MktIndices_and_Symbols.csv. Let’s use R to have a look in its content.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># load indices data</span>
+<span class="co"># last update: 2017-04-04</span>
+<span class="co"># data manually built with:</span>
+<span class="co">#   Yahoo Finance: https://finance.yahoo.com/world-indices</span>
+<span class="co">#   Quandl: https://www.quandl.com/</span>
+
+my.f &lt;-<span class="st"> &#39;data/MktIndices_and_Symbols.csv&#39;</span>
+df.indices &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="dt">file =</span> my.f, <span class="dt">colClasses =</span> <span class="st">&#39;character&#39;</span>)
+
+<span class="co"># print df</span>
+<span class="kw">print</span>(df.indices)</code></pre></div>
+<pre><code>##       ticker                    name currency
+## 1      ^GSPC                 S&amp;P 500      USD
+## 2      ^FTSE                FTSE 100      GPB
+## 3     ^GDAXI                     DAX      EUR
+## 4      ^FCHI                  CAC 40      EUR
+## 5  ^STOXX50E            ESTX50 EUR P      EUR
+## 6       ^BFX                  BEL 20      EUR
+## 7      ^N225              Nikkei 225      JPY
+## 8       ^HSI         HANG SENG INDEX      HKD
+## 9  000001.SS     SSE Composite Index      CNY
+## 10      ^STI               STI Index      SGD
+## 11   ^GSPTSE S&amp;P/TSX Composite index      CAD
+## 12      ^MXX                     IPC      MXN
+##        quandl.symbol
+## 1                   
+## 2  FED/RXI_US_N_B_UK
+## 3  FED/RXI_US_N_B_EU
+## 4  FED/RXI_US_N_B_EU
+## 5  FED/RXI_US_N_B_EU
+## 6  FED/RXI_US_N_B_EU
+## 7     FED/RXI_N_B_JA
+## 8     FED/RXI_N_B_HK
+## 9     FED/RXI_N_B_CH
+## 10    FED/RXI_N_B_SI
+## 11    FED/RXI_N_B_CA
+## 12    FED/RXI_N_B_MX</code></pre>
+<p>The data is composed of European, North American and Asian stock indices. We will use column <code>ticker</code> to import price data from Yahoo Finance and column <code>quandl.symbol</code> to import exchange rate data from Quandl.</p>
+<p>The first part of our research script is to clean the memory, change the working directory and close all graphical windows:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># clean workspace</span>
+<span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">ls</span>())
+
+<span class="co"># change dir</span>
+my.d &lt;-<span class="st"> </span><span class="kw">dirname</span>(rstudioapi<span class="op">::</span><span class="kw">getActiveDocumentContext</span>()<span class="op">$</span>path)
+<span class="kw">setwd</span>(my.d)
+
+<span class="co"># close all graphics</span>
+<span class="kw">graphics.off</span>()</code></pre></div>
+<p>Let’s also set the options of the research script. These are the main information used for the rest of the code. It includes the dates of the data, the api key of Quandl and the name of the file with the raw data about ticker and quandl symbols. The variables defined here will be used throughout the rest of the code. In this study, we will use daily data from <code>2000-01-01</code> to <code>2016-12-31</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set dates</span>
+first.date &lt;-<span class="st"> </span><span class="kw">as.Date</span>(<span class="st">&#39;2000-01-01&#39;</span>)
+last.date &lt;-<span class="st"> </span><span class="kw">as.Date</span>(<span class="st">&#39;2016-12-31&#39;</span>)
+
+<span class="co"># set api key (will not work for you, do change it!)</span>
+my.api.key &lt;-<span class="st"> &#39;Esv1Ac7zuZzJSCGxynyV&#39;</span> 
+my.f &lt;-<span class="st"> &#39;data/MktIndices_and_Symbols.csv&#39;</span></code></pre></div>
+<p>Given the structure of the raw data about international indices, we will need do process each row of <code>df.indices</code> individually. For every line, we download data from Yahoo Finance, data from Quandl and merge it using the dates as reference. After that, we calculate the dollar adjusted values of the international indices and add it as a new column.</p>
+<p>The easiest way to organize our code is to first write a function that takes a input a ticker and quandl symbol, downloads the data from both sources, merge it and output a <code>dataframe</code> with the desired dataset and new columns. The first and last dates are also used as inputs in order to retrieve the correct time period. The adjustment of the price series is accomplished by multiplying the original value by the exchange rate of the dollar to the local currency.</p>
+<p>A particularity of the exchange rate data from the US Federal Reserve database in Quandl is that, sometimes, the exchange rate is quoted as the local currency by the dollar and not the usual, dollar by the local exchange. However, this information is available in the Quandl symbol. Whenever the symbol has the text <code>US</code>, it is the dollar to the local currency exchange. If it does not have that symbol, it provides the inverse. This is important because we need to know the direction of the exchange rate in order to properly calculate the dollar adjusted values of index prices. In the code, we use an <code>if</code> statement together with function <code>stringr::str_detect</code> to control the cases and properly adjust prices.</p>
+<p>Another control that must be made in the code is the case of the SP500. There is no need to download exchange data for it since prices are already in dollar. We control it in the code with another <code>if</code> statement. When the function receives the ticker of SP500 (^GSPC), it simply returns the raw data and a vector of dollar adjusted prices equal to the value of the index. The whole R function is defined by the following code:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">get_and_clean_data &lt;-<span class="st"> </span><span class="cf">function</span>(ticker, 
+                               quandl.symbol, 
+                               first.date,
+                               last.date) {
+  <span class="co"># gets price data from yahoo and exchange </span>
+  <span class="co"># data from Quandl and adjusts it to dollar. </span>
+  <span class="co"># </span>
+  <span class="co"># Args:</span>
+  <span class="co">#   ticker - a ticker symbol from Yahoo finance</span>
+  <span class="co">#   quandl.symbol - the symbol of the exchange </span>
+  <span class="co">#                   rate in quandl</span>
+  <span class="co">#   first.date - first date of data</span>
+  <span class="co">#   last.date - last date of data</span>
+  <span class="co">#</span>
+  <span class="co"># Returns:</span>
+  <span class="co">#   A dataframe with dollar adjusted values of asset price</span>
+  
+  <span class="kw">require</span>(Quandl)
+  <span class="kw">require</span>(BatchGetSymbols)
+  <span class="kw">require</span>(stringr)
+  
+  
+  <span class="kw">cat</span>(<span class="kw">paste0</span>(<span class="st">&#39;</span><span class="ch">\n</span><span class="st">Getting data for &#39;</span>,ticker))
+  <span class="kw">cat</span>(<span class="kw">paste0</span>(<span class="st">&#39;</span><span class="ch">\n\t</span><span class="st">Downloading price data from Yahoo Finance&#39;</span>))
+  
+  <span class="co"># get data from yahoo finance</span>
+  df.ticker &lt;-<span class="st"> </span><span class="kw">BatchGetSymbols</span>(<span class="dt">tickers =</span> ticker,
+                               <span class="dt">first.date =</span> first.date,
+                               <span class="dt">last.date =</span> last.date)<span class="op">$</span>df.tickers
+  
+  <span class="co"># remove uninteresting info and rename cols</span>
+  cols.to.keep &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;price.adjusted&quot;</span>,
+                    <span class="st">&quot;ref.date&quot;</span>,
+                    <span class="st">&quot;ticker&quot;</span> )
+  
+  df.ticker &lt;-<span class="st"> </span>df.ticker[, cols.to.keep]
+  <span class="kw">colnames</span>(df.ticker) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;price&quot;</span>,
+                           <span class="st">&quot;ref.date&quot;</span>,
+                           <span class="st">&quot;ticker&quot;</span> )
+  
+  <span class="co"># get data from quandl</span>
+  <span class="kw">cat</span>(<span class="kw">paste0</span>(<span class="st">&#39;</span><span class="ch">\n\t</span><span class="st">Downloading FX data from Quandl&#39;</span>))
+  
+  <span class="co"># case of SP500 (no need for exchange data)</span>
+  
+  <span class="cf">if</span> (ticker <span class="op">==</span><span class="st"> &#39;^GSPC&#39;</span>) {
+    df.ticker<span class="op">$</span>forex &lt;-<span class="st"> </span><span class="dv">1</span>
+    df.ticker<span class="op">$</span>price.USD &lt;-<span class="st"> </span>df.ticker<span class="op">$</span>price<span class="op">/</span>df.ticker<span class="op">$</span>forex 
+    df.ticker<span class="op">$</span>quandl.symbol &lt;-<span class="st"> </span>quandl.symbol
+    <span class="kw">return</span>(df.ticker)
+  }
+  
+  <span class="co"># register api key</span>
+  <span class="kw">Quandl.api_key</span>(my.api.key)
+  
+  df.currency &lt;-<span class="st"> </span><span class="kw">Quandl</span>(<span class="dt">code =</span> quandl.symbol,
+                        <span class="dt">type =</span> <span class="st">&#39;raw&#39;</span>, 
+                        <span class="dt">start_date =</span> first.date,
+                        <span class="dt">end_date =</span> last.date)
+  
+  <span class="co"># fix names</span>
+  df.currency<span class="op">$</span>quandl.symbol &lt;-<span class="st"> </span>quandl.symbol
+  <span class="kw">colnames</span>(df.currency) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;ref.date&#39;</span>,<span class="st">&#39;forex&#39;</span>,<span class="st">&#39;quandl.symbol&#39;</span>)
+  
+  <span class="co"># merge datasets</span>
+  df.ticker &lt;-<span class="st"> </span><span class="kw">merge</span>(<span class="dt">x =</span> df.ticker, 
+                     <span class="dt">y =</span> df.currency, 
+                     <span class="dt">by =</span> <span class="st">&#39;ref.date&#39;</span>)
+  
+  <span class="co"># calculated USD value of index</span>
+  <span class="cf">if</span> (<span class="kw">str_detect</span>(quandl.symbol,<span class="st">&#39;US&#39;</span>)) {
+    df.ticker<span class="op">$</span>price.USD &lt;-<span class="st"> </span>df.ticker<span class="op">$</span>price<span class="op">*</span>df.ticker<span class="op">$</span>forex 
+  } <span class="cf">else</span> {
+    df.ticker<span class="op">$</span>price.USD &lt;-<span class="st"> </span>df.ticker<span class="op">$</span>price<span class="op">/</span>df.ticker<span class="op">$</span>forex
+  }
+  
+  <span class="kw">return</span>(df.ticker)
+  
+}</code></pre></div>
+<p>Now that we have our function to download data for each asset, let’s use it in a loop and process all cases.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">n.rows &lt;-<span class="st"> </span><span class="kw">nrow</span>(df.indices)
+
+my.df &lt;-<span class="st"> </span><span class="kw">data.frame</span>()
+<span class="cf">for</span> (i <span class="cf">in</span> <span class="kw">seq</span>(<span class="dv">1</span>,n.rows)) {
+  ticker.now &lt;-<span class="st"> </span>df.indices<span class="op">$</span>ticker[i]
+  quandl.code.now &lt;-<span class="st"> </span>df.indices<span class="op">$</span>quandl.symbol[i]
+  
+  df.temp &lt;-<span class="st"> </span><span class="kw">get_and_clean_data</span>(<span class="dt">ticker =</span> ticker.now,
+                                <span class="dt">quandl.symbol =</span> quandl.code.now,
+                                <span class="dt">first.date=</span>first.date,
+                                <span class="dt">last.date=</span>last.date)
+  
+  my.df &lt;-<span class="st"> </span><span class="kw">rbind</span>(my.df, df.temp)
+}</code></pre></div>
+<p>For every iteration of the loop, we incremented object <code>my.df</code> with the information from <code>df.temp</code>. The data from the previous code is available in file ../data/AdjustedPrices-InternacionalIndices.RDATA. Now, let’s have a look in the resulting <code>dataframe</code>.</p>
+<pre><code>## &#39;data.frame&#39;:    50063 obs. of  6 variables:
+##  $ price        : num  1455 1399 1402 1403 1441 ...
+##  $ ref.date     : Date, format: &quot;2000-01-03&quot; ...
+##  $ ticker       : chr  &quot;^GSPC&quot; &quot;^GSPC&quot; &quot;^GSPC&quot; &quot;^GSPC&quot; ...
+##  $ forex        : num  1 1 1 1 1 1 1 1 1 1 ...
+##  $ price.USD    : num  1455 1399 1402 1403 1441 ...
+##  $ quandl.symbol: chr  &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; ...
+## NULL</code></pre>
+<p>As expected, we have a new column called <code>price.USD</code> with the dollar adjusted values of the stock market indices.</p>
+</div>
+<div id="calculating-annual-returns" class="section level4">
+<h4><span class="header-section-number">10.3.1.2</span> Calculating annual returns</h4>
+<p>The next step in the research is to calculate the annual returns for each asset. The annual return is the percentage value that an investor would earn if he bought the instrument at the end of previous year and sold it at the end of the following year. At this stage, for simplicity, we ignore the effects of income tax on investment in different instruments.</p>
+<p>The imported data available in <code>my.df</code> is in the daily frequency. We can easily calculate yearly returns with package <code>dplyr</code>. The first step is to create a new column in <code>my.df</code> with the year of the data. After that, we use function <code>group_by</code> to group the data by ticker and year. The last step is to find the last price of each year and calculate the return vector. This set of steps is executed with the following code:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
+
+my.ret &lt;-<span class="st"> </span>my.df <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">year =</span> <span class="kw">format</span>(ref.date,<span class="st">&#39;%Y&#39;</span>)) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">group_by</span>(ticker, year) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">last.price =</span> price.USD[<span class="kw">length</span>(price.USD)]) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">ret =</span> <span class="kw">c</span>(<span class="dv">0</span>, last.price[<span class="dv">2</span><span class="op">:</span><span class="kw">length</span>(last.price)]<span class="op">/</span>
+<span class="st">                   </span>last.price[<span class="dv">1</span><span class="op">:</span>(<span class="kw">length</span>(last.price)<span class="op">-</span><span class="dv">1</span>)]<span class="op">-</span><span class="dv">1</span>))</code></pre></div>
+<p>A small difference here from the previous code is that we use a value of zero as the first observation in the calculation of returns. We do that because we will soon calculate accumulated returns and, by setting the first value of the return vector equal to zero, the first accumulated return will be 1.</p>
+<p>Let’s have a look in the yearly returns of the different assets over time:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
+p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(my.ret, <span class="kw">aes</span>(<span class="dt">x=</span><span class="kw">as.numeric</span>(year), 
+                        <span class="dt">y=</span>ret, 
+                        <span class="dt">color=</span>ticker))
+p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">size=</span><span class="fl">1.5</span>)
+p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&#39;Year&#39;</span>, <span class="dt">y =</span> <span class="st">&#39;Annual Return&#39;</span>)
+p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">legend.position=</span><span class="st">&quot;bottom&quot;</span>)
+p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">legend.title=</span><span class="kw">element_blank</span>())
+<span class="kw">print</span>(p)</code></pre></div>
+<p><img src="ProcAnFinDataR_ed_1_files/figure-html/unnamed-chunk-605-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>The yearly returns of the different investments are mostly positive. It is interesting to see the impact of the 2008 financial crisis. All indices had an extreme loss of value at that year. However, in the following year, 2009, there was a systematic recovery for all stock markets in our sample. The figure also shows a clear correlation in between the indices. Let’s have a look at its correlation matrix:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyr)
+
+<span class="co"># turn long df to wide and remove year col</span>
+ret.wide &lt;-<span class="st"> </span>my.ret <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">select</span>(year, ticker,ret) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">spread</span>(<span class="dt">key =</span> ticker, <span class="dt">value =</span> ret, <span class="dt">drop =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>year)
+
+<span class="co"># turn to matrix</span>
+ret.mat &lt;-<span class="st"> </span><span class="kw">as.matrix</span>(ret.wide)
+
+<span class="co"># print summary of cor matrix</span>
+<span class="kw">summary</span>(<span class="kw">cor</span>(ret.mat))</code></pre></div>
+<pre><code>##       ^BFX            ^FCHI            ^FTSE       
+##  Min.   :0.5547   Min.   :0.5760   Min.   :0.5951  
+##  1st Qu.:0.7892   1st Qu.:0.8211   1st Qu.:0.8447  
+##  Median :0.8388   Median :0.8728   Median :0.8979  
+##  Mean   :0.8329   Mean   :0.8596   Mean   :0.8683  
+##  3rd Qu.:0.9263   3rd Qu.:0.9403   3rd Qu.:0.9322  
+##  Max.   :1.0000   Max.   :1.0000   Max.   :1.0000  
+##      ^GDAXI           ^GSPC           ^GSPTSE      
+##  Min.   :0.5590   Min.   :0.4502   Min.   :0.4852  
+##  1st Qu.:0.7979   1st Qu.:0.7605   1st Qu.:0.7595  
+##  Median :0.8425   Median :0.8131   Median :0.8062  
+##  Mean   :0.8319   Mean   :0.7819   Mean   :0.7952  
+##  3rd Qu.:0.9021   3rd Qu.:0.8528   3rd Qu.:0.8643  
+##  Max.   :1.0000   Max.   :1.0000   Max.   :1.0000  
+##       ^HSI             ^MXX            ^N225       
+##  Min.   :0.6485   Min.   :0.4579   Min.   :0.1938  
+##  1st Qu.:0.7726   1st Qu.:0.6411   1st Qu.:0.6423  
+##  Median :0.8815   Median :0.7258   Median :0.7616  
+##  Mean   :0.8500   Mean   :0.7157   Mean   :0.7067  
+##  3rd Qu.:0.9044   3rd Qu.:0.8001   3rd Qu.:0.8038  
+##  Max.   :1.0000   Max.   :1.0000   Max.   :1.0000  
+##       ^STI          ^STOXX50E        000001.SS     
+##  Min.   :0.6236   Min.   :0.6092   Min.   :0.1938  
+##  1st Qu.:0.7801   1st Qu.:0.8071   1st Qu.:0.4784  
+##  Median :0.8313   Median :0.8789   Median :0.5675  
+##  Mean   :0.8276   Mean   :0.8605   Mean   :0.5765  
+##  3rd Qu.:0.9035   3rd Qu.:0.9398   3rd Qu.:0.6255  
+##  Max.   :1.0000   Max.   :1.0000   Max.   :1.0000</code></pre>
+<p>As expected, the matrix of returns has a strong correlation in between the columns. In practice, when one market goes up in dollar values, the others tend to follow. The economic reasoning is that, given the effects of international commerce and globalization, when an economic shock is seen in one market, it tends to spread to others. The use of the same exchange rate to normalize prices can also explain the positive correlations.</p>
+<p>Another way of analyzing the appreciation of value in the indices is to look at the accumulated returns over the years. This mimics the total return an investor would have each year by keeping the asset in his portfolio. In R, we can add a column in the existing <code>my.ret</code> object using functions <code>tapply</code> and <code>unlist</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># calculate accumulated returns</span>
+my.l &lt;-<span class="st"> </span><span class="kw">tapply</span>(<span class="dt">X =</span> my.ret<span class="op">$</span>ret, 
+               <span class="dt">INDEX =</span> my.ret<span class="op">$</span>ticker,  
+               <span class="dt">FUN =</span> <span class="cf">function</span>(x) <span class="kw">cumprod</span>(<span class="kw">c</span>(x<span class="op">+</span><span class="dv">1</span>)))
+
+<span class="co"># sorts my.l by ticker and add new column in my.ret</span>
+my.l &lt;-<span class="st"> </span>my.l[<span class="kw">unique</span>(my.ret<span class="op">$</span>ticker)] 
+my.ret<span class="op">$</span>acum.ret &lt;-<span class="st"> </span><span class="kw">unlist</span>(my.l)</code></pre></div>
+<p>Previous code calculates the cumulative return for each share using arithmetic returns from column <code>ret</code>. These cumulative returns are stored in <code>my.l</code>. Soon after, we use the command <code>my.l &lt;- my.l[unique(my.ret$ticker)]</code> to order the elements in <code>my.l</code>. Remember that function <code>tapply</code> orders its output alphabetically, which is not what we need. Finally, we add column <code>acum.ret</code> with the <code>unlist</code> command.</p>
+<p>Now, let’s plot the result.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(my.ret, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">as.numeric</span>(year), 
+                        <span class="dt">y =</span> acum.ret, 
+                        <span class="dt">color =</span> ticker))
+p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">size=</span><span class="dv">1</span>)
+p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&#39;Year&#39;</span>, 
+              <span class="dt">y =</span> <span class="st">&#39;Accumulated Return&#39;</span>)
+p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;bottom&quot;</span>,
+               <span class="dt">legend.title =</span> <span class="kw">element_blank</span>())
+<span class="kw">print</span>(p)</code></pre></div>
+<p><img src="ProcAnFinDataR_ed_1_files/figure-html/unnamed-chunk-608-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>It is interesting to see how an investment in ^MXX, the Mexican stock market index, provided the highest accumulated return in the period of 16 years. However, analyzing performance is not just about maximizing raw returns. We also need to understand the risk of theses investments and whether it is proportional to the returns.</p>
+<p>There are many ways we can quantify risk. In a simple analysis that is coherent to financial theory, risk can be represented as the standard deviation of annual returns. This measure of volatility quantifies the expected uncertainty about future returns. For example, if an asset always yields returns that are close to its average, it is reasonable to expect that future returns will also be close to the historical average. The certainty about future returns increases as the standard deviation of returns decreases.</p>
+<p>The following code will use object <code>my.ret</code> to calculate the average and standard deviation of returns in the investments. We also add a column with the sharpe ratio, the average return divided by the standard deviation. This simple measure indicates how much return is provided by the asset for every unit of risk. The higher the sharpe ratio, the better the investment.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my.tab &lt;-<span class="st"> </span>my.ret <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">group_by</span>(ticker) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean.ret =</span> <span class="kw">mean</span>(ret), 
+            <span class="dt">sd.ret =</span> <span class="kw">sd</span>(ret),
+            <span class="dt">sharpe =</span> mean.ret<span class="op">/</span>sd.ret) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">arrange</span>(<span class="op">-</span>sharpe)
+
+<span class="kw">print</span>(my.tab)</code></pre></div>
+<pre><code>## # A tibble: 12 × 4
+##       ticker   mean.ret    sd.ret     sharpe
+##        &lt;chr&gt;      &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;
+## 1       ^MXX 0.11534289 0.2773979 0.41580299
+## 2     ^GDAXI 0.07885876 0.2817598 0.27987934
+## 3    ^GSPTSE 0.07216617 0.2633533 0.27402798
+## 4      ^GSPC 0.04709950 0.1731060 0.27208473
+## 5       ^STI 0.07164052 0.2803992 0.25549471
+## 6  000001.SS 0.13116395 0.5189561 0.25274574
+## 7       ^HSI 0.05467892 0.2566677 0.21303389
+## 8       ^BFX 0.05166544 0.2496124 0.20698266
+## 9      ^N225 0.03468718 0.1847752 0.18772641
+## 10     ^FCHI 0.02143972 0.2273614 0.09429797
+## 11     ^FTSE 0.01879847 0.2016375 0.09322904
+## 12 ^STOXX50E 0.01154059 0.2300936 0.05015605</code></pre>
+<p>Object <code>my.tab</code> shows the descending values of sharpe ratio. The best asset in terms of return by risk is again the Mexican stock index. It not only offers a high average of returns, but also a low volatility. The previous result can be analyzed visually, with the so-called mean-variance chart. This is a scatter plot with the horizontal axis as the risk of investment and the vertical axis as the expected return. Let’s create it with <code>ggplot2</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(my.tab, <span class="kw">aes</span>(<span class="dt">x=</span>sd.ret, <span class="dt">y=</span>mean.ret))
+p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">size=</span><span class="dv">3</span>)
+p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">annotate</span>(<span class="st">&#39;text&#39;</span>, <span class="dt">x =</span> my.tab<span class="op">$</span>sd.ret<span class="op">-</span><span class="fl">0.007</span>, 
+                  <span class="dt">y =</span> my.tab<span class="op">$</span>mean.ret<span class="op">+</span><span class="fl">0.01</span>, 
+                  <span class="dt">label =</span> my.tab<span class="op">$</span>ticker)
+p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&#39;Risk&#39;</span>, <span class="dt">y=</span><span class="st">&#39;Expected Return&#39;</span>)
+<span class="kw">print</span>(p)</code></pre></div>
+<p><img src="ProcAnFinDataR_ed_1_files/figure-html/unnamed-chunk-611-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>The graph confirms the results about the high performance of the Mexican market. Its ticker, ^MXX, is located at the top left of the chart, with a high return and low risk. In the other side we have 000001.SS, the Chinese market index. It offers a higher average return but with excessive volatility.</p>
+<p>Now, let’s build a portfolio using the previous data. It makes sense to spread the total capital in different assets in order to obtain the benefits of diversification. Here, we want to find the portfolio weights that maximize our sharpe ratio. Package <code>fPortfolio</code> offer several functions for this purpose. First, we need to make sure that our matrix of returns is positive-definite and has no <code>NA</code> values. If this is not true, we won’t be able to run the optimization procedure. Let’s test it:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(matrixcalc)
+
+<span class="co"># check if ret matrix is positive definite</span>
+<span class="kw">print</span>(<span class="kw">is.positive.definite</span>(<span class="kw">cov</span>(ret.mat)))</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># check for na</span>
+<span class="kw">print</span>(<span class="kw">any</span>(<span class="kw">is.na</span>(ret.mat)))</code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<p>As we can see, the return matrix is positive definite and without <code>NA</code> values. We can now proceed to the estimation of our efficient portfolio. For that, we use function <code>fPortfolio::tangencyPortfolio</code> that takes as input a matrix of returns in the <code>timeSeries</code> class.  </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(fPortfolio)
+
+<span class="co"># convert to timeSeries</span>
+ret.mat &lt;-<span class="st"> </span><span class="kw">as.timeSeries</span>(ret.mat)
+
+<span class="co"># get port composition for max sharpe ratio</span>
+eff.port &lt;-<span class="st"> </span><span class="kw">tangencyPortfolio</span>(ret.mat)
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(eff.port)</code></pre></div>
+<pre><code>## 
+## Title:
+##  MV Tangency Portfolio 
+##  Estimator:         covEstimator 
+##  Solver:            solveRquadprog 
+##  Optimize:          minRisk 
+##  Constraints:       LongOnly 
+## 
+## Portfolio Weights:
+##      ^BFX     ^FCHI     ^FTSE    ^GDAXI     ^GSPC   ^GSPTSE 
+##    0.0000    0.0000    0.0000    0.0000    0.0964    0.0000 
+##      ^HSI      ^MXX     ^N225      ^STI ^STOXX50E 000001.SS 
+##    0.0000    0.8172    0.0000    0.0000    0.0000    0.0864 
+## 
+## Covariance Risk Budgets:
+##      ^BFX     ^FCHI     ^FTSE    ^GDAXI     ^GSPC   ^GSPTSE 
+##    0.0000    0.0000    0.0000    0.0000    0.0412    0.0000 
+##      ^HSI      ^MXX     ^N225      ^STI ^STOXX50E 000001.SS 
+##    0.0000    0.8559    0.0000    0.0000    0.0000    0.1029 
+## 
+## Target Returns and Risks:
+##   mean    Cov   CVaR    VaR 
+## 0.1101 0.2608 0.4200 0.4200 
+## 
+## Description:
+##  Sat Apr 29 09:56:17 2017 by user: marcelo</code></pre>
+<p>Not surprisingly, the optimized portfolio invested a significant proportion in ^MXX. The American and Chinese market, with symbols ^GSPC and ^00001.SS, were left with approximately 10% of the portfolio. We can find out the exact sharpe ratio of this portfolio with the following code:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># get weights of efficient port</span>
+my.w &lt;-<span class="st"> </span>eff.port<span class="op">@</span>portfolio<span class="op">@</span>portfolio<span class="op">$</span>weights
+
+<span class="co"># change to vector </span>
+my.w &lt;-<span class="st"> </span><span class="kw">matrix</span>(my.w, <span class="dt">nrow =</span> <span class="kw">length</span>(my.w))
+
+<span class="co"># calculate vector with portfolio returns</span>
+my.port &lt;-<span class="st"> </span><span class="kw">as.matrix</span>(ret.mat)<span class="op">%*%</span>my.w
+
+<span class="co"># get sharpe ratio</span>
+my.sharpe &lt;-<span class="st"> </span><span class="kw">mean</span>(my.port)<span class="op">/</span><span class="kw">sd</span>(my.port)
+
+<span class="co"># print it</span>
+<span class="kw">print</span>(my.sharpe)</code></pre></div>
+<pre><code>## [1] 0.4222147</code></pre>
+<p>The value of the resulting sharpe ratio is slightly higher than investing all capital in the Mexican market index. Exploring even more the functions from package <code>fPortfolio</code>, we can also plot the efficient frontier in our mean-variance graph with function <code>tailoredFrontierPlot</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># get eff frontier</span>
+my.pf &lt;-<span class="st"> </span><span class="kw">portfolioFrontier</span>(<span class="dt">data =</span> ret.mat)
+
+<span class="co"># plot it</span>
+<span class="kw">tailoredFrontierPlot</span>(<span class="dt">object =</span> my.pf, 
+                     <span class="dt">risk =</span> <span class="st">&#39;Sigma&#39;</span>, 
+                     <span class="dt">twoAssets =</span> <span class="ot">FALSE</span>, 
+                     <span class="dt">sharpeRatio =</span> <span class="ot">FALSE</span>)</code></pre></div>
+<p><img src="ProcAnFinDataR_ed_1_files/figure-html/unnamed-chunk-615-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>The figure shows the investment opportunities of each stock individually and also the efficient frontier, the portfolios that offer the highest expected return for each value of risk. The efficient frontier represents the best possible investments in the mean/variance world. The red point to the left is the portfolio with the minimum variance. The blue point is the portfolio with highest sharpe ratio.</p>
+<p>The efficient frontier clearly shows how an investor can benefit from diversification. Every point in this curve has superior sharpe ratio than any other at the same level of risk. In other words, allocating all capital in ^FTSE or ^FCHI is a bad investment choice as better opportunities for the same level of risk are available. An investor should set a risk target and choose a portfolio from the efficient frontier.</p>
+<p>In this study we analyzed the historical performance of several international, dollar adjusted, market indices. Our results shows a strong correlation between the yearly returns of the different assets. We also find that the index with the best performance, measured by the sharpe ratio, is the Mexican stock index (<code>^MXX</code>). When building a optimized portfolio, we are able to marginally improve the sharpe ratio by investing 82% of the portfolio in <code>^MXX</code>, and the rest of capital split in SP500 (<code>^GSPC</code>) and the Chinese SSE Composite Index (<code>^000001.SS</code>). The efficient frontier shows exactly where an investor should allocate his capital for every value of risk. As for future performance, the big question is whether history will repeat itself and this optimized portfolio will continue to offer high returns for low risk. This clearly could be the question of another, more complex, research.</p>
+<p>The written code in this research is reproducible and easily expandable. If one desires to include more assets, all that is necessary is to add new rows in file data/MktIndices_and_Symbols.csv. This addition should include information about tickers and quandl symbols for local currencies. The dates of the research are also easy to modify with options <code>first.date</code> and <code>last.date</code>. We could also add other types of returns and risk estimates by creating a custom function and using it in the analysis.</p>
+</div>
+</div>
+<div id="research-prophet" class="section level3">
+<h3><span class="header-section-number">10.3.2</span> Can we predict stock’s returns with Prophet?</h3>
+<p>Facebook recently released an API package allowing access to its forecasting model called <a href="http://blog.revolutionanalytics.com/2017/02/facebook-prophet.html">prophet</a>:</p>
+<blockquote>
+<p>“It’s not your traditional ARIMA-style time series model. It’s closer in spirit to a Bayesian-influenced generalized additive model, a regression of smooth terms. The model is resistant to the effects of outliers, and supports data collected over an irregular time scale (ingliding presence of missing data) without the need for interpolation. The underlying calculation engine is Stan; the R and Python packages simply provide a convenient interface.”</p>
+<p>— Facebook Core Data Science team</p>
+</blockquote>
+<p>Given its open source format, the prophet algorithm and package was well received by the community. In finance, there is a large amount of work dedicated in forecasting financial markets. So, a natural application for Prophet is the attempt to forecast returns in the stock market. Here, we ask the question, <strong>can we predict stock’s returns based on prophet?</strong> This research problem was inspired by <a href="https://msperlin.github.io/2017-03-05-Prophet-and_stock-market/">one of my blog posts</a>, with a significant extension of the original content. </p>
+<p>Before describing the code and results, it is noteworthy to point out that forecasting stock returns is really hard! There is a significant body of literature trying to forecast prices and to prove (or not) that financial markets are efficient in pricing publicly available information, including past prices. This is the so called efficient market hypothesis. The variation in prices is due to random factors that cannot be anticipated. The explanation is simple, prices move according to investor’s expectation from available information. Every time that new (random) information, true or not, reaches the market, investor’s update their beliefs and trade accordingly. So, unless, new information or market expectation have a particular pattern, price changes will be mostly random.</p>
+<p>The role of practitioners is also important to point out. Economically speaking, there is a high payoff in being able to forecast financial markets. Even a small advantage can lead to huge gains. For example, if someone can predict a 1% change in a stock index, he (or she) can trade derivative contracts and leverage significantly his total returns by taking a financial position according to his prediction. Since every shock in the order flow can change the price of the contract, we can expect that such predictable patterns are short lived. As more investors learn it, it disappears over time. However, for educational purposes of learning R in a research setup, the investigation is certainly interesting.</p>
+<div id="the-data-1" class="section level4">
+<h4><span class="header-section-number">10.3.2.1</span> The Data</h4>
+<p>For this research exercise, we will use the database of prices of all stocks that belong to the SP500 index, file data/SP500-Stocks-WithRet.RData. We will not restrict the sample and all 471 assets are going to be used.</p>
+<p>Before applying the model to the data, we need to understand how package <code>prophet</code> works. From the <a href="https://facebookincubator.github.io/prophet/docs/quick_start.html#r-api">manual</a> we see that the default estimation is straightforward. In order to use the modelling function <code>prophet</code>, only one input is necessary: a <code>dataframe</code> with the time series itself (column <code>y</code>) and a vector with the corresponding dates (column <code>ds</code>). A downside of using <code>prophet</code> in a large scale is that the function is verbose, giving several messages in the prompt. While this is OK for one estimation, it fills the screen with clutter when estimating many models. Soon you’ll see that we will need to silence the output messages of <code>prophet</code> using function <code>capture.output</code>. </p>
+<p>Let’s try a simple example of estimating and forecasting a model with <code>prophet</code> for the returns of one of the assets in the database.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(prophet)
+
+<span class="co"># get ret data from df</span>
+my.stock &lt;-<span class="st"> </span><span class="kw">unique</span>(my.df<span class="op">$</span>ticker)[<span class="dv">1</span>]
+temp.df &lt;-<span class="st"> </span>my.df[my.df<span class="op">$</span>ticker <span class="op">%in%</span><span class="st"> </span>my.stock , ]
+
+<span class="co"># set df for estimation</span>
+df.est &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">y =</span> temp.df<span class="op">$</span>ret, 
+                     <span class="dt">ds =</span> temp.df<span class="op">$</span>ref.date)
+
+<span class="co"># estimate and print model                   </span>
+my.prophet &lt;-<span class="st"> </span><span class="kw">prophet</span>(<span class="dt">df =</span> df.est)</code></pre></div>
+<pre><code>## Initial log joint probability = -42.58
+## Optimization terminated normally: 
+##   Convergence detected: absolute parameter change was below tolerance</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># create forecasts </span>
+df.pred &lt;-<span class="st"> </span><span class="kw">predict</span>(my.prophet,
+                   <span class="kw">make_future_dataframe</span>(my.prophet,
+                                         <span class="dt">periods =</span> <span class="dv">10</span>,
+                                         <span class="dt">include_history =</span> <span class="ot">FALSE</span>))
+
+<span class="co"># print result                                         </span>
+<span class="kw">print</span>(<span class="kw">head</span>(df.pred))</code></pre></div>
+<pre><code>##           ds        t         trend  yhat_lower yhat_upper
+## 1 2016-12-31 1.000392 -0.0003055182 -0.01717911 0.01158751
+## 2 2017-01-01 1.000784 -0.0003053772 -0.01768187 0.01184872
+## 3 2017-01-02 1.001176 -0.0003052362 -0.01540638 0.01466073
+## 4 2017-01-03 1.001568 -0.0003050952 -0.01416107 0.01573194
+## 5 2017-01-04 1.001960 -0.0003049542 -0.01357974 0.01602591
+## 6 2017-01-05 1.002352 -0.0003048131 -0.01388536 0.01675243
+##     trend_lower   trend_upper seasonal_lower seasonal_upper
+## 1 -0.0003055182 -0.0003055182  -0.0024148818  -0.0024148818
+## 2 -0.0003053772 -0.0003053772  -0.0025166442  -0.0025166442
+## 3 -0.0003052362 -0.0003052362   0.0007601026   0.0007601026
+## 4 -0.0003050952 -0.0003050952   0.0009337965   0.0009337965
+## 5 -0.0003049542 -0.0003049542   0.0015559184   0.0015559184
+## 6 -0.0003048131 -0.0003048131   0.0011263063   0.0011263063
+##          weekly  weekly_lower  weekly_upper        yearly
+## 1 -0.0027603338 -0.0027603338 -0.0027603338  3.454520e-04
+## 2 -0.0027603338 -0.0027603338 -0.0027603338  2.436896e-04
+## 3  0.0006238955  0.0006238955  0.0006238955  1.362071e-04
+## 4  0.0009091033  0.0009091033  0.0009091033  2.469318e-05
+## 5  0.0016449048  0.0016449048  0.0016449048 -8.898637e-05
+## 6  0.0013291257  0.0013291257  0.0013291257 -2.028195e-04
+##    yearly_lower  yearly_upper      seasonal          yhat
+## 1  3.454520e-04  3.454520e-04 -0.0024148818 -0.0027204000
+## 2  2.436896e-04  2.436896e-04 -0.0025166442 -0.0028220213
+## 3  1.362071e-04  1.362071e-04  0.0007601026  0.0004548664
+## 4  2.469318e-05  2.469318e-05  0.0009337965  0.0006287014
+## 5 -8.898637e-05 -8.898637e-05  0.0015559184  0.0012509643
+## 6 -2.028195e-04 -2.028195e-04  0.0011263063  0.0008214931</code></pre>
+<p>The usage is straightforward, we input a <code>dataframe</code> containing the data and dates to function <code>prophet</code>. We make predictions using output <code>my.prophet</code> with the <code>predict</code> function. The number of forecasts is set with argument <code>periods</code> in <code>make_future_dataframe</code>.  </p>
+<p>Now that we understand how <code>prophet</code> works, the next step is to think about how to structure a function for our research problem. Our study has two steps, first we will set a training (in-sample) period, estimate the model and make forecasts. After that, we use the <em>out-of-sample</em> data to test the accuracy of the model. The whole procedure of estimating and forecasting will be encapsulated in a single R function that will accept as input a <code>dataframe</code> with our data and output another <code>dataframe</code> with the predictions and real values of returns. For each asset, we will break the whole time series of returns in half. The first half is used to estimate the model and the rest is used to test its predictive performance. So, if one asset has a vector with 1000 returns, we use rows 1 to 500 to estimate the model with <code>prophet</code> and rows 501 to 1000 to test the predictions. Here’s the function definition:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">est.model.and.forecast &lt;-<span class="st"> </span><span class="cf">function</span>(df.in){
+  <span class="co"># Estimates a model using prophet and forecast it</span>
+  <span class="co">#</span>
+  <span class="co"># Args:</span>
+  <span class="co">#   df.in - A dataframe with columns ret and ref.date</span>
+  <span class="co">#</span>
+  <span class="co"># Returns:</span>
+  <span class="co">#   A dataframe with forecasts and errors </span>
+  
+  <span class="kw">require</span>(prophet)
+  <span class="kw">require</span>(dplyr)
+  
+  my.ticker &lt;-<span class="st"> </span><span class="kw">as.character</span>(<span class="kw">unique</span>(df.in<span class="op">$</span>ticker[<span class="dv">1</span>]))
+  
+  <span class="kw">cat</span>(<span class="st">&#39;</span><span class="ch">\n</span><span class="st">Processing &#39;</span>, my.ticker)
+  
+  <span class="co"># get total number of rows in df.in</span>
+  n.row &lt;-<span class="st"> </span><span class="kw">nrow</span>(df.in)
+  
+  <span class="co"># remove uninteresting columns</span>
+  df.in &lt;-<span class="st"> </span><span class="kw">select</span>(df.in, ref.date, ret)
+  <span class="kw">names</span>(df.in) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;ds&#39;</span>, <span class="st">&#39;y&#39;</span>)
+  
+  <span class="co"># get half the sample for estimation</span>
+  idx &lt;-<span class="st"> </span><span class="kw">floor</span>(<span class="kw">nrow</span>(df.in)<span class="op">/</span><span class="dv">2</span>)
+  
+  df.est &lt;-<span class="st"> </span>df.in[<span class="dv">1</span><span class="op">:</span>idx, ]
+  df.for &lt;-<span class="st"> </span>df.in[(idx <span class="op">+</span><span class="st"> </span><span class="dv">1</span>)<span class="op">:</span><span class="kw">nrow</span>(df.in), ]
+  
+  <span class="co"># estimate a (silent) prophet model</span>
+  <span class="kw">capture.output</span>(
+    m &lt;-<span class="st"> </span><span class="kw">prophet</span>(<span class="dt">df =</span> df.est)
+  )
+  
+  <span class="co"># calculate number of forecasts needed to match data</span>
+  n.forecasts &lt;-<span class="st"> </span><span class="kw">length</span>(<span class="kw">seq</span>(<span class="dt">from =</span> <span class="kw">min</span>(df.for<span class="op">$</span>ds),
+                            <span class="dt">to =</span> <span class="kw">max</span>(df.for<span class="op">$</span>ds), 
+                            <span class="dt">by =</span> <span class="st">&#39;1 day&#39;</span>))
+  
+  <span class="co"># make predictions</span>
+  df.pred &lt;-<span class="st"> </span><span class="kw">predict</span>(m,
+                     <span class="kw">make_future_dataframe</span>(m,
+                                           <span class="dt">periods =</span> n.forecasts,
+                                           <span class="dt">include_history =</span> <span class="ot">FALSE</span>))
+  
+  <span class="co"># merge y and yhat</span>
+  df.for &lt;-<span class="st"> </span><span class="kw">merge</span>(df.for, df.pred, <span class="dt">by =</span> <span class="st">&#39;ds&#39;</span>)
+  df.for &lt;-<span class="st"> </span><span class="kw">select</span>(df.for, ds, y, yhat)
+  
+  <span class="co"># set ticker</span>
+  df.for<span class="op">$</span>ticker &lt;-<span class="st"> </span>my.ticker
+  
+  <span class="kw">return</span>(df.for)
+}</code></pre></div>
+<p>With the previous function ready, we can use <code>by</code> to apply it to each stock in our sample. All results are later combined in a single <code>dataframe</code> with function <code>do.call</code>. Be aware that the next chunk of code is time demanding. The estimation of the model for each asset is computer intensive and, when running it for all assets in our database, a long waiting period is required. As way of saving time, object <code>my.result</code> was saved in file data/prophet-models-AllSP500Stocks.Rdata. You can download it from the <a href="https://github.com/msperlin/pmfdR-en-code_data">book repository</a>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">out.l &lt;-<span class="st"> </span><span class="kw">by</span>(<span class="dt">data =</span> my.df,
+            <span class="dt">INDICES =</span> my.df<span class="op">$</span>ticker, 
+            <span class="dt">FUN =</span> est.model.and.forecast)
+
+<span class="co"># merge results</span>
+my.result &lt;-<span class="st"> </span><span class="kw">do.call</span>(rbind, out.l)</code></pre></div>
+<p>After estimating the models and creating the forecasts, let’s have a look in the resulting <code>dataframe</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(<span class="kw">str</span>(my.result))</code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    413913 obs. of  4 variables:
+##  $ ds    : Date, format: &quot;2013-07-05&quot; ...
+##  $ y     : num  0.02455 0.00294 0.00541 0.01592 0.00905 ...
+##  $ yhat  : num  -0.00393 -0.00575 -0.00399 -0.00494 -0.00385 ...
+##  $ ticker: chr  &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; ...
+## NULL</code></pre>
+<p>In this object we find the forecasts (<code>yhat</code>), the actual values (<code>y</code>) and the ticker symbols. Now that we have the information about forecasts and real values, let’s assess whether the predictions are accurate and have economic significance.</p>
+</div>
+<div id="the-encopassing-test" class="section level4">
+<h4><span class="header-section-number">10.3.2.2</span> The Encopassing Test</h4>
+<p>A simple and powerful test for verifying the accuracy of a prediction algorithm is the encompassing test. The idea is to estimate a linear model with the real values of the predictive variable as the dependent variable and the predictions as the explanatory. We learned how to estimate a linear model in R in chapter <a href="models.html#models">9</a>. The econometric model is given by the following equation.</p>
+<p><span class="math display">\[y_t = \alpha + \beta\hat{y_t} + \epsilon _t\]</span></p>
+<p>If the predictive model provides good forecasts, we can expect that the intercept of the previous equation is equal to zero (no bias) and the slope is equal to 1. If both conditions are true, we have a prediction that, in average, is equal to the real value. In other words, our forecasting model provides an unbiased estimator of the predicted variable. With this setup, we can check if both conditions are true for our estimated model using a test of linear hypothesis, also called Wald test (see section <a href="models.html#testing-ols">9.1.3</a>).</p>
+<p>First, let’s find the result of the encompassing test for all stocks, i.e., the full <code>dataframe</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># do encompassing test for all data</span>
+lm.model &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="dt">formula =</span> y <span class="op">~</span><span class="st"> </span>yhat, 
+               <span class="dt">data =</span> my.result)
+
+<span class="co"># print result</span>
+<span class="kw">summary</span>(lm.model)</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = y ~ yhat, data = my.result)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -0.39229 -0.00766  0.00007  0.00780  0.40346 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 5.458e-04  2.704e-05  20.184  &lt; 2e-16 ***
+## yhat        2.458e-02  6.955e-03   3.535 0.000408 ***
+## ---
+## Signif. codes:  
+## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.01641 on 413911 degrees of freedom
+## Multiple R-squared:  3.019e-05,  Adjusted R-squared:  2.777e-05 
+## F-statistic:  12.5 on 1 and 413911 DF,  p-value: 0.0004081</code></pre>
+<p>The result is far from good! the value of the intercept is 0.000546 and the slope is 0.0246. While the intercept is close to zero, the slope is far from being equal to one. On the positive side, the slope presented statistical significance at 5%, meaning that there is a positive correlation between the forecasts and the real returns. Now, let’s use a more formal approach with the Wald test, which will verify the joint hypothesis that the intercept and the slope are equal to 0 and 1, respectively. Package <code>car</code> provides function <code>linearHypothesis</code> for this purpose.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(car)
+
+<span class="co"># set test matrix</span>
+my.rhs &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">0</span>,   <span class="co"># alpha test value</span>
+                   <span class="dv">1</span>))  <span class="co"># beta test value</span>
+
+<span class="co"># hypothesis matrix </span>
+hyp.mat &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">0</span>,
+                    <span class="dv">0</span>,<span class="dv">1</span>),<span class="dt">nrow =</span> <span class="dv">2</span>)
+
+<span class="co"># do wald test</span>
+my.waldtest &lt;-<span class="st"> </span><span class="kw">linearHypothesis</span>(lm.model, 
+                                <span class="dt">hypothesis.matrix =</span> hyp.mat, 
+                                <span class="dt">rhs =</span> my.rhs)
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(my.waldtest)</code></pre></div>
+<pre><code>## Linear hypothesis test
+## 
+## Hypothesis:
+## (Intercept) = 0
+## yhat = 1
+## 
+## Model 1: restricted model
+## Model 2: y ~ yhat
+## 
+##   Res.Df    RSS Df Sum of Sq     F    Pr(&gt;F)    
+## 1 413913 116.91                                 
+## 2 413911 111.41  2    5.5072 10231 &lt; 2.2e-16 ***
+## ---
+## Signif. codes:  
+## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>The results show that the joint hypothesis of a coefficient vector equal to <code>c(0, 1)</code> is easily rejected at 1%, meaning that there is a very small evidence that our forecasting model is unbiased and accurate. However, it might be the case that the performance is better when looking at stocks individually. Let’s try the same test for each stock by using a custom function with <code>dplyr</code>:  </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
+
+do.wald.test &lt;-<span class="st"> </span><span class="cf">function</span>(lm.model) {
+  <span class="co"># Tests the joint hypothesis that alpha equals 0 and beta equals 1</span>
+  <span class="co">#</span>
+  <span class="co"># Args:</span>
+  <span class="co">#   lm.model - a model estimated with lm()</span>
+  <span class="co">#</span>
+  <span class="co"># Returns:</span>
+  <span class="co">#   The pvalue of the test</span>
+  
+  <span class="kw">require</span>(car)
+  wald.test&lt;-<span class="kw">linearHypothesis</span>(lm.model, 
+                              <span class="dt">hypothesis.matrix =</span> <span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>),
+                                                         <span class="dt">nrow =</span> <span class="dv">2</span>), 
+                              <span class="dt">rhs =</span> <span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>)))
+  
+  p.value &lt;-<span class="st"> </span>wald.test<span class="op">$</span><span class="st">`</span><span class="dt">Pr(&gt;F)</span><span class="st">`</span>[<span class="dv">2</span>]
+  
+  <span class="kw">return</span>(p.value)
+  
+}
+
+<span class="co"># do wald test for each stock</span>
+my.tab &lt;-<span class="st"> </span>my.result <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">group_by</span>(ticker) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">do</span>(<span class="dt">model =</span> <span class="kw">lm</span>(<span class="dt">formula =</span> y <span class="op">~</span>yhat, <span class="dt">data =</span> .)) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">p.value =</span> <span class="kw">do.wald.test</span>(model)) </code></pre></div>
+<p>Now that we have the p-value of the Wald test for each stock, let’s calculate how many cases we fail to reject the null hypothesis at 10%:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">n.fail.to.reject &lt;-<span class="st"> </span><span class="kw">sum</span>(my.tab<span class="op">$</span>p.value<span class="op">&gt;</span><span class="fl">0.1</span>)
+<span class="kw">print</span>(n.fail.to.reject)</code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<p>So, in only 3 stocks we have evidence of prophet’s positive performance in the encompassing test, which is very low proportion of the 471 stocks in the sample. In terms of accuracy, the results are clear cut: in aggregate, Prophet does a bad job at forecasting returns from the stock market.</p>
+</div>
+<div id="directional-forecasts-and-a-timing-strategy" class="section level4">
+<h4><span class="header-section-number">10.3.2.3</span> Directional Forecasts and a Timing Strategy</h4>
+<p>When looking at performance in a trading application, it might not be of interest to forecast actual returns. If you are trading according to these forecasts, you are probably more worried about the direction of the forecasts and not its absolute error. A model can have bad forecasts, but be good in predicting the sign of the next price movement. If this is the case, you can still make money by following the predictions from the model, even though your model fails in the encompassing test.</p>
+<p>In order to test if <code>prophet</code> is able to provide good directional forecasts, we calculate the proportion of correct directional forecasts. This is simply the proportion of times that the model was able to correctly predict the sign of the return. We can also check the total return of a timing strategy based on forecasts. This is accomplished by the following trading rules, applied for each asset individually:</p>
+<ul>
+<li>buy in end of day <em>t</em> if return forecast in <em>t+1</em> is positive and sell at the end of <em>t+1</em></li>
+<li>short-sell in the end of day <em>t</em> when return forecast for <em>t+1</em> is negative and buy it back in the end of <em>t+1</em></li>
+</ul>
+<p>While the values of the proportion of correct sign predictions can be compared to simple chance (50%), the returns from the strategy must be compared to a proper benchmark. Here, we use a <em>buy&amp;hold</em> strategy. We simulate a purchase of the asset in the beginning of the sample period and a sell at the end. The return from this naive approach is the total accumulated return from the stock. We analyze the performance of the strategy by calculating the difference between the return from the timing strategy and the total return from the <em>buy&amp;hold</em> strategy. The result is called excess return.</p>
+<p>The following R code will execute these calculations for each stock.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
+
+<span class="co"># check directional performance and trading strategy</span>
+my.tab &lt;-<span class="st"> </span>my.result <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">group_by</span>(ticker) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">n.correct.dir =</span> <span class="kw">sum</span>(<span class="kw">sign</span>(y)<span class="op">==</span><span class="kw">sign</span>(yhat))<span class="op">/</span><span class="kw">n</span>(),
+            <span class="dt">ret.strat =</span> <span class="kw">prod</span>(<span class="dv">1</span><span class="op">+</span><span class="kw">sign</span>(yhat)<span class="op">*</span>y)<span class="op">-</span><span class="dv">1</span>,
+            <span class="dt">ret.naive =</span> <span class="kw">prod</span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span>y)<span class="op">-</span><span class="dv">1</span>,
+            <span class="dt">ret.excess =</span> ret.strat <span class="op">-</span><span class="st"> </span>ret.naive)</code></pre></div>
+<p>We can now analyze the results for all stocks using histograms:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
+
+p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(my.tab, <span class="kw">aes</span>(<span class="dt">x=</span>n.correct.dir))
+p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>()
+p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">geom_vline</span>(<span class="kw">aes</span>(<span class="dt">xintercept =</span>  <span class="fl">0.5</span>),<span class="dt">size=</span><span class="dv">1</span>)
+<span class="kw">print</span>(p)
+
+p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(my.tab, <span class="kw">aes</span>(<span class="dt">x=</span>ret.excess))
+p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>()
+p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">geom_vline</span>(<span class="kw">aes</span>(<span class="dt">xintercept =</span>  <span class="fl">0.0</span>),<span class="dt">size=</span><span class="dv">1</span>)
+<span class="kw">print</span>(p)</code></pre></div>
+<p><img src="ProcAnFinDataR_ed_1_files/figure-html/unnamed-chunk-631-1.png" width="60%" style="display: block; margin: auto;" /><img src="ProcAnFinDataR_ed_1_files/figure-html/unnamed-chunk-631-2.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>The visual results shows that the forecasting model has a relative good performance in forecasting direction of return. Out of 471 cases, 315 stocks (66.88%) presented a proportion of correct directional forecasts higher than 50%. While it is not a strong result, it is certainly not ignorable. However, when looking at excess return from the benchmark, only in 29.51% of the stocks we are able to find a positive excess return. While the model can predict the direction of the return, it mostly predicts small returns. In aggregate, the evidence that the model can outperform a simple <em>buy&amp;hold</em> strategy is weak.</p>
+<p>Let’s confirm this result using a formal test. In package <code>rugarch</code> (see section <a href="models.html#estimating-garch">9.5.2</a>) we find function <code>DACTest</code> that implements the directional accuracy test of <span class="citation">Pesaran and Timmermann (<a href="#ref-pesaran1992simple">1992</a>)</span> and the excess profitability test of <span class="citation">Anatolyev and Gerko (<a href="#ref-anatolyev2005trading">2005</a>)</span>. Its usage is straightforward, we input the forecasts in argument <code>forecast</code> and the real return values in <code>actual</code>. The choice of test is defined in input <code>test</code>. Let’s implement the test for all tickers.  </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my.DAC.fct &lt;-<span class="st"> </span><span class="cf">function</span>(yhat, y, type.test) {
+  <span class="co"># Tests for directional accuracy (PT) and excess profitability (AG)</span>
+  <span class="co"># Null hypothesis: PT - No directional accuracy</span>
+  <span class="co">#                  AG - No excess profitability</span>
+  <span class="co"># Args:</span>
+  <span class="co">#   yhat - vector of forecasted values</span>
+  <span class="co">#   y - vector of real values</span>
+  <span class="co">#   type.test - The option for test (PT or AG)</span>
+  <span class="co">#</span>
+  <span class="co"># Returns:</span>
+  <span class="co">#   The p-value from the test</span>
+  
+  <span class="kw">require</span>(rugarch)
+  
+  test.out &lt;-<span class="st"> </span><span class="kw">DACTest</span>(<span class="dt">forecast =</span> yhat, 
+                      <span class="dt">actual =</span> y, 
+                      <span class="dt">test =</span> type.test)
+  
+  <span class="kw">return</span>(test.out<span class="op">$</span>p.value)
+  
+}
+
+<span class="co"># use test for each stock</span>
+my.tab &lt;-<span class="st"> </span>my.result <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">group_by</span>(ticker) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">p.value.PT =</span> <span class="kw">my.DAC.fct</span>(yhat, y, <span class="st">&#39;PT&#39;</span>),
+            <span class="dt">p.value.AG =</span> <span class="kw">my.DAC.fct</span>(yhat, y, <span class="st">&#39;AG&#39;</span>))
+
+<span class="co"># plot histogram (PT)</span>
+p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(my.tab, <span class="kw">aes</span>(<span class="dt">x=</span>p.value.PT)) <span class="op">+</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">geom_histogram</span>() <span class="op">+</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">geom_vline</span>(<span class="kw">aes</span>(<span class="dt">xintercept =</span>  <span class="fl">0.1</span>),<span class="dt">size=</span><span class="dv">1</span>)
+
+<span class="kw">print</span>(p)    </code></pre></div>
+<p><img src="ProcAnFinDataR_ed_1_files/figure-html/unnamed-chunk-633-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># plot histogram (AG)</span>
+p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(my.tab, <span class="kw">aes</span>(<span class="dt">x=</span>p.value.AG)) <span class="op">+</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">geom_histogram</span>() <span class="op">+</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">geom_vline</span>(<span class="kw">aes</span>(<span class="dt">xintercept =</span>  <span class="fl">0.1</span>),<span class="dt">size=</span><span class="dv">1</span>)
+
+<span class="kw">print</span>(p)    </code></pre></div>
+<p><img src="ProcAnFinDataR_ed_1_files/figure-html/unnamed-chunk-633-2.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>The results in <code>my.tab</code> show that only in 50 stocks (out of 471) we reject the null hypothesis of no directional accuracy. As for the test of excess profit, we find that only in 62 cases the null hypothesis is rejected. We used a threshold value of 10% in both analysis. When looking at the whole dataset, the statistical evidence of directional predictability is very weak.</p>
+<p>The main results of the study are clear: <code>prophet</code> is particularly bad at point forecasts for returns but does a better job in directional predictions. Even though we find a positive correlation between forecast and real values, the formal Wald test clearly shows that the forecasting model is not able to provide an unbiased prediction of returns. In a trading setup, the results indicates that the model was not able to provide an over performance for the majority of the stocks. Both results were confirmed by formal statistical tests.</p>
+<p>In line with the previous example of research script, the R code presented here can be easily used in other setups. Changing the raw dataset is very simple: just set a new <code>dataframe</code> with columns <code>ret</code> and <code>ref.date</code>. You can investigate the same research hypothesis for other financial markets without much effort. Function <code>est.model.and.forecast</code> could also be changed for other forecasting models.</p>
+</div>
+</div>
+<div id="research-gethfdata" class="section level3">
+<h3><span class="header-section-number">10.3.3</span> An Analysis of High Frequency trade Data</h3>
+<p>In this final example of research script, we will provide two simple cases of manipulating high frequency trade data obtained with package <code>GetHFData</code>. Both examples are limited in research depth, but they do show the potential in using high frequency trade data. First, we download aggregate data from the Brazilian stock exchange and look into the shape of the intraday liquidity. In the second case, we use raw (tick by tick) trade data and package <code>highfrequency</code> <span class="citation">(Boudt et al. <a href="#ref-highfrequency">2017</a>)</span> to calculate measures of realized volatility for several assets. Both example are inspired in the work of <span class="citation">Perlin and Ramos (<a href="#ref-gethfdata">2016</a>)</span>.</p>
+<div id="liquidity-and-the-time-of-the-day" class="section level4">
+<h4><span class="header-section-number">10.3.3.1</span> Liquidity and the Time of the Day</h4>
+<p>In order to illustrate the usage of aggregated trade data, we will analyze the intraday <em>U</em> shaped pattern of liquidity in the equity market. The main problem is how liquidity varies during a typical trading day. This is specially important to liquidity takers such as intraday traders who want to minimize the impact of their trading orders by trading in the hours with the highest liquidity. This particular issue has been found and discussed in several papers from the literature such as <span class="citation">Admati and Pfleiderer (<a href="#ref-admati1988theory">1988</a>)</span>, <span class="citation">Back and Pedersen (<a href="#ref-back1998long">1998</a>)</span> , <span class="citation">Engle and Russell (<a href="#ref-engle1998autoregressive">1998</a>)</span>, <span class="citation">Groß-Klußmann and Hautsch (<a href="#ref-gross2011machines">2011</a>)</span>, among many others.</p>
+<p>The data used in this empirical study is related to the six most traded assets in the thirty day period from the last available date in Bovespa ftp site at the time of the book compilation. The use of a short time period is not accidental. We chose to keep thirty days as it facilitates the replication of the example by decreasing the time needed to download the dataset by the user.</p>
+<p>The first step is to select the liquid assets to run the empirical research. To do that, we need to find the six most traded assets in the last date available at the ftp:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(GetHFData)
+
+<span class="co"># set type of market (equity, options,BMF)</span>
+type.market &lt;-<span class="st"> &#39;equity&#39;</span>
+
+<span class="co"># get available files from ftp</span>
+df.ftp &lt;-<span class="st"> </span><span class="kw">ghfd_get_ftp_contents</span>(<span class="dt">type.market =</span> type.market)
+
+<span class="co"># get last available date</span>
+last.date &lt;-<span class="st"> </span><span class="kw">max</span>(df.ftp<span class="op">$</span>dates)
+
+<span class="co"># get 6 most traded</span>
+df.tickers &lt;-<span class="st"> </span><span class="kw">ghfd_get_available_tickers_from_ftp</span>(<span class="dt">my.date =</span> last.date, 
+                                                  type.market)</code></pre></div>
+<p>The last available date is 2017-04-07. Function <code>ghfd_get_available_tickers</code> will output a <code>dataframe</code> with the number of trades for each ticker found in the dataset. As a robustness check, we can use package <code>ggplot2</code> to create a figure to illustrate the number of trades for each of the 25 most traded stocks in the date of 2017-04-07:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
+
+<span class="co"># select tickers</span>
+temp.df &lt;-<span class="st"> </span>df.tickers[<span class="dv">1</span><span class="op">:</span><span class="dv">25</span>, ]
+
+p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(temp.df, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">reorder</span>(tickers, <span class="op">-</span>n.trades), <span class="dt">y =</span> n.trades))
+p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>)
+p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">axis.text.x=</span><span class="kw">element_text</span>(<span class="dt">angle=</span><span class="dv">90</span>,<span class="dt">hjust=</span><span class="dv">1</span>,<span class="dt">vjust=</span><span class="fl">0.5</span>))
+p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&#39;Tickers&#39;</span>, <span class="dt">y =</span> <span class="st">&#39;Number of trades&#39;</span>)
+<span class="kw">print</span>(p)</code></pre></div>
+<p><img src="ProcAnFinDataR_ed_1_files/figure-html/unnamed-chunk-638-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>We can see that the six most traded assets in 2017-04-07 are VALE5, PETR4, JBSS3, ITUB4, BBAS3, BVMF3. A particular feature of the high frequency data from Brazil is that the liquidity is disperse and decreases rapidly across the assets. Even though we are only looking at trading data for one day, we can expect that the number of trades will also drop quickly in other time periods as well.</p>
+<p>From the programming side, object <code>df.tickers</code> is already sorted by the number of trades. So, in order to select the six most traded assets, we select the first six elements of <code>df.tickers$tickers</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">n.assets &lt;-<span class="st"> </span><span class="dv">6</span>
+my.assets &lt;-<span class="st"> </span>df.tickers<span class="op">$</span>tickers[<span class="dv">1</span><span class="op">:</span>n.assets]
+
+<span class="kw">print</span>(my.assets)</code></pre></div>
+<pre><code>## [1] &quot;VALE5&quot; &quot;PETR4&quot; &quot;JBSS3&quot; &quot;ITUB4&quot; &quot;BBAS3&quot; &quot;BVMF3&quot;</code></pre>
+<p>We continue the empirical example using package <code>GetHFData</code> to download and aggregate the desired information for later analysis. The first step in this stage is to set the options. We use an initial intraday time period as 10:30:00 and the last as 16:30:00. Any data outside of this time interval will be ignored. We set these limits in order to avoid the trading noise from the opening and closing hours of the market. The options used with <code>GetHFData</code> are set as follows.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># intraday time thresholds</span>
+first.time &lt;-<span class="st"> &#39;10:30:00&#39;</span>
+last.time &lt;-<span class="st"> &#39;16:30:00&#39;</span>
+
+<span class="co"># type of market</span>
+type.market &lt;-<span class="st"> &#39;equity&#39;</span>
+
+<span class="co"># dates of study</span>
+last.date &lt;-<span class="st"> </span><span class="kw">max</span>(df.ftp<span class="op">$</span>dates)
+first.date &lt;-<span class="st"> </span>last.date<span class="op">-</span><span class="dv">30</span>
+
+<span class="co"># type of output and aggregation</span>
+type.output &lt;-<span class="st"> &#39;agg&#39;</span>
+agg.diff &lt;-<span class="st"> &#39;15 min&#39;</span></code></pre></div>
+<p>After setting the inputs, we now use function <code>ghfd_get_HF_data</code> to download and aggregate the financial data.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df.out.agg &lt;-<span class="st"> </span><span class="kw">ghfd_get_HF_data</span>(<span class="dt">my.assets =</span> my.assets,
+                               <span class="dt">type.market =</span> type.market,
+                               <span class="dt">first.date =</span> first.date,
+                               <span class="dt">last.date =</span> last.date,
+                               <span class="dt">first.time =</span> first.time,
+                               <span class="dt">last.time =</span> last.time,
+                               <span class="dt">type.output =</span> type.output,
+                               <span class="dt">agg.diff =</span> agg.diff)</code></pre></div>
+<p>The previous code will take some time to finish as it has to download and read several large files from the ftp site. To save time, the result of the download and aggregation can be found in file data/HFData_equity_6_Assets_15 min_30days.RData, also available in the <a href="https://github.com/msperlin/pmfdR-en-code_data">book repository</a>. Let’s have a look in the output object.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(<span class="kw">head</span>(df.out.agg))</code></pre></div>
+<pre><code>##   InstrumentSymbol SessionDate       TradeDateTime n.trades
+## 1            BBAS3  2017-03-08 2017-03-08 10:30:00      611
+## 2            BBAS3  2017-03-08 2017-03-08 10:45:00      735
+## 3            BBAS3  2017-03-08 2017-03-08 11:00:00      443
+## 4            BBAS3  2017-03-08 2017-03-08 11:15:00      408
+## 5            BBAS3  2017-03-08 2017-03-08 11:30:00      658
+## 6            BBAS3  2017-03-08 2017-03-08 11:45:00      824
+##   last.price weighted.price    period.ret period.ret.volat
+## 1      34.14       34.26031 -0.0066918825     0.0002493388
+## 2      34.15       34.04835  0.0002929115     0.0005046596
+## 3      34.14       34.09116 -0.0005854801     0.0002855653
+## 4      34.26       34.17656  0.0035149385     0.0003146822
+## 5      34.20       34.25063 -0.0026246719     0.0002388978
+## 6      34.28       34.24894  0.0023391813     0.0001692893
+##   sum.qtd  sum.vol n.buys n.sells Tradetime
+## 1  283200  9702501    232     379  10:30:00
+## 2  362100 12328874    397     338  10:45:00
+## 3  161300  5498896    266     177  11:00:00
+## 4  152100  5198235    278     130  11:15:00
+## 5  170100  5826022    409     249  11:30:00
+## 6  219000  7500502    533     291  11:45:00</code></pre>
+<p>As described earlier, the object returned from <code>ghfd_get_HF_data</code> is a <code>dataframe</code> with several columns calculated from the raw data. The columns already have the correct class, which facilitates the future manipulation of the data.</p>
+<p>Once the data is available, we proceed to the analysis of the intraday pattern of liquidity. To do so, we use the number of trades (column <code>n.trades</code>) as a proxy for liquidity. The analysis will be based on the visual examination of a figure that relates the distribution of number of trades to the time of the day (column <code>Tradetime</code>) . Since the number of trades are not comparable across assets, we plot the same figure for different stocks using <code>facet_wrap</code>. Have a look in the code and output.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(df.out.agg, <span class="kw">aes</span>(<span class="dt">x =</span>  Tradetime, <span class="dt">y =</span> n.trades))
+p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">geom_boxplot</span>() <span class="op">+</span><span class="st"> </span><span class="kw">coord_cartesian</span>(<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">2500</span>))
+p &lt;-<span class="st"> </span>p  <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">axis.text.x=</span><span class="kw">element_text</span>(<span class="dt">angle=</span><span class="dv">90</span>,<span class="dt">hjust=</span><span class="dv">1</span>,<span class="dt">vjust=</span><span class="fl">0.5</span>))
+p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">facet_wrap</span>(<span class="op">~</span>InstrumentSymbol)
+p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">y=</span><span class="st">&#39;Number of Trades&#39;</span>, <span class="dt">x =</span> <span class="st">&#39;Time of Day&#39;</span>)
+<span class="kw">print</span>(p)</code></pre></div>
+<p><img src="ProcAnFinDataR_ed_1_files/figure-html/unnamed-chunk-643-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>Previous figure shows the number of trades as a function of the time of the day. As expected, we find that the intraday shape of liquidity follows a <em>U</em> pattern. That is, the number of trades rises in the beginning and ending of the day, with the smallest value around 13:15:00. Such a pattern is found for the great majority of the assets.</p>
+<p>This result is supported by previous findings in the literature <span class="citation">(Engle and Russell <a href="#ref-engle1998autoregressive">1998</a>,<span class="citation">Groß-Klußmann and Hautsch (<a href="#ref-gross2011machines">2011</a>)</span>)</span>. In the beginning of the trading day, a significant volume of overnight information is priced at the market, which justifies the increase of the number of trades. As for the end of the day, the higher volume of trades can be explained as an inventory strategy by the investors or market makers, which aims to finish the day with null portfolio positions in order to avoid the overnight risk. Since the decrease of portfolio size is achieved with more trades, we see a significant increase of negotiations at the end of the day.</p>
+</div>
+<div id="calculating-realized-volatility-from-tick-by-tick-data" class="section level4">
+<h4><span class="header-section-number">10.3.3.2</span> Calculating Realized Volatility from Tick by Tick Data</h4>
+<p>One of the main innovations in the research field of pricing uncertainty is the possibility of estimating ex-post measures of volatility based on high frequency data, the so called realized volatility <span class="citation">(Andersen et al. <a href="#ref-andersen2003modeling">2003</a>, <span class="citation">Barndorff-Nielsen and Shephard (<a href="#ref-Ole2002">2002</a>)</span>)</span>. Empirical studies have showed that these new estimators are more accurate than traditional measures calculated from datasets of lower frequencies such as daily returns <span class="citation">(Andersen et al. <a href="#ref-andersen2003modeling">2003</a>, <span class="citation">Fleming, Kirby, and Ostdiek (<a href="#ref-fleming2003economic">2003</a>)</span>, <span class="citation">Barndorff-Nielsen and Shephard (<a href="#ref-Ole2002">2002</a>)</span>)</span>.</p>
+<p>In this section we will present a simple example of calculating daily realized volatility from tick by tick data imported using <code>GetHFData</code>. In order to do so, we will use a popular R package designed to perform common operations in high frequency financial data, package <code>highfrequency</code> <span class="citation">(Boudt et al. <a href="#ref-highfrequency">2017</a>)</span>. This is a very useful package for a researcher in market microstructure, providing functions for the organization and manipulation of trade and quote data. It also includes several functions for the calculation of realized volatility measures, among other features. Further details about this package can be found in its main <a href="http://highfrequency.herokuapp.com/">website</a>. </p>
+<p>The first step in this empirical section is to import the raw dataset. We will use a block of code similar to the previous example however, we set <code>type.output</code> as <code>raw</code>. Next, we present the actual R code that downloads the dataset:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set raw df, tick by tick</span>
+type.output &lt;-<span class="st"> &#39;raw&#39;</span>
+
+<span class="co"># get data</span>
+df.out.raw &lt;-<span class="st"> </span><span class="kw">ghfd_get_HF_data</span>(<span class="dt">my.assets =</span> my.assets,
+                               <span class="dt">type.market =</span> type.market,
+                               <span class="dt">first.date =</span> first.date,
+                               <span class="dt">last.date =</span> last.date,
+                               <span class="dt">first.time =</span> first.time,
+                               <span class="dt">last.time =</span> last.time,
+                               <span class="dt">type.output =</span> type.output)</code></pre></div>
+<p>In this example of calculating realized volatility, we will use the simplest case available in package <code>highfrequency</code>, function <code>medRV</code>. From it own help manual:</p>
+<blockquote>
+<p>“The medRV belongs to the class of realized volatility measures in this package that use the series of high-frequency returns <span class="math inline">\(r_{t,i}\)</span> of a day t to produce an ex post estimate of the realized volatility of that day <span class="math inline">\(t\)</span>. medRV is designed to be robust to price jumps. The difference between RV and medRV is an estimate of the realized jump variability.”</p>
+<p>— Help file for <code>highfrequency::medRV</code></p>
+</blockquote>
+<p>Further inspection in the usage of <code>medRV</code> shows that it was designed to work with <code>xts</code> objects. Also, function <code>medRV</code> only works in a stock-by-stock case. These elements in the usage of <code>medRV</code> requires some adaptation since the <code>dataframe</code> output from <code>getHFData</code> is not a <code>xts</code> object and it will include several stocks. A simple solution is to build a wrapper function around <code>medRV</code> and use the capabilities of package <code>dplyr</code> to calculate the realized volatility measure for all stocks, in all days.</p>
+<p>The wrapper function works with the following steps: it takes as input a trade price vector and its related date-time, change the input data to a <code>xts</code> object and, finally, use the new format with function <code>medRV</code> to calculate the realized volatility for the given inputs. Next, we present the actual R code that registers the wrapper function.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my.RV.fct &lt;-<span class="st"> </span><span class="cf">function</span>(TradePrice, TradeDateTime){
+  <span class="co"># Calculates realized volatility from vetor of prices and trade times</span>
+  <span class="co">#</span>
+  <span class="co"># Args:</span>
+  <span class="co">#   TradePrice - a trade price vector</span>
+  <span class="co">#   TradeDateTime - a date-time vector with trade times</span>
+  <span class="co">#</span>
+  <span class="co"># Returns:</span>
+  <span class="co">#   A single value of realized volatility</span>
+  
+  <span class="kw">require</span>(highfrequency)
+  
+  temp.x &lt;-<span class="st"> </span><span class="kw">xts</span>(TradePrice, <span class="dt">order.by =</span> TradeDateTime)
+  RV &lt;-<span class="st"> </span><span class="kw">medRV</span>(temp.x, <span class="dt">makeReturns =</span> T)
+  
+  <span class="kw">return</span>(<span class="kw">as.numeric</span>(RV))
+}</code></pre></div>
+<p>Once the function is available, we use it together with the manipulation capabilities of <code>dplyr</code>. We calculate the daily realized volatility for all assets in our dataset with the following code.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
+
+RV.tab &lt;-<span class="st"> </span>df.out.raw <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">group_by</span>(InstrumentSymbol, SessionDate) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">RV =</span> <span class="kw">my.RV.fct</span>(TradePrice, TradeDateTime))</code></pre></div>
+<p>The result is a <code>dataframe</code> with three columns, the asset code (column <code>InstrumentSymbol</code>), the date (column <code>SessionDate</code>), and the realized volatility (column <code>RV</code>):</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(<span class="kw">head</span>(RV.tab))</code></pre></div>
+<pre><code>## Source: local data frame [6 x 3]
+## Groups: InstrumentSymbol [1]
+## 
+##   InstrumentSymbol SessionDate           RV
+##              &lt;chr&gt;      &lt;date&gt;        &lt;dbl&gt;
+## 1            BBAS3  2017-03-08 0.0011887256
+## 2            BBAS3  2017-03-09 0.0005225615
+## 3            BBAS3  2017-03-10 0.0007449950
+## 4            BBAS3  2017-03-13 0.0005331642
+## 5            BBAS3  2017-03-14 0.0005755642
+## 6            BBAS3  2017-03-15 0.0011781613</code></pre>
+<p>Once the processed data is ready, we illustrate the dynamics of the realized volatility for each asset in the next figure, which was generated with the following R code:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(RV.tab, <span class="kw">aes</span>(<span class="dt">x=</span>SessionDate, <span class="dt">y=</span>RV))
+p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">size=</span><span class="dv">1</span>)
+p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">facet_wrap</span>(<span class="op">~</span>InstrumentSymbol)
+p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&#39;Date&#39;</span>, <span class="dt">y=</span><span class="st">&#39;Realized Volatility&#39;</span>)
+<span class="kw">print</span>(p)</code></pre></div>
+<p><img src="ProcAnFinDataR_ed_1_files/figure-html/RV-plot-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>As expected, the realized volatility presents the clustering effect, where high/low values of volatility are followed by another high/low value. The custom function could be further extended to included an option for the type of volatility estimate.</p>
+
+</div>
+</div>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-pesaran1992simple">
+<p>Pesaran, M Hashem, and Allan Timmermann. 1992. “A Simple Nonparametric Test of Predictive Performance.” <em>Journal of Business &amp; Economic Statistics</em> 10 (4). Taylor &amp; Francis: 461–65.</p>
+</div>
+<div id="ref-anatolyev2005trading">
+<p>Anatolyev, Stanislav, and Alexander Gerko. 2005. “A Trading Approach to Testing for Predictability.” <em>Journal of Business &amp; Economic Statistics</em> 23 (4). Taylor &amp; Francis: 455–61.</p>
+</div>
+<div id="ref-highfrequency">
+<p>Boudt, Kris, Jonathan Cornelissen, Scott Payseur, Giang Nguyen, and Maarten Schermer. 2017. <em>Highfrequency: Tools for Highfrequency Data Analysis</em>. <a href="https://CRAN.R-project.org/package=highfrequency" class="uri">https://CRAN.R-project.org/package=highfrequency</a>.</p>
+</div>
+<div id="ref-gethfdata">
+<p>Perlin, Marcelo, and Henrique Ramos. 2016. <em>GetHFData: A R Package for Downloading and Aggregating High Frequency Trading Data from Bovespa</em>. <em>Available at SSRN</em>. <a href="https://ssrn.com/abstract=2824058" class="uri">https://ssrn.com/abstract=2824058</a>.</p>
+</div>
+<div id="ref-admati1988theory">
+<p>Admati, Anat R, and Paul Pfleiderer. 1988. “A Theory of Intraday Patterns: Volume and Price Variability.” <em>Review of Financial Studies</em> 1 (1). Soc Financial Studies: 3–40.</p>
+</div>
+<div id="ref-back1998long">
+<p>Back, Kerry, and Hal Pedersen. 1998. “Long-Lived Information and Intraday Patterns.” <em>Journal of Financial Markets</em> 1 (3). Elsevier: 385–402.</p>
+</div>
+<div id="ref-engle1998autoregressive">
+<p>Engle, Robert F, and Jeffrey R Russell. 1998. “Autoregressive Conditional Duration: A New Model for Irregularly Spaced Transaction Data.” <em>Econometrica</em>. JSTOR, 1127–62.</p>
+</div>
+<div id="ref-gross2011machines">
+<p>Groß-Klußmann, Axel, and Nikolaus Hautsch. 2011. “When Machines Read the News: Using Automated Text Analytics to Quantify High Frequency News-Implied Market Reactions.” <em>Journal of Empirical Finance</em> 18 (2). Elsevier: 321–40.</p>
+</div>
+<div id="ref-andersen2003modeling">
+<p>Andersen, Torben G, Tim Bollerslev, Francis X Diebold, and Paul Labys. 2003. “Modeling and Forecasting Realized Volatility.” <em>Econometrica</em> 71 (2). Wiley Online Library: 579–625.</p>
+</div>
+<div id="ref-Ole2002">
+<p>Barndorff-Nielsen, Ole E., and Shephard. 2002. “Econometric Analysis of Realized Volatility and Its Use in Estimating Stochastic Volatility Models.” <em>Journal of the Royal Statistical Society Series B</em> 64 (2): 253–80. <a href="http://ideas.repec.org/a/bla/jorssb/v64y2002i2p253-280.html" class="uri">http://ideas.repec.org/a/bla/jorssb/v64y2002i2p253-280.html</a>.</p>
+</div>
+<div id="ref-fleming2003economic">
+<p>Fleming, Jeff, Chris Kirby, and Barbara Ostdiek. 2003. “The Economic Value of Volatility Timing Using ‘Realized’ Volatility.” <em>Journal of Financial Economics</em> 67 (3). Elsevier: 473–509.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="models.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "Sepia",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,1999 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Processing and Analyzing Financial Data with R</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="Processing and Analyzing Financial Data with R">
+  <meta name="generator" content="bookdown 0.3 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Processing and Analyzing Financial Data with R" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="figs/CAPADigital_FinancialDataR.jpg" />
+  <meta property="og:description" content="Processing and Analyzing Financial Data with R" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Processing and Analyzing Financial Data with R" />
+  
+  <meta name="twitter:description" content="Processing and Analyzing Financial Data with R" />
+  <meta name="twitter:image" content="figs/CAPADigital_FinancialDataR.jpg" />
+
+<meta name="author" content="Marcelo S. Perlin (marcelo.perlin@ufrgs.br)">
+
+
+<meta name="date" content="2017-04-29">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="basic-operations-in-r.html">
+<link rel="next" href="DataStructureObjects.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Processing and Analyzing Financial Data with R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome!</a></li>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#what-is-r"><i class="fa fa-check"></i><b>1.1</b> What is R</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#why-choose-r"><i class="fa fa-check"></i><b>1.2</b> Why Choose R</a></li>
+<li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#what-can-you-do-with-r-and-rstudio"><i class="fa fa-check"></i><b>1.3</b> What Can You Do With R and RStudio?</a></li>
+<li class="chapter" data-level="1.4" data-path="introduction.html"><a href="introduction.html#installing-r-and-rstudio"><i class="fa fa-check"></i><b>1.4</b> Installing R and RStudio</a></li>
+<li class="chapter" data-level="1.5" data-path="introduction.html"><a href="introduction.html#resources-in-the-web"><i class="fa fa-check"></i><b>1.5</b> Resources in the Web</a></li>
+<li class="chapter" data-level="1.6" data-path="introduction.html"><a href="introduction.html#structure-and-organization"><i class="fa fa-check"></i><b>1.6</b> Structure and Organization</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html"><i class="fa fa-check"></i><b>2</b> Basic Operations in R</a><ul>
+<li class="chapter" data-level="2.1" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#working-with-r"><i class="fa fa-check"></i><b>2.1</b> Working With R</a></li>
+<li class="chapter" data-level="2.2" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#objects-in-r"><i class="fa fa-check"></i><b>2.2</b> Objects in R</a></li>
+<li class="chapter" data-level="2.3" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#international-and-local-formats"><i class="fa fa-check"></i><b>2.3</b> International and Local Formats</a></li>
+<li class="chapter" data-level="2.4" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#types-of-files-in-r"><i class="fa fa-check"></i><b>2.4</b> Types of Files in R</a></li>
+<li class="chapter" data-level="2.5" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#explaining-the-rstudio-screen"><i class="fa fa-check"></i><b>2.5</b> Explaining the RStudio Screen</a></li>
+<li class="chapter" data-level="2.6" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#running-scripts-from-rstudio"><i class="fa fa-check"></i><b>2.6</b> Running Scripts from RStudio</a></li>
+<li class="chapter" data-level="2.7" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#testing-and-debugging-code"><i class="fa fa-check"></i><b>2.7</b> Testing and Debugging Code</a></li>
+<li class="chapter" data-level="2.8" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#creating-simple-objects"><i class="fa fa-check"></i><b>2.8</b> Creating Simple Objects</a></li>
+<li class="chapter" data-level="2.9" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#creating-vectors"><i class="fa fa-check"></i><b>2.9</b> Creating Vectors</a></li>
+<li class="chapter" data-level="2.10" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#knowing-your-environment"><i class="fa fa-check"></i><b>2.10</b> Knowing Your Environment</a></li>
+<li class="chapter" data-level="2.11" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#displaying-and-formatting-output"><i class="fa fa-check"></i><b>2.11</b> Displaying and Formatting Output</a><ul>
+<li class="chapter" data-level="2.11.1" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#customizing-the-output"><i class="fa fa-check"></i><b>2.11.1</b> Customizing the Output</a></li>
+</ul></li>
+<li class="chapter" data-level="2.12" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#finding-the-size-of-objects"><i class="fa fa-check"></i><b>2.12</b> Finding the Size of Objects</a></li>
+<li class="chapter" data-level="2.13" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#selecting-the-elements-of-an-atomic-vector"><i class="fa fa-check"></i><b>2.13</b> Selecting the Elements of an Atomic Vector</a></li>
+<li class="chapter" data-level="2.14" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#removing-objects-from-the-memory"><i class="fa fa-check"></i><b>2.14</b> Removing Objects from the Memory</a></li>
+<li class="chapter" data-level="2.15" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#displaying-and-setting-the-working-directory"><i class="fa fa-check"></i><b>2.15</b> Displaying and Setting the Working Directory</a></li>
+<li class="chapter" data-level="2.16" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#cancelling-code-execution"><i class="fa fa-check"></i><b>2.16</b> Cancelling Code Execution</a></li>
+<li class="chapter" data-level="2.17" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#code-comments"><i class="fa fa-check"></i><b>2.17</b> Code Comments</a></li>
+<li class="chapter" data-level="2.18" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#looking-for-help"><i class="fa fa-check"></i><b>2.18</b> Looking for Help</a></li>
+<li class="chapter" data-level="2.19" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#r-packages"><i class="fa fa-check"></i><b>2.19</b> R Packages</a><ul>
+<li class="chapter" data-level="2.19.1" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#installing-packages-from-cran"><i class="fa fa-check"></i><b>2.19.1</b> Installing Packages from CRAN</a></li>
+<li class="chapter" data-level="2.19.2" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#installing-packages-from-github"><i class="fa fa-check"></i><b>2.19.2</b> Installing Packages from Github</a></li>
+<li class="chapter" data-level="2.19.3" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#loading-packages"><i class="fa fa-check"></i><b>2.19.3</b> Loading Packages</a></li>
+<li class="chapter" data-level="2.19.4" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#upgrading-packages"><i class="fa fa-check"></i><b>2.19.4</b> Upgrading Packages</a></li>
+</ul></li>
+<li class="chapter" data-level="2.20" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#using-code-completion-with-tab"><i class="fa fa-check"></i><b>2.20</b> Using Code Completion with <em>tab</em></a></li>
+<li class="chapter" data-level="2.21" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#interacting-with-files-and-the-operating-system"><i class="fa fa-check"></i><b>2.21</b> Interacting with Files and the Operating System</a><ul>
+<li class="chapter" data-level="2.21.1" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#listing-files-and-folders"><i class="fa fa-check"></i><b>2.21.1</b> Listing Files and Folders</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="BasicObjects.html"><a href="BasicObjects.html"><i class="fa fa-check"></i><b>3</b> Basic Object Classes</a><ul>
+<li class="chapter" data-level="3.1" data-path="BasicObjects.html"><a href="BasicObjects.html#numeric-objects"><i class="fa fa-check"></i><b>3.1</b> <code>Numeric</code> Objects</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-and-manipulating-numeric-objects"><i class="fa fa-check"></i><b>3.1.1</b> Creating and Manipulating <code>numeric</code> Objects</a></li>
+<li class="chapter" data-level="3.1.2" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-a-numeric-sequence"><i class="fa fa-check"></i><b>3.1.2</b> Creating a <code>numeric</code> Sequence</a></li>
+<li class="chapter" data-level="3.1.3" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-vectors-with-repeated-elements"><i class="fa fa-check"></i><b>3.1.3</b> Creating Vectors with Repeated Elements</a></li>
+<li class="chapter" data-level="3.1.4" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-vectors-with-random-numbers"><i class="fa fa-check"></i><b>3.1.4</b> Creating Vectors with Random Numbers</a></li>
+<li class="chapter" data-level="3.1.5" data-path="BasicObjects.html"><a href="BasicObjects.html#accessing-the-elements-of-a-numeric-vector"><i class="fa fa-check"></i><b>3.1.5</b> Accessing the Elements of a <code>numeric</code> Vector</a></li>
+<li class="chapter" data-level="3.1.6" data-path="BasicObjects.html"><a href="BasicObjects.html#modifying-and-removing-elements-of-a-numeric-vector"><i class="fa fa-check"></i><b>3.1.6</b> Modifying and Removing Elements of a <code>numeric</code> Vector</a></li>
+<li class="chapter" data-level="3.1.7" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-groups-from-a-numeric-vector"><i class="fa fa-check"></i><b>3.1.7</b> Creating Groups from a <code>numeric</code> Vector</a></li>
+<li class="chapter" data-level="3.1.8" data-path="BasicObjects.html"><a href="BasicObjects.html#other-functions-for-manipulating-numerical-vectors"><i class="fa fa-check"></i><b>3.1.8</b> Other Functions for Manipulating Numerical Vectors</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="BasicObjects.html"><a href="BasicObjects.html#character-objects"><i class="fa fa-check"></i><b>3.2</b> <code>Character</code> Objects</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-a-simple-character-object"><i class="fa fa-check"></i><b>3.2.1</b> Creating a Simple <code>character</code> Object</a></li>
+<li class="chapter" data-level="3.2.2" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-structured-character-objects"><i class="fa fa-check"></i><b>3.2.2</b> Creating Structured <code>character</code> Objects</a></li>
+<li class="chapter" data-level="3.2.3" data-path="BasicObjects.html"><a href="BasicObjects.html#character-constants"><i class="fa fa-check"></i><b>3.2.3</b> <code>character</code> Constants</a></li>
+<li class="chapter" data-level="3.2.4" data-path="BasicObjects.html"><a href="BasicObjects.html#selecting-characters-of-a-text-object"><i class="fa fa-check"></i><b>3.2.4</b> Selecting Characters of a Text Object</a></li>
+<li class="chapter" data-level="3.2.5" data-path="BasicObjects.html"><a href="BasicObjects.html#finding-and-replacing-characters-of-a-text"><i class="fa fa-check"></i><b>3.2.5</b> Finding and Replacing Characters of a Text</a></li>
+<li class="chapter" data-level="3.2.6" data-path="BasicObjects.html"><a href="BasicObjects.html#splitting-text"><i class="fa fa-check"></i><b>3.2.6</b> Splitting Text</a></li>
+<li class="chapter" data-level="3.2.7" data-path="BasicObjects.html"><a href="BasicObjects.html#finding-the-number-of-characters-in-a-text"><i class="fa fa-check"></i><b>3.2.7</b> Finding the Number of Characters in a Text</a></li>
+<li class="chapter" data-level="3.2.8" data-path="BasicObjects.html"><a href="BasicObjects.html#generating-combinations-of-text"><i class="fa fa-check"></i><b>3.2.8</b> Generating Combinations of Text</a></li>
+<li class="chapter" data-level="3.2.9" data-path="BasicObjects.html"><a href="BasicObjects.html#encoding-of-character-objects"><i class="fa fa-check"></i><b>3.2.9</b> Encoding of <code>character</code> Objects</a></li>
+<li class="chapter" data-level="3.2.10" data-path="BasicObjects.html"><a href="BasicObjects.html#other-functions-for-manipulating-character"><i class="fa fa-check"></i><b>3.2.10</b> Other Functions for Manipulating <code>character</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="BasicObjects.html"><a href="BasicObjects.html#factor-objects"><i class="fa fa-check"></i><b>3.3</b> <code>Factor</code> Objects</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-factors"><i class="fa fa-check"></i><b>3.3.1</b> Creating <code>factors</code></a></li>
+<li class="chapter" data-level="3.3.2" data-path="BasicObjects.html"><a href="BasicObjects.html#modifying-factors"><i class="fa fa-check"></i><b>3.3.2</b> Modifying <code>factors</code></a></li>
+<li class="chapter" data-level="3.3.3" data-path="BasicObjects.html"><a href="BasicObjects.html#converting-factors-to-other-classes"><i class="fa fa-check"></i><b>3.3.3</b> Converting <code>factors</code> to Other Classes</a></li>
+<li class="chapter" data-level="3.3.4" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-contingency-tables"><i class="fa fa-check"></i><b>3.3.4</b> Creating Contingency Tables</a></li>
+<li class="chapter" data-level="3.3.5" data-path="BasicObjects.html"><a href="BasicObjects.html#other-functions-for-manipulating-factors"><i class="fa fa-check"></i><b>3.3.5</b> Other Functions for Manipulating <code>factors</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="BasicObjects.html"><a href="BasicObjects.html#logical-objects"><i class="fa fa-check"></i><b>3.4</b> <code>Logical</code> Objects</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-logical-objects"><i class="fa fa-check"></i><b>3.4.1</b> Creating <code>logical</code> Objects</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="BasicObjects.html"><a href="BasicObjects.html#date-and-time-objects"><i class="fa fa-check"></i><b>3.5</b> Date and Time Objects</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-simple-dates"><i class="fa fa-check"></i><b>3.5.1</b> Creating Simple Dates</a></li>
+<li class="chapter" data-level="3.5.2" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-a-sequence-of-dates"><i class="fa fa-check"></i><b>3.5.2</b> Creating a Sequence of <code>Dates</code></a></li>
+<li class="chapter" data-level="3.5.3" data-path="BasicObjects.html"><a href="BasicObjects.html#operations-with-dates"><i class="fa fa-check"></i><b>3.5.3</b> Operations with <code>Dates</code></a></li>
+<li class="chapter" data-level="3.5.4" data-path="BasicObjects.html"><a href="BasicObjects.html#dealing-with-time"><i class="fa fa-check"></i><b>3.5.4</b> Dealing with Time</a></li>
+<li class="chapter" data-level="3.5.5" data-path="BasicObjects.html"><a href="BasicObjects.html#customizing-the-output-format-of-dates-and-times"><i class="fa fa-check"></i><b>3.5.5</b> Customizing the Output Format of Dates and Times</a></li>
+<li class="chapter" data-level="3.5.6" data-path="BasicObjects.html"><a href="BasicObjects.html#find-the-current-date-and-time"><i class="fa fa-check"></i><b>3.5.6</b> Find the Current Date and Time</a></li>
+<li class="chapter" data-level="3.5.7" data-path="BasicObjects.html"><a href="BasicObjects.html#other-functions-for-manipulating-dates-and-time"><i class="fa fa-check"></i><b>3.5.7</b> Other Functions for Manipulating Dates and Time</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="BasicObjects.html"><a href="BasicObjects.html#missing-data---na-not-available"><i class="fa fa-check"></i><b>3.6</b> Missing Data - <code>NA</code> (<em>Not available</em>)</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="BasicObjects.html"><a href="BasicObjects.html#defining-na-values"><i class="fa fa-check"></i><b>3.6.1</b> Defining <code>NA</code> Values</a></li>
+<li class="chapter" data-level="3.6.2" data-path="BasicObjects.html"><a href="BasicObjects.html#finding-and-replacing-na"><i class="fa fa-check"></i><b>3.6.2</b> Finding and Replacing <code>NA</code></a></li>
+<li class="chapter" data-level="3.6.3" data-path="BasicObjects.html"><a href="BasicObjects.html#other-useful-functions-for-treating-na"><i class="fa fa-check"></i><b>3.6.3</b> Other Useful Functions for Treating <code>NA</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html"><i class="fa fa-check"></i><b>4</b> Data Structure Objects</a><ul>
+<li class="chapter" data-level="4.1" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#lists"><i class="fa fa-check"></i><b>4.1</b> <code>Lists</code></a><ul>
+<li class="chapter" data-level="4.1.1" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#creating-lists"><i class="fa fa-check"></i><b>4.1.1</b> Creating <code>lists</code></a></li>
+<li class="chapter" data-level="4.1.2" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#accessing-the-elements-of-a-list"><i class="fa fa-check"></i><b>4.1.2</b> Accessing the Elements of a <code>list</code></a></li>
+<li class="chapter" data-level="4.1.3" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#adding-and-removing-elements-from-a-list"><i class="fa fa-check"></i><b>4.1.3</b> Adding and Removing Elements from a <code>list</code></a></li>
+<li class="chapter" data-level="4.1.4" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#processing-the-elements-of-a-list"><i class="fa fa-check"></i><b>4.1.4</b> Processing the Elements of a <code>list</code></a></li>
+<li class="chapter" data-level="4.1.5" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#other-functions-for-manipulating-lists"><i class="fa fa-check"></i><b>4.1.5</b> Other Functions for Manipulating <code>lists</code></a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#matrices"><i class="fa fa-check"></i><b>4.2</b> <code>Matrices</code></a><ul>
+<li class="chapter" data-level="4.2.1" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#selecting-elements-from-a-matrix"><i class="fa fa-check"></i><b>4.2.1</b> Selecting Elements from a <code>matrix</code></a></li>
+<li class="chapter" data-level="4.2.2" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#other-useful-functions-for-manipulating-matrices"><i class="fa fa-check"></i><b>4.2.2</b> Other Useful Functions for Manipulating Matrices</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#dataframes"><i class="fa fa-check"></i><b>4.3</b> <code>Dataframes</code></a><ul>
+<li class="chapter" data-level="4.3.1" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#creating-dataframes"><i class="fa fa-check"></i><b>4.3.1</b> Creating <code>dataframes</code></a></li>
+<li class="chapter" data-level="4.3.2" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#accessing-information-from-a-dataframe"><i class="fa fa-check"></i><b>4.3.2</b> Accessing Information from a <code>dataframe</code></a></li>
+<li class="chapter" data-level="4.3.3" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#modifying-a-dataframe"><i class="fa fa-check"></i><b>4.3.3</b> Modifying a <code>dataframe</code></a></li>
+<li class="chapter" data-level="4.3.4" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#sorting-a-dataframe"><i class="fa fa-check"></i><b>4.3.4</b> Sorting a <code>dataframe</code></a></li>
+<li class="chapter" data-level="4.3.5" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#combining-and-aggregating-dataframes"><i class="fa fa-check"></i><b>4.3.5</b> Combining and Aggregating <code>dataframes</code></a></li>
+<li class="chapter" data-level="4.3.6" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#reporting-a-dataframe-table"><i class="fa fa-check"></i><b>4.3.6</b> Reporting a <code>Dataframe</code> Table</a></li>
+<li class="chapter" data-level="4.3.7" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#the-format-of-the-dataframe-long-and-wide"><i class="fa fa-check"></i><b>4.3.7</b> The Format of the <code>dataframe</code> (<em>long</em> and <em>wide</em>)</a></li>
+<li class="chapter" data-level="4.3.8" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#extensions-of-the-dataframe-class"><i class="fa fa-check"></i><b>4.3.8</b> Extensions of the <code>dataframe</code> Class</a></li>
+<li class="chapter" data-level="4.3.9" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#other-useful-functions-for-handling-dataframes"><i class="fa fa-check"></i><b>4.3.9</b> Other Useful Functions for Handling <code>dataframes</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="Financial-data.html"><a href="Financial-data.html"><i class="fa fa-check"></i><b>5</b> Financial Data and Common Operations</a><ul>
+<li class="chapter" data-level="5.1" data-path="Financial-data.html"><a href="Financial-data.html#data-from-financial-markets"><i class="fa fa-check"></i><b>5.1</b> Data from Financial Markets</a></li>
+<li class="chapter" data-level="5.2" data-path="Financial-data.html"><a href="Financial-data.html#data-from-the-financial-evaluation-of-projects"><i class="fa fa-check"></i><b>5.2</b> Data from the Financial Evaluation of Projects</a></li>
+<li class="chapter" data-level="5.3" data-path="Financial-data.html"><a href="Financial-data.html#data-from-financial-statements"><i class="fa fa-check"></i><b>5.3</b> Data from Financial Statements</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="importing.html"><a href="importing.html"><i class="fa fa-check"></i><b>6</b> Importing and Exporting Data</a><ul>
+<li class="chapter" data-level="6.1" data-path="importing.html"><a href="importing.html#importing-data-from-local-files"><i class="fa fa-check"></i><b>6.1</b> Importing Data from Local Files</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="importing.html"><a href="importing.html#importing-data-from-a-.csv-file-comma-separated-values"><i class="fa fa-check"></i><b>6.1.1</b> Importing Data from a <em>.csv</em> File (<em>comma separated values</em>)</a></li>
+<li class="chapter" data-level="6.1.2" data-path="importing.html"><a href="importing.html#importing-data-from-an-excel-file"><i class="fa fa-check"></i><b>6.1.2</b> Importing Data from an <em>Excel</em> File</a></li>
+<li class="chapter" data-level="6.1.3" data-path="importing.html"><a href="importing.html#importing-data-from-a-.rdata-file"><i class="fa fa-check"></i><b>6.1.3</b> Importing Data from a <em>.RData</em> File</a></li>
+<li class="chapter" data-level="6.1.4" data-path="importing.html"><a href="importing.html#importing-data-from-sqlite"><i class="fa fa-check"></i><b>6.1.4</b> Importing Data from SQLITE</a></li>
+<li class="chapter" data-level="6.1.5" data-path="importing.html"><a href="importing.html#importing-data-from-a-text-file"><i class="fa fa-check"></i><b>6.1.5</b> Importing Data from a Text File</a></li>
+<li class="chapter" data-level="6.1.6" data-path="importing.html"><a href="importing.html#other-file-formats"><i class="fa fa-check"></i><b>6.1.6</b> Other File Formats</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="importing.html"><a href="importing.html#importing-data-using-the-internet"><i class="fa fa-check"></i><b>6.2</b> Importing Data Using the Internet</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="importing.html"><a href="importing.html#package-quantmod"><i class="fa fa-check"></i><b>6.2.1</b> Package <code>quantmod</code></a></li>
+<li class="chapter" data-level="6.2.2" data-path="importing.html"><a href="importing.html#package-batchgetsymbols"><i class="fa fa-check"></i><b>6.2.2</b> Package <code>BatchGetSymbols</code></a></li>
+<li class="chapter" data-level="6.2.3" data-path="importing.html"><a href="importing.html#package-finreportr"><i class="fa fa-check"></i><b>6.2.3</b> Package <code>finreportr</code></a></li>
+<li class="chapter" data-level="6.2.4" data-path="importing.html"><a href="importing.html#package-tidyquant"><i class="fa fa-check"></i><b>6.2.4</b> Package <code>tidyquant</code></a></li>
+<li class="chapter" data-level="6.2.5" data-path="importing.html"><a href="importing.html#package-gethfdata"><i class="fa fa-check"></i><b>6.2.5</b> Package <code>GetHFData</code></a></li>
+<li class="chapter" data-level="6.2.6" data-path="importing.html"><a href="importing.html#package-ustyc"><i class="fa fa-check"></i><b>6.2.6</b> Package <code>ustyc</code></a></li>
+<li class="chapter" data-level="6.2.7" data-path="importing.html"><a href="importing.html#quandl"><i class="fa fa-check"></i><b>6.2.7</b> Package <code>Quandl</code></a></li>
+<li class="chapter" data-level="6.2.8" data-path="importing.html"><a href="importing.html#package-rbitcoin"><i class="fa fa-check"></i><b>6.2.8</b> Package <code>Rbitcoin</code></a></li>
+<li class="chapter" data-level="6.2.9" data-path="importing.html"><a href="importing.html#other-packages"><i class="fa fa-check"></i><b>6.2.9</b> Other Packages</a></li>
+<li class="chapter" data-level="6.2.10" data-path="importing.html"><a href="importing.html#accessing-data-from-web-pages-webscraping"><i class="fa fa-check"></i><b>6.2.10</b> Accessing Data from Web Pages (<em>webscraping</em>)</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="importing.html"><a href="importing.html#exporting-to-local-file"><i class="fa fa-check"></i><b>6.3</b> Exporting to Local File</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="importing.html"><a href="importing.html#exporting-data-to-a-.csv-file"><i class="fa fa-check"></i><b>6.3.1</b> Exporting Data to a <em>.csv</em> File</a></li>
+<li class="chapter" data-level="6.3.2" data-path="importing.html"><a href="importing.html#exporting-data-to-a-rdata-file"><i class="fa fa-check"></i><b>6.3.2</b> Exporting Data to a <em>RData</em> File</a></li>
+<li class="chapter" data-level="6.3.3" data-path="importing.html"><a href="importing.html#exporting-data-to-an-excel-file"><i class="fa fa-check"></i><b>6.3.3</b> Exporting Data to an Excel File</a></li>
+<li class="chapter" data-level="6.3.4" data-path="importing.html"><a href="importing.html#exporting-data-to-a-text-file"><i class="fa fa-check"></i><b>6.3.4</b> Exporting Data to a Text File</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="programming.html"><a href="programming.html"><i class="fa fa-check"></i><b>7</b> Programming and Data Analysis with R</a><ul>
+<li class="chapter" data-level="7.1" data-path="programming.html"><a href="programming.html#creating-functions"><i class="fa fa-check"></i><b>7.1</b> Creating Functions</a></li>
+<li class="chapter" data-level="7.2" data-path="programming.html"><a href="programming.html#using-loops-for"><i class="fa fa-check"></i><b>7.2</b> Using Loops (<code>for</code>)</a></li>
+<li class="chapter" data-level="7.3" data-path="programming.html"><a href="programming.html#conditional-statements-if-else-switch"><i class="fa fa-check"></i><b>7.3</b> Conditional Statements (<code>if</code>, <code>else</code>, <code>switch</code>)</a></li>
+<li class="chapter" data-level="7.4" data-path="programming.html"><a href="programming.html#using-apply-functions"><i class="fa fa-check"></i><b>7.4</b> Using <code>apply</code> Functions</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="programming.html"><a href="programming.html#using-lapply"><i class="fa fa-check"></i><b>7.4.1</b> Using <code>lapply</code></a></li>
+<li class="chapter" data-level="7.4.2" data-path="programming.html"><a href="programming.html#using-sapply"><i class="fa fa-check"></i><b>7.4.2</b> Using <code>sapply</code></a></li>
+<li class="chapter" data-level="7.4.3" data-path="programming.html"><a href="programming.html#using-tapply"><i class="fa fa-check"></i><b>7.4.3</b> Using <code>tapply</code></a></li>
+<li class="chapter" data-level="7.4.4" data-path="programming.html"><a href="programming.html#using-mapply"><i class="fa fa-check"></i><b>7.4.4</b> Using <code>mapply</code></a></li>
+<li class="chapter" data-level="7.4.5" data-path="programming.html"><a href="programming.html#using-apply"><i class="fa fa-check"></i><b>7.4.5</b> Using <code>apply</code></a></li>
+<li class="chapter" data-level="7.4.6" data-path="programming.html"><a href="programming.html#using-by"><i class="fa fa-check"></i><b>7.4.6</b> Using <code>by</code></a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="programming.html"><a href="programming.html#data-manipulation-with-package-dplyr"><i class="fa fa-check"></i><b>7.5</b> Data Manipulation with Package <code>dplyr</code></a><ul>
+<li class="chapter" data-level="7.5.1" data-path="programming.html"><a href="programming.html#manipulating-a-dataframe-with-dplyr"><i class="fa fa-check"></i><b>7.5.1</b> Manipulating a <code>dataframe</code> with <code>dplyr</code></a></li>
+<li class="chapter" data-level="7.5.2" data-path="programming.html"><a href="programming.html#the-pipeline-operator"><i class="fa fa-check"></i><b>7.5.2</b> The Pipeline Operator (<code>%&gt;%</code>)</a></li>
+<li class="chapter" data-level="7.5.3" data-path="programming.html"><a href="programming.html#simple-group-operations-with-dplyr"><i class="fa fa-check"></i><b>7.5.3</b> Simple Group Operations with <code>dplyr</code></a></li>
+<li class="chapter" data-level="7.5.4" data-path="programming.html"><a href="programming.html#complex-group-operations-with-dplyr"><i class="fa fa-check"></i><b>7.5.4</b> Complex Group Operations with <code>dplyr</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="Figures.html"><a href="Figures.html"><i class="fa fa-check"></i><b>8</b> Creating and Saving Figures with <code>ggplot2</code></a><ul>
+<li class="chapter" data-level="8.1" data-path="Figures.html"><a href="Figures.html#using-graphic-windows"><i class="fa fa-check"></i><b>8.1</b> Using Graphic Windows</a></li>
+<li class="chapter" data-level="8.2" data-path="Figures.html"><a href="Figures.html#creating-figures-with-function-qplot"><i class="fa fa-check"></i><b>8.2</b> Creating Figures with Function <code>qplot</code></a></li>
+<li class="chapter" data-level="8.3" data-path="Figures.html"><a href="Figures.html#using-ggplot"><i class="fa fa-check"></i><b>8.3</b> Creating Figures with Function <code>ggplot</code></a><ul>
+<li class="chapter" data-level="8.3.1" data-path="Figures.html"><a href="Figures.html#using-themes"><i class="fa fa-check"></i><b>8.3.1</b> Using Themes</a></li>
+<li class="chapter" data-level="8.3.2" data-path="Figures.html"><a href="Figures.html#creating-panels-with-facet_wrap"><i class="fa fa-check"></i><b>8.3.2</b> Creating Panels with <code>facet_wrap</code></a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="Figures.html"><a href="Figures.html#using-pipelines-for-data-analysis-and-figures"><i class="fa fa-check"></i><b>8.4</b> Using Pipelines for Data Analysis and Figures</a></li>
+<li class="chapter" data-level="8.5" data-path="Figures.html"><a href="Figures.html#creating-statistical-graphics"><i class="fa fa-check"></i><b>8.5</b> Creating Statistical Graphics</a><ul>
+<li class="chapter" data-level="8.5.1" data-path="Figures.html"><a href="Figures.html#creating-histograms"><i class="fa fa-check"></i><b>8.5.1</b> Creating Histograms</a></li>
+<li class="chapter" data-level="8.5.2" data-path="Figures.html"><a href="Figures.html#creating-boxplot-figures"><i class="fa fa-check"></i><b>8.5.2</b> Creating <em>boxplot</em> Figures</a></li>
+<li class="chapter" data-level="8.5.3" data-path="Figures.html"><a href="Figures.html#creating-qq-plots"><i class="fa fa-check"></i><b>8.5.3</b> Creating <em>QQ</em> Plots</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="Figures.html"><a href="Figures.html#saving-graphics-to-a-file"><i class="fa fa-check"></i><b>8.6</b> Saving Graphics to a File</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="models.html"><a href="models.html"><i class="fa fa-check"></i><b>9</b> Financial Econometrics with R</a><ul>
+<li class="chapter" data-level="9.1" data-path="models.html"><a href="models.html#linear-models-ols"><i class="fa fa-check"></i><b>9.1</b> Linear Models (OLS)</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="models.html"><a href="models.html#simulating-a-linear-model"><i class="fa fa-check"></i><b>9.1.1</b> Simulating a Linear Model</a></li>
+<li class="chapter" data-level="9.1.2" data-path="models.html"><a href="models.html#estimating-ols"><i class="fa fa-check"></i><b>9.1.2</b> Estimating a Linear Model</a></li>
+<li class="chapter" data-level="9.1.3" data-path="models.html"><a href="models.html#testing-ols"><i class="fa fa-check"></i><b>9.1.3</b> Statistical Inference in Linear Models</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="models.html"><a href="models.html#generalized-linear-models-glm"><i class="fa fa-check"></i><b>9.2</b> Generalized Linear Models (GLM)</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="models.html"><a href="models.html#simulating-a-glm-model"><i class="fa fa-check"></i><b>9.2.1</b> Simulating a GLM Model</a></li>
+<li class="chapter" data-level="9.2.2" data-path="models.html"><a href="models.html#estimating-a-glm-model"><i class="fa fa-check"></i><b>9.2.2</b> Estimating a GLM Model</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="models.html"><a href="models.html#panel-data-models"><i class="fa fa-check"></i><b>9.3</b> Panel Data Models</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="models.html"><a href="models.html#simulating-panel-data-models"><i class="fa fa-check"></i><b>9.3.1</b> Simulating Panel Data Models</a></li>
+<li class="chapter" data-level="9.3.2" data-path="models.html"><a href="models.html#estimating-panel-data-models"><i class="fa fa-check"></i><b>9.3.2</b> Estimating Panel Data Models</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="models.html"><a href="models.html#arima-models"><i class="fa fa-check"></i><b>9.4</b> Arima Models</a><ul>
+<li class="chapter" data-level="9.4.1" data-path="models.html"><a href="models.html#simulating-arima-models"><i class="fa fa-check"></i><b>9.4.1</b> Simulating Arima Models</a></li>
+<li class="chapter" data-level="9.4.2" data-path="models.html"><a href="models.html#arima-estimating"><i class="fa fa-check"></i><b>9.4.2</b> Estimating Arima Models</a></li>
+<li class="chapter" data-level="9.4.3" data-path="models.html"><a href="models.html#forecasting-arima-models"><i class="fa fa-check"></i><b>9.4.3</b> Forecasting Arima Models</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="models.html"><a href="models.html#garch-models"><i class="fa fa-check"></i><b>9.5</b> Garch Models</a><ul>
+<li class="chapter" data-level="9.5.1" data-path="models.html"><a href="models.html#simulating-garch-models"><i class="fa fa-check"></i><b>9.5.1</b> Simulating Garch Models</a></li>
+<li class="chapter" data-level="9.5.2" data-path="models.html"><a href="models.html#estimating-garch"><i class="fa fa-check"></i><b>9.5.2</b> Estimating Garch Models</a></li>
+<li class="chapter" data-level="9.5.3" data-path="models.html"><a href="models.html#forecasting-garch-models"><i class="fa fa-check"></i><b>9.5.3</b> Forecasting Garch Models</a></li>
+</ul></li>
+<li class="chapter" data-level="9.6" data-path="models.html"><a href="models.html#regime-switching-models"><i class="fa fa-check"></i><b>9.6</b> Regime Switching Models</a><ul>
+<li class="chapter" data-level="9.6.1" data-path="models.html"><a href="models.html#simulating-regime-switching-models"><i class="fa fa-check"></i><b>9.6.1</b> Simulating Regime Switching Models</a></li>
+<li class="chapter" data-level="9.6.2" data-path="models.html"><a href="models.html#estimating-regime-switching-models"><i class="fa fa-check"></i><b>9.6.2</b> Estimating Regime Switching Models</a></li>
+<li class="chapter" data-level="9.6.3" data-path="models.html"><a href="models.html#forecasting-regime-switching-models"><i class="fa fa-check"></i><b>9.6.3</b> Forecasting Regime Switching Models</a></li>
+</ul></li>
+<li class="chapter" data-level="9.7" data-path="models.html"><a href="models.html#dealing-with-several-models"><i class="fa fa-check"></i><b>9.7</b> Dealing with Several Models</a></li>
+<li class="chapter" data-level="9.8" data-path="models.html"><a href="models.html#reporting-models"><i class="fa fa-check"></i><b>9.8</b> Reporting Models with <code>texreg</code></a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="research-scripts.html"><a href="research-scripts.html"><i class="fa fa-check"></i><b>10</b> Writing Research Scripts</a><ul>
+<li class="chapter" data-level="10.1" data-path="research-scripts.html"><a href="research-scripts.html#structure-of-a-research-script"><i class="fa fa-check"></i><b>10.1</b> Structure of a Research Script</a></li>
+<li class="chapter" data-level="10.2" data-path="research-scripts.html"><a href="research-scripts.html#folder-structure"><i class="fa fa-check"></i><b>10.2</b> Folder Structure</a></li>
+<li class="chapter" data-level="10.3" data-path="research-scripts.html"><a href="research-scripts.html#ExampleResearch"><i class="fa fa-check"></i><b>10.3</b> Examples of Research Scripts</a><ul>
+<li class="chapter" data-level="10.3.1" data-path="research-scripts.html"><a href="research-scripts.html#research-performance"><i class="fa fa-check"></i><b>10.3.1</b> The performance of international investments</a></li>
+<li class="chapter" data-level="10.3.2" data-path="research-scripts.html"><a href="research-scripts.html#research-prophet"><i class="fa fa-check"></i><b>10.3.2</b> Can we predict stock’s returns with Prophet?</a></li>
+<li class="chapter" data-level="10.3.3" data-path="research-scripts.html"><a href="research-scripts.html#research-gethfdata"><i class="fa fa-check"></i><b>10.3.3</b> An Analysis of High Frequency trade Data</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://sites.google.com/view/pmfdr/home" target="blank">Book Companion Site</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Processing and Analyzing Financial Data with R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="BasicObjects" class="section level1">
+<h1><span class="header-section-number">Chapter 3</span> Basic Object Classes</h1>
+<p><strong>In R, everything is an object</strong>. Previously, we executed commands in the prompt, and it resulted in creating objects in our environment. Each type of object will have several different properties. A <code>numeric</code> object may interact with other <code>numeric</code> objects in operations such as multiplication, division, and addition. This is not true for objects belonging to the class <code>character</code>, where mathematical properties are not valid or intuitive - it does not make sense to add a numeric value to a text or to divide a text for other text.</p>
+<p>But, the <code>character</code> class has other properties, such as allowing the user to look for a specific text within a larger text, splitting parts of a text, and replacing specific characters, among many other possibilities. <strong>One of the most important aspects of working with R is learning the functionalities of the object classes</strong>.</p>
+<p>An important distinction here is the difference between basic and data structure type of classes. The basic classes are the primary elements in data representation. It includes numerical values, logical objects, characters (text), factors, dates, among many other cases. The basic classes are stored in more complex data structures that aggregate the information and facilitate the work. Imagine conducting a study based on closing prices of 500 stocks that belong to the SP500 market index. If we create a numeric vector of prices for each stock, we would have several <em>500</em> objects to handle in our environment! Although you can work this way, the resulting code would be disorganized, difficult to understand, and subject to several errors. </p>
+<p>A simpler way to organize our data is to create an object with the name <code>SP500.data</code> and allocate the prices of all stocks there. All necessary information to perform our research would be available in that object, making it easier to import and export data. These objects that store other basic class objects are the data structure type. This classification includes lists, matrices, and data frames. In this section, we will address the most basic types of objects in R. The data structure types will be presented in the next chapter.</p>
+<div id="numeric-objects" class="section level2">
+<h2><span class="header-section-number">3.1</span> <code>Numeric</code> Objects</h2>
+<p>Objects of type <code>numeric</code> represent one or more quantities and are one of the most used objects in data research, for example, the price of a stock at a given date, the trading volume of a financial contract on any given day, the net profit of a company at the end of the year, among many other possibilities. Generally, numerical vectors are imported from an existing database. However, you can also register them from the editor. </p>
+<div id="creating-and-manipulating-numeric-objects" class="section level3">
+<h3><span class="header-section-number">3.1.1</span> Creating and Manipulating <code>numeric</code> Objects</h3>
+<p>The creation and manipulation of <code>numeric</code> objects is easy. As expected, we can use the common symbols of mathematical operations, such as sum (<code>+</code>), difference (<code>-</code>), division (<code>/</code>) and multiplication (<code>*</code>). When working with <code>numeric</code> vectors, all mathematical operations are carried out using an <strong>element by element</strong> orientation. See the next example, where we create two vectors and perform various operations.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># create numeric vectors</span>
+x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">5</span>
+y &lt;-<span class="st"> </span><span class="dv">2</span><span class="op">:</span><span class="dv">6</span>
+
+<span class="co"># print sum</span>
+<span class="kw">print</span>(x<span class="op">+</span>y)</code></pre></div>
+<pre><code>## [1]  3  5  7  9 11</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># print multiplication</span>
+<span class="kw">print</span>(x<span class="op">*</span>y)</code></pre></div>
+<pre><code>## [1]  2  6 12 20 30</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># print division</span>
+<span class="kw">print</span>(x<span class="op">/</span>y)</code></pre></div>
+<pre><code>## [1] 0.5000000 0.6666667 0.7500000 0.8000000 0.8333333</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># print exponentiation</span>
+<span class="kw">print</span>(x<span class="op">^</span>y)</code></pre></div>
+<pre><code>## [1]     1     8    81  1024 15625</code></pre>
+<p>A difference between R and other programming languages is that operations between vectors of different sizes are accepted. We can add a <code>numeric</code> vector with four elements with the other containing only two elements. Whenever that happens, R calls for the <strong>recycling rule</strong>. It states, if two different sized vectors are interacting, the smaller vector is repeated as often as necessary to obtain the same number of elements as the larger vector. See the following example: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set x with 4 elements and y with 2</span>
+x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">4</span>
+y &lt;-<span class="st"> </span><span class="dv">2</span><span class="op">:</span><span class="dv">1</span>
+
+<span class="co"># print multiplication</span>
+<span class="kw">print</span>(x <span class="op">+</span><span class="st"> </span>y)</code></pre></div>
+<pre><code>## [1] 3 3 5 5</code></pre>
+<p>Here, the result of <code>x + y</code> is equivalent to <code>1:4 + c(2, 1, 2, 1)</code>. If you try to operate with vectors in which the length of the largest vector is not a multiple of the length of the smaller, R performs the same recycling procedure, but also sends a <code>warning</code> message to inform the user that the recycling procedure was not perfectly executed. See next.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set x = 4 elements and y with 3</span>
+x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>)
+y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)
+
+<span class="co"># print sum (recycling rule)</span>
+<span class="kw">print</span>(x <span class="op">+</span>y)</code></pre></div>
+<pre><code>## Warning in x + y: longer object length is not a multiple of
+## shorter object length</code></pre>
+<pre><code>## [1] 2 4 6 5</code></pre>
+<p>The first three elements of <code>x</code> were summed to the first three elements of <code>y</code>. The fourth element of <code>x</code> was summed to the first element of <code>y</code>. Since there was no fourth element in <code>y</code>, R cycled through the values of the vector, restarting with the first element.</p>
+<p>One great thing about R is that elements of a <code>numeric</code> vector can be named. See an example next, where we create a vector with several named items.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># create named vector</span>
+x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dt">item1 =</span> <span class="dv">10</span>, <span class="dt">item2 =</span> <span class="dv">14</span>, <span class="dt">item3 =</span> <span class="dv">9</span>, <span class="dt">item4 =</span> <span class="dv">2</span>)
+
+<span class="co"># print it</span>
+<span class="kw">print</span>(x)</code></pre></div>
+<pre><code>## item1 item2 item3 item4 
+##    10    14     9     2</code></pre>
+<p>Notice how we used symbol <code>=</code> to set the names of the elements inside of function <code>c</code> (combine). As mentioned, the equality symbol is usually used to define arguments of a function call. To name elements of a <code>numeric</code> vector after creating it, we can use the <code>names</code> function. See below: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># create unnamed vector</span>
+x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">14</span>, <span class="dv">9</span>, <span class="dv">2</span>)
+
+<span class="co"># set names of elements</span>
+<span class="kw">names</span>(x) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;item1&#39;</span>, <span class="st">&#39;item2&#39;</span>, <span class="st">&#39;item3&#39;</span>, <span class="st">&#39;item4&#39;</span>)
+
+<span class="co"># print it</span>
+<span class="kw">print</span>(x)</code></pre></div>
+<pre><code>## item1 item2 item3 item4 
+##    10    14     9     2</code></pre>
+<p>Notice how the use of function <code>names</code> works differently from the previous examples. Here, we use the function on the left side of <code>&lt;-</code> and not on the right. The intuition of assigning a value using <code>&lt;-</code> still holds as we are registering an attribute of the object, the name of its elements. This notation may seem strange, at first, but it gets familiar with time and use.</p>
+<p>Empty <code>numeric</code> vectors can also be created. Sometimes, you need to set an empty vector to be filled with values later. For that, use the <code>numeric</code> function: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># create empty numeric vector of length 10</span>
+my.x &lt;-<span class="st"> </span><span class="kw">numeric</span>(<span class="dt">length =</span> <span class="dv">10</span>)
+
+<span class="co"># print it</span>
+<span class="kw">print</span>(my.x)</code></pre></div>
+<pre><code>##  [1] 0 0 0 0 0 0 0 0 0 0</code></pre>
+<p>As you can see, when using <code>numeric(length = 10)</code>, all values are set to zero.</p>
+</div>
+<div id="creating-a-numeric-sequence" class="section level3">
+<h3><span class="header-section-number">3.1.2</span> Creating a <code>numeric</code> Sequence</h3>
+<p>In R, you have two ways to create a sequence of numerical values. The first, used extensively in the previous examples, is with operator <code>:</code>, as in <code>my.seq &lt;- 1:10</code>. This method is practical, because the notation is clear and direct. </p>
+<p>However, using operator <code>:</code> limits the possibilities of the sequences we can create. It only creates sequences where the difference between adjacent elements is +1 or -1. A more powerful version for the creation of sequences is the use of function <code>seq</code>. With it, you can set the intervals between each value with argument <code>by</code>. See an example next: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># create sequence with seq</span>
+my.seq &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from =</span> <span class="op">-</span><span class="dv">10</span>, <span class="dt">to =</span> <span class="dv">10</span>, <span class="dt">by =</span> <span class="dv">2</span>)
+
+<span class="co"># print it</span>
+<span class="kw">print</span>(my.seq)</code></pre></div>
+<pre><code>##  [1] -10  -8  -6  -4  -2   0   2   4   6   8  10</code></pre>
+<p>Another interesting feature of function <code>seq</code> is the possibility of creating equally spaced vectors with an initial value, a final value, and the desired number of elements. This is accomplished using option <code>length.out</code>. In the following code, we create an array from 0 to 10 with exactly 20 elements:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># create sequence with defined number of elements</span>
+my.seq &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">0</span>, <span class="dt">to =</span> <span class="dv">10</span>, <span class="dt">length.out =</span> <span class="dv">20</span>)
+
+<span class="co"># print it</span>
+<span class="kw">print</span>(my.seq)</code></pre></div>
+<pre><code>##  [1]  0.0000000  0.5263158  1.0526316  1.5789474  2.1052632
+##  [6]  2.6315789  3.1578947  3.6842105  4.2105263  4.7368421
+## [11]  5.2631579  5.7894737  6.3157895  6.8421053  7.3684211
+## [16]  7.8947368  8.4210526  8.9473684  9.4736842 10.0000000</code></pre>
+<p>Observe how the final size of <code>my.seq</code> is exactly 20, where R automatically calculates and sets the difference of 0.5263158 between the adjacent elements.</p>
+</div>
+<div id="creating-vectors-with-repeated-elements" class="section level3">
+<h3><span class="header-section-number">3.1.3</span> Creating Vectors with Repeated Elements</h3>
+<p>Another way to create <code>numeric</code> vectors is using repetition. Imagine a vector with the values <code>c(1.2)</code>, where we want to create a larger vector with elements <code>c(1, 2, 1, 2, 1, 2)</code>, repeating the smaller vector three times. For that, we use function <code>rep</code>: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># created a vector with repeated elements</span>
+my.x &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="dt">times =</span> <span class="dv">3</span>)
+
+<span class="co"># print it</span>
+<span class="kw">print</span>(my.x)</code></pre></div>
+<pre><code>## [1] 1 2 1 2 1 2</code></pre>
+</div>
+<div id="creating-vectors-with-random-numbers" class="section level3">
+<h3><span class="header-section-number">3.1.4</span> Creating Vectors with Random Numbers</h3>
+<p>Some applications in finance and economics require the use of random numbers. The simulation method of Monte Carlo generates asset prices based on random numbers from a particular distribution. In R, several functions create random numbers for different statistical distributions. The most commonly used, however, are functions <code>rnorm</code>, <code>runif</code>, and <code>sample</code>.   </p>
+<p>Function <code>rnorm</code> generates random numbers from the Normal distribution, with options for the mean and standard deviation. An example of usage is given next.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># generate 10 random numbers from a Normal distribution</span>
+my.rnd.vec &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">10</span>, <span class="dt">mean =</span> <span class="dv">0</span>, <span class="dt">sd =</span> <span class="dv">1</span>)
+
+<span class="co"># print it</span>
+<span class="kw">print</span>(my.rnd.vec)</code></pre></div>
+<pre><code>##  [1] -0.91021913  0.40101710  1.36449014  0.07861130
+##  [5]  0.02141932  0.55000838  1.21953040  0.49819744
+##  [9] -0.38623241  0.64995345</code></pre>
+<p>In the previous code, we generated ten random numbers from a normal distribution, with mean zero and standard deviation equal to one.</p>
+<p>Function <code>runif</code> generates random values uniformly distributed between a maximum and a minimum value. It is commonly used to simulate probabilities with values between zero and one. Function <code>runif</code> has three input parameters: the desired number of random values, the minimum value, and maximum value. See the following example:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># create a random vector with minimum and maximum</span>
+my.rnd.vec &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dt">n =</span> <span class="dv">10</span>, <span class="dt">min =</span> <span class="op">-</span><span class="dv">5</span>, <span class="dt">max =</span> <span class="dv">5</span>)
+
+<span class="co"># print it</span>
+<span class="kw">print</span>(my.rnd.vec)</code></pre></div>
+<pre><code>##  [1]  2.1048634 -4.2450133 -0.3203952 -0.5111128  3.1584834
+##  [6] -1.9457063 -0.9354009 -1.9781582  1.0084554 -2.3876494</code></pre>
+<p>Note that both functions, <code>rnorm</code> and <code>runif</code>, are limited to their respective distribution. An alternative and flexible way to generate random values is to use the <code>sample</code> function. It accepts any vector as input and returns a scrambled version of its elements. Its flexibility lies in the fact that the input vector can be anything. For example, if we wanted to create a random vector with elements taken from vector <code>c(0, 5, 15, 20, 25)</code>, we could do it as follows: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># create sequence</span>
+my.vec &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">0</span>, <span class="dt">to =</span> <span class="dv">25</span>, <span class="dt">by=</span><span class="dv">5</span>)
+
+<span class="co"># sample sequence</span>
+my.rnd.vec &lt;-<span class="st"> </span><span class="kw">sample</span>(my.vec)
+
+<span class="co"># print it</span>
+<span class="kw">print</span>(my.rnd.vec)</code></pre></div>
+<pre><code>## [1]  0 20 25  5 10 15</code></pre>
+<p>Function <code>sample</code> also allows the random selection of several elements. If we wanted to select randomly only one element of <code>my.vec</code>, we could write the code as:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># sample one element of my.vec</span>
+my.rnd.vec &lt;-<span class="st"> </span><span class="kw">sample</span>(my.vec, <span class="dt">size =</span> <span class="dv">1</span>)
+
+<span class="co"># print it</span>
+<span class="kw">print</span>(my.rnd.vec)</code></pre></div>
+<pre><code>## [1] 0</code></pre>
+<p>If we wanted two random elements from <code>my.rnd.vec</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># sample one element of my.vec</span>
+my.rnd.vec &lt;-<span class="st"> </span><span class="kw">sample</span>(my.vec, <span class="dt">size =</span> <span class="dv">2</span>)
+
+<span class="co"># print it</span>
+<span class="kw">print</span>(my.rnd.vec)</code></pre></div>
+<pre><code>## [1]  5 25</code></pre>
+<p>It is also possible to select values from a smaller vector to create a larger vector. Consider the case where you have a vector with numbers <code>c(5, 10, 15)</code> and want to create a random vector with ten elements removed from that smaller vector. For that, we use option <code>replace = TRUE</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># create vector</span>
+my.vec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">15</span>)
+
+<span class="co"># sample</span>
+my.rnd.vec &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dt">x =</span> my.vec, <span class="dt">size =</span> <span class="dv">10</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>)
+<span class="kw">print</span>(my.rnd.vec)</code></pre></div>
+<pre><code>##  [1] 15 15 15 10  5 15 15  5  5  5</code></pre>
+<p>Another important feature of <code>sample</code> is it works for any type of vector, not only for those of the <code>numeric</code> class. This means we can randomize any sort of object. Have a look:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># example of sample with characters</span>
+<span class="kw">print</span>(<span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&#39;elem 1&#39;</span>,<span class="st">&#39;elem 2&#39;</span>,<span class="st">&#39;elem 3&#39;</span>), <span class="dv">1</span>))</code></pre></div>
+<pre><code>## [1] &quot;elem 1&quot;</code></pre>
+<p>At this point, it is important to acknowledge that <strong>the generation of random values in R is not entirely random!</strong> Internally, the computer chooses values from a queue. Each time functions, such as <code>rnorm</code>, <code>runif</code>, and <code>sample</code>, are called in the code, the computer chooses a different place in this queue according to various parameters, such as time itself. The practical effect is that the chosen values from the queue are unpredictable from the user point of view.</p>
+<p>However, you can select set the place in the queue of random values using function <code>set.seed</code>. In practical terms, the result is that all numbers and random selections will be the same in every code execution. Using <code>set.seed</code> is strongly recommended for the reproducibility of codes involving randomness. We will use this function throughout the book, so anyone can replicate the results from the code. See the following example. </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set seed with integer 10</span>
+<span class="kw">set.seed</span>(<span class="dt">seed =</span> <span class="dv">10</span>)
+
+<span class="co"># create and print &quot;random&quot; vectors</span>
+my.rnd.vec.<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">5</span>)
+<span class="kw">print</span>(my.rnd.vec.<span class="dv">1</span>)</code></pre></div>
+<pre><code>## [1] 0.50747820 0.30676851 0.42690767 0.69310208 0.08513597</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my.rnd.vec.<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">5</span>)
+<span class="kw">print</span>(my.rnd.vec.<span class="dv">2</span>)</code></pre></div>
+<pre><code>## [1] 0.2254366 0.2745305 0.2723051 0.6158293 0.4296715</code></pre>
+<p>In the previous code, the value of <code>set.seed</code> is an integer chosen by the user. After the call to <code>set.seed(10)</code>, all selections and random numbers will start from the same point in the queue; therefore, the random vectors are the same. By running that previous chunk of code in your computer, you’ll see that the values of <code>my.rnd.vec.1</code> and <code>my.rnd.vec.2</code> will be exactly the same as the ones printed in this book.</p>
+</div>
+<div id="accessing-the-elements-of-a-numeric-vector" class="section level3">
+<h3><span class="header-section-number">3.1.5</span> Accessing the Elements of a <code>numeric</code> Vector</h3>
+<p>As mentioned in the previous chapter, all elements of a numerical vector can be accessed with brackets (<code>[]</code>). For example, if we wanted only the first element of <code>x</code>, we can use <code>x[1]</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set vector</span>
+x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">4</span>, <span class="op">-</span><span class="dv">9</span>, <span class="dv">2</span>)
+
+<span class="co"># get first element</span>
+first.elem.x &lt;-<span class="st"> </span>x[<span class="dv">1</span>]
+
+<span class="co"># print it</span>
+<span class="kw">print</span>(first.elem.x)</code></pre></div>
+<pre><code>## [1] -1</code></pre>
+<p>The same notation is used to extract parts of a vector. If we wanted to create a sub-vector with the first and second element of <code>x</code>, we could achieve this goal with the code presented next:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># sub-vector of x</span>
+sub.x &lt;-<span class="st"> </span>x[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>]
+
+<span class="co"># print it</span>
+<span class="kw">print</span>(sub.x)</code></pre></div>
+<pre><code>## [1] -1  4</code></pre>
+<p>To access named elements of a numeric array, simply use its name as a <code>character</code> value or vector inside the brackets.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set named vector</span>
+x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dt">item1 =</span> <span class="dv">10</span>, <span class="dt">item2 =</span> <span class="dv">14</span>, <span class="dt">item3 =</span> <span class="op">-</span><span class="dv">9</span>, <span class="dt">item4 =</span> <span class="op">-</span><span class="dv">2</span>)
+
+<span class="co"># access elements by name</span>
+<span class="kw">print</span>(x[<span class="st">&#39;item2&#39;</span>])</code></pre></div>
+<pre><code>## item2 
+##    14</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(x[<span class="kw">c</span>(<span class="st">&#39;item2&#39;</span>,<span class="st">&#39;item4&#39;</span>)])</code></pre></div>
+<pre><code>## item2 item4 
+##    14    -2</code></pre>
+<p>We can also access the elements of a numerical vector using logical tests. For example, if we were interested in knowing which values of <code>x</code> are larger than <em>0</em>, we could use the following code:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># find all values of x higher than zero</span>
+<span class="kw">print</span>(x[x <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>])</code></pre></div>
+<pre><code>## item1 item2 
+##    10    14</code></pre>
+<p>The selection of elements from a vector, according to some criteria, is called logical indexing. Objects of type <code>logical</code> will be treated later in this same chapter.</p>
+</div>
+<div id="modifying-and-removing-elements-of-a-numeric-vector" class="section level3">
+<h3><span class="header-section-number">3.1.6</span> Modifying and Removing Elements of a <code>numeric</code> Vector</h3>
+<p>The modification of a vector is very simple. Just indicate the changes with the <em>assign</em> symbol (<code>&lt;-</code>): </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set vector</span>
+my.x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">4</span>
+
+<span class="co"># modify first element to 5</span>
+my.x[<span class="dv">1</span>] &lt;-<span class="st"> </span><span class="dv">5</span>
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(my.x)</code></pre></div>
+<pre><code>## [1] 5 2 3 4</code></pre>
+<p>This modification can also be performed block-wise:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set vector </span>
+my.x &lt;-<span class="st"> </span><span class="dv">0</span><span class="op">:</span><span class="dv">5</span>
+
+<span class="co"># set the first three elements to 5</span>
+my.x[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>] &lt;-<span class="st"> </span><span class="dv">5</span>
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(my.x)</code></pre></div>
+<pre><code>## [1] 5 5 5 3 4 5</code></pre>
+<p>Using conditions to change values in a vector is also possible:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set vector </span>
+my.x &lt;-<span class="st"> </span><span class="op">-</span><span class="dv">5</span><span class="op">:</span><span class="dv">5</span>
+
+<span class="co"># set any value lower than 2 to 0</span>
+my.x[my.x<span class="op">&lt;</span><span class="dv">2</span>] &lt;-<span class="st"> </span><span class="dv">0</span>
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(my.x)</code></pre></div>
+<pre><code>##  [1] 0 0 0 0 0 0 0 2 3 4 5</code></pre>
+<p>The removal of elements of a vector is carried out using a negative index. See the following example:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># create vector</span>
+my.x &lt;-<span class="st"> </span><span class="op">-</span><span class="dv">5</span><span class="op">:</span><span class="dv">5</span>
+
+<span class="co"># remove first and second element of my.x</span>
+my.x &lt;-<span class="st"> </span>my.x[<span class="op">-</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>)]
+
+<span class="co"># show result</span>
+<span class="kw">print</span>(my.x)</code></pre></div>
+<pre><code>## [1] -3 -2 -1  0  1  2  3  4  5</code></pre>
+<p>Notice how using negative index simply returns the original vector, without the elements in the brackets.</p>
+</div>
+<div id="creating-groups-from-a-numeric-vector" class="section level3">
+<h3><span class="header-section-number">3.1.7</span> Creating Groups from a <code>numeric</code> Vector</h3>
+<p>In some situations in data analysis, you’ll need to understand how many cases in the sample are located within a certain range. Imagine a vector of daily returns of a stock, the percentage change in prices from one day to another. A possible risk analysis that can be performed is to divide the return interval into five parts and verify the percentage of occurrences of returns at each range. We can do that by “labelling” each stock return to a particular group.</p>
+<p>In R, the function used to create intervals from numerical vector is <code>cut</code>. See the following example, where we create a random vector from the Normal distribution and five groups from intervals defined by the data. </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set random vector</span>
+my.x &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">10</span>)
+
+<span class="co"># create groups with 5 breaks</span>
+my.cut &lt;-<span class="st"> </span><span class="kw">cut</span>(<span class="dt">x =</span> my.x, <span class="dt">breaks =</span> <span class="dv">5</span>)
+
+<span class="co"># print it!</span>
+<span class="kw">print</span>(my.cut)</code></pre></div>
+<pre><code>##  [1] (0.0104,0.556]  (-1.63,-1.08]   (-0.535,0.0104]
+##  [4] (-1.63,-1.08]   (-0.535,0.0104] (0.556,1.1]    
+##  [7] (0.556,1.1]     (-0.535,0.0104] (0.556,1.1]    
+## [10] (0.556,1.1]    
+## 5 Levels: (-1.63,-1.08] (-1.08,-0.535] ... (0.556,1.1]</code></pre>
+<p>Note that the names in <code>my.cut</code> are defined by the ranges, and the result is an object of type <code>factor</code>. We will cover this type of object in a future section. For now, it is worthwhile to say <code>factors</code> are simply groups within our data.</p>
+<p>With the <code>cut</code> function, you can also define custom breaks in data and group names. See next:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># create random vector</span>
+my.x &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">10</span>)
+
+<span class="co"># define breaks manually</span>
+my.breaks &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">min</span>(my.x)<span class="op">-</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>, <span class="kw">max</span>(my.x)<span class="op">+</span><span class="dv">1</span>)
+
+<span class="co"># define labels manually</span>
+my.labels &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;Low&#39;</span>,<span class="st">&#39;Normal&#39;</span>, <span class="st">&#39;High&#39;</span>)
+
+<span class="co"># create group from numerical vector</span>
+my.cut &lt;-<span class="st"> </span><span class="kw">cut</span>(<span class="dt">x =</span> my.x, <span class="dt">breaks =</span> my.breaks, <span class="dt">labels =</span> my.labels)
+
+<span class="co"># print both!</span>
+<span class="kw">print</span>(my.x)</code></pre></div>
+<pre><code>##  [1]  0.08934727 -0.95494386 -0.19515038  0.92552126
+##  [5]  0.48297852 -0.59631064 -2.18528684 -0.67486594
+##  [9] -2.11906119 -1.26519802</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(my.cut)</code></pre></div>
+<pre><code>##  [1] Normal Normal Normal Normal Normal Normal Low    Normal
+##  [9] Low    Low   
+## Levels: Low Normal High</code></pre>
+<p>Notice that, in this example of creating a group from a numerical vector, the breaks were defined in <code>my.breaks</code> and the names in <code>my.labels</code>.</p>
+</div>
+<div id="other-functions-for-manipulating-numerical-vectors" class="section level3">
+<h3><span class="header-section-number">3.1.8</span> Other Functions for Manipulating Numerical Vectors</h3>
+<ul>
+<li><strong>as.numeric</strong> - Converts an object to the <code>numeric</code> class. </li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># create character object</span>
+my.text &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;1&#39;</span>, <span class="st">&#39;2&#39;</span>, <span class="st">&#39;3&#39;</span>)
+
+<span class="co"># convert to numeric</span>
+my.x &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(my.text)
+<span class="kw">print</span>(my.x)</code></pre></div>
+<pre><code>## [1] 1 2 3</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(my.x)</code></pre></div>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<ul>
+<li><strong>sum</strong> - Sums all elements of a <code>numeric</code> vector. </li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set vector</span>
+my.x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">50</span>
+
+<span class="co"># print its sum</span>
+<span class="kw">print</span>(<span class="kw">sum</span>(my.x))</code></pre></div>
+<pre><code>## [1] 1275</code></pre>
+<ul>
+<li><strong>prod</strong> - Returns the product (multiplication) of all the elements of a <code>numerical</code> vector. </li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set vector</span>
+my.x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span>
+
+<span class="co"># print prod</span>
+<span class="kw">print</span>(<span class="kw">prod</span>(my.x))</code></pre></div>
+<pre><code>## [1] 3628800</code></pre>
+<ul>
+<li><strong>max</strong> - Returns the maximum value of a <code>numeric</code> vector. </li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set vector</span>
+x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">14</span>, <span class="dv">9</span>, <span class="dv">2</span>)
+
+<span class="co"># print max value</span>
+<span class="kw">print</span>(<span class="kw">max</span>(x))</code></pre></div>
+<pre><code>## [1] 14</code></pre>
+<ul>
+<li><strong>min</strong> - Returns the minimum value of a <code>numeric</code> vector. </li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set vector</span>
+x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">12</span>, <span class="dv">15</span>, <span class="dv">9</span>, <span class="dv">2</span>)
+
+<span class="co"># print min value</span>
+<span class="kw">print</span>(<span class="kw">min</span>(x))</code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<ul>
+<li><strong>which.max</strong> - Returns the position of the maximum value of a <code>numeric</code> object. </li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set vector</span>
+x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">100</span>, <span class="dv">141</span>, <span class="dv">9</span>, <span class="dv">2</span>)
+
+<span class="co"># find position of maximum value</span>
+which.max.x &lt;-<span class="st"> </span><span class="kw">which.max</span>(x)
+
+<span class="co"># show text output</span>
+<span class="kw">cat</span>(<span class="kw">paste</span>(<span class="st">&#39;The position of the maximum value of x is&#39;</span>,
+          which.max.x))</code></pre></div>
+<pre><code>## The position of the maximum value of x is 2</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cat</span>(<span class="st">&#39; Its value is &#39;</span>, x[which.max.x])</code></pre></div>
+<pre><code>##  Its value is  141</code></pre>
+<ul>
+<li><strong>which.min</strong> - Returns the position of the minimum value of a <code>numeric</code> object. </li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set vector</span>
+x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">14</span>, <span class="dv">9</span>, <span class="dv">2</span>)
+
+<span class="co"># find min value of x</span>
+which.min.x &lt;-<span class="st"> </span><span class="kw">which.min</span>(x)
+<span class="kw">cat</span>(<span class="kw">paste</span>(<span class="st">&#39;The position of the minimum value of x is &#39;</span>, 
+          which.min.x))</code></pre></div>
+<pre><code>## The position of the minimum value of x is  4</code></pre>
+<ul>
+<li><strong>sort</strong> - Returns a sorted (ascending or descending) version of a <code>numeric</code> vector. </li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set random numbers</span>
+x &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">5</span>)
+
+<span class="co"># sort ascending and print</span>
+<span class="kw">print</span>(<span class="kw">sort</span>(x, <span class="dt">decreasing =</span> <span class="ot">FALSE</span>))</code></pre></div>
+<pre><code>## [1] 0.1915609 0.2458664 0.3543281 0.4731415 0.9364325</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># sort descending and print</span>
+<span class="kw">print</span>(<span class="kw">sort</span>(x, <span class="dt">decreasing =</span> <span class="ot">TRUE</span>))</code></pre></div>
+<pre><code>## [1] 0.9364325 0.4731415 0.3543281 0.2458664 0.1915609</code></pre>
+<ul>
+<li><strong>cumsum</strong> - Returns the cumulative sum of the elements of a <code>numerical</code> vector. </li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set vector</span>
+my.x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">25</span>
+
+<span class="co"># print cumsum</span>
+<span class="kw">print</span>(<span class="kw">cumsum</span>(my.x))</code></pre></div>
+<pre><code>##  [1]   1   3   6  10  15  21  28  36  45  55  66  78  91 105
+## [15] 120 136 153 171 190 210 231 253 276 300 325</code></pre>
+<ul>
+<li><strong>cumprod</strong> - Returns the cumulative product of the elements of a <code>numeric</code> vector. </li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set vector</span>
+my.x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span>
+
+<span class="co"># print cumprod</span>
+<span class="kw">print</span>(<span class="kw">cumprod</span>(my.x))</code></pre></div>
+<pre><code>##  [1]       1       2       6      24     120     720    5040
+##  [8]   40320  362880 3628800</code></pre>
+<ul>
+<li><strong>unique</strong> - Returns all unique values of a numeric vector. </li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set vector</span>
+my.x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">5</span>)
+
+<span class="co"># print unique values</span>
+<span class="kw">print</span>(<span class="kw">unique</span>(my.x))</code></pre></div>
+<pre><code>## [1] 1 2 3 5</code></pre>
+</div>
+</div>
+<div id="character-objects" class="section level2">
+<h2><span class="header-section-number">3.2</span> <code>Character</code> Objects</h2>
+<p>The <code>character</code> class, or simply text class, is used to store textual information. With the recent publication of several access points for social media data, such as Facebook and Twitter posts, analyzing textual information is an upward trend. As an example, you can extract a measure of sentiment from a text and use this information for further analysis. Usually however, the manipulation of a <code>character</code> vector is related to cleaning up the data and extracting specific information in the text.</p>
+<p>R has several features that facilitate the creation and manipulation of text type objects. The base functions shipped with the installation of R are comprehensive and suited for most cases. However, package <code>stringr</code> <span class="citation">(Wickham <a href="#ref-stringr">2015</a>)</span> provides many functions that expand the basic functionality of string manipulation in R, and a positive aspect of <code>stringr</code> is that string procedures start with the name <code>str_</code> and are informative. So, using the auto completion feature described in the previous chapter, it is easy to find the names of functions in this package. In this chapter, we will provide both ways of manipulating strings, using the base code of R and <code>stringr</code>. This way, the user can read code written with both packages. First, let’s load the package for use in the following code. </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(stringr)</code></pre></div>
+<div id="creating-a-simple-character-object" class="section level3">
+<h3><span class="header-section-number">3.2.1</span> Creating a Simple <code>character</code> Object</h3>
+<p>In R, every <code>character</code> object is created by encapsulating a text with double quotation marks (&quot; “) or single (‘’). To create an array of characters with stock <em>tickers</em>, we can do it with the following code: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my.tickers &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;MMM&#39;</span>, <span class="st">&#39;FB&#39;</span>, <span class="st">&#39;ICE&#39;</span>)
+<span class="kw">print</span>(my.tickers)</code></pre></div>
+<pre><code>## [1] &quot;MMM&quot; &quot;FB&quot;  &quot;ICE&quot;</code></pre>
+<p>We can confirm the class of the created object with function <code>class</code>: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(my.tickers)</code></pre></div>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+</div>
+<div id="creating-structured-character-objects" class="section level3">
+<h3><span class="header-section-number">3.2.2</span> Creating Structured <code>character</code> Objects</h3>
+<p>In some data analysis situations, it will be required to create a text vector with some sort of structure. For example, vector <code>c('ticker 1', 'ticker 2', ..., 'ticker 19', 'ticker 20')</code> has a clear logic. It combines a text <code>ticker</code> with values from a vector that starts in 1 and ends in 20.</p>
+<p>To create a text vector with the junction of text and numbers, use the <code>paste</code> or <code>paste0</code> function. The difference between the functions is the symbol that separates the pasted text. Function <code>paste</code> adds a space automatically, while <code>paste0</code> does not. See the following example, which replicates the previous structured text.  </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># create sequence</span>
+my.seq &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">20</span>
+
+<span class="co"># create character</span>
+my.text &lt;-<span class="st"> &#39;ticker&#39;</span>
+
+<span class="co"># paste objects together (with space)</span>
+my.char &lt;-<span class="st"> </span><span class="kw">paste</span>(my.text, my.seq)
+<span class="kw">print</span>(my.char)</code></pre></div>
+<pre><code>##  [1] &quot;ticker 1&quot;  &quot;ticker 2&quot;  &quot;ticker 3&quot;  &quot;ticker 4&quot; 
+##  [5] &quot;ticker 5&quot;  &quot;ticker 6&quot;  &quot;ticker 7&quot;  &quot;ticker 8&quot; 
+##  [9] &quot;ticker 9&quot;  &quot;ticker 10&quot; &quot;ticker 11&quot; &quot;ticker 12&quot;
+## [13] &quot;ticker 13&quot; &quot;ticker 14&quot; &quot;ticker 15&quot; &quot;ticker 16&quot;
+## [17] &quot;ticker 17&quot; &quot;ticker 18&quot; &quot;ticker 19&quot; &quot;ticker 20&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># paste objects together (without space)</span>
+my.char &lt;-<span class="st"> </span><span class="kw">paste0</span>(my.text, my.seq)
+<span class="kw">print</span>(my.char)</code></pre></div>
+<pre><code>##  [1] &quot;ticker1&quot;  &quot;ticker2&quot;  &quot;ticker3&quot;  &quot;ticker4&quot;  &quot;ticker5&quot; 
+##  [6] &quot;ticker6&quot;  &quot;ticker7&quot;  &quot;ticker8&quot;  &quot;ticker9&quot;  &quot;ticker10&quot;
+## [11] &quot;ticker11&quot; &quot;ticker12&quot; &quot;ticker13&quot; &quot;ticker14&quot; &quot;ticker15&quot;
+## [16] &quot;ticker16&quot; &quot;ticker17&quot; &quot;ticker18&quot; &quot;ticker19&quot; &quot;ticker20&quot;</code></pre>
+<p>We can do the same procedure with text vectors:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set character value</span>
+my.x &lt;-<span class="st"> &#39;My name is&#39;</span>
+
+<span class="co"># set character vector</span>
+my.names &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;Marcelo&#39;</span>, <span class="st">&#39;Ricardo&#39;</span>, <span class="st">&#39;Tarcizio&#39;</span>)
+
+<span class="co"># paste and print</span>
+<span class="kw">print</span>(<span class="kw">paste</span>(my.x, my.names))</code></pre></div>
+<pre><code>## [1] &quot;My name is Marcelo&quot;  &quot;My name is Ricardo&quot; 
+## [3] &quot;My name is Tarcizio&quot;</code></pre>
+<p>In <code>stringr</code>, the equivalent function for pasting strings together is <code>str_c</code>, which works similarly to <code>paste0</code>. </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># paste and print</span>
+<span class="kw">print</span>(<span class="kw">str_c</span>(my.x, my.names))</code></pre></div>
+<pre><code>## [1] &quot;My name isMarcelo&quot;  &quot;My name isRicardo&quot; 
+## [3] &quot;My name isTarcizio&quot;</code></pre>
+<p>Another possibility of building structured text is the repetition of the content of another object. With <code>character</code> objects, use function <code>strrep</code> or <code>stringr!str_dup</code> for this purpose. Consider the following example:  </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># replicate with strrep</span>
+my.char &lt;-<span class="st"> </span><span class="kw">strrep</span>(<span class="dt">x =</span> <span class="st">&#39;abc&#39;</span>, <span class="dt">times =</span> <span class="dv">5</span>)
+<span class="kw">print</span>(my.char)</code></pre></div>
+<pre><code>## [1] &quot;abcabcabcabcabc&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># replicate with stringr::str_dup</span>
+<span class="kw">print</span>(<span class="kw">str_dup</span>(my.char, <span class="dv">2</span>))</code></pre></div>
+<pre><code>## [1] &quot;abcabcabcabcabcabcabcabcabcabc&quot;</code></pre>
+</div>
+<div id="character-constants" class="section level3">
+<h3><span class="header-section-number">3.2.3</span> <code>character</code> Constants</h3>
+<p>R also allows direct access to all letters of the Roman alphabet. They are stored in the reserved (constant) objects, called <code>letters</code> and <code>LETTERS</code>. See an example next.  </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># print all letters in alphabet (no cap)</span>
+<span class="kw">print</span>(letters)</code></pre></div>
+<pre><code>##  [1] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; &quot;e&quot; &quot;f&quot; &quot;g&quot; &quot;h&quot; &quot;i&quot; &quot;j&quot; &quot;k&quot; &quot;l&quot; &quot;m&quot; &quot;n&quot;
+## [15] &quot;o&quot; &quot;p&quot; &quot;q&quot; &quot;r&quot; &quot;s&quot; &quot;t&quot; &quot;u&quot; &quot;v&quot; &quot;w&quot; &quot;x&quot; &quot;y&quot; &quot;z&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># print all letters in alphabet (WITH CAP)</span>
+<span class="kw">print</span>(LETTERS)</code></pre></div>
+<pre><code>##  [1] &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;E&quot; &quot;F&quot; &quot;G&quot; &quot;H&quot; &quot;I&quot; &quot;J&quot; &quot;K&quot; &quot;L&quot; &quot;M&quot; &quot;N&quot;
+## [15] &quot;O&quot; &quot;P&quot; &quot;Q&quot; &quot;R&quot; &quot;S&quot; &quot;T&quot; &quot;U&quot; &quot;V&quot; &quot;W&quot; &quot;X&quot; &quot;Y&quot; &quot;Z&quot;</code></pre>
+<p>Note that, in both cases, <code>letters</code> and <code>LETTERS</code> are not functions. They are <code>character</code> objects automatically embedded as constants in R. Even though they do not appear in the environment, they are available for use. You can overwrite their names, but this is not advised. Other constant <code>character</code> objects in R are <code>month.abb</code>, which shows an abbreviation of months and <code>month.name</code>. Their content is presented next.    </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># print abreviation and full names of months</span>
+<span class="kw">print</span>(month.abb)    </code></pre></div>
+<pre><code>##  [1] &quot;Jan&quot; &quot;Feb&quot; &quot;Mar&quot; &quot;Apr&quot; &quot;May&quot; &quot;Jun&quot; &quot;Jul&quot; &quot;Aug&quot; &quot;Sep&quot;
+## [10] &quot;Oct&quot; &quot;Nov&quot; &quot;Dec&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(month.name)   </code></pre></div>
+<pre><code>##  [1] &quot;January&quot;   &quot;February&quot;  &quot;March&quot;     &quot;April&quot;    
+##  [5] &quot;May&quot;       &quot;June&quot;      &quot;July&quot;      &quot;August&quot;   
+##  [9] &quot;September&quot; &quot;October&quot;   &quot;November&quot;  &quot;December&quot;</code></pre>
+</div>
+<div id="selecting-characters-of-a-text-object" class="section level3">
+<h3><span class="header-section-number">3.2.4</span> Selecting Characters of a Text Object</h3>
+<p>A common beginner’s mistake is to select characters of a text using brackets, as it is done for selecting elements of a vector. Consider the following code:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set char object</span>
+my.char &lt;-<span class="st"> &#39;ABCDE&#39;</span>
+
+<span class="co"># print its second element (WRONG - RESULT is NA)</span>
+<span class="kw">print</span>(my.char[<span class="dv">2</span>])</code></pre></div>
+<pre><code>## [1] NA</code></pre>
+<p>The return value <code>NA</code> indicates the second element of <code>my.char</code> does not exist. This happens because the use of square brackets is reserved for accessing the element of an atomic vector, not characters within a larger text. Watch what happens when we use <code>my.char[1]</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(my.char[<span class="dv">1</span>])</code></pre></div>
+<pre><code>## [1] &quot;ABCDE&quot;</code></pre>
+<p>The result is simply the <em>ABCDE</em> text, located on the first item of <code>my.char</code>, available with command <code>my.char[1]</code>. To select pieces of text, we need to use function <code>substr</code> from the base code or <code>str_sub</code> from <code>stringr</code>.  </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># print third and fourth characters with base function</span>
+my.substr &lt;-<span class="st"> </span><span class="kw">substr</span>(<span class="dt">x =</span> my.char, <span class="dt">start =</span> <span class="dv">3</span>, <span class="dt">stop =</span> <span class="dv">4</span>)
+<span class="kw">print</span>(my.substr)</code></pre></div>
+<pre><code>## [1] &quot;CD&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># print third and fourth characters with stringr function</span>
+my.substr &lt;-<span class="st"> </span><span class="kw">str_sub</span>(<span class="dt">string =</span> my.char, <span class="dt">start =</span> <span class="dv">3</span>, <span class="dt">end =</span> <span class="dv">4</span>)
+<span class="kw">print</span>(my.substr)</code></pre></div>
+<pre><code>## [1] &quot;CD&quot;</code></pre>
+<p>These functions also work for atomic vectors. Let’s assume you imported text data, and the raw dataset contains a 3-digit identifier of a company, always in the same location of the string. Let’s simulate the situation in R:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># build char vec</span>
+my.char.vec &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="kw">c</span>(<span class="st">&#39;123&#39;</span>,<span class="st">&#39;231&#39;</span>,<span class="st">&#39;321&#39;</span>), 
+                      <span class="st">&#39; - other ignorable text&#39;</span>) 
+<span class="kw">print</span>(my.char.vec)</code></pre></div>
+<pre><code>## [1] &quot;123 - other ignorable text&quot;
+## [2] &quot;231 - other ignorable text&quot;
+## [3] &quot;321 - other ignorable text&quot;</code></pre>
+<p>Here, we only want the information in the first three characters of each element in <code>my.char.vec</code>. To select them, we can use the same functions as before.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># get ids with substr</span>
+ids.vec &lt;-<span class="st"> </span><span class="kw">substr</span>(my.char.vec, <span class="dv">1</span>, <span class="dv">3</span>)
+<span class="kw">print</span>(ids.vec)</code></pre></div>
+<pre><code>## [1] &quot;123&quot; &quot;231&quot; &quot;321&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># get ids with stringr::str_sub</span>
+ids.vec &lt;-<span class="st"> </span><span class="kw">str_sub</span>(my.char.vec, <span class="dv">1</span>, <span class="dv">3</span>)</code></pre></div>
+<p>Vector operations are common in R. Almost anything you can do to a single element can be expanded to vectors . This facilitates the development of research scripts as you can easily perform complicated tasks to a series of elements in a single line of code.</p>
+</div>
+<div id="finding-and-replacing-characters-of-a-text" class="section level3">
+<h3><span class="header-section-number">3.2.5</span> Finding and Replacing Characters of a Text</h3>
+<p>A useful operation in handling texts is to locate specific patterns of text within a <code>character</code> object. From the base functions in R, you can use <code>regexpr</code> and <code>gregexpr</code>. The equivalent functions in <code>stringr</code> are <code>str_locate</code> and <code>str_locate_all</code>.    </p>
+<p>Before moving to the examples, it is important to point out, by default, these functions use expressions of the type <code>regex</code> - regular expressions <span class="citation">(Thompson <a href="#ref-thompson1968programming">1968</a>)</span>. This is a specific language for the identification of patterns in text. When used correctly, it is a useful and valuable format. Usually, the most common case in research is to verify the position or the existence of a smaller text within a larger text. For these cases, however, using language <code>regex</code> is unnecessary. Therefore, the location and replacement of characters in the next example is of the fixed type, i.e., without using <code>regex</code>. Such information should be passed to functions with argument <code>fixed</code> or using function <code>fixed</code> from <code>stringr</code>.  </p>
+<p>The following example shows how to find the <em>D</em> character from a range of characters.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set character object</span>
+my.char &lt;-<span class="st"> &#39;ABCDEF-ABCDEF-ABC&#39;</span>
+
+<span class="co"># find position of FIRST &#39;D&#39; using regexpr</span>
+pos &lt;-<span class="st"> </span><span class="kw">regexpr</span>(<span class="dt">pattern =</span> <span class="st">&#39;D&#39;</span>, <span class="dt">text =</span> my.char, <span class="dt">fixed =</span> <span class="ot">TRUE</span>) 
+<span class="kw">print</span>(pos)</code></pre></div>
+<pre><code>## [1] 4
+## attr(,&quot;match.length&quot;)
+## [1] 1
+## attr(,&quot;useBytes&quot;)
+## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># find position of &#39;D&#39; using str_locate</span>
+pos &lt;-<span class="st"> </span><span class="kw">str_locate</span>(my.char, <span class="kw">fixed</span>(<span class="st">&#39;D&#39;</span>))
+<span class="kw">print</span>(pos)</code></pre></div>
+<pre><code>##      start end
+## [1,]     4   4</code></pre>
+<p>Note the <code>regexp</code> and <code>str_locate</code> function return only the first occurrence of <em>D</em>. To locate all instances, we use function <code>gregexpr</code>, where <em>g</em> indicates a <em>global</em> search, and <code>str_locate_all</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set object</span>
+my.char &lt;-<span class="st"> &#39;ABCDEF-ABCDEF-ABC&#39;</span>
+
+<span class="co"># find position of ALL &#39;D&#39; using regexpr</span>
+pos &lt;-<span class="st"> </span><span class="kw">gregexpr</span>(<span class="dt">pattern =</span> <span class="st">&#39;D&#39;</span>, <span class="dt">text =</span> my.char, <span class="dt">fixed =</span> <span class="ot">TRUE</span>) 
+<span class="kw">print</span>(pos)</code></pre></div>
+<pre><code>## [[1]]
+## [1]  4 11
+## attr(,&quot;match.length&quot;)
+## [1] 1 1
+## attr(,&quot;useBytes&quot;)
+## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># find position of ALL &#39;D&#39; using str_locate_all</span>
+pos &lt;-<span class="st"> </span><span class="kw">str_locate_all</span>(my.char, <span class="kw">fixed</span>(<span class="st">&#39;D&#39;</span>))
+<span class="kw">print</span>(pos)</code></pre></div>
+<pre><code>## [[1]]
+##      start end
+## [1,]     4   4
+## [2,]    11  11</code></pre>
+<p>To replace characters in a text, use functions <code>sub</code> and <code>gsub</code> from the base package or <code>str_replace</code> and <code>str_replace_all</code> from <code>stringr</code>. As with previous example, <code>sub</code> replaces the first occurrence of the character to be replaced, while <code>gsub</code> performs a global substitution; applies to all matches. Here are the differences:    </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set char object</span>
+my.char &lt;-<span class="st"> &#39;ABCDEF-ABCDEF-ABC&#39;</span>
+
+<span class="co"># substitute the FIRST &#39;ABC&#39; for &#39;XXX&#39; with sub</span>
+my.char &lt;-<span class="st"> </span><span class="kw">sub</span>(<span class="dt">x =</span> my.char, 
+               <span class="dt">pattern =</span> <span class="st">&#39;ABC&#39;</span>, 
+               <span class="dt">replacement =</span> <span class="st">&#39;XXX&#39;</span>)
+<span class="kw">print</span>(my.char)</code></pre></div>
+<pre><code>## [1] &quot;XXXDEF-ABCDEF-ABC&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># substitute the FIRST &#39;ABC&#39; for &#39;XXX&#39; with str_replace</span>
+my.char &lt;-<span class="st"> </span><span class="kw">str_replace</span>(<span class="dt">string =</span> my.char, 
+                       <span class="dt">pattern =</span> <span class="st">&#39;ABC&#39;</span>, 
+                       <span class="dt">replacement =</span> <span class="st">&#39;XXX&#39;</span>)
+<span class="kw">print</span>(my.char)</code></pre></div>
+<pre><code>## [1] &quot;XXXDEF-XXXDEF-ABC&quot;</code></pre>
+<p>And now we do a global substitution of characters.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set char object</span>
+my.char &lt;-<span class="st"> &#39;ABCDEF-ABCDEF-ABC&#39;</span>
+
+<span class="co"># substitute all &#39;ABC&#39; for &#39;XXX&#39;  with gsub</span>
+my.char &lt;-<span class="st"> </span><span class="kw">gsub</span>(<span class="dt">x =</span> my.char, 
+                <span class="dt">pattern =</span> <span class="st">&#39;ABC&#39;</span>, 
+                <span class="dt">replacement =</span> <span class="st">&#39;XXX&#39;</span>)
+                
+<span class="kw">print</span>(my.char)</code></pre></div>
+<pre><code>## [1] &quot;XXXDEF-XXXDEF-XXX&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># substitute ALL &#39;ABC&#39; for &#39;XXX&#39; with str_replace_all</span>
+my.char &lt;-<span class="st"> </span><span class="kw">str_replace_all</span>(<span class="dt">string =</span> my.char, 
+                           <span class="dt">pattern =</span> <span class="st">&#39;ABC&#39;</span>, 
+                           <span class="dt">replacement =</span> <span class="st">&#39;XXX&#39;</span>)
+<span class="kw">print</span>(my.char)</code></pre></div>
+<pre><code>## [1] &quot;XXXDEF-XXXDEF-XXX&quot;</code></pre>
+<p>Again, it is worth pointing out that the operations of replacements of strings also works in vectors. Have a look at the next example.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set char object</span>
+my.char &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;ABCDEF&#39;</span>,<span class="st">&#39;DBCFE&#39;</span>,<span class="st">&#39;ABC&#39;</span>)
+
+<span class="co"># create an example of vector</span>
+my.char.vec &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="kw">sample</span>(my.char, <span class="dv">5</span>, <span class="dt">replace =</span> T),
+                     <span class="kw">sample</span>(my.char, <span class="dv">5</span>, <span class="dt">replace =</span> T), 
+                     <span class="dt">sep =</span> <span class="st">&#39; - &#39;</span>)
+
+<span class="co"># show it</span>
+<span class="kw">print</span>(my.char.vec)</code></pre></div>
+<pre><code>## [1] &quot;DBCFE - ABCDEF&quot; &quot;DBCFE - ABCDEF&quot; &quot;DBCFE - DBCFE&quot; 
+## [4] &quot;DBCFE - DBCFE&quot;  &quot;DBCFE - ABC&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># substitute all occurrences of &#39;ABC&#39;</span>
+my.char.vec &lt;-<span class="st"> </span><span class="kw">str_replace_all</span>(<span class="dt">string =</span> my.char.vec, 
+                               <span class="dt">pattern =</span> <span class="st">&#39;ABC&#39;</span>, 
+                               <span class="dt">replacement =</span> <span class="st">&#39;XXX&#39;</span>)
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(my.char.vec)</code></pre></div>
+<pre><code>## [1] &quot;DBCFE - XXXDEF&quot; &quot;DBCFE - XXXDEF&quot; &quot;DBCFE - DBCFE&quot; 
+## [4] &quot;DBCFE - DBCFE&quot;  &quot;DBCFE - XXX&quot;</code></pre>
+</div>
+<div id="splitting-text" class="section level3">
+<h3><span class="header-section-number">3.2.6</span> Splitting Text</h3>
+<p>In some situations of analyzing text data, it will be necessary to break a text into different parts. Most of the time, you want to isolate a particular information in the full string by using a delimiter in the text. For example, the text <code>'ABC;DEF;GHI'</code> has three subcharacters divided by symbol <code>;</code>. To separate a text into several parts, use <code>strsplit</code> from the base functions or <code>str_split</code> from <code>stringr</code>. Both functions break the original text into several fractions, according to a chosen delimiter character. See an example next.  </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set char</span>
+my.char &lt;-<span class="st"> &#39;ABCXABCXBCD&#39;</span>
+
+<span class="co"># split it based on &#39;X&#39; and using strsplit</span>
+split.char &lt;-<span class="st"> </span><span class="kw">strsplit</span>(my.char, <span class="st">&#39;X&#39;</span>)
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(split.char)</code></pre></div>
+<pre><code>## [[1]]
+## [1] &quot;ABC&quot; &quot;ABC&quot; &quot;BCD&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># split it based on &#39;X&#39; and using stringr::str_split</span>
+split.char &lt;-<span class="st"> </span><span class="kw">str_split</span>(my.char, <span class="st">&#39;X&#39;</span>)
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(split.char)</code></pre></div>
+<pre><code>## [[1]]
+## [1] &quot;ABC&quot; &quot;ABC&quot; &quot;BCD&quot;</code></pre>
+<p>The output of this function is an object of type <code>list</code>. Since each split operation results in more than one element, and it is impossible to store multidimensional outputs in a single vector, the use of a <code>list</code>is justified. But, to access its results, you can use a <code>list</code> operator <code>[[ ]]</code>, which will be discussed later. For example, to access the text <code>BCD</code> in object <code>split.char</code>, we can use the following code:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(split.char[[<span class="dv">1</span>]][<span class="dv">3</span>])</code></pre></div>
+<pre><code>## [1] &quot;BCD&quot;</code></pre>
+<p>To visualize an example of split in character vectors, see the next code.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set char</span>
+my.char.vec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;ABCDEF&#39;</span>,<span class="st">&#39;DBCFE&#39;</span>,<span class="st">&#39;ABFC&#39;</span>,<span class="st">&#39;ACD&#39;</span>)
+
+<span class="co"># split it based on &#39;B&#39; and using stringr::strsplit</span>
+split.char &lt;-<span class="st"> </span><span class="kw">strsplit</span>(my.char.vec, <span class="st">&#39;B&#39;</span>)
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(split.char)</code></pre></div>
+<pre><code>## [[1]]
+## [1] &quot;A&quot;    &quot;CDEF&quot;
+## 
+## [[2]]
+## [1] &quot;D&quot;   &quot;CFE&quot;
+## 
+## [[3]]
+## [1] &quot;A&quot;  &quot;FC&quot;
+## 
+## [[4]]
+## [1] &quot;ACD&quot;</code></pre>
+<p>Notice how, again, an object of type <code>list</code> is returned.</p>
+</div>
+<div id="finding-the-number-of-characters-in-a-text" class="section level3">
+<h3><span class="header-section-number">3.2.7</span> Finding the Number of Characters in a Text</h3>
+<p>To find out the number of characters in a <code>character</code> object, you can use function <code>nchar</code> from the base package or <code>str_length</code> from <code>stringr</code>. Both functions also work for atomic vectors. See the examples below:  </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set char</span>
+my.char &lt;-<span class="st"> &#39;abcdef&#39;</span>
+
+<span class="co"># print number of characters using nchar</span>
+<span class="kw">print</span>(<span class="kw">nchar</span>(my.char))</code></pre></div>
+<pre><code>## [1] 6</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># print number of characters using stringr::str_length</span>
+<span class="kw">print</span>(<span class="kw">str_length</span>(my.char))</code></pre></div>
+<pre><code>## [1] 6</code></pre>
+<p>And now an example with vectors.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#set char</span>
+my.char &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;a&#39;</span>, <span class="st">&#39;ab&#39;</span>, <span class="st">&#39;abc&#39;</span>)
+
+<span class="co"># print number of characters using nchar</span>
+<span class="kw">print</span>(<span class="kw">nchar</span>(my.char))</code></pre></div>
+<pre><code>## [1] 1 2 3</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># print number of characters using stringr::str_length</span>
+<span class="kw">print</span>(<span class="kw">str_length</span>(my.char))</code></pre></div>
+<pre><code>## [1] 1 2 3</code></pre>
+</div>
+<div id="generating-combinations-of-text" class="section level3">
+<h3><span class="header-section-number">3.2.8</span> Generating Combinations of Text</h3>
+<p>One useful trick in R is to use functions <code>outer</code> and <code>expand.grid</code> to create all possible combinations of elements in different objects. This is useful when you want to create a <code>character</code> vector by combining all possible elements from different vectors. For example, if we wanted to create a vector with all combinations between <code>c('a', 'b')</code> and <code>'c('A','A')</code> as <code>c('a-A', 'a-B',...)</code>, we could write:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set char vecs</span>
+my.vec.<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>)
+my.vec.<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;A&#39;</span>,<span class="st">&#39;B&#39;</span>)
+
+<span class="co"># combine in matrix</span>
+comb.mat &lt;-<span class="st"> </span><span class="kw">outer</span>(my.vec.<span class="dv">1</span>, my.vec.<span class="dv">2</span>, paste,<span class="dt">sep=</span><span class="st">&#39;-&#39;</span>)
+
+<span class="co"># print it!</span>
+<span class="kw">print</span>(comb.mat)</code></pre></div>
+<pre><code>##      [,1]  [,2] 
+## [1,] &quot;a-A&quot; &quot;a-B&quot;
+## [2,] &quot;b-A&quot; &quot;b-B&quot;</code></pre>
+<p>The output of <code>outer</code> is a <code>matrix</code> type of object, a specific class for storing two dimensional data. Its properties will be better explained in chapter <a href="DataStructureObjects.html#DataStructureObjects">4</a>. If we wanted to change <code>comb.mat</code> to an atomic vector, we can use function <code>as.character</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(<span class="kw">as.character</span>(comb.mat))</code></pre></div>
+<pre><code>## [1] &quot;a-A&quot; &quot;b-A&quot; &quot;a-B&quot; &quot;b-B&quot;</code></pre>
+<p>Another way to reach the same objective is using function <code>expand.grid</code>. Look at the next example.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># create df with all combinations</span>
+my.df &lt;-<span class="st"> </span><span class="kw">expand.grid</span>(my.vec.<span class="dv">1</span>, my.vec.<span class="dv">2</span>)
+
+<span class="co"># print df</span>
+<span class="kw">print</span>(my.df)</code></pre></div>
+<pre><code>##   Var1 Var2
+## 1    a    A
+## 2    b    A
+## 3    a    B
+## 4    b    B</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># paste columns together</span>
+my.comb.vec &lt;-<span class="st"> </span><span class="kw">paste</span>(my.df<span class="op">$</span>Var1, my.df<span class="op">$</span>Var2, <span class="dt">sep=</span><span class="st">&#39;-&#39;</span>)
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(my.comb.vec)</code></pre></div>
+<pre><code>## [1] &quot;a-A&quot; &quot;b-A&quot; &quot;a-B&quot; &quot;b-B&quot;</code></pre>
+<p>Here, we used function <code>expand.grid</code> to create a <code>dataframe</code> containing all possible combinations of <code>my.vec.1</code> and <code>my.vec.2</code>. We pasted the contents of these columns using <code>paste</code>. For now, do not worry about the commands for handling <code>dataframes</code>. These will be discussed in the next chapter.</p>
+</div>
+<div id="encoding-of-character-objects" class="section level3">
+<h3><span class="header-section-number">3.2.9</span> Encoding of <code>character</code> Objects</h3>
+<p>Every <code>character</code> object in R is encoded in a particular format. In R’s memory, a string is just a sequence of bytes. We can define how these bytes are read as characters by encoding it in a particular format. For most cases of using R, especially in English speaking countries, the codification of strings should not be a problem. When dealing with text data in different languages, however, the encoding of strings is something you must understand, especially if you are importing text data from external sources.</p>
+<p>Let’s explore an example. Here, we will import data from a text file with the <code>UTF-8</code> encoding and check the result.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># read text file </span>
+my.char &lt;-<span class="st"> </span><span class="kw">readLines</span>(<span class="st">&#39;data/FileWithLatinChar.txt&#39;</span>)
+
+<span class="co"># print it</span>
+<span class="kw">print</span>(my.char)</code></pre></div>
+<pre><code>## [1] &quot;A casa Ã© bonita e tem muito espaÃ§o&quot;</code></pre>
+<p>The original content of the file is a text in Portuguese. As you can see, the output of <code>readLines</code> shows all Latin characters as ugly, unreadable symbols. The problem is the function did not recognize the characters because the default encoding differs from the one in the file. The easiest solution is to set the encoding manually using input <code>encoding</code>, as in:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># read text file with utf-8</span>
+my.char &lt;-<span class="st"> </span><span class="kw">readLines</span>(<span class="st">&#39;data/FileWithLatinChar.txt&#39;</span>, 
+                     <span class="dt">encoding =</span> <span class="st">&#39;UTF-8&#39;</span>) </code></pre></div>
+<p>The output in <code>my.char</code> should now be properly displayed, as R could interpret and correctly display the Latin symbols. A good policy in this topic is always to check the encoding of imported text files and match it in R. Most of the import functions have an option for doing so.</p>
+<p>As for objects available in the environment, you can use function <code>Encoding</code> for checking and setting its encoding. Look at the next example:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># read text file</span>
+my.char &lt;-<span class="st"> </span><span class="kw">readLines</span>(<span class="st">&#39;data/FileWithLatinChar.txt&#39;</span>)
+
+<span class="co"># show its encoding</span>
+<span class="kw">print</span>(<span class="kw">Encoding</span>(my.char))</code></pre></div>
+<pre><code>## [1] &quot;unknown&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># change encoding</span>
+<span class="kw">Encoding</span>(my.char) &lt;-<span class="st"> &#39;UTF-8&#39;</span>
+
+<span class="co"># show its encoding</span>
+<span class="kw">print</span>(<span class="kw">Encoding</span>(my.char))</code></pre></div>
+<pre><code>## [1] &quot;UTF-8&quot;</code></pre>
+<p>After reading the contents of <code>&quot;data/FileWithLatinChar.txt&quot;</code>, we changed the encoding of the output by using function <code>Encoding</code>. This function also works on vectors, making it easy to change the encoding of large <code>character</code> objects.</p>
+</div>
+<div id="other-functions-for-manipulating-character" class="section level3">
+<h3><span class="header-section-number">3.2.10</span> Other Functions for Manipulating <code>character</code></h3>
+<ul>
+<li><strong>tolower</strong> and <strong>stringr::str_to_lower</strong> - Converts a string to small caps.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(<span class="kw">tolower</span>(<span class="st">&#39;ABC&#39;</span>))</code></pre></div>
+<pre><code>## [1] &quot;abc&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(stringr<span class="op">::</span><span class="kw">str_to_lower</span>(<span class="st">&#39;ABC&#39;</span>))</code></pre></div>
+<pre><code>## [1] &quot;abc&quot;</code></pre>
+<ul>
+<li><strong>toupper</strong> and <strong>stringr::str_to_upper</strong> - Converts a string to upper caps.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(<span class="kw">toupper</span>(<span class="st">&#39;abc&#39;</span>))</code></pre></div>
+<pre><code>## [1] &quot;ABC&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(stringr<span class="op">::</span><span class="kw">str_to_upper</span>(<span class="st">&#39;abc&#39;</span>))</code></pre></div>
+<pre><code>## [1] &quot;ABC&quot;</code></pre>
+</div>
+</div>
+<div id="factor-objects" class="section level2">
+<h2><span class="header-section-number">3.3</span> <code>Factor</code> Objects</h2>
+<p>Object class <code>factor</code> is used to represent groups in a database. Imagine a dataset containing financial expenses of different people over a year. In this database, you find a column that defines gender (male or female). This information can be imported in R as a <code>character</code> object; however, the best way to represent it is by mutating it to class <code>factor</code>.</p>
+<p>The object class <code>factor</code> offers a special object to denote groups within the data. This integrates nicely with statistical procedures and packages, so the work of dealing with groups becomes easier. For example, if we wanted to create a chart for each group within our database, we could do it by simply telling the graphing function we have a grouping variable of type <code>factor</code>. If we wanted to check whether the medians of different groups are statistically different from each other, all we need to do is to pass the numerical values and the grouping factor to the function that performs the statistical test. When the categories of data are appropriately represented in R, working with them becomes easier and more efficient.</p>
+<div id="creating-factors" class="section level3">
+<h3><span class="header-section-number">3.3.1</span> Creating <code>factors</code></h3>
+<p>The creation of factors is accomplished with function <code>factor</code>: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># create factor</span>
+my.factor &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&#39;M&#39;</span>,<span class="st">&#39;F&#39;</span>,<span class="st">&#39;M&#39;</span>,<span class="st">&#39;M&#39;</span>,<span class="st">&#39;F&#39;</span>))
+
+<span class="co"># print it</span>
+<span class="kw">print</span>(my.factor)</code></pre></div>
+<pre><code>## [1] M F M M F
+## Levels: F M</code></pre>
+<p>Notice that, in the previous example, the presentation of factors with function <code>print</code> shows its content and an extra item called <code>Levels</code>, which identifies the possible groups in the object, in this case, only <code>M</code> and <code>F</code>. If we had a larger number of groups, the item <code>Levels</code> increases. See next: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># create factor with 3 levels</span>
+my.factor &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&#39;M&#39;</span>,<span class="st">&#39;F&#39;</span>,<span class="st">&#39;M&#39;</span>,<span class="st">&#39;M&#39;</span>,<span class="st">&#39;F&#39;</span>,<span class="st">&#39;ND&#39;</span>))
+
+<span class="co"># print factor</span>
+<span class="kw">print</span>(my.factor)</code></pre></div>
+<pre><code>## [1] M  F  M  M  F  ND
+## Levels: F M ND</code></pre>
+<p>Here, we also have the <code>ND</code> (not defined) group.</p>
+<p>An important point about creating factors is that the <code>Levels</code> are inferred from the data, and that may not correspond to reality. Consider the following example:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set factors with 1 level</span>
+my.status &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&#39;Single&#39;</span>, <span class="st">&#39;Single&#39;</span>, <span class="st">&#39;Single&#39;</span>))
+
+<span class="co"># print it</span>
+<span class="kw">print</span>(my.status)</code></pre></div>
+<pre><code>## [1] Single Single Single
+## Levels: Single</code></pre>
+<p>On occasion, the data in <code>my.status</code> only shows one category: <code>Single</code>. However, it is well-known that another category, <code>Married</code>, is expected. If we used <code>my.status</code> as it is, we may omit information, and that may cause problems. The correct procedure is to manually define the <code>Levels</code>, as follows:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my.status &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&#39;Single&#39;</span>, <span class="st">&#39;Single&#39;</span>, <span class="st">&#39;Single&#39;</span>), 
+                    <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&#39;Single&#39;</span>, <span class="st">&#39;Married&#39;</span>))
+<span class="kw">print</span>(my.status)</code></pre></div>
+<pre><code>## [1] Single Single Single
+## Levels: Single Married</code></pre>
+</div>
+<div id="modifying-factors" class="section level3">
+<h3><span class="header-section-number">3.3.2</span> Modifying <code>factors</code></h3>
+<p>An important point about <code>factor</code> type of objects is their <code>Levels</code> are immutable and will not update with the input of new data. You cannot modify the <code>Levels</code> after the creation of a <code>factor</code>. All new groups not in the <code>Levels</code> will be transformed into <code>NA</code> (<em>not available</em> ) and a <code>warning</code> message will appear on the screen. This behavior may seem strange, at first, but it avoids possible errors in the code. See the following example:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set factor</span>
+my.factor &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&#39;a&#39;</span>, <span class="st">&#39;b&#39;</span>, <span class="st">&#39;a&#39;</span>, <span class="st">&#39;b&#39;</span>))
+
+<span class="co"># change first element of a factor to &#39;c&#39;</span>
+my.factor[<span class="dv">1</span>] &lt;-<span class="st"> &#39;c&#39;</span></code></pre></div>
+<pre><code>## Warning in `[&lt;-.factor`(`*tmp*`, 1, value = &quot;c&quot;): invalid
+## factor level, NA generated</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># print result</span>
+<span class="kw">print</span>(my.factor)</code></pre></div>
+<pre><code>## [1] &lt;NA&gt; b    a    b   
+## Levels: a b</code></pre>
+<p>As we expected, the first element of <code>my.factor</code> becomes an <code>NA</code>. Here, the proper way to add a new factor is to first transform the <code>factor</code> object to a <code>character</code> object, change the content and, finally, change the class back from <code>character</code> to <code>factor</code>. See an example next. </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set factor</span>
+my.factor &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&#39;a&#39;</span>, <span class="st">&#39;b&#39;</span>, <span class="st">&#39;a&#39;</span>, <span class="st">&#39;b&#39;</span>))
+
+<span class="co"># change factor to character</span>
+my.char &lt;-<span class="st"> </span><span class="kw">as.character</span>(my.factor)
+
+<span class="co"># change first element</span>
+my.char[<span class="dv">1</span>] &lt;-<span class="st"> &#39;c&#39;</span>
+
+<span class="co"># mutate it back to class factor</span>
+my.factor &lt;-<span class="st"> </span><span class="kw">factor</span>(my.char)
+
+<span class="co"># show result</span>
+<span class="kw">print</span>(my.factor)</code></pre></div>
+<pre><code>## [1] c b a b
+## Levels: a b c</code></pre>
+<p>Using these steps, we have the desired result in vector <code>my.factor</code>, with three <code>Levels</code>: <code>a</code>, <code>b</code> and <code>c</code>.</p>
+</div>
+<div id="converting-factors-to-other-classes" class="section level3">
+<h3><span class="header-section-number">3.3.3</span> Converting <code>factors</code> to Other Classes</h3>
+<p>Attention is required when converting a <code>factor</code> to another class. When converting a <code>factor</code> to the <code>character</code> class, the result is as expected:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># create factor </span>
+my.char &lt;-<span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&#39;a&#39;</span>, <span class="st">&#39;b&#39;</span>, <span class="st">&#39;c&#39;</span>))
+
+<span class="co"># convert and print</span>
+<span class="kw">print</span>(<span class="kw">as.character</span>(my.char))</code></pre></div>
+<pre><code>## [1] &quot;a&quot; &quot;b&quot; &quot;c&quot;</code></pre>
+<p>However, when the same procedure is performed for a conversion from <code>factor</code> to the <code>numeric</code> class, the result is far from expected: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set factor</span>
+my.values &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="dv">5</span><span class="op">:</span><span class="dv">10</span>)
+
+<span class="co"># convert to numeric (WRONG)</span>
+<span class="kw">print</span>(<span class="kw">as.numeric</span>(my.values))</code></pre></div>
+<pre><code>## [1] 1 2 3 4 5 6</code></pre>
+<p>As you can see, all elements in <code>my.values</code> were converted to <code>c(1, 2, 3, 4, 5)</code>. This happens because, internally, <code>factors</code> are stored as numerical counters, ranging from 1 to the total number of <code>Levels</code>. This simplification minimizes the use of computer memory. When we asked R to transform the <code>factor</code> object into numbers, it returns the values of the counters, not the actual numbers stored as <code>factors</code>. Solving this problem and getting what we wanted is easy; just turn the <code>factor</code> object into a <code>character</code> and then to <code>numeric</code>, as shown next:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># converting factors to character and then to numeric</span>
+<span class="kw">print</span>(<span class="kw">as.numeric</span>(<span class="kw">as.character</span>(my.values)))</code></pre></div>
+<pre><code>## [1]  5  6  7  8  9 10</code></pre>
+<p>As we can see, now we got the result we wanted.</p>
+</div>
+<div id="creating-contingency-tables" class="section level3">
+<h3><span class="header-section-number">3.3.4</span> Creating Contingency Tables</h3>
+<p>After creating a factor, we can find the number of times that each group, or combination of groups, is found with function <code>table</code>. This is also called a contingency table. In a simple case, with only one factor, function <code>table</code> counts the number of occurrences of each category: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># create factor</span>
+my.factor &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&#39;Pref&#39;</span>, <span class="st">&#39;Ord&#39;</span>), 
+                             <span class="dt">size =</span> <span class="dv">20</span>, 
+                             <span class="dt">replace =</span> <span class="ot">TRUE</span>))
+                             
+<span class="co"># print it </span>
+<span class="kw">print</span>(my.factor)</code></pre></div>
+<pre><code>##  [1] Ord  Ord  Pref Pref Pref Pref Ord  Ord  Ord  Pref Ord 
+## [12] Pref Ord  Pref Pref Ord  Pref Pref Ord  Pref
+## Levels: Ord Pref</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># print contingency table</span>
+<span class="kw">print</span>(<span class="kw">table</span>(my.factor))</code></pre></div>
+<pre><code>## my.factor
+##  Ord Pref 
+##    9   11</code></pre>
+<p>A more advanced usage of function <code>table</code> is to consider more than one <code>factor</code>. Look at the following example.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set factors</span>
+my.factor.<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&#39;Pref&#39;</span>, <span class="st">&#39;Ord&#39;</span>), 
+                             <span class="dt">size =</span> <span class="dv">20</span>, 
+                             <span class="dt">replace =</span> <span class="ot">TRUE</span>))
+                             
+my.factor.<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">sample</span>(<span class="kw">paste</span>(<span class="st">&#39;Grupo&#39;</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">3</span>), 
+                             <span class="dt">size =</span> <span class="dv">20</span>, 
+                             <span class="dt">replace =</span> <span class="ot">TRUE</span>))
+
+<span class="co"># print contingency table with two factors</span>
+<span class="kw">print</span>(<span class="kw">table</span>(my.factor.<span class="dv">1</span>, my.factor.<span class="dv">2</span>))</code></pre></div>
+<pre><code>##            my.factor.2
+## my.factor.1 Grupo 1 Grupo 2 Grupo 3
+##        Ord        2       2       4
+##        Pref       3       4       5</code></pre>
+<p>The previously created table shows the number of occurrences for each combination of groups. You can also use it with more than two factors.</p>
+</div>
+<div id="other-functions-for-manipulating-factors" class="section level3">
+<h3><span class="header-section-number">3.3.5</span> Other Functions for Manipulating <code>factors</code></h3>
+<ul>
+<li><strong>levels</strong> - Returns the <code>Levels</code> an object of class <code>factor</code>. </li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set factor</span>
+my.factor &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&#39;A&#39;</span>, <span class="st">&#39;A&#39;</span>, <span class="st">&#39;B&#39;</span>, <span class="st">&#39;C&#39;</span>, <span class="st">&#39;B&#39;</span>))
+
+<span class="co"># print levels</span>
+<span class="kw">print</span>(<span class="kw">levels</span>(my.factor))</code></pre></div>
+<pre><code>## [1] &quot;A&quot; &quot;B&quot; &quot;C&quot;</code></pre>
+<ul>
+<li><strong>as.factor</strong> - Transforms an object to the class <code>factor</code>. </li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set char</span>
+my.y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>, <span class="st">&#39;c&#39;</span>, <span class="st">&#39;c&#39;</span>, <span class="st">&#39;a&#39;</span>)
+
+<span class="co"># mutate to factor</span>
+my.factor &lt;-<span class="st"> </span><span class="kw">as.factor</span>(my.y)
+
+<span class="co"># print it</span>
+<span class="kw">print</span>(my.factor)</code></pre></div>
+<pre><code>## [1] a b c c a
+## Levels: a b c</code></pre>
+<ul>
+<li><strong>split</strong> - Based on a grouping variable and another vector, creates a list with subsets of groups of the target object. This function is best used to separate different samples according to groups. </li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set factor and numeric</span>
+my.factor &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&#39;A&#39;</span>,<span class="st">&#39;B&#39;</span>,<span class="st">&#39;C&#39;</span>,<span class="st">&#39;C&#39;</span>,<span class="st">&#39;C&#39;</span>,<span class="st">&#39;B&#39;</span>))
+my.x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(my.factor)
+
+<span class="co"># split numeric vector into a list, based on factor</span>
+my.l &lt;-<span class="st"> </span><span class="kw">split</span>(<span class="dt">x =</span> my.x, <span class="dt">f =</span> my.factor)
+
+<span class="kw">print</span>(my.l)</code></pre></div>
+<pre><code>## $A
+## [1] 1
+## 
+## $B
+## [1] 2 6
+## 
+## $C
+## [1] 3 4 5</code></pre>
+</div>
+</div>
+<div id="logical-objects" class="section level2">
+<h2><span class="header-section-number">3.4</span> <code>Logical</code> Objects</h2>
+<p>Logical tests are at the heart of R. In one line of code, we can test a condition for a large vector of data. This procedure is commonly used to find outliers in a dataset and to split the sample according to some condition, such as a particular time period.</p>
+<div id="creating-logical-objects" class="section level3">
+<h3><span class="header-section-number">3.4.1</span> Creating <code>logical</code> Objects</h3>
+<p>In a sequence from 1 to 10, we can check what elements are higher than five with the following code:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set numerical</span>
+my.x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span>
+
+<span class="co"># print a logical test</span>
+<span class="kw">print</span>(my.x <span class="op">&gt;</span><span class="st"> </span><span class="dv">5</span>)</code></pre></div>
+<pre><code>##  [1] FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE
+## [10]  TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># print position of elements from logical test</span>
+<span class="kw">print</span>(<span class="kw">which</span>(my.x <span class="op">&gt;</span><span class="st"> </span><span class="dv">5</span>))</code></pre></div>
+<pre><code>## [1]  6  7  8  9 10</code></pre>
+<p>In the previous example, function <code>which</code> returned the index (position) where the condition is true (<code>TRUE</code>). </p>
+<p>To perform equality tests, simply use the equality symbol twice (<code>==</code>). </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># create char</span>
+my.char &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&#39;abc&#39;</span>,<span class="st">&#39;bcd&#39;</span>),<span class="dv">5</span>)
+
+<span class="co"># print its contents</span>
+<span class="kw">print</span>(my.char)</code></pre></div>
+<pre><code>##  [1] &quot;abc&quot; &quot;bcd&quot; &quot;abc&quot; &quot;bcd&quot; &quot;abc&quot; &quot;bcd&quot; &quot;abc&quot; &quot;bcd&quot; &quot;abc&quot;
+## [10] &quot;bcd&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># print logical test</span>
+<span class="kw">print</span>(my.char<span class="op">==</span><span class="st">&#39;abc&#39;</span>)</code></pre></div>
+<pre><code>##  [1]  TRUE FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE  TRUE
+## [10] FALSE</code></pre>
+<p>For an inequality test, use symbol <code>!=</code>, as shown in the next code: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># print inequality test</span>
+<span class="kw">print</span>(my.char<span class="op">!=</span><span class="st">&#39;abc&#39;</span>)</code></pre></div>
+<pre><code>##  [1] FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE
+## [10]  TRUE</code></pre>
+<p>It is also possible to test multiple logical conditions. For simultaneous occurrences of events, use operator <code>&amp;</code>. For example, if we wanted to check the values from a sequence between 1 and 10 that are larger than 4 <strong>and</strong> smaller than 7, we write: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my.x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span>
+
+<span class="co"># print logical for values higher than 4 and lower than 7</span>
+<span class="kw">print</span>((my.x <span class="op">&gt;</span><span class="st"> </span><span class="dv">4</span>)<span class="op">&amp;</span>(my.x <span class="op">&lt;</span><span class="st"> </span><span class="dv">7</span>) )</code></pre></div>
+<pre><code>##  [1] FALSE FALSE FALSE FALSE  TRUE  TRUE FALSE FALSE FALSE
+## [10] FALSE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># print the actual values</span>
+idx &lt;-<span class="st"> </span><span class="kw">which</span>( (my.x <span class="op">&gt;</span><span class="st"> </span><span class="dv">4</span>)<span class="op">&amp;</span>(my.x <span class="op">&lt;</span><span class="st"> </span><span class="dv">7</span>) )
+<span class="kw">print</span>(my.x[idx])</code></pre></div>
+<pre><code>## [1] 5 6</code></pre>
+<p>For non-simultaneous conditions, i.e., the occurrence of one event or other, use operator <code>|</code>. For instance, considering the previous sequence, we can find the values greater than 7 <strong>or</strong> lower than 4 by writing: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># location of elements higher than 7 or lower than 4</span>
+idx &lt;-<span class="st"> </span><span class="kw">which</span>( (my.x <span class="op">&gt;</span><span class="st"> </span><span class="dv">7</span>)<span class="op">|</span>(my.x <span class="op">&lt;</span><span class="st"> </span><span class="dv">4</span>) )
+
+<span class="co"># print elements from previous condition</span>
+<span class="kw">print</span>(my.x[idx])</code></pre></div>
+<pre><code>## [1]  1  2  3  8  9 10</code></pre>
+<p>Be aware that, in both cases, we used parentheses to encapsulate the logical conditions. While not strictly necessary, it is good coding policy. We could have used <code>idx &lt;- which(my.x &gt; 7 | my.x &lt; 4)</code> for the same result, but using parentheses makes the code cleaner by isolating the logical tests. Sometimes, however, it may be a requisite to set the parentheses correctly, as they indicate the hierarchy in the order of mathematical operations.</p>
+</div>
+</div>
+<div id="date-and-time-objects" class="section level2">
+<h2><span class="header-section-number">3.5</span> Date and Time Objects</h2>
+<p>The representation and manipulation of dates is an important aspect of research in finance. When you have dates in your dataset, you must represent them correctly in R. In this section, we will study the native functions and classes that represent time in R. There are, however, many packages that can also help the user in processing time information and perform advanced procedures with it. If the reader must perform a date operation not covered here, I suggest looking into packages <code>chron</code> <span class="citation">(James and Hornik <a href="#ref-chron">2017</a>)</span>, <code>timeDate</code> <span class="citation">(Team et al. <a href="#ref-timeDate">2015</a>)</span>, <code>lubridate</code> <span class="citation">(Grolemund and Wickham <a href="#ref-lubridate">2011</a>)</span>and <code>bizdays</code> <span class="citation">(Freitas <a href="#ref-bizdays">2016</a>)</span>.    </p>
+<div id="creating-simple-dates" class="section level3">
+<h3><span class="header-section-number">3.5.1</span> Creating Simple Dates</h3>
+<p>In R, several classes can represent dates. The most basic class, indicating the day, month, and year, is <code>Date</code>. We can create a date through a character object with the command <code>as.Date</code>:  </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set Date object</span>
+my.date &lt;-<span class="st"> </span><span class="kw">as.Date</span>(<span class="st">&#39;2016-06-24&#39;</span>)
+
+<span class="co"># check its class</span>
+<span class="kw">class</span>(my.date)</code></pre></div>
+<pre><code>## [1] &quot;Date&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># print it</span>
+<span class="kw">print</span>(my.date)</code></pre></div>
+<pre><code>## [1] &quot;2016-06-24&quot;</code></pre>
+<p>Notice, in the previous example, dates are represented in R as <code>Year-Month-Day</code> (YYYY-MM-DD). This may not be the case for your country. In Brazil, we use the format <code>day/month/year</code> (DD/MM/YYYY). If we tried to create a character object from this format, the displayed result would be wrong. See an example with code next:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set Date from dd/mm/yyyy </span>
+my.date &lt;-<span class="st"> </span><span class="kw">as.Date</span>(<span class="st">&#39;24/06/2016&#39;</span>)
+
+<span class="co"># print result (WRONG)</span>
+<span class="kw">print</span>(my.date)</code></pre></div>
+<pre><code>## [1] &quot;0024-06-20&quot;</code></pre>
+<p>The date of 0024-06-20 is wrong! To fix this formatting issue, use input <code>format</code>, as shown below:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set Date from dd/mm/yyyy with the definition of format</span>
+my.date &lt;-<span class="st"> </span><span class="kw">as.Date</span>(<span class="st">&#39;24/06/2016&#39;</span>, <span class="dt">format =</span> <span class="st">&#39;%d/%m/%Y&#39;</span>)
+
+<span class="co"># print result (CORRECT)</span>
+<span class="kw">print</span>(my.date)</code></pre></div>
+<pre><code>## [1] &quot;2016-06-24&quot;</code></pre>
+<p>The symbols used in <em>input</em> <code>format</code>, such as <code>%d</code>, <code>%m</code> and <code>%y</code>, indicates how the character object should be converted and where day, month and year are located in the text. There are many other symbols that may be used for processing dates in specific formats. An overview of the main symbols is given next.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Symbol</th>
+<th align="center">Description</th>
+<th align="center">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">%d</td>
+<td align="center">day of month (decimal)</td>
+<td align="center">0</td>
+</tr>
+<tr class="even">
+<td align="center">%m</td>
+<td align="center">month (decimal)</td>
+<td align="center">12</td>
+</tr>
+<tr class="odd">
+<td align="center">%b</td>
+<td align="center">month (abbreviation)</td>
+<td align="center">Apr</td>
+</tr>
+<tr class="even">
+<td align="center">%B</td>
+<td align="center">month (complete name)</td>
+<td align="center">April</td>
+</tr>
+<tr class="odd">
+<td align="center">%y</td>
+<td align="center">month (2 digits)</td>
+<td align="center">16</td>
+</tr>
+<tr class="even">
+<td align="center">%Y</td>
+<td align="center">month (4 digits)</td>
+<td align="center">2016</td>
+</tr>
+</tbody>
+</table>
+<p>By using the previous table, you’ll be able to create and represent dates in a vast number of ways.</p>
+</div>
+<div id="creating-a-sequence-of-dates" class="section level3">
+<h3><span class="header-section-number">3.5.2</span> Creating a Sequence of <code>Dates</code></h3>
+<p>An interesting aspect of objects <code>Date</code> is they interact with <code>numeric</code> objects and can be used for logical tests. If we wanted to add a day after a particular date, all we need to do is to add value 1 to the object, as shown next: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># create date</span>
+my.date &lt;-<span class="st"> </span><span class="kw">as.Date</span>(<span class="st">&#39;2016-06-24&#39;</span>)
+
+<span class="co"># find next day</span>
+my.date.<span class="dv">2</span> &lt;-<span class="st"> </span>my.date <span class="op">+</span><span class="st"> </span><span class="dv">1</span>
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(my.date.<span class="dv">2</span>)</code></pre></div>
+<pre><code>## [1] &quot;2016-06-25&quot;</code></pre>
+<p>This property also works with vectors, facilitating the creation of <code>Date</code> sequences. See an example next.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># create a sequence of Dates</span>
+my.date.vec &lt;-<span class="st"> </span>my.date <span class="op">+</span><span class="st"> </span><span class="dv">0</span><span class="op">:</span><span class="dv">15</span>
+
+<span class="co"># print it</span>
+<span class="kw">print</span>(my.date.vec)</code></pre></div>
+<pre><code>##  [1] &quot;2016-06-24&quot; &quot;2016-06-25&quot; &quot;2016-06-26&quot; &quot;2016-06-27&quot;
+##  [5] &quot;2016-06-28&quot; &quot;2016-06-29&quot; &quot;2016-06-30&quot; &quot;2016-07-01&quot;
+##  [9] &quot;2016-07-02&quot; &quot;2016-07-03&quot; &quot;2016-07-04&quot; &quot;2016-07-05&quot;
+## [13] &quot;2016-07-06&quot; &quot;2016-07-07&quot; &quot;2016-07-08&quot; &quot;2016-07-09&quot;</code></pre>
+<p>A more customizable way for creating <code>Date</code> sequences is using function <code>seq</code>. The same way it worked for numerical object, we can use function <code>seq</code> to create sequences of dates with custom time intervals or use it to create a <code>Date</code> sequence with fixed size. If we wanted a <code>Date</code> sequence, where the elements are set every two days, we can use the following code: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set first and last Date</span>
+my.date.<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">as.Date</span>(<span class="st">&#39;2017-03-07&#39;</span>)
+my.date.<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">as.Date</span>(<span class="st">&#39;2017-03-20&#39;</span>)
+
+<span class="co"># set sequence</span>
+my.vec.date &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from =</span> my.date.<span class="dv">1</span>, 
+                   <span class="dt">to =</span> my.date.<span class="dv">2</span>, 
+                   <span class="dt">by =</span> <span class="st">&#39;2 days&#39;</span>)
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(my.vec.date)</code></pre></div>
+<pre><code>## [1] &quot;2017-03-07&quot; &quot;2017-03-09&quot; &quot;2017-03-11&quot; &quot;2017-03-13&quot;
+## [5] &quot;2017-03-15&quot; &quot;2017-03-17&quot; &quot;2017-03-19&quot;</code></pre>
+<p>Likewise, if we wanted a sequence of dates containing every one month, we can simply change input <code>by</code> to <code>'1 month'</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set first and last Date</span>
+my.date.<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">as.Date</span>(<span class="st">&#39;2017-03-07&#39;</span>)
+my.date.<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">as.Date</span>(<span class="st">&#39;2017-10-20&#39;</span>)
+
+<span class="co"># set sequence</span>
+my.vec.date &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from =</span> my.date.<span class="dv">1</span>, 
+                   <span class="dt">to =</span> my.date.<span class="dv">2</span>, 
+                   <span class="dt">by =</span> <span class="st">&#39;1 month&#39;</span>)
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(my.vec.date)</code></pre></div>
+<pre><code>## [1] &quot;2017-03-07&quot; &quot;2017-04-07&quot; &quot;2017-05-07&quot; &quot;2017-06-07&quot;
+## [5] &quot;2017-07-07&quot; &quot;2017-08-07&quot; &quot;2017-09-07&quot; &quot;2017-10-07&quot;</code></pre>
+<p>Another way to use function <code>seq</code> is by setting the desired length of the sequence of dates. For example, if we wanted an array of dates with 10 elements, we would use:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set dates</span>
+my.date.<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">as.Date</span>(<span class="st">&#39;2016-06-27&#39;</span>)
+my.date.<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">as.Date</span>(<span class="st">&#39;2016-07-27&#39;</span>)
+
+<span class="co"># set sequence with 10 elements</span>
+my.vec.date &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from =</span> my.date.<span class="dv">1</span>, 
+                   <span class="dt">to =</span> my.date.<span class="dv">2</span>, 
+                   <span class="dt">length.out =</span> <span class="dv">10</span>)
+
+<span class="co"># print result                 </span>
+<span class="kw">print</span>(my.vec.date)</code></pre></div>
+<pre><code>##  [1] &quot;2016-06-27&quot; &quot;2016-06-30&quot; &quot;2016-07-03&quot; &quot;2016-07-07&quot;
+##  [5] &quot;2016-07-10&quot; &quot;2016-07-13&quot; &quot;2016-07-17&quot; &quot;2016-07-20&quot;
+##  [9] &quot;2016-07-23&quot; &quot;2016-07-27&quot;</code></pre>
+</div>
+<div id="operations-with-dates" class="section level3">
+<h3><span class="header-section-number">3.5.3</span> Operations with <code>Dates</code></h3>
+<p>We can calculate difference of days between two dates by simply subtracting one from the other. Have a look:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set dates</span>
+my.date.<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">as.Date</span>(<span class="st">&#39;2015-06-24&#39;</span>)
+my.date.<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">as.Date</span>(<span class="st">&#39;2016-06-24&#39;</span>)
+
+<span class="co"># calculate difference</span>
+diff.date &lt;-<span class="st"> </span>my.date.<span class="dv">2</span> <span class="op">-</span><span class="st"> </span>my.date.<span class="dv">1</span>
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(diff.date)</code></pre></div>
+<pre><code>## Time difference of 366 days</code></pre>
+<p>The output of the subtraction operation is an object of class <code>diffdate</code>, based on the <code>list</code> class. As mentioned, we can access the elements of a <code>list</code> using double brackets. The numerical value of the difference of days is contained in the first element of <code>diff.date</code>: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># print difference of days as numerical value</span>
+<span class="kw">print</span>(diff.date[[<span class="dv">1</span>]])</code></pre></div>
+<pre><code>## [1] 366</code></pre>
+<p>Going further, we can test whether a date is more recent or not than another with comparison operations: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set date and vector</span>
+my.date.<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">as.Date</span>(<span class="st">&#39;2016-06-20&#39;</span>)
+my.date.vec &lt;-<span class="st"> </span><span class="kw">as.Date</span>(<span class="st">&#39;2016-06-20&#39;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">seq</span>(<span class="op">-</span><span class="dv">5</span>,<span class="dv">5</span>)
+
+<span class="co"># test which elements of my.date.vec are older than my.date.1</span>
+my.test &lt;-<span class="st"> </span>my.date.vec <span class="op">&gt;</span><span class="st"> </span>my.date.<span class="dv">1</span>
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(my.test)</code></pre></div>
+<pre><code>##  [1] FALSE FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE
+## [10]  TRUE  TRUE</code></pre>
+<p>The previous operation is useful when trying to select a certain period of time in your dataset. This is a common practice in research. Here, set the first and last dates of the time you are interested in and use a logical test to find all dates between. Look at the following code:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set first and last dates</span>
+first.date &lt;-<span class="st"> </span><span class="kw">as.Date</span>(<span class="st">&#39;2016-06-01&#39;</span>)
+last.date &lt;-<span class="st"> </span><span class="kw">as.Date</span>(<span class="st">&#39;2016-06-15&#39;</span>)
+
+<span class="co"># create a vector of dates and a vector of &quot;fake&quot; prices</span>
+my.date.vec &lt;-<span class="st"> </span><span class="kw">as.Date</span>(<span class="st">&#39;2016-05-25&#39;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">30</span>)
+my.prices &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">1</span>,<span class="dv">10</span>, <span class="dt">length.out =</span> <span class="kw">length</span>(my.date.vec))
+
+<span class="co"># print vectors </span>
+<span class="kw">print</span>(my.prices)</code></pre></div>
+<pre><code>##  [1]  1.0  1.3  1.6  1.9  2.2  2.5  2.8  3.1  3.4  3.7  4.0
+## [12]  4.3  4.6  4.9  5.2  5.5  5.8  6.1  6.4  6.7  7.0  7.3
+## [23]  7.6  7.9  8.2  8.5  8.8  9.1  9.4  9.7 10.0</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(my.date.vec)</code></pre></div>
+<pre><code>##  [1] &quot;2016-05-25&quot; &quot;2016-05-26&quot; &quot;2016-05-27&quot; &quot;2016-05-28&quot;
+##  [5] &quot;2016-05-29&quot; &quot;2016-05-30&quot; &quot;2016-05-31&quot; &quot;2016-06-01&quot;
+##  [9] &quot;2016-06-02&quot; &quot;2016-06-03&quot; &quot;2016-06-04&quot; &quot;2016-06-05&quot;
+## [13] &quot;2016-06-06&quot; &quot;2016-06-07&quot; &quot;2016-06-08&quot; &quot;2016-06-09&quot;
+## [17] &quot;2016-06-10&quot; &quot;2016-06-11&quot; &quot;2016-06-12&quot; &quot;2016-06-13&quot;
+## [21] &quot;2016-06-14&quot; &quot;2016-06-15&quot; &quot;2016-06-16&quot; &quot;2016-06-17&quot;
+## [25] &quot;2016-06-18&quot; &quot;2016-06-19&quot; &quot;2016-06-20&quot; &quot;2016-06-21&quot;
+## [29] &quot;2016-06-22&quot; &quot;2016-06-23&quot; &quot;2016-06-24&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># find dates that are between the first and last date</span>
+my.idx &lt;-<span class="st"> </span>(my.date.vec <span class="op">&gt;=</span><span class="st"> </span>first.date) <span class="op">&amp;</span><span class="st"> </span>(my.date.vec <span class="op">&lt;=</span><span class="st"> </span>last.date)
+
+<span class="co"># use index to select prices</span>
+my.prices &lt;-<span class="st"> </span>my.prices[my.idx]
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(my.prices)</code></pre></div>
+<pre><code>##  [1] 3.1 3.4 3.7 4.0 4.3 4.6 4.9 5.2 5.5 5.8 6.1 6.4 6.7 7.0
+## [15] 7.3</code></pre>
+<p>In the previous code, object <code>my.prices</code> will only contain values for the time between 2016-06-01 and 2016-06-15.</p>
+</div>
+<div id="dealing-with-time" class="section level3">
+<h3><span class="header-section-number">3.5.4</span> Dealing with Time</h3>
+<p>Using the <code>Date</code> class is sufficient when dealing only with dates and the hours of the day are irrelevant. When it is necessary to consider time, we have to use an object of type <code>datetime</code>. </p>
+<p>In R, one of the classes used for this purpose is <code>POSIXlt</code>, which stores the content of a date in the form of a list. Another class you can use is <code>POSIXct</code>, which stores dates as seconds counted from <code>1970-01-01</code>. Class <code>POSIXct</code> takes less space of computer memory because of its storage format and should be prioritized when working with large datasets. However, using the <code>POSIXlt</code> class has benefits. It internally stores information about the time object. We can show it in R by looking at the result of calling function <code>attribute</code> in a <code>POSIXlt</code> object. Have a look:   </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my.timedate &lt;-<span class="st"> </span><span class="kw">as.POSIXlt</span>(<span class="st">&#39;2016-01-01 16:00:00&#39;</span>)
+<span class="kw">print</span>(<span class="kw">attributes</span>(my.timedate))</code></pre></div>
+<pre><code>## $names
+##  [1] &quot;sec&quot;    &quot;min&quot;    &quot;hour&quot;   &quot;mday&quot;   &quot;mon&quot;    &quot;year&quot;  
+##  [7] &quot;wday&quot;   &quot;yday&quot;   &quot;isdst&quot;  &quot;zone&quot;   &quot;gmtoff&quot;
+## 
+## $class
+## [1] &quot;POSIXlt&quot; &quot;POSIXt&quot;</code></pre>
+<p>As you can see, it stores the hour, minutes, weekday, among other information. To access it, use the list notation for names values:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(my.timedate[[<span class="st">&#39;hour&#39;</span>]])</code></pre></div>
+<pre><code>## [1] 16</code></pre>
+<p>Since computer memory is not limited these days, we will give preference to the <code>datetime</code> object of type <code>POSIXlt</code> for the rest of this section. All examples presented here can also be replicated for <code>POSIXct</code> objects.</p>
+<p>For both <code>datetime</code> objects, <code>POSIXct</code> and <code>POSIXlt</code>, the format is <em>year-month-day hours:minutes:seconds timezone</em> (<code>YYYY-MM-DD HH:MM:SS TMZ</code>). See the following example:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># creating a POSIXlt object</span>
+my.timedate &lt;-<span class="st"> </span><span class="kw">as.POSIXlt</span>(<span class="st">&#39;2016-01-01 16:00:00&#39;</span>)
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(my.timedate)</code></pre></div>
+<pre><code>## [1] &quot;2016-01-01 16:00:00 BRST&quot;</code></pre>
+<p>When creating a <code>POSIXlt</code> object, the time zone is added automatically with the information from the operating system. If you need to represent a time zone different from the one in your computer, use input <code>tz</code>: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># creating a POSIXlt object with custom timezone</span>
+my.timedate.tz &lt;-<span class="st"> </span><span class="kw">as.POSIXlt</span>(<span class="st">&#39;2016-01-01 16:00:00&#39;</span>, <span class="dt">tz =</span> <span class="st">&#39;GMT&#39;</span>)
+
+<span class="co"># print it</span>
+<span class="kw">print</span>(my.timedate.tz)</code></pre></div>
+<pre><code>## [1] &quot;2016-01-01 16:00:00 GMT&quot;</code></pre>
+<p>An important note in the case of <code>POSIXlt</code> and <code>POSIXct</code> objects, the operations of sum and subtraction refer to seconds, not days, as with objects from the <code>Date</code> class. Have a look in the next example:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Adding values (seconds) to a POSIXlt object and printing it</span>
+<span class="kw">print</span>(my.timedate.tz <span class="op">+</span><span class="st"> </span><span class="dv">30</span>)</code></pre></div>
+<pre><code>## [1] &quot;2016-01-01 16:00:30 GMT&quot;</code></pre>
+<p>In the same way as objects of class <code>Date</code>, there are specific symbols for dealing with components of a <code>POSIXlt</code> object. These symbols allow for custom formatting. We present next a table with the main symbols and their meanings.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Symbol</th>
+<th align="center">Description</th>
+<th align="center">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">%H</td>
+<td align="center">Hour (decimal, 24 hours)</td>
+<td align="center">23</td>
+</tr>
+<tr class="even">
+<td align="center">%I</td>
+<td align="center">Hour (decimal, 12 hours)</td>
+<td align="center">11</td>
+</tr>
+<tr class="odd">
+<td align="center">%M</td>
+<td align="center">Minutes (decimal, 0-59)</td>
+<td align="center">12</td>
+</tr>
+<tr class="even">
+<td align="center">%p</td>
+<td align="center">AM/PM indicator</td>
+<td align="center">AM</td>
+</tr>
+<tr class="odd">
+<td align="center">%S</td>
+<td align="center">Seconds (decimal, 0-59)</td>
+<td align="center">50</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="customizing-the-output-format-of-dates-and-times" class="section level3">
+<h3><span class="header-section-number">3.5.5</span> Customizing the Output Format of Dates and Times</h3>
+<p>The basic notation for representing dates and <code>datetime</code> object in R may not be optimal sometimes. When writing reports, using a date-time format different than the local one can generate confusion. The recommendation here is to modify the representation of dates for the expected format, so the output is locally accepted.</p>
+<p>To format a date, use the <code>format</code> function. Its use is based on the symbols presented in previous tables. Using these symbols, the user can create any desired customization. See the following example, where we change a date vector to the Brazilian format: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># create vector of dates</span>
+my.dates &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from =</span> <span class="kw">as.Date</span>(<span class="st">&#39;2016-01-01&#39;</span>), 
+                <span class="dt">to =</span> <span class="kw">as.Date</span>(<span class="st">&#39;2016-01-15&#39;</span>), 
+                <span class="dt">by =</span> <span class="st">&#39;1 day&#39;</span>)
+                
+<span class="co"># change format             </span>
+my.dates.brformat &lt;-<span class="st"> </span><span class="kw">format</span>(my.dates, <span class="st">&#39;%d/%m/%Y&#39;</span>)
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(my.dates.brformat)</code></pre></div>
+<pre><code>##  [1] &quot;01/01/2016&quot; &quot;02/01/2016&quot; &quot;03/01/2016&quot; &quot;04/01/2016&quot;
+##  [5] &quot;05/01/2016&quot; &quot;06/01/2016&quot; &quot;07/01/2016&quot; &quot;08/01/2016&quot;
+##  [9] &quot;09/01/2016&quot; &quot;10/01/2016&quot; &quot;11/01/2016&quot; &quot;12/01/2016&quot;
+## [13] &quot;13/01/2016&quot; &quot;14/01/2016&quot; &quot;15/01/2016&quot;</code></pre>
+<p>The same procedure can be performed for <code>POSIXlt</code> objects:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># create vector of date-time</span>
+my.datetime &lt;-<span class="st"> </span><span class="kw">as.POSIXlt</span>(<span class="st">&#39;2016-01-01 12:00:00&#39;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">560</span>,<span class="dv">60</span>)
+
+<span class="co"># change to Brazilian format</span>
+my.dates.brformat &lt;-<span class="st"> </span><span class="kw">format</span>(my.datetime, <span class="st">&#39;%d/%m/%Y %H:%M:%S&#39;</span>)
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(my.dates.brformat)</code></pre></div>
+<pre><code>##  [1] &quot;01/01/2016 12:00:00&quot; &quot;01/01/2016 12:01:00&quot;
+##  [3] &quot;01/01/2016 12:02:00&quot; &quot;01/01/2016 12:03:00&quot;
+##  [5] &quot;01/01/2016 12:04:00&quot; &quot;01/01/2016 12:05:00&quot;
+##  [7] &quot;01/01/2016 12:06:00&quot; &quot;01/01/2016 12:07:00&quot;
+##  [9] &quot;01/01/2016 12:08:00&quot; &quot;01/01/2016 12:09:00&quot;</code></pre>
+<p>One can also customize for very specific formats. See next:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set custom format</span>
+my.dates.myformat &lt;-<span class="st"> </span><span class="kw">format</span>(my.dates, 
+                            <span class="st">&#39;Year=%Y | Month=%m | Day=%d&#39;</span>)
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(my.dates.myformat)</code></pre></div>
+<pre><code>##  [1] &quot;Year=2016 | Month=01 | Day=01&quot;
+##  [2] &quot;Year=2016 | Month=01 | Day=02&quot;
+##  [3] &quot;Year=2016 | Month=01 | Day=03&quot;
+##  [4] &quot;Year=2016 | Month=01 | Day=04&quot;
+##  [5] &quot;Year=2016 | Month=01 | Day=05&quot;
+##  [6] &quot;Year=2016 | Month=01 | Day=06&quot;
+##  [7] &quot;Year=2016 | Month=01 | Day=07&quot;
+##  [8] &quot;Year=2016 | Month=01 | Day=08&quot;
+##  [9] &quot;Year=2016 | Month=01 | Day=09&quot;
+## [10] &quot;Year=2016 | Month=01 | Day=10&quot;
+## [11] &quot;Year=2016 | Month=01 | Day=11&quot;
+## [12] &quot;Year=2016 | Month=01 | Day=12&quot;
+## [13] &quot;Year=2016 | Month=01 | Day=13&quot;
+## [14] &quot;Year=2016 | Month=01 | Day=14&quot;
+## [15] &quot;Year=2016 | Month=01 | Day=15&quot;</code></pre>
+<p>Using function <code>format</code> is also very helpful when you want only particular information from the date-time object. Look at the next example, where we retrieve only the hours from a <code>POSIXlt</code> object.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># create vector of date-time</span>
+my.datetime &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from =</span> <span class="kw">as.POSIXlt</span>(<span class="st">&#39;2016-01-01 12:00:00&#39;</span>), 
+                   <span class="dt">to =</span> <span class="kw">as.POSIXlt</span>(<span class="st">&#39;2016-01-01 18:00:00&#39;</span>), 
+                   <span class="dt">by =</span> <span class="st">&#39;1 hour&#39;</span>)
+
+<span class="co"># get hours from POSIXlt</span>
+my.hours &lt;-<span class="st"> </span><span class="kw">format</span>(my.datetime, <span class="st">&#39;%H&#39;</span>)
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(my.hours)</code></pre></div>
+<pre><code>## [1] &quot;12&quot; &quot;13&quot; &quot;14&quot; &quot;15&quot; &quot;16&quot; &quot;17&quot; &quot;18&quot;</code></pre>
+<p>Likewise, by using symbols <code>%Y%</code> and <code>$m</code>, we could easill retrieve years and months from a vector of <code>POSIXlt</code> or <code>Date</code> objects.</p>
+</div>
+<div id="find-the-current-date-and-time" class="section level3">
+<h3><span class="header-section-number">3.5.6</span> Find the Current Date and Time</h3>
+<p>R has specific functions that allow the user to find the current date and time from the operating system. This is useful when creating log records.</p>
+<p>To find the the present day, use function <code>Sys.Date</code>: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># get today</span>
+my.day &lt;-<span class="st"> </span><span class="kw">Sys.Date</span>()
+
+<span class="co"># print it</span>
+<span class="kw">print</span>(my.day)</code></pre></div>
+<pre><code>## [1] &quot;2017-04-29&quot;</code></pre>
+<p>To find the current date and time, we use function <code>Sys.time</code>: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># get time!</span>
+<span class="kw">print</span>(<span class="kw">Sys.time</span>())</code></pre></div>
+<pre><code>## [1] &quot;2017-04-29 09:51:40 BRT&quot;</code></pre>
+<p>Going further, based on these functions, we can write:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># example of log message</span>
+my.str &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&#39;This code was executed in &#39;</span>, <span class="kw">Sys.time</span>())
+
+<span class="co"># print it</span>
+<span class="kw">print</span>(my.str)</code></pre></div>
+<pre><code>## [1] &quot;This code was executed in 2017-04-29 09:51:40&quot;</code></pre>
+</div>
+<div id="other-functions-for-manipulating-dates-and-time" class="section level3">
+<h3><span class="header-section-number">3.5.7</span> Other Functions for Manipulating Dates and Time</h3>
+<ul>
+<li><strong>weekdays</strong> - Returns the day of the week from one or more dates. </li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set date vector</span>
+my.dates &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from =</span> <span class="kw">as.Date</span>(<span class="st">&#39;2016-01-01&#39;</span>), 
+                <span class="dt">to =</span> <span class="kw">as.Date</span>(<span class="st">&#39;2016-01-5&#39;</span>), 
+                <span class="dt">by =</span> <span class="st">&#39;1 day&#39;</span>)
+
+<span class="co"># find corresponding weekdays</span>
+my.weekdays &lt;-<span class="st"> </span><span class="kw">weekdays</span>(my.dates)
+
+<span class="co"># print it</span>
+<span class="kw">print</span>(my.weekdays)</code></pre></div>
+<pre><code>## [1] &quot;Friday&quot;   &quot;Saturday&quot; &quot;Sunday&quot;   &quot;Monday&quot;   &quot;Tuesday&quot;</code></pre>
+<ul>
+<li><strong>months</strong> - Returns the month of one or more dates. </li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># create date vector</span>
+my.dates &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from =</span> <span class="kw">as.Date</span>(<span class="st">&#39;2016-01-01&#39;</span>), 
+                <span class="dt">to =</span> <span class="kw">as.Date</span>(<span class="st">&#39;2016-12-31&#39;</span>), 
+                <span class="dt">by =</span> <span class="st">&#39;1 month&#39;</span>)
+
+<span class="co"># find months</span>
+my.months &lt;-<span class="st"> </span><span class="kw">months</span>(my.dates)
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(my.months)</code></pre></div>
+<pre><code>##  [1] &quot;January&quot;   &quot;February&quot;  &quot;March&quot;     &quot;April&quot;    
+##  [5] &quot;May&quot;       &quot;June&quot;      &quot;July&quot;      &quot;August&quot;   
+##  [9] &quot;September&quot; &quot;October&quot;   &quot;November&quot;  &quot;December&quot;</code></pre>
+<ul>
+<li><strong>quarters</strong> - Returns the location of one or more dates within the year quartiles. </li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># get quartiles of the year</span>
+my.quarters &lt;-<span class="st"> </span><span class="kw">quarters</span>(my.dates)
+<span class="kw">print</span>(my.quarters)</code></pre></div>
+<pre><code>##  [1] &quot;Q1&quot; &quot;Q1&quot; &quot;Q1&quot; &quot;Q2&quot; &quot;Q2&quot; &quot;Q2&quot; &quot;Q3&quot; &quot;Q3&quot; &quot;Q3&quot; &quot;Q4&quot; &quot;Q4&quot;
+## [12] &quot;Q4&quot;</code></pre>
+<ul>
+<li><strong>OlsonNames</strong> - Returns an array with the time zones available in R. In total, there are over 500 items. Here, we present only the first five elements. </li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># get possible timezones</span>
+possible.tz &lt;-<span class="st"> </span><span class="kw">OlsonNames</span>()
+
+<span class="co"># print it</span>
+<span class="kw">print</span>(possible.tz[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>])</code></pre></div>
+<pre><code>## [1] &quot;Africa/Abidjan&quot;     &quot;Africa/Accra&quot;      
+## [3] &quot;Africa/Addis_Ababa&quot; &quot;Africa/Algiers&quot;    
+## [5] &quot;Africa/Asmara&quot;</code></pre>
+<ul>
+<li><strong>Sys.timezone</strong> - Returns the current timezone of the operating system. </li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># get current timezone</span>
+<span class="kw">print</span>(<span class="kw">Sys.timezone</span>())</code></pre></div>
+<pre><code>## [1] &quot;America/Sao_Paulo&quot;</code></pre>
+<ul>
+<li><strong>cut</strong> - Returns a factor by grouping dates and time. </li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set example date vector</span>
+my.dates &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from =</span> <span class="kw">as.Date</span>(<span class="st">&#39;2016-01-01&#39;</span>), 
+                <span class="dt">to =</span> <span class="kw">as.Date</span>(<span class="st">&#39;2016-03-01&#39;</span>), 
+                <span class="dt">by =</span> <span class="st">&#39;5 days&#39;</span>)
+
+<span class="co"># group vector based on monthly breaks</span>
+my.month.cut &lt;-<span class="st"> </span><span class="kw">cut</span>(<span class="dt">x =</span> my.dates, 
+                    <span class="dt">breaks =</span> <span class="st">&#39;month&#39;</span>, 
+                    <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&#39;Jan&#39;</span>, <span class="st">&#39;Fev&#39;</span>, <span class="st">&#39;Mar&#39;</span>))
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(my.month.cut)</code></pre></div>
+<pre><code>##  [1] Jan Jan Jan Jan Jan Jan Jan Fev Fev Fev Fev Fev Mar
+## Levels: Jan Fev Mar</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set example datetime vector</span>
+my.datetime &lt;-<span class="st"> </span><span class="kw">as.POSIXlt</span>(<span class="st">&#39;2016-01-01 12:00:00&#39;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">250</span>,<span class="dv">15</span>)
+
+<span class="co"># set groups for each 30 seconds</span>
+my.cut &lt;-<span class="st"> </span><span class="kw">cut</span>(<span class="dt">x =</span> my.datetime, <span class="dt">breaks =</span> <span class="st">&#39;30 secs&#39;</span>)
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(my.cut)</code></pre></div>
+<pre><code>##  [1] 2016-01-01 12:00:00 2016-01-01 12:00:00
+##  [3] 2016-01-01 12:00:30 2016-01-01 12:00:30
+##  [5] 2016-01-01 12:01:00 2016-01-01 12:01:00
+##  [7] 2016-01-01 12:01:30 2016-01-01 12:01:30
+##  [9] 2016-01-01 12:02:00 2016-01-01 12:02:00
+## [11] 2016-01-01 12:02:30 2016-01-01 12:02:30
+## [13] 2016-01-01 12:03:00 2016-01-01 12:03:00
+## [15] 2016-01-01 12:03:30 2016-01-01 12:03:30
+## [17] 2016-01-01 12:04:00
+## 9 Levels: 2016-01-01 12:00:00 ... 2016-01-01 12:04:00</code></pre>
+</div>
+</div>
+<div id="missing-data---na-not-available" class="section level2">
+<h2><span class="header-section-number">3.6</span> Missing Data - <code>NA</code> (<em>Not available</em>)</h2>
+<p>One of the main innovations of R, with respect to other programming languages, is the representation of missing data with objects of class <code>NA</code> (<em>Not Available</em>). The lack of data can have many reasons, such as failure to collect information or simply the absence of it. These cases are generally treated by removing or replacing the missing data prior to analyzing the data. The identification of these cases, therefore, is imperative. </p>
+<div id="defining-na-values" class="section level3">
+<h3><span class="header-section-number">3.6.1</span> Defining <code>NA</code> Values</h3>
+<p>To define omissions in the dataset, use symbol <code>NA</code> without quotes:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># a vector with NA</span>
+my.x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="ot">NA</span>, <span class="dv">4</span>, <span class="dv">5</span>)
+
+<span class="co"># print it</span>
+<span class="kw">print</span>(my.x)</code></pre></div>
+<pre><code>## [1]  1  2 NA  4  5</code></pre>
+<p>An important property, at this point, is that a <code>NA</code> object is contagious. Any other object that interacts with a <code>NA</code> will turn into the same class of missing data. Look at the next example.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># example of NA interacting with other objects</span>
+<span class="kw">print</span>(my.x <span class="op">+</span><span class="st"> </span><span class="dv">1</span>)</code></pre></div>
+<pre><code>## [1]  2  3 NA  5  6</code></pre>
+<p>This property demands special attention if you are calculating a value recursively, such as in using <code>cumsum</code> and <code>cumprod</code>. In these cases, any value after <code>NA</code> will turn into <code>NA</code>. Here is an example with code:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set vector with NA</span>
+my.x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="ot">NA</span>, <span class="dv">5</span><span class="op">:</span><span class="dv">10</span>)
+
+<span class="co"># print cumsum (NA after sixth element)</span>
+<span class="kw">print</span>(<span class="kw">cumsum</span>(my.x))</code></pre></div>
+<pre><code>##  [1]  1  3  6 10 15 NA NA NA NA NA NA NA</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># print cumprod (NA after sixth element)</span>
+<span class="kw">print</span>(<span class="kw">cumprod</span>(my.x))</code></pre></div>
+<pre><code>##  [1]   1   2   6  24 120  NA  NA  NA  NA  NA  NA  NA</code></pre>
+<p>Therefore, when using functions <code>cumsum</code> and <code>cumprod</code>, make sure no <code>NA</code> value is found in the input vector.</p>
+</div>
+<div id="finding-and-replacing-na" class="section level3">
+<h3><span class="header-section-number">3.6.2</span> Finding and Replacing <code>NA</code></h3>
+<p>To find <code>NA</code> values, use function <code>is.na</code>: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set vector with NA</span>
+my.x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>, <span class="ot">NA</span>, <span class="dv">4</span><span class="op">:</span><span class="dv">10</span>)
+
+<span class="co"># find location of NA</span>
+idx.na &lt;-<span class="st"> </span><span class="kw">is.na</span>(my.x)
+<span class="kw">print</span>(idx.na)</code></pre></div>
+<pre><code>##  [1] FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE
+## [10] FALSE</code></pre>
+<p>To replace it, use indexing with the output of <code>is.na</code>. See next:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set vector</span>
+my.x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="ot">NA</span>, <span class="dv">3</span><span class="op">:</span><span class="dv">4</span>, <span class="ot">NA</span>)
+
+<span class="co"># replace NA for 2</span>
+my.x[<span class="kw">is.na</span>(my.x)] &lt;-<span class="st"> </span><span class="dv">2</span>
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(my.x)</code></pre></div>
+<pre><code>## [1] 1 2 3 4 2</code></pre>
+<p>Another way to remove <code>NA</code> values is to use function <code>na.omit</code>, which returns the same object, but without the <code>NA</code> values. Note, however, the vector size will change and the output will be an object of class <code>omit</code>. Have a look:  </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set vector</span>
+my.char &lt;-<span class="st"> </span><span class="kw">c</span>(letters[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>], <span class="ot">NA</span>, letters[<span class="dv">5</span><span class="op">:</span><span class="dv">8</span>])
+
+<span class="co"># print it</span>
+<span class="kw">print</span>(my.char)</code></pre></div>
+<pre><code>## [1] &quot;a&quot; &quot;b&quot; &quot;c&quot; NA  &quot;e&quot; &quot;f&quot; &quot;g&quot; &quot;h&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># use na.omit to remove NA</span>
+my.char &lt;-<span class="st"> </span><span class="kw">na.omit</span>(my.char)
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(my.char)</code></pre></div>
+<pre><code>## [1] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;e&quot; &quot;f&quot; &quot;g&quot; &quot;h&quot;
+## attr(,&quot;na.action&quot;)
+## [1] 4
+## attr(,&quot;class&quot;)
+## [1] &quot;omit&quot;</code></pre>
+<p>Although the type of object has been changed due to the use of <code>na.omit</code>, the basic properties of the initial vector remain. For example, the use of function <code>nchar</code> in the resulting object is still possible.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># trying nchar on a na.omit object</span>
+<span class="kw">print</span>(<span class="kw">nchar</span>(my.char))</code></pre></div>
+<pre><code>## [1] 1 1 1 1 1 1 1</code></pre>
+<p>For other objects, however, this property may not hold. Some caution is advised.</p>
+</div>
+<div id="other-useful-functions-for-treating-na" class="section level3">
+<h3><span class="header-section-number">3.6.3</span> Other Useful Functions for Treating <code>NA</code></h3>
+<ul>
+<li><strong>complete.cases</strong> - Returns a logical vector indicating whether the lines of a bi-dimensional object only have non <code>NA</code> values that are complete rows. This function is used exclusively for data frames and matrices. </li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># create matrix</span>
+my.mat &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">15</span>, <span class="dt">nrow =</span> <span class="dv">5</span>)
+
+<span class="co"># set an NA value</span>
+my.mat[<span class="dv">2</span>,<span class="dv">2</span>] &lt;-<span class="st"> </span><span class="ot">NA</span>
+
+<span class="co"># print index with rows without NA</span>
+<span class="kw">print</span>(<span class="kw">complete.cases</span>(my.mat))</code></pre></div>
+<pre><code>## [1]  TRUE FALSE  TRUE  TRUE  TRUE</code></pre>
+
+</div>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-stringr">
+<p>Wickham, Hadley. 2015. <em>Stringr: Simple, Consistent Wrappers for Common String Operations</em>. <a href="https://CRAN.R-project.org/package=stringr" class="uri">https://CRAN.R-project.org/package=stringr</a>.</p>
+</div>
+<div id="ref-thompson1968programming">
+<p>Thompson, Ken. 1968. “Programming Techniques: Regular Expression Search Algorithm.” <em>Communications of the ACM</em> 11 (6). ACM: 419–22.</p>
+</div>
+<div id="ref-chron">
+<p>James, David, and Kurt Hornik. 2017. <em>Chron: Chronological Objects Which Can Handle Dates and Times</em>. <a href="https://CRAN.R-project.org/package=chron" class="uri">https://CRAN.R-project.org/package=chron</a>.</p>
+</div>
+<div id="ref-timeDate">
+<p>Team, Rmetrics Core, Diethelm Wuertz, Tobias Setz, Yohan Chalabi, Martin Maechler, and Joe W. Byers. 2015. <em>TimeDate: Rmetrics - Chronological and Calendar Objects</em>. <a href="https://CRAN.R-project.org/package=timeDate" class="uri">https://CRAN.R-project.org/package=timeDate</a>.</p>
+</div>
+<div id="ref-lubridate">
+<p>Grolemund, Garrett, and Hadley Wickham. 2011. “Dates and Times Made Easy with lubridate.” <em>Journal of Statistical Software</em> 40 (3): 1–25. <a href="http://www.jstatsoft.org/v40/i03/" class="uri">http://www.jstatsoft.org/v40/i03/</a>.</p>
+</div>
+<div id="ref-bizdays">
+<p>Freitas, Wilson. 2016. <em>Bizdays: Business Days Calculations and Utilities</em>. <a href="https://CRAN.R-project.org/package=bizdays" class="uri">https://CRAN.R-project.org/package=bizdays</a>.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="basic-operations-in-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="DataStructureObjects.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "Sepia",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

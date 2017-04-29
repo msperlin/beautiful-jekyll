@@ -1,0 +1,2214 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Processing and Analyzing Financial Data with R</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="Processing and Analyzing Financial Data with R">
+  <meta name="generator" content="bookdown 0.3 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Processing and Analyzing Financial Data with R" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="figs/CAPADigital_FinancialDataR.jpg" />
+  <meta property="og:description" content="Processing and Analyzing Financial Data with R" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Processing and Analyzing Financial Data with R" />
+  
+  <meta name="twitter:description" content="Processing and Analyzing Financial Data with R" />
+  <meta name="twitter:image" content="figs/CAPADigital_FinancialDataR.jpg" />
+
+<meta name="author" content="Marcelo S. Perlin (marcelo.perlin@ufrgs.br)">
+
+
+<meta name="date" content="2017-04-29">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="Figures.html">
+<link rel="next" href="research-scripts.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Processing and Analyzing Financial Data with R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome!</a></li>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#what-is-r"><i class="fa fa-check"></i><b>1.1</b> What is R</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#why-choose-r"><i class="fa fa-check"></i><b>1.2</b> Why Choose R</a></li>
+<li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#what-can-you-do-with-r-and-rstudio"><i class="fa fa-check"></i><b>1.3</b> What Can You Do With R and RStudio?</a></li>
+<li class="chapter" data-level="1.4" data-path="introduction.html"><a href="introduction.html#installing-r-and-rstudio"><i class="fa fa-check"></i><b>1.4</b> Installing R and RStudio</a></li>
+<li class="chapter" data-level="1.5" data-path="introduction.html"><a href="introduction.html#resources-in-the-web"><i class="fa fa-check"></i><b>1.5</b> Resources in the Web</a></li>
+<li class="chapter" data-level="1.6" data-path="introduction.html"><a href="introduction.html#structure-and-organization"><i class="fa fa-check"></i><b>1.6</b> Structure and Organization</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html"><i class="fa fa-check"></i><b>2</b> Basic Operations in R</a><ul>
+<li class="chapter" data-level="2.1" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#working-with-r"><i class="fa fa-check"></i><b>2.1</b> Working With R</a></li>
+<li class="chapter" data-level="2.2" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#objects-in-r"><i class="fa fa-check"></i><b>2.2</b> Objects in R</a></li>
+<li class="chapter" data-level="2.3" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#international-and-local-formats"><i class="fa fa-check"></i><b>2.3</b> International and Local Formats</a></li>
+<li class="chapter" data-level="2.4" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#types-of-files-in-r"><i class="fa fa-check"></i><b>2.4</b> Types of Files in R</a></li>
+<li class="chapter" data-level="2.5" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#explaining-the-rstudio-screen"><i class="fa fa-check"></i><b>2.5</b> Explaining the RStudio Screen</a></li>
+<li class="chapter" data-level="2.6" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#running-scripts-from-rstudio"><i class="fa fa-check"></i><b>2.6</b> Running Scripts from RStudio</a></li>
+<li class="chapter" data-level="2.7" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#testing-and-debugging-code"><i class="fa fa-check"></i><b>2.7</b> Testing and Debugging Code</a></li>
+<li class="chapter" data-level="2.8" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#creating-simple-objects"><i class="fa fa-check"></i><b>2.8</b> Creating Simple Objects</a></li>
+<li class="chapter" data-level="2.9" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#creating-vectors"><i class="fa fa-check"></i><b>2.9</b> Creating Vectors</a></li>
+<li class="chapter" data-level="2.10" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#knowing-your-environment"><i class="fa fa-check"></i><b>2.10</b> Knowing Your Environment</a></li>
+<li class="chapter" data-level="2.11" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#displaying-and-formatting-output"><i class="fa fa-check"></i><b>2.11</b> Displaying and Formatting Output</a><ul>
+<li class="chapter" data-level="2.11.1" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#customizing-the-output"><i class="fa fa-check"></i><b>2.11.1</b> Customizing the Output</a></li>
+</ul></li>
+<li class="chapter" data-level="2.12" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#finding-the-size-of-objects"><i class="fa fa-check"></i><b>2.12</b> Finding the Size of Objects</a></li>
+<li class="chapter" data-level="2.13" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#selecting-the-elements-of-an-atomic-vector"><i class="fa fa-check"></i><b>2.13</b> Selecting the Elements of an Atomic Vector</a></li>
+<li class="chapter" data-level="2.14" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#removing-objects-from-the-memory"><i class="fa fa-check"></i><b>2.14</b> Removing Objects from the Memory</a></li>
+<li class="chapter" data-level="2.15" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#displaying-and-setting-the-working-directory"><i class="fa fa-check"></i><b>2.15</b> Displaying and Setting the Working Directory</a></li>
+<li class="chapter" data-level="2.16" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#cancelling-code-execution"><i class="fa fa-check"></i><b>2.16</b> Cancelling Code Execution</a></li>
+<li class="chapter" data-level="2.17" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#code-comments"><i class="fa fa-check"></i><b>2.17</b> Code Comments</a></li>
+<li class="chapter" data-level="2.18" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#looking-for-help"><i class="fa fa-check"></i><b>2.18</b> Looking for Help</a></li>
+<li class="chapter" data-level="2.19" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#r-packages"><i class="fa fa-check"></i><b>2.19</b> R Packages</a><ul>
+<li class="chapter" data-level="2.19.1" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#installing-packages-from-cran"><i class="fa fa-check"></i><b>2.19.1</b> Installing Packages from CRAN</a></li>
+<li class="chapter" data-level="2.19.2" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#installing-packages-from-github"><i class="fa fa-check"></i><b>2.19.2</b> Installing Packages from Github</a></li>
+<li class="chapter" data-level="2.19.3" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#loading-packages"><i class="fa fa-check"></i><b>2.19.3</b> Loading Packages</a></li>
+<li class="chapter" data-level="2.19.4" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#upgrading-packages"><i class="fa fa-check"></i><b>2.19.4</b> Upgrading Packages</a></li>
+</ul></li>
+<li class="chapter" data-level="2.20" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#using-code-completion-with-tab"><i class="fa fa-check"></i><b>2.20</b> Using Code Completion with <em>tab</em></a></li>
+<li class="chapter" data-level="2.21" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#interacting-with-files-and-the-operating-system"><i class="fa fa-check"></i><b>2.21</b> Interacting with Files and the Operating System</a><ul>
+<li class="chapter" data-level="2.21.1" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#listing-files-and-folders"><i class="fa fa-check"></i><b>2.21.1</b> Listing Files and Folders</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="BasicObjects.html"><a href="BasicObjects.html"><i class="fa fa-check"></i><b>3</b> Basic Object Classes</a><ul>
+<li class="chapter" data-level="3.1" data-path="BasicObjects.html"><a href="BasicObjects.html#numeric-objects"><i class="fa fa-check"></i><b>3.1</b> <code>Numeric</code> Objects</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-and-manipulating-numeric-objects"><i class="fa fa-check"></i><b>3.1.1</b> Creating and Manipulating <code>numeric</code> Objects</a></li>
+<li class="chapter" data-level="3.1.2" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-a-numeric-sequence"><i class="fa fa-check"></i><b>3.1.2</b> Creating a <code>numeric</code> Sequence</a></li>
+<li class="chapter" data-level="3.1.3" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-vectors-with-repeated-elements"><i class="fa fa-check"></i><b>3.1.3</b> Creating Vectors with Repeated Elements</a></li>
+<li class="chapter" data-level="3.1.4" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-vectors-with-random-numbers"><i class="fa fa-check"></i><b>3.1.4</b> Creating Vectors with Random Numbers</a></li>
+<li class="chapter" data-level="3.1.5" data-path="BasicObjects.html"><a href="BasicObjects.html#accessing-the-elements-of-a-numeric-vector"><i class="fa fa-check"></i><b>3.1.5</b> Accessing the Elements of a <code>numeric</code> Vector</a></li>
+<li class="chapter" data-level="3.1.6" data-path="BasicObjects.html"><a href="BasicObjects.html#modifying-and-removing-elements-of-a-numeric-vector"><i class="fa fa-check"></i><b>3.1.6</b> Modifying and Removing Elements of a <code>numeric</code> Vector</a></li>
+<li class="chapter" data-level="3.1.7" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-groups-from-a-numeric-vector"><i class="fa fa-check"></i><b>3.1.7</b> Creating Groups from a <code>numeric</code> Vector</a></li>
+<li class="chapter" data-level="3.1.8" data-path="BasicObjects.html"><a href="BasicObjects.html#other-functions-for-manipulating-numerical-vectors"><i class="fa fa-check"></i><b>3.1.8</b> Other Functions for Manipulating Numerical Vectors</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="BasicObjects.html"><a href="BasicObjects.html#character-objects"><i class="fa fa-check"></i><b>3.2</b> <code>Character</code> Objects</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-a-simple-character-object"><i class="fa fa-check"></i><b>3.2.1</b> Creating a Simple <code>character</code> Object</a></li>
+<li class="chapter" data-level="3.2.2" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-structured-character-objects"><i class="fa fa-check"></i><b>3.2.2</b> Creating Structured <code>character</code> Objects</a></li>
+<li class="chapter" data-level="3.2.3" data-path="BasicObjects.html"><a href="BasicObjects.html#character-constants"><i class="fa fa-check"></i><b>3.2.3</b> <code>character</code> Constants</a></li>
+<li class="chapter" data-level="3.2.4" data-path="BasicObjects.html"><a href="BasicObjects.html#selecting-characters-of-a-text-object"><i class="fa fa-check"></i><b>3.2.4</b> Selecting Characters of a Text Object</a></li>
+<li class="chapter" data-level="3.2.5" data-path="BasicObjects.html"><a href="BasicObjects.html#finding-and-replacing-characters-of-a-text"><i class="fa fa-check"></i><b>3.2.5</b> Finding and Replacing Characters of a Text</a></li>
+<li class="chapter" data-level="3.2.6" data-path="BasicObjects.html"><a href="BasicObjects.html#splitting-text"><i class="fa fa-check"></i><b>3.2.6</b> Splitting Text</a></li>
+<li class="chapter" data-level="3.2.7" data-path="BasicObjects.html"><a href="BasicObjects.html#finding-the-number-of-characters-in-a-text"><i class="fa fa-check"></i><b>3.2.7</b> Finding the Number of Characters in a Text</a></li>
+<li class="chapter" data-level="3.2.8" data-path="BasicObjects.html"><a href="BasicObjects.html#generating-combinations-of-text"><i class="fa fa-check"></i><b>3.2.8</b> Generating Combinations of Text</a></li>
+<li class="chapter" data-level="3.2.9" data-path="BasicObjects.html"><a href="BasicObjects.html#encoding-of-character-objects"><i class="fa fa-check"></i><b>3.2.9</b> Encoding of <code>character</code> Objects</a></li>
+<li class="chapter" data-level="3.2.10" data-path="BasicObjects.html"><a href="BasicObjects.html#other-functions-for-manipulating-character"><i class="fa fa-check"></i><b>3.2.10</b> Other Functions for Manipulating <code>character</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="BasicObjects.html"><a href="BasicObjects.html#factor-objects"><i class="fa fa-check"></i><b>3.3</b> <code>Factor</code> Objects</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-factors"><i class="fa fa-check"></i><b>3.3.1</b> Creating <code>factors</code></a></li>
+<li class="chapter" data-level="3.3.2" data-path="BasicObjects.html"><a href="BasicObjects.html#modifying-factors"><i class="fa fa-check"></i><b>3.3.2</b> Modifying <code>factors</code></a></li>
+<li class="chapter" data-level="3.3.3" data-path="BasicObjects.html"><a href="BasicObjects.html#converting-factors-to-other-classes"><i class="fa fa-check"></i><b>3.3.3</b> Converting <code>factors</code> to Other Classes</a></li>
+<li class="chapter" data-level="3.3.4" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-contingency-tables"><i class="fa fa-check"></i><b>3.3.4</b> Creating Contingency Tables</a></li>
+<li class="chapter" data-level="3.3.5" data-path="BasicObjects.html"><a href="BasicObjects.html#other-functions-for-manipulating-factors"><i class="fa fa-check"></i><b>3.3.5</b> Other Functions for Manipulating <code>factors</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="BasicObjects.html"><a href="BasicObjects.html#logical-objects"><i class="fa fa-check"></i><b>3.4</b> <code>Logical</code> Objects</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-logical-objects"><i class="fa fa-check"></i><b>3.4.1</b> Creating <code>logical</code> Objects</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="BasicObjects.html"><a href="BasicObjects.html#date-and-time-objects"><i class="fa fa-check"></i><b>3.5</b> Date and Time Objects</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-simple-dates"><i class="fa fa-check"></i><b>3.5.1</b> Creating Simple Dates</a></li>
+<li class="chapter" data-level="3.5.2" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-a-sequence-of-dates"><i class="fa fa-check"></i><b>3.5.2</b> Creating a Sequence of <code>Dates</code></a></li>
+<li class="chapter" data-level="3.5.3" data-path="BasicObjects.html"><a href="BasicObjects.html#operations-with-dates"><i class="fa fa-check"></i><b>3.5.3</b> Operations with <code>Dates</code></a></li>
+<li class="chapter" data-level="3.5.4" data-path="BasicObjects.html"><a href="BasicObjects.html#dealing-with-time"><i class="fa fa-check"></i><b>3.5.4</b> Dealing with Time</a></li>
+<li class="chapter" data-level="3.5.5" data-path="BasicObjects.html"><a href="BasicObjects.html#customizing-the-output-format-of-dates-and-times"><i class="fa fa-check"></i><b>3.5.5</b> Customizing the Output Format of Dates and Times</a></li>
+<li class="chapter" data-level="3.5.6" data-path="BasicObjects.html"><a href="BasicObjects.html#find-the-current-date-and-time"><i class="fa fa-check"></i><b>3.5.6</b> Find the Current Date and Time</a></li>
+<li class="chapter" data-level="3.5.7" data-path="BasicObjects.html"><a href="BasicObjects.html#other-functions-for-manipulating-dates-and-time"><i class="fa fa-check"></i><b>3.5.7</b> Other Functions for Manipulating Dates and Time</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="BasicObjects.html"><a href="BasicObjects.html#missing-data---na-not-available"><i class="fa fa-check"></i><b>3.6</b> Missing Data - <code>NA</code> (<em>Not available</em>)</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="BasicObjects.html"><a href="BasicObjects.html#defining-na-values"><i class="fa fa-check"></i><b>3.6.1</b> Defining <code>NA</code> Values</a></li>
+<li class="chapter" data-level="3.6.2" data-path="BasicObjects.html"><a href="BasicObjects.html#finding-and-replacing-na"><i class="fa fa-check"></i><b>3.6.2</b> Finding and Replacing <code>NA</code></a></li>
+<li class="chapter" data-level="3.6.3" data-path="BasicObjects.html"><a href="BasicObjects.html#other-useful-functions-for-treating-na"><i class="fa fa-check"></i><b>3.6.3</b> Other Useful Functions for Treating <code>NA</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html"><i class="fa fa-check"></i><b>4</b> Data Structure Objects</a><ul>
+<li class="chapter" data-level="4.1" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#lists"><i class="fa fa-check"></i><b>4.1</b> <code>Lists</code></a><ul>
+<li class="chapter" data-level="4.1.1" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#creating-lists"><i class="fa fa-check"></i><b>4.1.1</b> Creating <code>lists</code></a></li>
+<li class="chapter" data-level="4.1.2" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#accessing-the-elements-of-a-list"><i class="fa fa-check"></i><b>4.1.2</b> Accessing the Elements of a <code>list</code></a></li>
+<li class="chapter" data-level="4.1.3" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#adding-and-removing-elements-from-a-list"><i class="fa fa-check"></i><b>4.1.3</b> Adding and Removing Elements from a <code>list</code></a></li>
+<li class="chapter" data-level="4.1.4" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#processing-the-elements-of-a-list"><i class="fa fa-check"></i><b>4.1.4</b> Processing the Elements of a <code>list</code></a></li>
+<li class="chapter" data-level="4.1.5" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#other-functions-for-manipulating-lists"><i class="fa fa-check"></i><b>4.1.5</b> Other Functions for Manipulating <code>lists</code></a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#matrices"><i class="fa fa-check"></i><b>4.2</b> <code>Matrices</code></a><ul>
+<li class="chapter" data-level="4.2.1" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#selecting-elements-from-a-matrix"><i class="fa fa-check"></i><b>4.2.1</b> Selecting Elements from a <code>matrix</code></a></li>
+<li class="chapter" data-level="4.2.2" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#other-useful-functions-for-manipulating-matrices"><i class="fa fa-check"></i><b>4.2.2</b> Other Useful Functions for Manipulating Matrices</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#dataframes"><i class="fa fa-check"></i><b>4.3</b> <code>Dataframes</code></a><ul>
+<li class="chapter" data-level="4.3.1" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#creating-dataframes"><i class="fa fa-check"></i><b>4.3.1</b> Creating <code>dataframes</code></a></li>
+<li class="chapter" data-level="4.3.2" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#accessing-information-from-a-dataframe"><i class="fa fa-check"></i><b>4.3.2</b> Accessing Information from a <code>dataframe</code></a></li>
+<li class="chapter" data-level="4.3.3" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#modifying-a-dataframe"><i class="fa fa-check"></i><b>4.3.3</b> Modifying a <code>dataframe</code></a></li>
+<li class="chapter" data-level="4.3.4" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#sorting-a-dataframe"><i class="fa fa-check"></i><b>4.3.4</b> Sorting a <code>dataframe</code></a></li>
+<li class="chapter" data-level="4.3.5" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#combining-and-aggregating-dataframes"><i class="fa fa-check"></i><b>4.3.5</b> Combining and Aggregating <code>dataframes</code></a></li>
+<li class="chapter" data-level="4.3.6" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#reporting-a-dataframe-table"><i class="fa fa-check"></i><b>4.3.6</b> Reporting a <code>Dataframe</code> Table</a></li>
+<li class="chapter" data-level="4.3.7" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#the-format-of-the-dataframe-long-and-wide"><i class="fa fa-check"></i><b>4.3.7</b> The Format of the <code>dataframe</code> (<em>long</em> and <em>wide</em>)</a></li>
+<li class="chapter" data-level="4.3.8" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#extensions-of-the-dataframe-class"><i class="fa fa-check"></i><b>4.3.8</b> Extensions of the <code>dataframe</code> Class</a></li>
+<li class="chapter" data-level="4.3.9" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#other-useful-functions-for-handling-dataframes"><i class="fa fa-check"></i><b>4.3.9</b> Other Useful Functions for Handling <code>dataframes</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="Financial-data.html"><a href="Financial-data.html"><i class="fa fa-check"></i><b>5</b> Financial Data and Common Operations</a><ul>
+<li class="chapter" data-level="5.1" data-path="Financial-data.html"><a href="Financial-data.html#data-from-financial-markets"><i class="fa fa-check"></i><b>5.1</b> Data from Financial Markets</a></li>
+<li class="chapter" data-level="5.2" data-path="Financial-data.html"><a href="Financial-data.html#data-from-the-financial-evaluation-of-projects"><i class="fa fa-check"></i><b>5.2</b> Data from the Financial Evaluation of Projects</a></li>
+<li class="chapter" data-level="5.3" data-path="Financial-data.html"><a href="Financial-data.html#data-from-financial-statements"><i class="fa fa-check"></i><b>5.3</b> Data from Financial Statements</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="importing.html"><a href="importing.html"><i class="fa fa-check"></i><b>6</b> Importing and Exporting Data</a><ul>
+<li class="chapter" data-level="6.1" data-path="importing.html"><a href="importing.html#importing-data-from-local-files"><i class="fa fa-check"></i><b>6.1</b> Importing Data from Local Files</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="importing.html"><a href="importing.html#importing-data-from-a-.csv-file-comma-separated-values"><i class="fa fa-check"></i><b>6.1.1</b> Importing Data from a <em>.csv</em> File (<em>comma separated values</em>)</a></li>
+<li class="chapter" data-level="6.1.2" data-path="importing.html"><a href="importing.html#importing-data-from-an-excel-file"><i class="fa fa-check"></i><b>6.1.2</b> Importing Data from an <em>Excel</em> File</a></li>
+<li class="chapter" data-level="6.1.3" data-path="importing.html"><a href="importing.html#importing-data-from-a-.rdata-file"><i class="fa fa-check"></i><b>6.1.3</b> Importing Data from a <em>.RData</em> File</a></li>
+<li class="chapter" data-level="6.1.4" data-path="importing.html"><a href="importing.html#importing-data-from-sqlite"><i class="fa fa-check"></i><b>6.1.4</b> Importing Data from SQLITE</a></li>
+<li class="chapter" data-level="6.1.5" data-path="importing.html"><a href="importing.html#importing-data-from-a-text-file"><i class="fa fa-check"></i><b>6.1.5</b> Importing Data from a Text File</a></li>
+<li class="chapter" data-level="6.1.6" data-path="importing.html"><a href="importing.html#other-file-formats"><i class="fa fa-check"></i><b>6.1.6</b> Other File Formats</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="importing.html"><a href="importing.html#importing-data-using-the-internet"><i class="fa fa-check"></i><b>6.2</b> Importing Data Using the Internet</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="importing.html"><a href="importing.html#package-quantmod"><i class="fa fa-check"></i><b>6.2.1</b> Package <code>quantmod</code></a></li>
+<li class="chapter" data-level="6.2.2" data-path="importing.html"><a href="importing.html#package-batchgetsymbols"><i class="fa fa-check"></i><b>6.2.2</b> Package <code>BatchGetSymbols</code></a></li>
+<li class="chapter" data-level="6.2.3" data-path="importing.html"><a href="importing.html#package-finreportr"><i class="fa fa-check"></i><b>6.2.3</b> Package <code>finreportr</code></a></li>
+<li class="chapter" data-level="6.2.4" data-path="importing.html"><a href="importing.html#package-tidyquant"><i class="fa fa-check"></i><b>6.2.4</b> Package <code>tidyquant</code></a></li>
+<li class="chapter" data-level="6.2.5" data-path="importing.html"><a href="importing.html#package-gethfdata"><i class="fa fa-check"></i><b>6.2.5</b> Package <code>GetHFData</code></a></li>
+<li class="chapter" data-level="6.2.6" data-path="importing.html"><a href="importing.html#package-ustyc"><i class="fa fa-check"></i><b>6.2.6</b> Package <code>ustyc</code></a></li>
+<li class="chapter" data-level="6.2.7" data-path="importing.html"><a href="importing.html#quandl"><i class="fa fa-check"></i><b>6.2.7</b> Package <code>Quandl</code></a></li>
+<li class="chapter" data-level="6.2.8" data-path="importing.html"><a href="importing.html#package-rbitcoin"><i class="fa fa-check"></i><b>6.2.8</b> Package <code>Rbitcoin</code></a></li>
+<li class="chapter" data-level="6.2.9" data-path="importing.html"><a href="importing.html#other-packages"><i class="fa fa-check"></i><b>6.2.9</b> Other Packages</a></li>
+<li class="chapter" data-level="6.2.10" data-path="importing.html"><a href="importing.html#accessing-data-from-web-pages-webscraping"><i class="fa fa-check"></i><b>6.2.10</b> Accessing Data from Web Pages (<em>webscraping</em>)</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="importing.html"><a href="importing.html#exporting-to-local-file"><i class="fa fa-check"></i><b>6.3</b> Exporting to Local File</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="importing.html"><a href="importing.html#exporting-data-to-a-.csv-file"><i class="fa fa-check"></i><b>6.3.1</b> Exporting Data to a <em>.csv</em> File</a></li>
+<li class="chapter" data-level="6.3.2" data-path="importing.html"><a href="importing.html#exporting-data-to-a-rdata-file"><i class="fa fa-check"></i><b>6.3.2</b> Exporting Data to a <em>RData</em> File</a></li>
+<li class="chapter" data-level="6.3.3" data-path="importing.html"><a href="importing.html#exporting-data-to-an-excel-file"><i class="fa fa-check"></i><b>6.3.3</b> Exporting Data to an Excel File</a></li>
+<li class="chapter" data-level="6.3.4" data-path="importing.html"><a href="importing.html#exporting-data-to-a-text-file"><i class="fa fa-check"></i><b>6.3.4</b> Exporting Data to a Text File</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="programming.html"><a href="programming.html"><i class="fa fa-check"></i><b>7</b> Programming and Data Analysis with R</a><ul>
+<li class="chapter" data-level="7.1" data-path="programming.html"><a href="programming.html#creating-functions"><i class="fa fa-check"></i><b>7.1</b> Creating Functions</a></li>
+<li class="chapter" data-level="7.2" data-path="programming.html"><a href="programming.html#using-loops-for"><i class="fa fa-check"></i><b>7.2</b> Using Loops (<code>for</code>)</a></li>
+<li class="chapter" data-level="7.3" data-path="programming.html"><a href="programming.html#conditional-statements-if-else-switch"><i class="fa fa-check"></i><b>7.3</b> Conditional Statements (<code>if</code>, <code>else</code>, <code>switch</code>)</a></li>
+<li class="chapter" data-level="7.4" data-path="programming.html"><a href="programming.html#using-apply-functions"><i class="fa fa-check"></i><b>7.4</b> Using <code>apply</code> Functions</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="programming.html"><a href="programming.html#using-lapply"><i class="fa fa-check"></i><b>7.4.1</b> Using <code>lapply</code></a></li>
+<li class="chapter" data-level="7.4.2" data-path="programming.html"><a href="programming.html#using-sapply"><i class="fa fa-check"></i><b>7.4.2</b> Using <code>sapply</code></a></li>
+<li class="chapter" data-level="7.4.3" data-path="programming.html"><a href="programming.html#using-tapply"><i class="fa fa-check"></i><b>7.4.3</b> Using <code>tapply</code></a></li>
+<li class="chapter" data-level="7.4.4" data-path="programming.html"><a href="programming.html#using-mapply"><i class="fa fa-check"></i><b>7.4.4</b> Using <code>mapply</code></a></li>
+<li class="chapter" data-level="7.4.5" data-path="programming.html"><a href="programming.html#using-apply"><i class="fa fa-check"></i><b>7.4.5</b> Using <code>apply</code></a></li>
+<li class="chapter" data-level="7.4.6" data-path="programming.html"><a href="programming.html#using-by"><i class="fa fa-check"></i><b>7.4.6</b> Using <code>by</code></a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="programming.html"><a href="programming.html#data-manipulation-with-package-dplyr"><i class="fa fa-check"></i><b>7.5</b> Data Manipulation with Package <code>dplyr</code></a><ul>
+<li class="chapter" data-level="7.5.1" data-path="programming.html"><a href="programming.html#manipulating-a-dataframe-with-dplyr"><i class="fa fa-check"></i><b>7.5.1</b> Manipulating a <code>dataframe</code> with <code>dplyr</code></a></li>
+<li class="chapter" data-level="7.5.2" data-path="programming.html"><a href="programming.html#the-pipeline-operator"><i class="fa fa-check"></i><b>7.5.2</b> The Pipeline Operator (<code>%&gt;%</code>)</a></li>
+<li class="chapter" data-level="7.5.3" data-path="programming.html"><a href="programming.html#simple-group-operations-with-dplyr"><i class="fa fa-check"></i><b>7.5.3</b> Simple Group Operations with <code>dplyr</code></a></li>
+<li class="chapter" data-level="7.5.4" data-path="programming.html"><a href="programming.html#complex-group-operations-with-dplyr"><i class="fa fa-check"></i><b>7.5.4</b> Complex Group Operations with <code>dplyr</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="Figures.html"><a href="Figures.html"><i class="fa fa-check"></i><b>8</b> Creating and Saving Figures with <code>ggplot2</code></a><ul>
+<li class="chapter" data-level="8.1" data-path="Figures.html"><a href="Figures.html#using-graphic-windows"><i class="fa fa-check"></i><b>8.1</b> Using Graphic Windows</a></li>
+<li class="chapter" data-level="8.2" data-path="Figures.html"><a href="Figures.html#creating-figures-with-function-qplot"><i class="fa fa-check"></i><b>8.2</b> Creating Figures with Function <code>qplot</code></a></li>
+<li class="chapter" data-level="8.3" data-path="Figures.html"><a href="Figures.html#using-ggplot"><i class="fa fa-check"></i><b>8.3</b> Creating Figures with Function <code>ggplot</code></a><ul>
+<li class="chapter" data-level="8.3.1" data-path="Figures.html"><a href="Figures.html#using-themes"><i class="fa fa-check"></i><b>8.3.1</b> Using Themes</a></li>
+<li class="chapter" data-level="8.3.2" data-path="Figures.html"><a href="Figures.html#creating-panels-with-facet_wrap"><i class="fa fa-check"></i><b>8.3.2</b> Creating Panels with <code>facet_wrap</code></a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="Figures.html"><a href="Figures.html#using-pipelines-for-data-analysis-and-figures"><i class="fa fa-check"></i><b>8.4</b> Using Pipelines for Data Analysis and Figures</a></li>
+<li class="chapter" data-level="8.5" data-path="Figures.html"><a href="Figures.html#creating-statistical-graphics"><i class="fa fa-check"></i><b>8.5</b> Creating Statistical Graphics</a><ul>
+<li class="chapter" data-level="8.5.1" data-path="Figures.html"><a href="Figures.html#creating-histograms"><i class="fa fa-check"></i><b>8.5.1</b> Creating Histograms</a></li>
+<li class="chapter" data-level="8.5.2" data-path="Figures.html"><a href="Figures.html#creating-boxplot-figures"><i class="fa fa-check"></i><b>8.5.2</b> Creating <em>boxplot</em> Figures</a></li>
+<li class="chapter" data-level="8.5.3" data-path="Figures.html"><a href="Figures.html#creating-qq-plots"><i class="fa fa-check"></i><b>8.5.3</b> Creating <em>QQ</em> Plots</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="Figures.html"><a href="Figures.html#saving-graphics-to-a-file"><i class="fa fa-check"></i><b>8.6</b> Saving Graphics to a File</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="models.html"><a href="models.html"><i class="fa fa-check"></i><b>9</b> Financial Econometrics with R</a><ul>
+<li class="chapter" data-level="9.1" data-path="models.html"><a href="models.html#linear-models-ols"><i class="fa fa-check"></i><b>9.1</b> Linear Models (OLS)</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="models.html"><a href="models.html#simulating-a-linear-model"><i class="fa fa-check"></i><b>9.1.1</b> Simulating a Linear Model</a></li>
+<li class="chapter" data-level="9.1.2" data-path="models.html"><a href="models.html#estimating-ols"><i class="fa fa-check"></i><b>9.1.2</b> Estimating a Linear Model</a></li>
+<li class="chapter" data-level="9.1.3" data-path="models.html"><a href="models.html#testing-ols"><i class="fa fa-check"></i><b>9.1.3</b> Statistical Inference in Linear Models</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="models.html"><a href="models.html#generalized-linear-models-glm"><i class="fa fa-check"></i><b>9.2</b> Generalized Linear Models (GLM)</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="models.html"><a href="models.html#simulating-a-glm-model"><i class="fa fa-check"></i><b>9.2.1</b> Simulating a GLM Model</a></li>
+<li class="chapter" data-level="9.2.2" data-path="models.html"><a href="models.html#estimating-a-glm-model"><i class="fa fa-check"></i><b>9.2.2</b> Estimating a GLM Model</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="models.html"><a href="models.html#panel-data-models"><i class="fa fa-check"></i><b>9.3</b> Panel Data Models</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="models.html"><a href="models.html#simulating-panel-data-models"><i class="fa fa-check"></i><b>9.3.1</b> Simulating Panel Data Models</a></li>
+<li class="chapter" data-level="9.3.2" data-path="models.html"><a href="models.html#estimating-panel-data-models"><i class="fa fa-check"></i><b>9.3.2</b> Estimating Panel Data Models</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="models.html"><a href="models.html#arima-models"><i class="fa fa-check"></i><b>9.4</b> Arima Models</a><ul>
+<li class="chapter" data-level="9.4.1" data-path="models.html"><a href="models.html#simulating-arima-models"><i class="fa fa-check"></i><b>9.4.1</b> Simulating Arima Models</a></li>
+<li class="chapter" data-level="9.4.2" data-path="models.html"><a href="models.html#arima-estimating"><i class="fa fa-check"></i><b>9.4.2</b> Estimating Arima Models</a></li>
+<li class="chapter" data-level="9.4.3" data-path="models.html"><a href="models.html#forecasting-arima-models"><i class="fa fa-check"></i><b>9.4.3</b> Forecasting Arima Models</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="models.html"><a href="models.html#garch-models"><i class="fa fa-check"></i><b>9.5</b> Garch Models</a><ul>
+<li class="chapter" data-level="9.5.1" data-path="models.html"><a href="models.html#simulating-garch-models"><i class="fa fa-check"></i><b>9.5.1</b> Simulating Garch Models</a></li>
+<li class="chapter" data-level="9.5.2" data-path="models.html"><a href="models.html#estimating-garch"><i class="fa fa-check"></i><b>9.5.2</b> Estimating Garch Models</a></li>
+<li class="chapter" data-level="9.5.3" data-path="models.html"><a href="models.html#forecasting-garch-models"><i class="fa fa-check"></i><b>9.5.3</b> Forecasting Garch Models</a></li>
+</ul></li>
+<li class="chapter" data-level="9.6" data-path="models.html"><a href="models.html#regime-switching-models"><i class="fa fa-check"></i><b>9.6</b> Regime Switching Models</a><ul>
+<li class="chapter" data-level="9.6.1" data-path="models.html"><a href="models.html#simulating-regime-switching-models"><i class="fa fa-check"></i><b>9.6.1</b> Simulating Regime Switching Models</a></li>
+<li class="chapter" data-level="9.6.2" data-path="models.html"><a href="models.html#estimating-regime-switching-models"><i class="fa fa-check"></i><b>9.6.2</b> Estimating Regime Switching Models</a></li>
+<li class="chapter" data-level="9.6.3" data-path="models.html"><a href="models.html#forecasting-regime-switching-models"><i class="fa fa-check"></i><b>9.6.3</b> Forecasting Regime Switching Models</a></li>
+</ul></li>
+<li class="chapter" data-level="9.7" data-path="models.html"><a href="models.html#dealing-with-several-models"><i class="fa fa-check"></i><b>9.7</b> Dealing with Several Models</a></li>
+<li class="chapter" data-level="9.8" data-path="models.html"><a href="models.html#reporting-models"><i class="fa fa-check"></i><b>9.8</b> Reporting Models with <code>texreg</code></a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="research-scripts.html"><a href="research-scripts.html"><i class="fa fa-check"></i><b>10</b> Writing Research Scripts</a><ul>
+<li class="chapter" data-level="10.1" data-path="research-scripts.html"><a href="research-scripts.html#structure-of-a-research-script"><i class="fa fa-check"></i><b>10.1</b> Structure of a Research Script</a></li>
+<li class="chapter" data-level="10.2" data-path="research-scripts.html"><a href="research-scripts.html#folder-structure"><i class="fa fa-check"></i><b>10.2</b> Folder Structure</a></li>
+<li class="chapter" data-level="10.3" data-path="research-scripts.html"><a href="research-scripts.html#ExampleResearch"><i class="fa fa-check"></i><b>10.3</b> Examples of Research Scripts</a><ul>
+<li class="chapter" data-level="10.3.1" data-path="research-scripts.html"><a href="research-scripts.html#research-performance"><i class="fa fa-check"></i><b>10.3.1</b> The performance of international investments</a></li>
+<li class="chapter" data-level="10.3.2" data-path="research-scripts.html"><a href="research-scripts.html#research-prophet"><i class="fa fa-check"></i><b>10.3.2</b> Can we predict stock’s returns with Prophet?</a></li>
+<li class="chapter" data-level="10.3.3" data-path="research-scripts.html"><a href="research-scripts.html#research-gethfdata"><i class="fa fa-check"></i><b>10.3.3</b> An Analysis of High Frequency trade Data</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://sites.google.com/view/pmfdr/home" target="blank">Book Companion Site</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Processing and Analyzing Financial Data with R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="models" class="section level1">
+<h1><span class="header-section-number">Chapter 9</span> Financial Econometrics with R</h1>
+<p>The modelling tools from financial econometrics allow the researcher to simulate stochastic processes, such as price series, make predictions, and test a particular hypothesis about the data. The number of possible empirical applications of financial models is enormous. Briefly, we estimate a model to learn something from the data. This model can later provide quantitative insights that will help the decision making process.</p>
+<p>The variety of models used in financial econometrics is huge. It would be impossible to cover all possible models and their particularities. However, some types are used more often than others. In this chapter, we will deal with the following types of models and their applications:</p>
+<ul>
+<li>Linear models (OLS)</li>
+<li>Generalized linear models (GLS)</li>
+<li>Panel data models</li>
+<li>Arima models (Integrated Autoregressive Moving Averages)</li>
+<li>Garch models (generalized autoregressive conditional heteroskedasticity).</li>
+<li>Regime switching models</li>
+</ul>
+<p>Here, we will not present a full description of the underlying theory behind the representation, estimation, and possible tests related to each type of model. The focus of this chapter is to present the main motivation and the computational details of working with these models in R, including the packages. While we will give quantitative context, providing examples with simulated and real data, these will not be deep. This chapter should be studied alongside the main literature of financial econometrics <span class="citation">(Campbell et al. <a href="#ref-campbell1997econometrics">1997</a>, <span class="citation">Brooks (<a href="#ref-brooks2014introductory">2014</a>)</span>, <span class="citation">J. D. Hamilton (<a href="#ref-hamilton1994time">1994</a>)</span>, <span class="citation">Greene (<a href="#ref-greene2003econometric">2003</a>)</span>)</span>. As a suggestion, more complete material on using R for Econometrics is found in <span class="citation">Kleiber and Zeileis (<a href="#ref-kleiber2008applied">2008</a>)</span>.</p>
+<div id="linear-models-ols" class="section level2">
+<h2><span class="header-section-number">9.1</span> Linear Models (OLS)</h2>
+<p>A linear model is, without a doubt, one of the most used econometric models in R and finance. Whenever you need to estimate a linear relationship from the data, you will likely use a linear model of the OLS (<em>ordinary least squares</em>) type. Its main advantage is simplicity and quick estimation. Since the model is estimated using a closed formula, its estimation, even for large amounts of data, is blazing fast.</p>
+<p>In finance, the most direct and popular use of linear models is in the estimation of beta coefficients and factor models. Beta is a measure of systematic risk in the market, and it is estimated using stock returns as dependent variable and the returns on a market index, such as SP500 and FTSE, as the explanatory variable in a linear model. It is a measure of the strength of the relationship of a stock with the overall market. If the stock has a high value of beta, it strongly follows the market and has a high systematic risk. Later, we will look at an example of estimating the beta for a stock. Another example of using a linear regression in a research setup is available in section <a href="research-scripts.html#research-prophet">10.3.2</a>. For now, let’s study a general case of a linear model.</p>
+<p>A linear model with <em>N</em> explanatory variables can be represented as follows:</p>
+<p><span class="math display">\[y _t = \alpha + \beta _1 x_{1,t} + \beta _2 x_{2,t} + ... + \beta _N x_{N,t} + \epsilon _t\]</span></p>
+<p>The left side of the equation, (<span class="math inline">\(y_t\)</span>), is the dependent (or explanatory) variable. This is the vector of information we are trying to explain and create predictions. Variables <span class="math inline">\(y_t\)</span> and <span class="math inline">\(x_{i,t}\)</span> with <span class="math inline">\(i=1..N\)</span> are the vectors with data. In R, they are the information we use as input in the estimation function. When we estimate the model, we find the values of <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta _i\)</span> that minimize the sum of squared errors. We find the parameters that give the highest possible accuracy when predicting real data.</p>
+<div id="simulating-a-linear-model" class="section level3">
+<h3><span class="header-section-number">9.1.1</span> Simulating a Linear Model</h3>
+<p>Consider the following equation:</p>
+<p><span class="math display">\[y _t = 0.5 + 2 x_{t} + \epsilon _t\]</span></p>
+<p>We can use R to simulate <em>1000</em> observations for <span class="math inline">\(y_t\)</span>. We first define <span class="math inline">\(x_t\)</span> and the model’s error, <span class="math inline">\(\epsilon _t\)</span>, as random variables from the Normal distribution with zero mean and variance equal to one. The full simulation of <span class="math inline">\(y_t\)</span> is performed with the following code:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">50</span>)
+
+<span class="co"># number of obs</span>
+nT &lt;-<span class="st"> </span><span class="dv">1000</span> 
+
+<span class="co"># set x as Normal (0, 1)</span>
+x &lt;-<span class="st"> </span><span class="kw">rnorm</span>(nT)
+
+<span class="co"># set coefficients</span>
+my.alpha &lt;-<span class="st"> </span><span class="fl">0.5</span>
+my.beta &lt;-<span class="st"> </span><span class="dv">2</span>
+
+<span class="co"># build y</span>
+y &lt;-<span class="st"> </span>my.alpha <span class="op">+</span><span class="st"> </span>my.beta<span class="op">*</span>x <span class="op">+</span><span class="st"> </span><span class="kw">rnorm</span>(nT)</code></pre></div>
+<p>Using <code>ggplot</code>, we can create a scatter plot to visualize the correlation between objects <code>x</code> and <code>y</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
+
+<span class="co"># set temp df</span>
+temp.df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(x, y)
+
+<span class="co"># plot it</span>
+p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(temp.df, <span class="kw">aes</span>(<span class="dt">x =</span> x, <span class="dt">y =</span> y))
+p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">size=</span><span class="fl">0.5</span>)
+
+<span class="kw">print</span>(p)</code></pre></div>
+<p><img src="ProcAnFinDataR_ed_1_files/figure-html/unnamed-chunk-480-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>Clearly, there is a positive linear correlation; an upward straight line would be a good approximation for the relationship between these variables. We can check this result with the calculation of the correlation coefficient with command <code>cor(temp.df$x, temp.df$y)</code>. Here, the correlation between <code>y</code> and <code>x</code> is 0.901.</p>
+</div>
+<div id="estimating-ols" class="section level3">
+<h3><span class="header-section-number">9.1.2</span> Estimating a Linear Model</h3>
+<p>In R, the main function for estimating a linear model is <code>lm</code>. Let’s use it to estimate a model from the previous simulated data. </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set df</span>
+lm.df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(x, y)
+
+<span class="co"># estimate linear model</span>
+my.lm &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="dt">data =</span> lm.df, <span class="dt">formula =</span> y <span class="op">~</span><span class="st"> </span>x)
+<span class="kw">print</span>(my.lm)</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = y ~ x, data = lm.df)
+## 
+## Coefficients:
+## (Intercept)            x  
+##      0.5083       1.9891</code></pre>
+<p>The <code>formula</code> argument defines the shape of the linear model. If we had another column, called <code>x2</code>, and wanted to include it in the model, we could write <code>formula=y ~ x1 + x2</code>. Notice the intercept (<span class="math inline">\(\alpha\)</span>) is, by default, included in the estimation. If we needed to omit the intercept, we could write <code>formula=y ~ 0 + x1</code> or <code>formula=y ~ -1 + x1</code>.</p>
+<p>Argument <code>formula</code> allows other custom options, including interactions between the explanatory variables. Let’s create another artificial dataset and look at some of these options:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">15</span>)
+
+<span class="co"># set simulated dataset</span>
+N &lt;-<span class="st"> </span><span class="dv">100</span>
+df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">x =</span> <span class="kw">runif</span>(N),
+                 <span class="dt">y =</span> <span class="kw">runif</span>(N),
+                 <span class="dt">z =</span> <span class="kw">runif</span>(N),
+                 <span class="dt">group =</span> <span class="kw">sample</span>(LETTERS[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>],
+                                N,
+                                <span class="dt">replace =</span> <span class="ot">TRUE</span> ))
+
+<span class="co"># Vanilla formula</span>
+<span class="co">#</span>
+<span class="co"># example: y ~ x + z</span>
+<span class="co"># model: y(t) = alpha + beta(1)*x(t) + beta(2)*z(t) + error(t)</span>
+my.formula &lt;-<span class="st"> </span>y <span class="op">~</span><span class="st"> </span>x <span class="op">+</span><span class="st"> </span>z
+<span class="kw">print</span>(<span class="kw">lm</span>(<span class="dt">data =</span> df, 
+         <span class="dt">formula =</span> my.formula))</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = my.formula, data = df)
+## 
+## Coefficients:
+## (Intercept)            x            z  
+##     0.44971      0.14223     -0.03781</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># vannila formula with dummies</span>
+<span class="co">#</span>
+<span class="co"># example: y ~ group + x + z</span>
+<span class="co"># model: y(t) = alpha + beta(1)*D_1(t)+beta(2)*D_2(t) + </span>
+<span class="co">#               beta(3)*x(t) + beta(4)*z(t) + error(t)</span>
+<span class="co"># D_i(t) - dummy for group i</span>
+my.formula &lt;-<span class="st"> </span>y <span class="op">~</span><span class="st"> </span>group <span class="op">+</span><span class="st"> </span>x <span class="op">+</span><span class="st"> </span>z
+<span class="kw">print</span>(<span class="kw">lm</span>(<span class="dt">data =</span> df, 
+         <span class="dt">formula =</span> my.formula))</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = my.formula, data = df)
+## 
+## Coefficients:
+## (Intercept)       groupB       groupC            x  
+##     0.48309     -0.06397      0.01144      0.13511  
+##           z  
+##    -0.05156</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Without intercept</span>
+<span class="co">#</span>
+<span class="co"># example: y ~ -1 + x + z</span>
+<span class="co"># model: y(t) = beta(1)*x(t) + beta(2)*z(t) + error(t)</span>
+my.formula &lt;-<span class="st"> </span>y <span class="op">~</span><span class="st"> </span><span class="op">-</span><span class="dv">1</span> <span class="op">+</span><span class="st"> </span>x <span class="op">+</span><span class="st"> </span>z
+<span class="kw">print</span>(<span class="kw">lm</span>(<span class="dt">data =</span> df, 
+         <span class="dt">formula =</span> my.formula))</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = my.formula, data = df)
+## 
+## Coefficients:
+##      x       z  
+## 0.5183  0.3133</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Using combinations of variables</span>
+<span class="co"># example: y ~ x*z</span>
+<span class="co"># model: y(t) = alpha + beta(1)*x(t) + beta(2)*z(t) + </span>
+<span class="co">#               beta(3)*x(t)*z(t) + error(t)</span>
+my.formula &lt;-<span class="st"> </span>y <span class="op">~</span><span class="st"> </span>x<span class="op">*</span>z
+<span class="kw">print</span>(<span class="kw">lm</span>(<span class="dt">data =</span> df, 
+         <span class="dt">formula =</span> my.formula))</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = my.formula, data = df)
+## 
+## Coefficients:
+## (Intercept)            x            z          x:z  
+##     0.39827      0.22970      0.05129     -0.15464</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Interacting variables</span>
+<span class="co"># example: y ~ x:group + z</span>
+<span class="co"># model: y(t) = alpha + beta(1)*z(t) + beta(2)*x(t)*D_1(t) + </span>
+<span class="co">#               beta(3)*x(t)*D_2(t) + beta(4)*x(t)*D_3(t) + </span>
+<span class="co">#               error(t)</span>
+<span class="co"># D_i(t) - dummy for group i</span>
+my.formula &lt;-<span class="st"> </span>y <span class="op">~</span><span class="st"> </span>x<span class="op">:</span>group <span class="op">+</span><span class="st"> </span>z
+<span class="kw">print</span>(<span class="kw">lm</span>(<span class="dt">data =</span> df, 
+         <span class="dt">formula =</span> my.formula))</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = my.formula, data = df)
+## 
+## Coefficients:
+## (Intercept)            z     x:groupA     x:groupB  
+##     0.45995     -0.05105      0.16573      0.06271  
+##    x:groupC  
+##     0.20025</code></pre>
+<p>The different options in the <code>formula</code> input allow a diversified range of linear models. Using common mathematical operations, such as <code>log(x)</code>, is also possible. More details about advanced uses of <code>formula</code> input is available in the <a href="https://stat.ethz.ch/R-manual/R-devel/library/stats/html/formula.html">manual</a>.</p>
+<p>The output of function <code>lm</code> is an object similar to a <code>list</code>. Therefore, its elements can be accessed using the <code>$</code> operator. Let’s print all available names:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># print names in model</span>
+<span class="kw">print</span>(<span class="kw">names</span>(my.lm))</code></pre></div>
+<pre><code>##  [1] &quot;coefficients&quot;  &quot;residuals&quot;     &quot;effects&quot;      
+##  [4] &quot;rank&quot;          &quot;fitted.values&quot; &quot;assign&quot;       
+##  [7] &quot;qr&quot;            &quot;df.residual&quot;   &quot;xlevels&quot;      
+## [10] &quot;call&quot;          &quot;terms&quot;         &quot;model&quot;</code></pre>
+<p>As you can see, there is a slot, called <code>coefficients</code>. Let’s check its contents.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(my.lm<span class="op">$</span>coefficients)</code></pre></div>
+<pre><code>## (Intercept)           x 
+##   0.5083045   1.9890616</code></pre>
+<p>All coefficients are stored in <code>my.lm$coefficients</code>. Its content is a simple atomic vector that increases in length, according to the number of explanatory variables in the model.</p>
+<p>In our example of using <code>lm</code> with simulated data, the estimated coefficients are close to the actual values of 0.5 and 2. Remember, in the previous code, we set these values as <code>my.alpha &lt;- 0.5</code> and <code>my.beta &lt;- 2</code>.</p>
+<p>Experienced researchers have probably noted, from the econometric point of view, using function <code>print</code> in the output of <code>lm</code> results in little information. Besides the values of the coefficients, many other aspects of a linear model must be analyzed. In R, to obtain more information about the previously estimated model, we use function <code>summary</code>. See next. </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(<span class="kw">summary</span>(my.lm))</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = y ~ x, data = lm.df)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -3.0444 -0.6906 -0.0244  0.6807  3.2892 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  0.50830    0.03107   16.36   &lt;2e-16 ***
+## x            1.98906    0.03031   65.61   &lt;2e-16 ***
+## ---
+## Signif. codes:  
+## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.9824 on 998 degrees of freedom
+## Multiple R-squared:  0.8118, Adjusted R-squared:  0.8116 
+## F-statistic:  4305 on 1 and 998 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>The estimated coefficients have high <em>T</em> values, and the model has a outstanding fit of the data, with an adjusted <span class="math inline">\(R^2\)</span> value of 0.8116. This positive result is not surprising. The data was simulated in a linear process, and the correlation was introduced artificially.</p>
+<p>Additional information is available in the resulting object from <code>summary</code>. Let’s look at the names of the output:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my.summary &lt;-<span class="st"> </span><span class="kw">summary</span>(my.lm)
+<span class="kw">print</span>(<span class="kw">names</span>(my.summary))</code></pre></div>
+<pre><code>##  [1] &quot;call&quot;          &quot;terms&quot;         &quot;residuals&quot;    
+##  [4] &quot;coefficients&quot;  &quot;aliased&quot;       &quot;sigma&quot;        
+##  [7] &quot;df&quot;            &quot;r.squared&quot;     &quot;adj.r.squared&quot;
+## [10] &quot;fstatistic&quot;    &quot;cov.unscaled&quot;</code></pre>
+<p>Each of these elements contains information that can be reported in a estimation table. We could export the values of coefficients, T statistics, and others to a spreadsheet tool and create a custom table to report the results. This, however, is not suggested. In section <a href="models.html#reporting-models">9.8</a>, we will discuss the best ways of reporting a model using specialized packages.</p>
+<p>Now, let’s move to an example with real data. For that, we will estimate the beta coefficient of a randomly selected stock. The beta specification, also called market model, is given by:</p>
+<p><span class="math display">\[ R _t = \alpha + \beta R_{M,t} + \epsilon _t\]</span></p>
+<p>First, let’s load the stock and SP500 data. </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># load stock data</span>
+<span class="kw">load</span>(<span class="st">&#39;data/SP500-Stocks-WithRet.RData&#39;</span>)
+
+<span class="co"># select rnd asset and filter data </span>
+<span class="kw">set.seed</span>(<span class="dv">10</span>)
+my.asset &lt;-<span class="st"> </span><span class="kw">sample</span>(my.df<span class="op">$</span>ticker,<span class="dv">1</span>)
+my.df.asset &lt;-<span class="st"> </span>my.df[my.df<span class="op">$</span>ticker <span class="op">==</span><span class="st"> </span>my.asset, ]
+
+<span class="co"># load SP500 data</span>
+df.sp500 &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="dt">file =</span> <span class="st">&#39;data/SP500.csv&#39;</span>, 
+                     <span class="dt">colClasses =</span> <span class="kw">c</span>(<span class="st">&#39;Date&#39;</span>,<span class="st">&#39;numeric&#39;</span>))
+
+<span class="co"># calculate return</span>
+df.sp500<span class="op">$</span>ret &lt;-<span class="st"> </span><span class="kw">calc.ret</span>(df.sp500<span class="op">$</span>price)
+
+<span class="co"># print datasets</span>
+<span class="kw">print</span>(<span class="kw">nrow</span>(my.df.asset))</code></pre></div>
+<pre><code>## [1] 1761</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(<span class="kw">nrow</span>(df.sp500))</code></pre></div>
+<pre><code>## [1] 1801</code></pre>
+<p>You can see the number of rows of the dataset for stock JEC doesn’t match the rows of the SP500 index. The dates of the different <code>dataframes</code> are not synchronized. So, the first step is to add a column in <code>my.df</code> with the returns of the market index. For that, we use function <code>match</code> to find the indices that synchronize the dates.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># find location of dates in df.sp500</span>
+idx &lt;-<span class="st"> </span><span class="kw">match</span>(my.df.asset<span class="op">$</span>ref.date, df.sp500<span class="op">$</span>date)
+
+<span class="co"># create column in my.df with sp500 returns</span>
+my.df.asset<span class="op">$</span>ret.sp500 &lt;-<span class="st"> </span>df.sp500<span class="op">$</span>ret[idx]</code></pre></div>
+<p>As a start, let’s create the scatter plot with the returns of the stock and the market index, adding a linear trend.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
+
+p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> my.df.asset, <span class="kw">aes</span>(<span class="dt">x=</span>ret.sp500, <span class="dt">y=</span>ret))
+p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()
+p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&#39;lm&#39;</span>)
+<span class="kw">print</span>(p)</code></pre></div>
+<p><img src="ProcAnFinDataR_ed_1_files/figure-html/unnamed-chunk-492-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>The figure shows a clear linear tendency; the returns from the market index are a good predictor of the returns of the stock. Now, let’s estimate the linear model.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># estimate beta model</span>
+my.beta.model &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="dt">data =</span> my.df.asset, <span class="dt">formula =</span> ret <span class="op">~</span><span class="st"> </span>ret.sp500)
+
+<span class="co"># print it</span>
+<span class="kw">print</span>(<span class="kw">summary</span>(my.beta.model))</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = ret ~ ret.sp500, data = my.df.asset)
+## 
+## Residuals:
+##       Min        1Q    Median        3Q       Max 
+## -0.088660 -0.006393 -0.000273  0.006384  0.083767 
+## 
+## Coefficients:
+##               Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) -0.0001985  0.0002920   -0.68    0.497    
+## ret.sp500    1.3406720  0.0298163   44.96   &lt;2e-16 ***
+## ---
+## Signif. codes:  
+## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.01224 on 1759 degrees of freedom
+## Multiple R-squared:  0.5348, Adjusted R-squared:  0.5345 
+## F-statistic:  2022 on 1 and 1759 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>Previous output shows stock JEC has a beta equal to 1.34. This means this is an aggressive stock with high sensitivity to market movements.</p>
+</div>
+<div id="testing-ols" class="section level3">
+<h3><span class="header-section-number">9.1.3</span> Statistical Inference in Linear Models</h3>
+<p>After estimating a model with function <code>lm</code>, the next step is to test some hypothesis about the coefficients. The F test verifies the most basic condition for a model to justify its existence – it tests the assumption that all coefficients, excluding the intercept, are equal to zero. When function <code>summary</code> is applied to a <code>lm</code> output, the F-test is provided by default in the last line of the text output. The null hypothesis of the test is that all slopes are equal to zero. Let’s try it:</p>
+<pre><code>## 
+## Call:
+## lm(formula = y ~ x.1 + x.2, data = df)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -0.43125 -0.20631 -0.01184  0.18659  0.51744 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  0.449997   0.075048   5.996 3.46e-08 ***
+## x.1         -0.004976   0.092259  -0.054    0.957    
+## x.2         -0.006775   0.088308  -0.077    0.939    
+## ---
+## Signif. codes:  
+## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.2621 on 97 degrees of freedom
+## Multiple R-squared:  8.477e-05,  Adjusted R-squared:  -0.02053 
+## F-statistic: 0.004112 on 2 and 97 DF,  p-value: 0.9959</code></pre>
+<p>In this example, the F statistic is 0.0041119. The associated p-value is higher than 10%, indicating a strong statistical evidence in line with the null hypothesis. We failed to reject the hypothesis that the parameters attached to <code>x.1</code> and <code>x.2</code> are equal to zero. The association between the explained variable and these vectors is almost null. For an example with the rejection of the null hypothesis of the F test, see the estimation of a model with artificial data in section <a href="models.html#estimating-ols">9.1.2</a>.</p>
+<p>Another type of test automatically executed by the <code>lm</code> and <code>summary</code> function is the T test. While the F statistics test the joint hypothesis that all coefficients are zero, the T statistic tests it for individual parameters. It verifies the hypothesis that a specific parameter is equal to zero. Each coefficient has its own T test.</p>
+<p>In the practice of research, it is likely that both tests, T and F, will suffice in most cases. They will give you information about the statistical relationships in the data. However, you can also test custom hypothesis, such as the sum or product of parameters equal to a particular value, using package <code>car</code> <span class="citation">(Fox and Weisberg <a href="#ref-car">2011</a>)</span>. The tested hypotheses are usually provided from a theoretical model or analysis. For example, in section <a href="research-scripts.html#research-prophet">10.3.2</a>, we will study the performance of a forecasting algorithm. We will test the performance of the forecasts by estimating a linear model with the actual values of the variable as dependent and the forecasts as independent (explanatory). If the forecasting model works well, the intercept from the resulting model should be zero, and the slope should be equal to one. We can jointly test this hypothesis and calculate a p-value associated with it.</p>
+<p>As a simple example, let’s test a linear hypothesis for a simulated model. Here, we will create artificial data and test the formal hypothesis that the estimated coefficients are equal to the actual values provided in the simulation.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">10</span>)
+
+<span class="co"># number of time periods</span>
+nT &lt;-<span class="st"> </span><span class="dv">1000</span>
+
+<span class="co"># set parameters</span>
+my.intercept &lt;-<span class="st"> </span><span class="fl">0.5</span>
+my.beta &lt;-<span class="st"> </span><span class="fl">1.5</span>
+
+<span class="co"># simulate</span>
+x &lt;-<span class="st"> </span><span class="kw">rnorm</span>(nT)
+y &lt;-<span class="st"> </span>my.intercept <span class="op">+</span><span class="st"> </span>my.beta<span class="op">*</span>x <span class="op">+</span><span class="st"> </span><span class="kw">rnorm</span>(nT)
+
+<span class="co"># set df</span>
+df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(y, x)
+
+<span class="co"># estimate model</span>
+my.lm &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="dt">data =</span> df, 
+            <span class="dt">formula =</span> y <span class="op">~</span><span class="st"> </span>x )</code></pre></div>
+<p>After the estimation of the model, we use function <code>LinearHypothesis</code> from package <code>car</code> <span class="citation">(Fox and Weisberg <a href="#ref-car">2011</a>)</span> to implement our formal test. Before using it, we need to understand its input. The first input, <code>model</code>, is the estimated model from the previous chunk. Inputs <code>hypothesis.matrix</code> and <code>rhs</code> determine the linear hypothesis of the test in a matrix format. The object in <code>hypothesis.matrix</code> will be multiplied in matrix notation by a vertical vector of the coefficients from the model. The <code>rhs</code> (right hand side) determines the hypothesised result from this calculation. In our case, the resulting matrix operation is:</p>
+<p><span class="math display">\[  \underbrace{\begin{bmatrix}
+1 &amp; 0 \\ 
+0 &amp; 1
+\end{bmatrix}}_{hypothesis.matrix}\begin{bmatrix}
+\alpha \\
+\beta
+\end{bmatrix} = \underbrace{\begin{bmatrix}
+0.5 \\ 
+1.5  
+\end{bmatrix} }_{rhs} \]</span></p>
+<p>With this matrix operation, we test the joint hypothesis that the intercept is equal to 0.5 and the slope is equivalent to 1.5. Notice that using matrices gives flexibility to the user. We could test many other linear hypotheses by changing the shape of <code>hypothesis.matrix</code> and <code>rhs</code>. The actual R code that implements the test is given next.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(car)
+
+<span class="co"># set test matrix</span>
+test.matrix &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(my.intercept,  <span class="co"># alpha test value</span>
+                        my.beta))  <span class="co"># beta test value</span>
+
+<span class="co"># hypothesis matrix </span>
+hyp.mat &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">0</span>,
+                    <span class="dv">0</span>,<span class="dv">1</span>),<span class="dt">nrow =</span> <span class="dv">2</span>)
+
+<span class="co"># do test</span>
+my.waldtest &lt;-<span class="st"> </span><span class="kw">linearHypothesis</span>(my.lm, 
+                                <span class="dt">hypothesis.matrix =</span> hyp.mat, 
+                                <span class="dt">rhs =</span> test.matrix)
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(my.waldtest)</code></pre></div>
+<pre><code>## Linear hypothesis test
+## 
+## Hypothesis:
+## (Intercept) = 0.5
+## x = 1.5
+## 
+## Model 1: restricted model
+## Model 2: y ~ x
+## 
+##   Res.Df    RSS Df Sum of Sq      F Pr(&gt;F)
+## 1   1000 1089.1                           
+## 2    998 1086.8  2    2.3766 1.0912 0.3362</code></pre>
+<p>As we can see, the test fails to reject the null hypothesis. This means our simulation worked, and the parameters are correctly estimated as expected.</p>
+<p>Another family of tests commonly applied to linear models is related to its assumptions. Every linear model of type OLS assumes several conditions to its errors, including: 1) independence, 2) homoscesdasticity (constant variance), and 3) adherence to the Normal distribution. If these assumptions are not true, the model may be inefficient or biased, meaning some modification or use of robust estimates is required. More details about why these assumption must be true and possible workarounds are found in any Econometric textbook, such as <span class="citation">Greene (<a href="#ref-greene2003econometric">2003</a>)</span> and <span class="citation">Maddala (<a href="#ref-maddala2001introduction">2001</a>)</span>.</p>
+<p>In R, we can use package <code>lmtest</code> <span class="citation">(Zeileis and Hothorn <a href="#ref-lmtest">2002</a>)</span> to test for independence with the Breush-Godfrey and Durbin Watson test. The Shapiro-Wilk test for normality is available in package <code>stats</code>. Next, we provide an example of usage for the previously estimated model with random data.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(lmtest)
+
+<span class="co"># Breush Pagan test 1 - Serial correlation</span>
+<span class="co"># Null Hypothesis: No serial correlation in residual</span>
+<span class="kw">print</span>(<span class="kw">bgtest</span>(my.lm, <span class="dt">order =</span> <span class="dv">5</span>))
+
+<span class="co"># Breush Pagan test 2 - Homocesdasticity of residuals</span>
+<span class="co"># Null Hypothesis: homocesdasticity </span>
+<span class="co">#                  (constant variance of residuals)</span>
+<span class="kw">print</span>(<span class="kw">ncvTest</span>(my.lm))
+
+<span class="co"># Durbin Watson test - Serial correlation</span>
+<span class="co"># Null Hypothesis: No serial correlation in residual</span>
+<span class="kw">print</span>(<span class="kw">dwtest</span>(my.lm))
+
+<span class="co"># Shapiro test  - Normality</span>
+<span class="co"># Null Hypothesis: Data is normally distributed</span>
+<span class="kw">print</span>(<span class="kw">shapiro.test</span>(my.lm<span class="op">$</span>residuals))</code></pre></div>
+<pre><code>## 
+##  Breusch-Godfrey test for serial correlation of order
+##  up to 5
+## 
+## data:  my.lm
+## LM test = 4.2628, df = 5, p-value = 0.5122
+## 
+## Non-constant Variance Score Test 
+## Variance formula: ~ fitted.values 
+## Chisquare = 1.54328    Df = 1     p = 0.2141302 
+## 
+##  Durbin-Watson test
+## 
+## data:  my.lm
+## DW = 2.092, p-value = 0.9271
+## alternative hypothesis: true autocorrelation is greater than 0
+## 
+## 
+##  Shapiro-Wilk normality test
+## 
+## data:  my.lm$residuals
+## W = 0.99803, p-value = 0.2964</code></pre>
+<p>As expected, the model with artificial data passed all tests.</p>
+<p>Another interesting approach for validating linear models is to use package <code>gvlma</code> <span class="citation">(Pena and Slate <a href="#ref-gvlma">2014</a>)</span>. It provides a top level function that can execute all sorts of tests in linear models, including the ones described before. The main advantage is that it outputs all tests in a single function call. Let’s try it:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(gvlma)
+
+<span class="co"># global validation of model</span>
+gvmodel &lt;-<span class="st"> </span><span class="kw">gvlma</span>(my.lm) 
+
+<span class="co"># print result</span>
+<span class="kw">summary</span>(gvmodel)</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = y ~ x, data = df)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -3.2703 -0.6898  0.0063  0.7346  3.8266 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  0.51510    0.03300   15.61   &lt;2e-16 ***
+## x            1.54658    0.03329   46.46   &lt;2e-16 ***
+## ---
+## Signif. codes:  
+## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 1.044 on 998 degrees of freedom
+## Multiple R-squared:  0.6838, Adjusted R-squared:  0.6835 
+## F-statistic:  2159 on 1 and 998 DF,  p-value: &lt; 2.2e-16
+## 
+## 
+## ASSESSMENT OF THE LINEAR MODEL ASSUMPTIONS
+## USING THE GLOBAL TEST ON 4 DEGREES-OF-FREEDOM:
+## Level of Significance =  0.05 
+## 
+## Call:
+##  gvlma(x = my.lm) 
+## 
+##                     Value p-value                Decision
+## Global Stat        3.6404  0.4569 Assumptions acceptable.
+## Skewness           1.7814  0.1820 Assumptions acceptable.
+## Kurtosis           0.1738  0.6767 Assumptions acceptable.
+## Link Function      0.6628  0.4156 Assumptions acceptable.
+## Heteroscedasticity 1.0224  0.3119 Assumptions acceptable.</code></pre>
+<p>The output of <code>gvlma</code> shows several tests performed in the model. The result is also positive, as the decision from the model is that the OLS assumptions are acceptable. If a model did not pass the tests, one solution is to use robust estimates of standard errors. Package <code>sandwich</code> <span class="citation">(Zeileis <a href="#ref-sandwich">2004</a>)</span> offers function <code>NeweyWest</code> for this purpose.</p>
+</div>
+</div>
+<div id="generalized-linear-models-glm" class="section level2">
+<h2><span class="header-section-number">9.2</span> Generalized Linear Models (GLM)</h2>
+<p>The generalized linear model (GLM) is a flexible alternative to a linear model. It allows the user to change the distribution of the error and the link function, a systematic way that quantifies how the explained variable will be affected by the response variable. GLM models are best suited when the OLS assumptions, such as normality of residuals, don’t hold. For example, when you have a binary variable that takes only two values and you want to write a model for it, the residual is not normally distributed, given the limits of the explained variable.</p>
+<p>We can write a general univariate GLM specification as:</p>
+<p><span class="math display">\[ E \left( y _t \right) = g \left(\alpha + \sum ^N _{i=1} \beta _i x_{i,t}  \right)\]</span></p>
+<p>The main difference of a GLM model and a OLS model is the use of a link function <em>g()</em> and a custom distribution assumption for the error term. Function <em>g()</em> can take many shapes. For example, if we are modelling a binary variable, we can use <em>g()</em> as the <em>logit</em> function:</p>
+<p><span class="math display">\[ g(x) = \frac{\exp(x)}{1+\exp(x)} \]</span></p>
+<p>Notice, in this case, function <em>g()</em> ensures any value of <em>x</em> will result in a number between 0 and 1. The response of the explained variable to the explanatory will be non linear.</p>
+<div id="simulating-a-glm-model" class="section level3">
+<h3><span class="header-section-number">9.2.1</span> Simulating a GLM Model</h3>
+<p>As an example, let’s simulate the following GLM model, where the response vector <span class="math inline">\(y_t\)</span> is a Bernoulli variable that takes value 1 with probability <span class="math inline">\(p_t\)</span>. The probabilities are calculated from the non linear transformation of <span class="math inline">\(x_t\)</span>:</p>
+<p><span class="math display">\[ p _t  = \frac{\exp(2+5x_t)}{1+\exp(2+5x_t)}  \]</span></p>
+<p>In R, we use the following code to build the response vector.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">15</span>)
+
+<span class="co"># set number of obs</span>
+nT &lt;-<span class="st"> </span><span class="dv">500</span>
+
+<span class="co"># set x</span>
+x =<span class="st"> </span><span class="kw">rnorm</span>(nT)
+
+my.alpha &lt;-<span class="st"> </span><span class="dv">2</span>
+my.beta &lt;-<span class="st"> </span><span class="dv">5</span>
+
+<span class="co"># set probabilities</span>
+z =<span class="st"> </span>my.alpha <span class="op">+</span><span class="st"> </span>my.beta<span class="op">*</span>x
+p =<span class="st"> </span><span class="kw">exp</span>(z)<span class="op">/</span>(<span class="dv">1</span><span class="op">+</span><span class="kw">exp</span>(z))
+
+<span class="co"># set response variable</span>
+y =<span class="st"> </span><span class="kw">rbinom</span>(<span class="dt">n =</span> nT,<span class="dt">size =</span> <span class="dv">1</span>, <span class="dt">prob =</span> p)</code></pre></div>
+<p>Function <code>rbinom</code> creates a vector of 1s and 0s, based on the probabilities of input <code>prob</code>. Let’s plot the simulated series over time with <code>ggplot</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
+
+<span class="co"># set df for ggplot</span>
+df =<span class="st"> </span><span class="kw">data.frame</span>(y, x)
+
+<span class="co"># plot GLM sim</span>
+p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> df, <span class="kw">aes</span>(<span class="dt">x=</span><span class="kw">seq_along</span>(y) ,<span class="dt">y=</span>y))
+p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">size=</span><span class="fl">0.5</span>)
+<span class="kw">print</span>(p)</code></pre></div>
+<p><img src="ProcAnFinDataR_ed_1_files/figure-html/unnamed-chunk-509-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>Object <code>y</code> contains zeros and ones, as expected.</p>
+</div>
+<div id="estimating-a-glm-model" class="section level3">
+<h3><span class="header-section-number">9.2.2</span> Estimating a GLM Model</h3>
+<p>In R, the estimation of GLM models is accomplished with function <code>glm</code>. It works similarly to <code>lm</code> but contains several extra arguments that control the details of the models, such as the link function and the distribution of the residuals.</p>
+<p>First, let’s use the previously simulated data to estimate a logit model:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># estimate GLM</span>
+my.glm &lt;-<span class="st"> </span><span class="kw">glm</span>(<span class="dt">data=</span>df, 
+              <span class="dt">formula =</span> y<span class="op">~</span>x , 
+              <span class="dt">family=</span> <span class="kw">binomial</span>(<span class="dt">link =</span> <span class="st">&quot;logit&quot;</span>))
+
+<span class="co"># print it with summary</span>
+<span class="kw">print</span>(<span class="kw">summary</span>(my.glm))</code></pre></div>
+<pre><code>## 
+## Call:
+## glm(formula = y ~ x, family = binomial(link = &quot;logit&quot;), data = df)
+## 
+## Deviance Residuals: 
+##      Min        1Q    Median        3Q       Max  
+## -2.99392  -0.13689   0.04087   0.23250   2.91383  
+## 
+## Coefficients:
+##             Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept)   2.1488     0.2622   8.197 2.47e-16 ***
+## x             4.9050     0.5110   9.598  &lt; 2e-16 ***
+## ---
+## Signif. codes:  
+## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 634.18  on 499  degrees of freedom
+## Residual deviance: 214.14  on 498  degrees of freedom
+## AIC: 218.14
+## 
+## Number of Fisher Scoring iterations: 7</code></pre>
+<p>The estimated coefficients are close to what we set in <code>my.alpha</code> and <code>my.beta</code>. As expected, the model has a good fit of the data, with both parameters being statistically significant at 1%.</p>
+<p>Function <code>glm</code> offers many options for setting a customized model. From the help files, we have the following alternatives for the distribution and link function and their corresponding inputs:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Family</th>
+<th align="left">Default Link Function</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">binomial</td>
+<td align="left">link = “logit”</td>
+</tr>
+<tr class="even">
+<td align="left">gaussian</td>
+<td align="left">link = “identity”</td>
+</tr>
+<tr class="odd">
+<td align="left">Gamma</td>
+<td align="left">link = “inverse”</td>
+</tr>
+<tr class="even">
+<td align="left">inverse.gaussian</td>
+<td align="left">link = “1/mu^2”</td>
+</tr>
+<tr class="odd">
+<td align="left">poisson</td>
+<td align="left">link = “log”</td>
+</tr>
+<tr class="even">
+<td align="left">quasi</td>
+<td align="left">link = “identity”, variance = “constant”</td>
+</tr>
+<tr class="odd">
+<td align="left">quasibinomial</td>
+<td align="left">link = “logit”</td>
+</tr>
+<tr class="even">
+<td align="left">quasipoisson</td>
+<td align="left">link = “log”</td>
+</tr>
+</tbody>
+</table>
+<p>The first step in using a GLM model is to identify the distribution and link function that best suits your data. After that, you can use the previous table to set the input of function <code>glm</code>.</p>
+<p>As an example with real data from financial markets, let’s randomly select a stock and estimate a model for the probability of a positive return with the probit model (<code>link='probit'</code>). We will use the returns of the SP500 as the explanatory variable. We want to test whether the market index influences the chance that a stock has a positive return, an alternative version of the market model.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">15</span>)
+
+<span class="co"># select stock</span>
+my.stock &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="kw">unique</span>(my.df<span class="op">$</span>ticker), <span class="dv">1</span>)
+my.df.asset &lt;-<span class="st"> </span>my.df[my.df<span class="op">$</span>ticker <span class="op">==</span><span class="st"> </span>my.stock, ]
+
+<span class="co"># find location of dates in df.sp500</span>
+idx &lt;-<span class="st"> </span><span class="kw">match</span>(my.df.asset<span class="op">$</span>ref.date, df.sp500<span class="op">$</span>date)
+
+<span class="co"># create column in my.df with sp500 returns</span>
+my.df.asset<span class="op">$</span>ret.sp500 &lt;-<span class="st"> </span>df.sp500<span class="op">$</span>ret[idx]
+
+<span class="co"># set column with dummy variable</span>
+my.df.asset<span class="op">$</span>D_ret &lt;-<span class="st"> </span>my.df.asset<span class="op">$</span>ret <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>
+
+<span class="co"># estimate model</span>
+my.glm &lt;-<span class="st"> </span><span class="kw">glm</span>(<span class="dt">data=</span>my.df.asset,
+              <span class="dt">formula =</span> D_ret<span class="op">~</span>ret.sp500 , 
+              <span class="dt">family=</span> <span class="kw">binomial</span>(<span class="dt">link =</span> <span class="st">&quot;probit&quot;</span>))
+
+<span class="kw">print</span>(<span class="kw">summary</span>(my.glm))</code></pre></div>
+<pre><code>## 
+## Call:
+## glm(formula = D_ret ~ ret.sp500, family = binomial(link = &quot;probit&quot;), 
+##     data = my.df.asset)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -2.7100  -1.0391   0.2688   1.0161   2.5873  
+## 
+## Coefficients:
+##              Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept) -0.005122   0.032334  -0.158    0.874    
+## ret.sp500   78.567162   4.616749  17.018   &lt;2e-16 ***
+## ---
+## Signif. codes:  
+## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 2439.8  on 1760  degrees of freedom
+## Residual deviance: 2038.9  on 1759  degrees of freedom
+## AIC: 2042.9
+## 
+## Number of Fisher Scoring iterations: 5</code></pre>
+<p>The parameter for the market index is positive and significant. This result implies the probability that stock MJN has a positive return is affected by the changes in the SP500. When the index increases its prices, a positive return in the stock is more likely.</p>
+</div>
+</div>
+<div id="panel-data-models" class="section level2">
+<h2><span class="header-section-number">9.3</span> Panel Data Models</h2>
+<p>Panel data models are advised when the modelled data is multidimensional, covering information about individuals or companies that spawn over time. A dataset with financial information about several companies for many years is a classic case of panel data. We have a column identifying the company, another column for the time, and one or more columns identifying the financial indicators. In a cross section of time, we have several companies and several financial ratios. The dataset can be further categorized as balanced, where all companies have information in all dates, and unbalanced, where not all companies have data for all dates.</p>
+<p>The main motivation to use panel data models is to allow common effects within the groups. If a standard OLS estimation is used for each group, such as companies, we implicitly assume the models are independent. If the assumption of independence is not true, our econometric analysis is jeopardized by a possible bias. Using panel data models allows for more flexible representations. Some parameters can be individual to each group, while others are shared. Using panel data models requires careful thought about how the model is identified. Many statistical tests are available for this purpose.</p>
+<p>We can represent the simplest case of a panel data model as:</p>
+<p><span class="math display">\[ y_{i,t} = \alpha _i + \beta x_{i,t}+\epsilon _{i,t} \]</span></p>
+<p>Notice we now use index <em>i</em> in the dependent and independent variables. This index controls for the groups, such as different companies. In our specific model, all <em>i</em> cases have different intercepts, but share the same beta. Depending on the assumptions about the intercept, the previous equation can represent a panel data model of type <em>fixed</em> or <em>random effects</em> . There are many other ways to customize a panel data model and set dynamic effects, such as lagged terms. You can find more details in <span class="citation">Hsiao (<a href="#ref-hsiao2014analysis">2014</a>)</span>.</p>
+<div id="simulating-panel-data-models" class="section level3">
+<h3><span class="header-section-number">9.3.1</span> Simulating Panel Data Models</h3>
+<p>Let’s simulate a balanced panel data with fixed effects for twelve different firms and five time periods. This is a classic case of panel data, with large <em>N</em> and small <em>T</em>. Each company will have a explanatory variable, called <code>x</code>, that varies over different dates. The following code uses matrix operations to simulate all cases. Notice the many uses of the <code>sapply</code> function. After creating the multivariate data, we stack it in single vectors and save it in a <code>dataframe</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">25</span>)
+
+<span class="co"># number of obs for each case</span>
+nT &lt;-<span class="st"> </span><span class="dv">5</span>
+
+<span class="co"># set number of groups</span>
+N &lt;-<span class="st"> </span><span class="dv">12</span>
+
+<span class="co"># set possible cases</span>
+possible.cases &lt;-<span class="st"> </span>LETTERS[<span class="dv">1</span><span class="op">:</span>N]
+
+<span class="co"># set parameters</span>
+my.alphas &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="op">-</span><span class="dv">10</span>,<span class="dv">10</span>,<span class="dt">length.out =</span> N)
+my.beta &lt;-<span class="st"> </span><span class="fl">1.5</span>
+
+<span class="co"># set indep var (x) and dates</span>
+indep.var &lt;-<span class="st"> </span><span class="kw">sapply</span>(<span class="kw">rep</span>(nT,N), rnorm)
+my.dates &lt;-<span class="st"> </span><span class="kw">Sys.Date</span>() <span class="op">+</span><span class="st"> </span><span class="dv">1</span><span class="op">:</span>nT
+
+<span class="co"># create response matrix (y)</span>
+response.matrix &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">rep</span>(my.alphas,nT), 
+                          <span class="dt">nrow =</span> nT, 
+                          <span class="dt">byrow =</span> <span class="ot">TRUE</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span>indep.var<span class="op">*</span>my.beta <span class="op">+</span><span class="st"> </span><span class="kw">sapply</span>(<span class="kw">rep</span>(nT,N),rnorm, <span class="dt">sd =</span> <span class="fl">0.25</span>) 
+
+<span class="co"># set df</span>
+sim.df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">G =</span> <span class="kw">as.character</span>(<span class="kw">sapply</span>(possible.cases, 
+                                             rep, 
+                                             <span class="dt">times=</span>nT )),
+                     <span class="dt">dates =</span> <span class="kw">rep</span>(my.dates, <span class="dt">times=</span>N),
+                     <span class="dt">y =</span> <span class="kw">as.numeric</span>(response.matrix),
+                     <span class="dt">x =</span> <span class="kw">as.numeric</span>(indep.var), 
+                     <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(<span class="kw">str</span>(sim.df))</code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    60 obs. of  4 variables:
+##  $ G    : chr  &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; ...
+##  $ dates: Date, format: &quot;2017-04-30&quot; ...
+##  $ y    : num  -10.68 -11.55 -11.74 -9.84 -11.96 ...
+##  $ x    : num  -0.212 -1.042 -1.153 0.322 -1.5 ...
+## NULL</code></pre>
+<p>The result is a <code>dataframe</code> object with 60 rows and 4 columns. We can look at the scatter plot of <code>x</code> and <code>y</code> for each firm using <code>ggplot2</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
+
+p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(sim.df, <span class="kw">aes</span>(<span class="dt">x=</span>x, <span class="dt">y=</span>y))
+p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()
+p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">facet_wrap</span>(<span class="op">~</span>G)
+
+<span class="kw">print</span>(p)</code></pre></div>
+<p><img src="ProcAnFinDataR_ed_1_files/figure-html/unnamed-chunk-516-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>The figure shows the strong linear relationship shared between x and y in the different groups. If we estimated a linear model from this data, we would have to allow a different intercept for each group we find in column <code>cases</code>.</p>
+</div>
+<div id="estimating-panel-data-models" class="section level3">
+<h3><span class="header-section-number">9.3.2</span> Estimating Panel Data Models</h3>
+<p>With the artificial data simulated in the previous step, let’s estimate the model using package <code>plm</code> <span class="citation">(Croissant and Millo <a href="#ref-plm">2008</a>)</span>. This is a great package that offers a comprehensive set of tools in testing and estimating panel data models. The interface of function <code>plm</code> is similar to <code>lm</code>. However, we need to define the panel data model in argument <code>model</code> and the names of columns that define the groups and time reference in input <code>index</code>.  </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(plm)
+
+<span class="co"># estimate panel data model with fixed effects</span>
+my.pdm &lt;-<span class="st"> </span><span class="kw">plm</span>(<span class="dt">data =</span> sim.df, 
+              <span class="dt">formula =</span> y <span class="op">~</span><span class="st"> </span>x, 
+              <span class="dt">model =</span> <span class="st">&#39;within&#39;</span>,
+              <span class="dt">index =</span> <span class="kw">c</span>(<span class="st">&#39;G&#39;</span>,<span class="st">&#39;dates&#39;</span>))
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(<span class="kw">summary</span>(my.pdm,))</code></pre></div>
+<pre><code>## Oneway (individual) effect Within Model
+## 
+## Call:
+## plm(formula = y ~ x, data = sim.df, model = &quot;within&quot;, index = c(&quot;G&quot;, 
+##     &quot;dates&quot;))
+## 
+## Balanced Panel: n=12, T=5, N=60
+## 
+## Residuals :
+##    Min. 1st Qu.  Median 3rd Qu.    Max. 
+##  -0.440  -0.148  -0.033   0.154   0.479 
+## 
+## Coefficients :
+##   Estimate Std. Error t-value  Pr(&gt;|t|)    
+## x 1.479366   0.035854  41.261 &lt; 2.2e-16 ***
+## ---
+## Signif. codes:  
+## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Total Sum of Squares:    106.87
+## Residual Sum of Squares: 2.871
+## R-Squared:      0.97313
+## Adj. R-Squared: 0.96627
+## F-statistic: 1702.44 on 1 and 47 DF, p-value: &lt; 2.22e-16</code></pre>
+<p>As expected, the parameters were correctly retrieved from the data, with a small difference from the actual value defined in <code>my.beta</code>. Notice the different intercepts were not printed in the <code>summary</code> output. We can retrieve them using function <code>fixef</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(<span class="kw">fixef</span>(my.pdm))</code></pre></div>
+<pre><code>##           A           B           C           D           E 
+## -10.0934047  -8.2435523  -6.3253831  -4.6552624  -2.8087407 
+##           F           G           H           I           J 
+##  -0.9794636   0.9609360   2.7568233   4.4134081   6.2113577 
+##           K           L 
+##   8.1880249  10.0337231</code></pre>
+<p>Again, the simulated intercept values are close to the ones obtained from the estimation.</p>
+<p>As an example with real data, let’s use the dataset from <span class="citation">Grunfeld (<a href="#ref-grunfeld1958determinants">1958</a>)</span>. This research paper studied the components of corporate investments using data for ten companies for twenty years. The data is available with package <code>plm</code>, and we can load it with function <code>data</code>. Let’s import it and look in its content.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(plm)
+
+<span class="co"># data from Grunfeld</span>
+<span class="kw">data</span>(<span class="st">&quot;Grunfeld&quot;</span>)
+
+<span class="co"># print it</span>
+<span class="kw">print</span>(<span class="kw">str</span>(Grunfeld))</code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    200 obs. of  5 variables:
+##  $ firm   : int  1 1 1 1 1 1 1 1 1 1 ...
+##  $ year   : int  1935 1936 1937 1938 1939 1940 1941 1942 1943 1944 ...
+##  $ inv    : num  318 392 411 258 331 ...
+##  $ value  : num  3078 4662 5387 2792 4313 ...
+##  $ capital: num  2.8 52.6 156.9 209.2 203.4 ...
+## NULL</code></pre>
+<p>The <code>Grunfeld</code> dataset contains company information about gross investment, market value, and capital (plant and equipment). The <code>dataframe</code> is in the long format and ready to be used. In the model, column <code>inv</code> is set as the dependent variable. Columns <code>firm</code> and <code>year</code> are the index of panel data estimation. The remaining columns, <code>value</code> and <code>capital</code>, are explanatory variables. You can find more details about the Grunfeld data, including information about different versions of the dataset and its historical usage, in <span class="citation">Kleiber and Zeileis (<a href="#ref-kleiber2010grunfeld">2010</a>)</span>.</p>
+<p>A note here is important; given its high number of time periods in proportion to the number of firms, the Grunfeld data is best suited for a more advanced econometric model of type SUR (seemly unrelated regression). For educational purposes of learning R, we will explore other types of panel models with this dataset . See <span class="citation">Greene (<a href="#ref-greene2003econometric">2003</a>)</span> for more details.</p>
+<p>First, let’s explore the raw data by estimating a different OLS model for each firm. This is also called the pooled model. We can use function <code>by</code> with a custom function for this purpose (see chapter <a href="programming.html#programming">7</a> for details).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my.fct &lt;-<span class="st"> </span><span class="cf">function</span>(df) {
+  <span class="co"># Estimates a linear model from Grunfeld data</span>
+  <span class="co">#</span>
+  <span class="co"># Args:</span>
+  <span class="co">#   df - dataframe from Grunfeld</span>
+  <span class="co">#</span>
+  <span class="co"># Returns:</span>
+  <span class="co">#   lm object</span>
+  
+  my.model &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="dt">data =</span> df, 
+                 <span class="dt">formula =</span> inv <span class="op">~</span><span class="st">  </span>value <span class="op">+</span><span class="st"> </span>capital)
+  
+  <span class="kw">return</span>(my.model)
+}
+
+<span class="co"># estimate model for each firm</span>
+my.l &lt;-<span class="st"> </span><span class="kw">by</span>(Grunfeld, 
+           <span class="dt">INDICES =</span> Grunfeld<span class="op">$</span>firm, 
+           <span class="dt">FUN =</span> my.fct)
+
+<span class="co"># print result</span>
+my.coefs &lt;-<span class="st"> </span><span class="kw">sapply</span>(my.l, coef)
+<span class="kw">print</span>(my.coefs)</code></pre></div>
+<pre><code>##                        1           2           3
+## (Intercept) -149.7824533 -49.1983219 -9.95630645
+## value          0.1192808   0.1748560  0.02655119
+## capital        0.3714448   0.3896419  0.15169387
+##                       4            5           6          7
+## (Intercept) -6.18996051 22.707116014 -8.68554338 -4.4995344
+## value        0.07794782  0.162377704  0.13145484  0.0875272
+## capital      0.31571819  0.003101737  0.08537427  0.1237814
+##                       8           9          10
+## (Intercept) -0.50939018 -7.72283708 0.161518567
+## value        0.05289413  0.07538794 0.004573432
+## capital      0.09240649  0.08210356 0.437369190</code></pre>
+<p>The results show a great discrepancy between the coefficients obtained for each firm. This is especially true for the intercept value. It ranges from -149.8 to 22.71. This result shows evidence it might be more realistic to assume different coefficients for the different firms. We can formally test this hypothesis with function <code>polltest</code> from <code>plm</code>. It tests the null hypothesis that all coefficients are the same across the cases, against the alternative hypothesis they are not. Let’s use it.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># test if all coef are the same across firms</span>
+my.pooltest &lt;-<span class="st"> </span><span class="kw">pooltest</span>(inv<span class="op">~</span>value<span class="op">+</span>capital, 
+                        <span class="dt">data =</span> Grunfeld, 
+                        <span class="dt">model =</span> <span class="st">&quot;pooling&quot;</span>)
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(my.pooltest)</code></pre></div>
+<pre><code>## 
+##  F statistic
+## 
+## data:  inv ~ value + capital
+## F = 27.749, df1 = 27, df2 = 170, p-value &lt; 2.2e-16
+## alternative hypothesis: unstability</code></pre>
+<p>The high F test and small p-value suggest the rejection of the null hypothesis. The evidence that the same coefficients can be applied to all firms is minimal. The motivation for using panel data models for the Grunfeld dataset is justified by the statistical test.</p>
+<p>Before estimating the model, we need to understand which kind of panel data model is best suited for the data. For simplicity, let’s assume only two possible choices, fixed or random effects. In both models, each group has unobserved individual effects but share the same impact (beta) of the observed explanatory variables. The difference between the models is how the unobserved individual effect is perceived. Individual effects are correlated to the explanatory variables in the fixed effect model, while in the random effects, they are random variables. The correct estimation of the model and econometric analysis will change according to the underlying correlation structure. See <span class="citation">Greene (<a href="#ref-greene2003econometric">2003</a>)</span> for more technical details about the difference between fixed and random effects models.</p>
+<p>We can test the model specification using package <code>plm</code>. Function <code>phtest</code> executes the Hausman test <span class="citation">(Hausman <a href="#ref-hausman1978specification">1978</a>)</span>, a statistical procedure that tests the null hypothesis that the best model is the random effects and not the fixed effect. Let’s try it for our data.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set options for Hausman test</span>
+my.formula &lt;-<span class="st"> </span>inv <span class="op">~</span><span class="st"> </span>value <span class="op">+</span><span class="st"> </span>capital
+my.index &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;firm&#39;</span>,<span class="st">&#39;year&#39;</span>)
+
+<span class="co"># do Hausman test</span>
+my.hausman.test &lt;-<span class="st"> </span><span class="kw">phtest</span>(<span class="dt">x =</span> my.formula, 
+                          <span class="dt">data =</span> Grunfeld,
+                          <span class="dt">model =</span> <span class="kw">c</span>(<span class="st">&#39;within&#39;</span>, <span class="st">&#39;random&#39;</span>),
+                          <span class="dt">index =</span> my.index)
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(my.hausman.test)</code></pre></div>
+<pre><code>## 
+##  Hausman Test
+## 
+## data:  my.formula
+## chisq = 2.3304, df = 2, p-value = 0.3119
+## alternative hypothesis: one model is inconsistent</code></pre>
+<p>The p-value of 31.19% is higher than an acceptable threshold of 10%. Therefore, we fail to reject the null hypothesis that the most efficient panel data model is the random effects. We have strong statistical evidence that a random effect model is better suited than a fixed effect type for the Grunfeld dataset.</p>
+<p>After identifying the model, let’s estimate it using function <code>plm</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set panel data model with random effects</span>
+my.model &lt;-<span class="st"> &#39;random&#39;</span>
+my.formula &lt;-<span class="st"> </span>inv <span class="op">~</span><span class="st"> </span>value <span class="op">+</span><span class="st"> </span>capital
+my.index &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;firm&#39;</span>,<span class="st">&#39;year&#39;</span>)
+
+<span class="co"># estimate it</span>
+my.pdm.random &lt;-<span class="st"> </span><span class="kw">plm</span>(<span class="dt">data =</span> Grunfeld, 
+                     <span class="dt">formula =</span> my.formula, 
+                     <span class="dt">model =</span> my.model,
+                     <span class="dt">index =</span> my.index)
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(<span class="kw">summary</span>(my.pdm.random))</code></pre></div>
+<pre><code>## Oneway (individual) effect Random Effect Model 
+##    (Swamy-Arora&#39;s transformation)
+## 
+## Call:
+## plm(formula = my.formula, data = Grunfeld, model = my.model, 
+##     index = my.index)
+## 
+## Balanced Panel: n=10, T=20, N=200
+## 
+## Effects:
+##                   var std.dev share
+## idiosyncratic 2784.46   52.77 0.282
+## individual    7089.80   84.20 0.718
+## theta:  0.8612  
+## 
+## Residuals :
+##    Min. 1st Qu.  Median 3rd Qu.    Max. 
+## -178.00  -19.70    4.69   19.50  253.00 
+## 
+## Coefficients :
+##               Estimate Std. Error t-value Pr(&gt;|t|)    
+## (Intercept) -57.834415  28.898935 -2.0013  0.04674 *  
+## value         0.109781   0.010493 10.4627  &lt; 2e-16 ***
+## capital       0.308113   0.017180 17.9339  &lt; 2e-16 ***
+## ---
+## Signif. codes:  
+## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Total Sum of Squares:    2381400
+## Residual Sum of Squares: 548900
+## R-Squared:      0.7695
+## Adj. R-Squared: 0.76716
+## F-statistic: 328.837 on 2 and 197 DF, p-value: &lt; 2.22e-16</code></pre>
+<p>As expected, the coefficients are significant at 1%. The adjustment of the model is also high, with an adjusted R-Squared equal to 0.77. This means a great proportion of the variation in the data was explained by the model. The results from the panel data model indicate the value of the firms and their current assets are positively related to the amount of investments. Firms with higher market value and capital tend to invest more.</p>
+<p>As a last example of using R in panel models with the <code>Grunfeld</code> data, let’s estimate a SUR (seemingly unrelated regression) model, which is best suited for this data. The SUR specification assumes the different models for each group can be estimated individually, with a correlation between the disturbances across models. It is best suited when we have many time periods and few groups, such as in the <code>Grunfeld</code> data.</p>
+<p>Package <code>systemfit</code> offers a function with the same name for the estimation of the SUR model. The first step in using <code>systemfit</code> is to allocate the <code>Grunfeld</code> data to a specific <code>data.frame</code> format with function <code>plm::pdata.frame</code>. Let’s try it.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(systemfit)
+
+<span class="co"># set pdataframe</span>
+p.Grunfeld &lt;-<span class="st"> </span><span class="kw">pdata.frame</span>(Grunfeld, <span class="kw">c</span>( <span class="st">&quot;firm&quot;</span>, <span class="st">&quot;year&quot;</span> ))
+
+<span class="co"># estimate sur</span>
+my.SUR &lt;-<span class="st"> </span><span class="kw">systemfit</span>(<span class="dt">formula =</span> inv <span class="op">~</span>value <span class="op">+</span><span class="st"> </span>capital,
+                    <span class="dt">method =</span>  <span class="st">&quot;SUR&quot;</span>,
+                    <span class="dt">data =</span> p.Grunfeld)
+<span class="kw">print</span>(my.SUR)</code></pre></div>
+<pre><code>## 
+## systemfit results 
+## method: SUR 
+## 
+## Coefficients:
+##  1_(Intercept)       X1_value     X1_capital 10_(Intercept) 
+##   -135.6061364      0.1138135      0.3861235      1.9893500 
+##      X10_value    X10_capital  2_(Intercept)       X2_value 
+##     -0.0161291      0.3768475    -10.9059829      0.1627658 
+##     X2_capital  3_(Intercept)       X3_value     X3_capital 
+##      0.3406261    -15.8959008      0.0349626      0.1257302 
+##  4_(Intercept)       X4_value     X4_capital  5_(Intercept) 
+##      1.8043270      0.0678437      0.3075528     26.4673602 
+##       X5_value     X5_capital  6_(Intercept)       X6_value 
+##      0.1274473      0.0119871     -6.1934512      0.1333107 
+##     X6_capital  7_(Intercept)       X7_value     X7_capital 
+##      0.0540052     -9.7701305      0.1134649      0.1281802 
+##  8_(Intercept)       X8_value     X8_capital  9_(Intercept) 
+##      3.1490972      0.0537015      0.0433622     -3.1568643 
+##       X9_value     X9_capital 
+##      0.0765949      0.0654245</code></pre>
+<p>The output object <code>my.SUR</code> contains the estimation of all equations, firm by firm. Using <code>print</code> is limited in this case; it only shows the estimated coefficients. Function <code>summary</code> provides more information, including the correlation structure between the disturbances. But, its output is extensive and would fill several pages of this book. We leave it as an exercise.</p>
+</div>
+</div>
+<div id="arima-models" class="section level2">
+<h2><span class="header-section-number">9.4</span> Arima Models</h2>
+<p>Using time series models is common in financial research. Arima is a special model that uses the past of a time series to explain its own future. Estimating an Arima model for stock returns can tell how the returns today are related to past returns. In a forecasting horse race, we can compare predictive performance of forecasting candidates against an Arima model. If the proposed model works well, it should provide forecasts with higher accuracy.</p>
+<p>A simple example of an Arima model is defined by the following equation:</p>
+<p><span class="math display">\[y _t = 0.5 y_{t-1} - 0.2 \epsilon _{t-1} + \epsilon _t\]</span></p>
+<p>In this example, we have an ARIMA(AR = 1, D = 0, MA = 1) model without the intercept. This specific notation informs the configuration of the model and the number of used parameters. The first value in (1, 0, 1) indicates the maximum <em>lag</em> used in <span class="math inline">\(y_t\)</span> in the right hand side of the equation. The second value indicates the degree of differentiation of the time series <span class="citation">(J. D. Hamilton <a href="#ref-hamilton1994time">1994</a>)</span>. If <span class="math inline">\(D=1\)</span>, we use the first difference of <span class="math inline">\(y_t\)</span> as the dependent variable. The third component, <em>MA</em>, shows the maximum <em>lag</em> used for the error of the model. This identification process can be arbitrary or not. A common procedure is to search for the combination of AR, D, and MA terms that maximizes an adjustment function, as shown in section <a href="models.html#arima-estimating">9.4.2</a>.</p>
+<div id="simulating-arima-models" class="section level3">
+<h3><span class="header-section-number">9.4.1</span> Simulating Arima Models</h3>
+<p>First, let’s simulate an Arima model using function <code>arima.sim</code> from <code>stat</code>. This package is loaded by default, and we need not source it with <code>library</code>. </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">1</span>)
+
+<span class="co"># set number of observations</span>
+my.n &lt;-<span class="st"> </span><span class="dv">5000</span>
+
+<span class="co"># set model&#39;s parameters</span>
+my.model &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">ar =</span> <span class="fl">0.5</span>, <span class="dt">ma =</span> <span class="op">-</span><span class="fl">0.1</span>)
+my.sd &lt;-<span class="st"> </span><span class="dv">1</span>
+
+<span class="co"># simulate model</span>
+my.ts &lt;-<span class="st"> </span><span class="kw">arima.sim</span>(<span class="dt">n =</span> my.n, 
+                   <span class="dt">model =</span> my.model , 
+                   <span class="dt">sd =</span> my.sd)</code></pre></div>
+<p>We can look at the result of the simulation by creating a plot with the artificial time series:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
+
+<span class="co"># set df</span>
+temp.df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">y =</span> <span class="kw">unclass</span>(my.ts), 
+                      <span class="dt">date =</span> <span class="kw">Sys.Date</span>() <span class="op">+</span><span class="st"> </span><span class="dv">1</span><span class="op">:</span>my.n)
+
+p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(temp.df, <span class="kw">aes</span>(<span class="dt">x =</span> date, <span class="dt">y =</span> y))
+p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">size=</span><span class="fl">0.5</span>)
+
+<span class="kw">print</span>(p)</code></pre></div>
+<p><img src="ProcAnFinDataR_ed_1_files/figure-html/unnamed-chunk-530-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>The graph shows a time series with an average close to zero and strong instability. These are typical properties of an Arima model.</p>
+</div>
+<div id="arima-estimating" class="section level3">
+<h3><span class="header-section-number">9.4.2</span> Estimating Arima Models</h3>
+<p>To estimate a Arima model, we use function <code>arima</code> from the same package. Let’s estimate a model for our simulated data. </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># estimate arima model</span>
+my.arima &lt;-<span class="st"> </span><span class="kw">arima</span>(my.ts, <span class="dt">order =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>))
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(<span class="kw">coef</span>(my.arima))</code></pre></div>
+<pre><code>##          ar1          ma1    intercept 
+##  0.482547196 -0.077376754 -0.007458499</code></pre>
+<p>As expected, the estimated parameters are close to the simulated values, with <em>ar1</em> equal to 0.4825 and <em>ma1</em> equal to -0.07738. As we did for a <code>lm</code> and <code>plm</code> model, we can also use function <code>summary</code> to get more information from the estimation of the Arima model. Let’s look at all elements available in <code>summary(my.arima)</code>: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(<span class="kw">summary</span>(my.arima))</code></pre></div>
+<pre><code>##           Length Class  Mode     
+## coef         3   -none- numeric  
+## sigma2       1   -none- numeric  
+## var.coef     9   -none- numeric  
+## mask         3   -none- logical  
+## loglik       1   -none- numeric  
+## aic          1   -none- numeric  
+## arma         7   -none- numeric  
+## residuals 5000   ts     numeric  
+## call         3   -none- call     
+## series       1   -none- character
+## code         1   -none- numeric  
+## n.cond       1   -none- numeric  
+## nobs         1   -none- numeric  
+## model       10   -none- list</code></pre>
+<p>We have the adjustment criteria in <code>aic</code>, residuals in <code>residuals</code>, coefficients in <code>coef</code>, covariance matrix of estimated coefficients in <code>var.coef</code>, and many more.</p>
+<p>The identification of the Arima model, defining values AR, D, MA in Arima (AR, D, MA), can also be performed automatically. Package <code>forecast</code> <span class="citation">(Hyndman and Khandakar <a href="#ref-hyndman2007automatic">2007</a>)</span> offers function <code>auto.arima</code> that automates this process by choosing the best model according to an adjustment criterion, such as AIC (<em>Akaike information criteria</em>) and BIC (<em>Bayesian information criteria</em> ). This is a very useful function. We allow the data to speak for itself, avoiding a possible bias in the identification of the model. </p>
+<p>In the next example, we use function <code>auto.arima</code> to find the best model for the daily returns of the SP500 index. First, we load the data from file <code>SP500.csv</code> and add a column for the returns using function <code>calc.ret</code>, first presented in chapter <a href="programming.html#programming">7</a>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># read file</span>
+my.f &lt;-<span class="st"> &#39;data/SP500.csv&#39;</span>
+df.SP500 &lt;-<span class="st"> </span><span class="kw">read.csv</span>(my.f)
+
+calc.ret &lt;-<span class="st"> </span><span class="cf">function</span>(P) {
+  <span class="co"># calculates arithmetic returns from a vector of prices</span>
+  <span class="co">#</span>
+  <span class="co"># Args:</span>
+  <span class="co">#   P - vector of prices (numeric)</span>
+  <span class="co">#</span>
+  <span class="co"># Returns:</span>
+  <span class="co">#   A vector of returns</span>
+  
+  my.length &lt;-<span class="st"> </span><span class="kw">length</span>(P)
+  ret &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="ot">NA</span>, P[<span class="dv">2</span><span class="op">:</span>my.length]<span class="op">/</span>P[<span class="dv">1</span><span class="op">:</span>(my.length <span class="op">-</span><span class="st"> </span><span class="dv">1</span>)] <span class="op">-</span><span class="st"> </span><span class="dv">1</span>)
+  <span class="kw">return</span>(ret)
+}
+
+<span class="co"># set return column</span>
+df.SP500<span class="op">$</span>ret &lt;-<span class="st"> </span><span class="kw">calc.ret</span>(df.SP500<span class="op">$</span>price)</code></pre></div>
+<p>Before estimating the model, we need to check the stationarity of the return data. If the data is not stationary, it might be necessary to use the first differences of the original series <span class="citation">(Maddala <a href="#ref-maddala2001introduction">2001</a>)</span>. Since we are modelling returns, the raw data of prices was already differentiated (see return equation in chapter <a href="Financial-data.html#Financial-data">5</a>). It is worth testing this property of the data before estimating the Arima model. Package <code>tseries</code> <span class="citation">(Trapletti and Hornik <a href="#ref-tseries">2017</a>)</span> provides a function called <code>adf.test</code> that will check if the data has unit root (not stationary). The null hypothesis of the test is the non-stationarity of the data, i.e, the existence of unit roots.  </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tseries)
+<span class="kw">print</span>(<span class="kw">adf.test</span>(<span class="kw">na.omit</span>(df.SP500<span class="op">$</span>ret)))</code></pre></div>
+<pre><code>## 
+##  Augmented Dickey-Fuller Test
+## 
+## data:  na.omit(df.SP500$ret)
+## Dickey-Fuller = -12.188, Lag order = 12, p-value =
+## 0.01
+## alternative hypothesis: stationary</code></pre>
+<p>The result of the test shows a small p-value that strongly suggests the rejection of the null hypothesis. The evidence indicates that the return vector can be considered stationary. For curiosity, let’s also try the test on the price series:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(<span class="kw">adf.test</span>(df.SP500<span class="op">$</span>price))</code></pre></div>
+<pre><code>## 
+##  Augmented Dickey-Fuller Test
+## 
+## data:  df.SP500$price
+## Dickey-Fuller = -2.9396, Lag order = 12, p-value =
+## 0.1806
+## alternative hypothesis: stationary</code></pre>
+<p>This time, we easily fail to reject the null hypothesis with a large p-value. The test strongly suggests the price series is not stationary. From the econometric point of view, we are correct in estimating an Arima model for returns, not prices.</p>
+<p>Function <code>forecast::auto.arima</code> estimates na Arima model with automatic identification of the best model. Let’s try it with its default options:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(forecast)
+
+<span class="co"># estimate arima model with automatic identification</span>
+my.autoarima &lt;-<span class="st"> </span><span class="kw">auto.arima</span>(<span class="dt">x =</span> df.SP500<span class="op">$</span>ret)
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(my.autoarima)</code></pre></div>
+<pre><code>## Series:  
+## ARIMA(1,0,0) with non-zero mean 
+## 
+## Coefficients:
+##           ar1   mean
+##       -0.0499  5e-04
+## s.e.   0.0235  2e-04
+## 
+## sigma^2 estimated as 9.373e-05:  log likelihood=5794.03
+## AIC=-11582.06   AICc=-11582.05   BIC=-11565.58</code></pre>
+<p>The result tells us the best model for the returns of the SP500 index is an Arima (1,0,0). This result implies the return series of the financial index has a low memory and only the previous return has predictable power over the current returns. In this case, since we find a negative coefficient, a positive return is more likely to be followed by a negative return.</p>
+</div>
+<div id="forecasting-arima-models" class="section level3">
+<h3><span class="header-section-number">9.4.3</span> Forecasting Arima Models</h3>
+<p>We can obtain the forecasts of an Arima model with function <code>forecast</code>, also from package <code>forecast</code>. The forecast is of the static type; only information up to time <em>t</em> is used to make forecasts in <em>t+k</em>. In the following example, we calculate the forecasts for 5 periods ahead, with their corresponding confidence interval. </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># forecast model</span>
+<span class="kw">print</span>(<span class="kw">forecast</span>(my.autoarima, <span class="dt">h =</span> <span class="dv">5</span>))</code></pre></div>
+<pre><code>##      Point Forecast       Lo 80      Hi 80       Lo 95
+## 1802   0.0006066170 -0.01180036 0.01301359 -0.01836821
+## 1803   0.0004481322 -0.01197427 0.01287054 -0.01855030
+## 1804   0.0004560393 -0.01196641 0.01287848 -0.01854245
+## 1805   0.0004556448 -0.01196680 0.01287809 -0.01854285
+## 1806   0.0004556645 -0.01196678 0.01287811 -0.01854283
+##           Hi 95
+## 1802 0.01958145
+## 1803 0.01944656
+## 1804 0.01945453
+## 1805 0.01945414
+## 1806 0.01945416</code></pre>
+</div>
+</div>
+<div id="garch-models" class="section level2">
+<h2><span class="header-section-number">9.5</span> Garch Models</h2>
+<p>Garch models relate to the seminal work of <span class="citation">Engle (<a href="#ref-engle1982autoregressive">1982</a>)</span> and <span class="citation">Bollerslev (<a href="#ref-bollerslev1986generalized">1986</a>)</span>. The main innovation in this class of models is that the variance of the residual can change . This variation is modelled using a specific autoregressive process. Garch models became very popular mainly because they replicate characteristics of financial asset returns, such as the existence of fat tails in their distribution and the clustering of volatile periods, where extreme price movements happen within the same time. Garch models are mostly used where risk is being assessed and managed. </p>
+<p>A GARCH model is modular. In its simplest format, you have two main equations: a process that sets the conditional mean, and another that defines the variance of the error. See the following example for an ARIMA(1,0,0)-GARCH(1,1) model:</p>
+<p><span class="math display">\[\begin{aligned} y _t &amp;=  \mu + \theta y_{t-1} + \epsilon _t \\\epsilon _t &amp;\sim N \left(0, h _t \right ) \\h _t &amp;= \omega + \alpha \epsilon ^2 _{t-1}+ \beta h_{t-1} \end{aligned} \]</span></p>
+<p>The <span class="math inline">\(y_t\)</span> equation sets the process for the conditional mean, an AR model with one lag. This is the actual observed value of the time series. Variable <span class="math inline">\(h_t\)</span> defines the variance of the error, the instability of the model. Different Garch models will use different equations for <span class="math inline">\(h_t\)</span> and different distributions of the error term. In its simplest case, the one presented here, we use the Normal distribution. It is important to understand this basic notation for Garch models, because R functions that handle this model follow the same structure.</p>
+<div id="simulating-garch-models" class="section level3">
+<h3><span class="header-section-number">9.5.1</span> Simulating Garch Models</h3>
+<p>R has no native function to simulate and estimate models of Garch. There are two main packages related to Garch models. The first is package <code>fGarch</code> <span class="citation">(Wuertz et al. <a href="#ref-fgarch">2016</a>)</span> and the second is <code>rugarch</code> <span class="citation">(Ghalanos <a href="#ref-rugarch">2015</a>)</span>. Both have great features and are optimized for agile estimations. You will be well served in choosing either of them. For simplicity, we will give preference to package <code>fGarch</code>, with an interface similar to the one used with Arima models in the previous section.  </p>
+<p>In <code>fGarch</code>, we simulate a model using function <code>garchSim</code>. The first step is to load package <code>fGarch</code> and create the model specification: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(fGarch)
+
+<span class="co"># set list with model spec</span>
+my.model =<span class="st"> </span><span class="kw">list</span>(<span class="dt">omega=</span><span class="fl">0.001</span>, 
+                <span class="dt">alpha=</span><span class="fl">0.15</span>, 
+                <span class="dt">beta=</span><span class="fl">0.8</span>, 
+                <span class="dt">mu=</span><span class="fl">0.02</span>, 
+                <span class="dt">ar =</span> <span class="fl">0.1</span>)
+
+<span class="co"># set garch spec                </span>
+spec =<span class="st"> </span><span class="kw">garchSpec</span>(<span class="dt">model =</span> my.model)
+
+<span class="co"># print it</span>
+<span class="kw">print</span>(spec)</code></pre></div>
+<pre><code>## 
+## Formula: 
+##  ~ ar(1) + garch(1, 1)
+## Model:
+##  ar:    0.1
+##  mu:    0.02
+##  omega: 0.001
+##  alpha: 0.15
+##  beta:  0.8
+## Distribution: 
+##  norm
+## Presample: 
+##   time         z    h          y
+## 1    0 0.1145392 0.02 0.02222222</code></pre>
+<p>The previous code defines a Garch model equivalent to the following equations.</p>
+<p><span class="math display">\[\begin{aligned} y _t &amp;=  0.02 + 0.1 y_{t-1} + \epsilon _t \\\epsilon _t &amp;\sim N \left(0, h _t \right ) \\h _t &amp;= 0.001 + 0.15 \epsilon ^2 _{t-1}+ 0.8 h_{t-1} \end{aligned} \]</span></p>
+<p>To simulate <em>1000</em> observations of this model, we use function <code>garchSim</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">20</span>)
+<span class="co"># simulate garch model</span>
+sim.garch =<span class="st"> </span><span class="kw">garchSim</span>(spec, <span class="dt">n =</span> <span class="dv">1000</span>)</code></pre></div>
+<p>We can visualize the artificial time series generated by creating a plot with <code>ggplot</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set df for ggplot</span>
+temp.df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">sim.ret =</span> sim.garch<span class="op">$</span>garch, 
+                      <span class="dt">idx=</span><span class="kw">seq_along</span>(sim.garch<span class="op">$</span>garch))
+
+<span class="kw">library</span>(ggplot2)
+p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(temp.df, <span class="kw">aes</span>(<span class="dt">x=</span>idx, <span class="dt">y=</span>sim.ret))
+p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>()
+<span class="kw">print</span>(p)</code></pre></div>
+<p><img src="ProcAnFinDataR_ed_1_files/figure-html/unnamed-chunk-544-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>The behaviour of the simulated series is similar to the return series of the stocks presented in chapter <a href="Figures.html#Figures">8</a>. It is difficult to set one apart from the other based solely on visual inspection. Unlike other models, where the instability is constant, a Garch model can portray a return series more realistically by assuming a time changing volatility.</p>
+</div>
+<div id="estimating-garch" class="section level3">
+<h3><span class="header-section-number">9.5.2</span> Estimating Garch Models</h3>
+<p>The estimation of the parameters from a GARCH model is usually achieved using a technique called <em>maximum-likelihood</em>. This procedure finds the parameters that make the distribution of the model as close as possible to the distribution of the time series of interest. It involves a numerical optimization process that requires a reasonable amount of processing time. Fortunately, package <code>fGarch</code> provides a function, called <code>garchFit</code>, that performs the whole operation. </p>
+<p>In the following example we estimate a Garch model for the artificial data created in the previous section. We set option <code>trace = FALSE</code> to prevent the presentation of the details of the optimization process, as they are extensive and would occupy several pages of this book.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># estimate garch model</span>
+my.garchfit &lt;-<span class="st"> </span><span class="kw">garchFit</span>(<span class="dt">data =</span> sim.garch, 
+                        <span class="dt">formula =</span> <span class="op">~</span><span class="st"> </span><span class="kw">arma</span>(<span class="dv">1</span>,<span class="dv">0</span>) <span class="op">+</span><span class="st"> </span><span class="kw">garch</span>(<span class="dv">1</span>,<span class="dv">1</span>), 
+                        <span class="dt">trace =</span> <span class="ot">FALSE</span>)</code></pre></div>
+<p>To learn more about the estimated model, we can present it on the screen with the command <code>print</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(my.garchfit)</code></pre></div>
+<pre><code>## 
+## Title:
+##  GARCH Modelling 
+## 
+## Call:
+##  garchFit(formula = ~arma(1, 0) + garch(1, 1), data = sim.garch, 
+##     trace = FALSE) 
+## 
+## Mean and Variance Equation:
+##  data ~ arma(1, 0) + garch(1, 1)
+## &lt;environment: 0x0000000013dbe218&gt;
+##  [data = sim.garch]
+## 
+## Conditional Distribution:
+##  norm 
+## 
+## Coefficient(s):
+##        mu        ar1      omega     alpha1      beta1  
+## 0.0164569  0.0695426  0.0010592  0.1292775  0.8175425  
+## 
+## Std. Errors:
+##  based on Hessian 
+## 
+## Error Analysis:
+##         Estimate  Std. Error  t value Pr(&gt;|t|)    
+## mu     0.0164569   0.0039213    4.197 2.71e-05 ***
+## ar1    0.0695426   0.0327651    2.122   0.0338 *  
+## omega  0.0010592   0.0004267    2.482   0.0131 *  
+## alpha1 0.1292775   0.0282136    4.582 4.60e-06 ***
+## beta1  0.8175425   0.0405741   20.149  &lt; 2e-16 ***
+## ---
+## Signif. codes:  
+## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Log Likelihood:
+##  604.1894    normalized:  0.6041894 
+## 
+## Description:
+##  Sat Apr 29 09:55:55 2017 by user: marcelo</code></pre>
+<p>The resulting parameters from the estimation are close to the values defined arbitrarily in the call to <code>garchSpec</code>. We can achieve higher accuracy by increasing the number of observations in the simulated model. Function <code>summary</code> also works for Garch models. Due to the large amount of information on the prompt, we leave it as an exercise for the reader.</p>
+<p>Now, as an example with real data, let’s estimate a Garch model for the SP500 index. The data is loaded from section <a href="models.html#arima-estimating">9.4.2</a>, so we can use it directly. First, let’s execute the LM Arch test <span class="citation">(Engle <a href="#ref-engle1982autoregressive">1982</a>; Tsay <a href="#ref-tsay2005analysis">2005</a>)</span> to verify if the returns of the market index have the Arch effect. Function <code>ArchTest</code> from <code>FinTS</code> <span class="citation">(Graves <a href="#ref-fints">2014</a>)</span> can perform this task.  </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(FinTS)
+
+<span class="co"># test for Arch effects</span>
+my.arch.test &lt;-<span class="st"> </span><span class="kw">ArchTest</span>(<span class="dt">x =</span> df.SP500<span class="op">$</span>ret, <span class="dt">lags =</span> <span class="dv">5</span>)
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(my.arch.test)</code></pre></div>
+<pre><code>## 
+##  ARCH LM-test; Null hypothesis: no ARCH effects
+## 
+## data:  df.SP500$ret
+## Chi-squared = 357.05, df = 5, p-value &lt; 2.2e-16</code></pre>
+<p>The evidence is strong for Arch effects in SP500 returns. The null hypothesis of the test is the non-existence of the Arch effects, and we can easily reject it at 1%. Let’s estimate a Arma(1,0)-Garch(1,1) for the returns.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set object for estimation</span>
+df.est &lt;-<span class="st"> </span><span class="kw">as.timeSeries</span>(<span class="kw">na.omit</span>(df.SP500))
+
+<span class="co"># estimate garch model for SP500</span>
+my.garchfit.sp500 &lt;-<span class="st"> </span><span class="kw">garchFit</span>(<span class="dt">data =</span> df.est , 
+                              <span class="dt">formula =</span> ret <span class="op">~</span><span class="st"> </span><span class="kw">arma</span>(<span class="dv">1</span>,<span class="dv">0</span>) <span class="op">+</span><span class="st"> </span><span class="kw">garch</span>(<span class="dv">1</span>,<span class="dv">1</span>), 
+                              <span class="dt">trace =</span> <span class="ot">FALSE</span>)
+
+<span class="kw">print</span>(my.garchfit.sp500)</code></pre></div>
+<pre><code>## 
+## Title:
+##  GARCH Modelling 
+## 
+## Call:
+##  garchFit(formula = ret ~ arma(1, 0) + garch(1, 1), data = df.est, 
+##     trace = FALSE) 
+## 
+## Mean and Variance Equation:
+##  ret ~ arma(1, 0) + garch(1, 1)
+##  [data = df.est]
+## 
+## Conditional Distribution:
+##  norm 
+## 
+## Coefficient(s):
+##          mu          ar1        omega       alpha1  
+##  7.7257e-04  -4.4142e-02   4.1689e-06   1.5308e-01  
+##       beta1  
+##  8.0207e-01  
+## 
+## Std. Errors:
+##  based on Hessian 
+## 
+## Error Analysis:
+##          Estimate  Std. Error  t value Pr(&gt;|t|)    
+## mu      7.726e-04   1.749e-04    4.416 1.00e-05 ***
+## ar1    -4.414e-02   2.616e-02   -1.687   0.0915 .  
+## omega   4.169e-06   7.535e-07    5.533 3.15e-08 ***
+## alpha1  1.531e-01   2.029e-02    7.544 4.55e-14 ***
+## beta1   8.021e-01   2.220e-02   36.126  &lt; 2e-16 ***
+## ---
+## Signif. codes:  
+## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Log Likelihood:
+##  6040.208    normalized:  3.355671 
+## 
+## Description:
+##  Sat Apr 29 09:55:55 2017 by user: marcelo</code></pre>
+<p>As expected, all Garch coefficients are significant at 1%. As for the mean equation, we again find a negative value for <code>ar1</code>, but its significance is not strong, with a p-value close to 10%. We could use the previously estimated Garch model to simulate future returns and prices of the SP500 index.</p>
+</div>
+<div id="forecasting-garch-models" class="section level3">
+<h3><span class="header-section-number">9.5.3</span> Forecasting Garch Models</h3>
+<p>Forecasting Garch models involves two elements: a forecast for the conditional mean (see the first equation in the Garch formula) and a forecast for future values of conditional volatility (see the second equation). While the first sets the forecast of the next values of the analysed series, the second quantifies the uncertainty of this forecast.</p>
+<p>In package <code>fGarch</code>, both forecasts are calculated using function <code>predict</code> that, just like <code>summary</code>, is a generic function that can be used for different models. Consider the following example, where we forecast the next values and the future volatilities of the Garch model fitted with the SP500 returns. </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># static forecast for garch</span>
+my.garch.forecast &lt;-<span class="st"> </span><span class="kw">predict</span>(my.garchfit.sp500, <span class="dt">n.ahead =</span> <span class="dv">3</span>)
+
+<span class="co"># print df</span>
+<span class="kw">print</span>(my.garch.forecast)</code></pre></div>
+<pre><code>##   meanForecast   meanError standardDeviation
+## 1 0.0008860155 0.005145661       0.005145661
+## 2 0.0007334607 0.005432390       0.005427639
+## 3 0.0007401948 0.005688981       0.005683925</code></pre>
+<p>The first column of the previous result is the forecast of the conditional mean; the second presents the expected error of the previous forecast, and the third indicates the expected volatility in standard deviation (root of the variance). All forecasts are the static type. Information up to time <em>t</em> is used to make forecasts for <em>t+k</em>.</p>
+</div>
+</div>
+<div id="regime-switching-models" class="section level2">
+<h2><span class="header-section-number">9.6</span> Regime Switching Models</h2>
+<p>Markov regime switching models are a specification in which the selling point is the flexibility in handling processes driven by heterogeneous states of the world <span class="citation">(J. Hamilton <a href="#ref-hamilton:1994">1994</a>)</span>. In financial markets, we can have two regimes for volatility (uncertainty), one regime where volatility is high and other where it is low. We can justify these regimes as time periods with greater or lesser amount of new information and uncertainty. Each regime can have its own characteristics. As a modeller, we need to understand how to identify these regimes and estimate the parameters from our models separately.</p>
+<p>As a way to motivate the model, consider the following econometric process:</p>
+<p><span class="math display">\[ y_t=\mu_{S_t} + \epsilon_t \]</span></p>
+<p>where <span class="math inline">\(S_t=1..k\)</span> and <span class="math inline">\(\epsilon_t\)</span> follows a Normal distribution with zero mean and variance given by <span class="math inline">\(\sigma^2_{S_t}\)</span>. This is the simplest case of a model with a switching dynamic. If there are <em>k</em> states of the world, there will be <em>k</em> values for the conditional mean and conditional variance. If there is only one state of the world (<em>k=1</em>), the previous formula becomes a simple linear regression model under general conditions.</p>
+<p>Now, let’s assume the previous model has two states (<em>k=2</em>). An alternative representation is:</p>
+<span class="math display">\[\begin{eqnarray*}
+y_t=\mu_{1} + \epsilon_t \qquad \mbox{for State 1} \\
+y_t=\mu_{2} + \epsilon_t \qquad \mbox{for State 2} 
+\end{eqnarray*}\]</span>
+<p>where:</p>
+<span class="math display">\[\begin{eqnarray*}
+\epsilon_t \sim (0,\sigma^2_{1}) \qquad \mbox{for State 1} \\
+\epsilon_t \sim (0,\sigma^2_{2}) \qquad \mbox{for State 2} 
+\end{eqnarray*}\]</span>
+<p>This representation implies two processes for the dependent variable. When the state of the world for time <em>t</em> is 1, the expectation of the dependent variable is <span class="math inline">\(\mu_1\)</span> and the volatility of the innovations is <span class="math inline">\(\sigma^2_1\)</span>. Likewise, when the state is 2, the mean and volatility take other values.</p>
+<p>As an example in finance, the dependent variable <span class="math inline">\(y_t\)</span> can represent a vector of log returns. The value of <span class="math inline">\(\mu_{1}\)</span> is the expected return on a bull market state, which implies a positive trend for financial prices and consequently a positive log return. The lower, and possibly negative, value of <span class="math inline">\(\mu_{2}\)</span> measures the expected log return for the bear market state, where asset prices have a tendency to go down.</p>
+<p>The different volatilities represent the higher uncertainty regarding the predictive power of the model in each state of the world. We can expect the bear market state is more volatile than the bull market. This implies prices go down faster than they go up. The usual explanation for this effect is that traders react faster to bad news when comparing to good news. This can also be explained by limit loss orders, which will sell at market prices once a particular threshold in the prices has been breached. When used by a significant amount of traders and at different threshold levels, these limit loss orders will create a cascade effect, accelerating the downfall of prices. This means we can expect the volatility in state 2 (bear market) to be higher than the volatility in state 1 (bull market).</p>
+<p>The changes of the states in the model can be set in a deterministic way. We could’ve set state 1 to be true for time <em>t</em> when another time series is higher or lower than a known threshold. This greatly simplifies the model as each state is observable; therefore, we can treat the model as a regression with dummy variables. Function <code>lm</code> could be used for the estimation of this model.</p>
+<p>A special regime switching model is markov switching. Its main difference from the regression with dummy variables is the identification of states is part of the estimation process. The model learns it from the data. The transition of states in a markov switching model is not deterministic; it is stochastic. This means one is never sure whether there will be a switch of state. But, the dynamics behind the switching process are known and driven by a transition matrix. This matrix, also estimated from the data, will control the probabilities of making a switch from one state to the other. It can be represented as:</p>
+<span class="math display">\[\begin{equation*}
+P=\left[ \begin{array}{ccc}
+p_{11} &amp; \ldots &amp; p_{1k} \\
+\vdots &amp; \ddots &amp; \vdots \\
+p_{k1} &amp; \ldots &amp; p_{kk} \\
+\end{array} \right ]        
+\end{equation*}\]</span>
+<p>In the previous matrix, row <em>i</em>, column <em>j</em> controls the probability of a switch from state <em>j</em> to state <em>i</em>. Consider that, for some time <em>t</em>, the state of the world is 2. This means the probability of a switch from state 2 to state 1 between time <em>t</em> and <em>t+1</em> will be given by <span class="math inline">\(p_{12}\)</span>. Likewise, the probability of staying in state 2 is determined by <span class="math inline">\(p_{22}\)</span>. This is one of the central points of the structure of a markov regime switching model: the switching of states is a stochastic process.</p>
+<div id="simulating-regime-switching-models" class="section level3">
+<h3><span class="header-section-number">9.6.1</span> Simulating Regime Switching Models</h3>
+<p>In R, two packages are available for handling univariate markov regime switching models, <code>MSwM</code> <span class="citation">(Sanchez-Espigares and Lopez-Moreno <a href="#ref-mswm">2014</a>)</span> and <code>fMarkovSwitching</code> <span class="citation">(Perlin <a href="#ref-fmarkovswitching">2014</a>)</span>. The last one also includes functions for simulating a time series. Before using it, let’s install <code>fMarkovSwitching</code> from the R-Forge repository. Be aware this package is not available in CRAN.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;fMarkovSwitching&quot;</span>, 
+                 <span class="dt">repos=</span><span class="st">&quot;http://R-Forge.R-project.org&quot;</span>)</code></pre></div>
+<p>Once it is installed, let’s look at its functions:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(fMarkovSwitching)
+<span class="kw">print</span>(<span class="kw">ls</span>(<span class="st">&#39;package:fMarkovSwitching&#39;</span>))</code></pre></div>
+<pre><code>## [1] &quot;dim.MS_Model&quot;     &quot;MS_Regress_Fit&quot;   &quot;MS_Regress_For&quot;  
+## [4] &quot;MS_Regress_Lik&quot;   &quot;MS_Regress_Simul&quot; &quot;plot.MS_Model&quot;   
+## [7] &quot;plot.MS_Simul&quot;    &quot;print.MS_Model&quot;   &quot;print.MS_Simul&quot;</code></pre>
+<p>The package includes functions for simulating, estimating, and forecasting an univariate markov switching model. As an example, let’s simulate the regime switching model from the following equations:</p>
+<span class="math display">\[\begin{align*}
+y_{t}&amp;= +0.5x_t+\epsilon_{t} \qquad \mbox{State 1} \\
+y_{t}&amp;=-0.5x_t+\epsilon_{t} \qquad \mbox{State 2} \\
+\epsilon _t &amp;\sim N(0,0.25) \qquad \mbox{State 1} \\
+\epsilon _t &amp;\sim N(0,1) \qquad \mbox{State 2}
+\end{align*}\]</span>
+<p>The transition matrix will be given by:</p>
+<p><span class="math display">\[
+P=\left[ \begin{array}{ccc}
+0.90 &amp; 0.2 \\
+0.10 &amp; 0.8
+\end{array} \right ]
+\]</span></p>
+<p>This model has two states with different volatilities. In each state, the impact of the explanatory variable will be different. From package <code>fMarkovSwitching</code>, we can use function <code>MS_Regress_Simul</code> to simulate this model. Look at the following code, where we simulate the model from the previous equations.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">10</span>)
+<span class="kw">library</span>(fMarkovSwitching)
+
+<span class="co"># number of obs</span>
+nr &lt;-<span class="st"> </span><span class="dv">500</span> 
+
+<span class="co"># distribution of residuals</span>
+distrib &lt;-<span class="st"> &quot;Normal&quot;</span> 
+
+<span class="co"># number of states</span>
+k &lt;-<span class="st"> </span><span class="dv">2</span>  
+
+<span class="co"># set transition matrix</span>
+P &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(.<span class="dv">9</span> ,.<span class="dv">2</span>,
+              .<span class="dv">1</span> ,.<span class="dv">8</span>), 
+            <span class="dt">nrow =</span> <span class="dv">2</span>, 
+            <span class="dt">byrow =</span> T)
+
+<span class="co"># set switching flag           </span>
+S &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>)
+
+<span class="co"># set parameters of model (see manual for details)</span>
+nS_param &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">0</span>)    
+S_param &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">0</span>,<span class="kw">sum</span>(S),k)
+S_param[,<span class="dv">1</span>] &lt;-<span class="st">  </span>.<span class="dv">5</span>         
+S_param[,<span class="dv">2</span>] &lt;-<span class="st"> </span><span class="op">-</span>.<span class="dv">5</span>
+
+<span class="co"># set variance of model</span>
+sigma &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">0</span>,<span class="dv">1</span>,k)
+sigma[<span class="dv">1</span>,<span class="dv">1</span>] &lt;-<span class="st"> </span><span class="kw">sqrt</span>(<span class="fl">0.25</span>)  <span class="co"># state 1</span>
+sigma[<span class="dv">1</span>,<span class="dv">2</span>] &lt;-<span class="st"> </span><span class="dv">1</span>           <span class="co"># state 2</span>
+
+<span class="co"># build list</span>
+Coeff &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">P =</span> P               ,
+              <span class="dt">S =</span> S               ,
+              <span class="dt">nS_param =</span> nS_param ,
+              <span class="dt">S_param =</span> S_param   ,
+              <span class="dt">sigma =</span> sigma       )
+
+<span class="co"># simulate model</span>
+my.ms.simul &lt;-<span class="st"> </span><span class="kw">MS_Regress_Simul</span>(nr,Coeff,k,distrib)</code></pre></div>
+<p>In the simulation function, argument <code>nS_param</code> sets the non switching parameters. These are the coefficients in the right hand side of the econometric equation that will not switch states. We use a value of zero, as our simulated model has no non-switching coefficients. Even if not used, we need to set this argument in <code>MS_Regress_Simul</code>; otherwise, the function will return an error. The elements in <code>S_param</code> define the coefficients in each state for the switching parameters. In our example, we have a positive effect of <span class="math inline">\(x_t\)</span> in <span class="math inline">\(y_t\)</span> in state one and a negative effect in state two. Finally, the <code>sigma</code> input defines the volatility (standard deviation) of the residual in each regime.</p>
+<p>Once the model is simulated and available, let’s plot the time series of artificial values. A note here is important; the output from <code>my.ms.simul</code> is a <code>S3</code> object was custom designed to interact with the common functions <code>print</code> and <code>plot</code>. To access its elements, we use <code>@</code> instead of <code>$</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
+df.to.plot &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">y =</span> my.ms.simul<span class="op">@</span>dep, 
+                         <span class="dt">x =</span> <span class="kw">Sys.Date</span>()<span class="op">+</span><span class="dv">1</span><span class="op">:</span>my.ms.simul<span class="op">@</span>nr,
+                         <span class="dt">states =</span> my.ms.simul<span class="op">@</span>trueStates[,<span class="dv">1</span>])
+
+p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> df.to.plot, <span class="kw">aes</span>(<span class="dt">y=</span>y, <span class="dt">x=</span><span class="kw">seq_along</span>(y)))
+p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>()
+p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&#39;Time&#39;</span>, <span class="dt">y =</span> <span class="st">&#39;Simulated time series&#39;</span>)
+<span class="kw">print</span>(p)</code></pre></div>
+<p><img src="ProcAnFinDataR_ed_1_files/figure-html/unnamed-chunk-565-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>We can also look at the simulated states:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
+df.to.plot &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">y =</span> my.ms.simul<span class="op">@</span>dep, 
+                         <span class="dt">x =</span> <span class="kw">Sys.Date</span>()<span class="op">+</span><span class="dv">1</span><span class="op">:</span>my.ms.simul<span class="op">@</span>nr,
+                         <span class="dt">states =</span> my.ms.simul<span class="op">@</span>trueStates[,<span class="dv">1</span>])
+
+p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> df.to.plot, <span class="kw">aes</span>(<span class="dt">y=</span>states, <span class="dt">x=</span>x))
+p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>()
+p &lt;-<span class="st"> </span>p <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">y=</span><span class="st">&#39;Probability of state 1&#39;</span>)
+<span class="kw">print</span>(p)</code></pre></div>
+<p><img src="ProcAnFinDataR_ed_1_files/figure-html/unnamed-chunk-566-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>As expected, the model is switching from one state to the other. Either state is strongly predominant over time, but state one seems to have a longer duration than state two. This property is controlled by the transition probabilities set in object <code>P</code>.</p>
+</div>
+<div id="estimating-regime-switching-models" class="section level3">
+<h3><span class="header-section-number">9.6.2</span> Estimating Regime Switching Models</h3>
+<p>We can estimate a univariate markov switching model with function <code>MS_Regress_Fit</code>. Let’s try it for the previously simulated time series.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set dep and indep </span>
+dep &lt;-<span class="st"> </span>my.ms.simul <span class="op">@</span>dep
+indep &lt;-<span class="st"> </span>my.ms.simul<span class="op">@</span>indep
+
+<span class="co"># set switching parameters and distribution</span>
+S &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>) 
+k &lt;-<span class="st"> </span><span class="dv">2</span>      
+distIn &lt;-<span class="st"> &quot;Normal&quot;</span> 
+
+<span class="co"># estimate the model</span>
+my.MS.model &lt;-<span class="st"> </span><span class="kw">MS_Regress_Fit</span>(dep,indep,S,k)    <span class="co"># fitting the model</span></code></pre></div>
+<p>Argument <code>dep</code> and <code>indep</code> sets the variables in the estimation, left and right side of the econometric equation. Input <code>S</code> only takes values zero and one. It defines where the switching effect will occur. Since we only have two independent variables where the first does not switch states, we use <code>S &lt;- c(0,1)</code>. Object <code>k</code> sets the number of states in the model, in this case two. After finishing the estimation, let’s look at the output.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># print estimation output</span>
+<span class="kw">print</span>(my.MS.model)</code></pre></div>
+<pre><code>## 
+## 
+## ***** Numerical Optimization for MS Model Converged *****
+## 
+## Final log Likelihood: -544.5191 
+## Number of parameters: 7 
+## Distribution Assumption -&gt; Normal 
+## 
+## ***** Final Parameters *****
+## 
+## ---&gt; Non Switching Parameters &lt;---
+## 
+##  Non Switching Parameter at Indep  Column  1
+##       Value:     -0.0333
+##       Std error: 0.0266 (0.21)
+## 
+## ---&gt;   Switching Parameters   &lt;---
+## 
+##   State 1
+##       Model Standard Deviation: 0.5082
+##       Std Error:                0.0235 (0.00)
+##   State 2
+##       Model Standard Deviation: 0.9584
+##       Std Error:                0.0613 (0.00)
+## 
+##   Switching Parameters for Indep  Column  2 
+## 
+##   State  1
+##      Value:      0.5471
+##      Std error:  0.0313 (0.00)
+##   State  2
+##      Value:      -0.4563
+##      Std error:  0.0979 (0.00)
+## 
+## ---&gt; Transition Probabilities Matrix &lt;---
+## 
+##       0.90   0.21   
+##       0.10   0.79   
+## 
+## ---&gt; Expected Duration of Regimes &lt;---
+## 
+##      Expected duration of Regime #1: 10.52 time periods
+##      Expected duration of Regime #2: 4.81 time periods</code></pre>
+<p>The estimated coefficients are close to the ones from the simulation. The estimation recognized the parameters from the simulated data. The output object from <code>MS_Regress_Fit</code> can also be used with <code>plot</code> for a custom figure. Have a look.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(my.MS.model)   <span class="co"># plotting output</span></code></pre></div>
+<p><img src="ProcAnFinDataR_ed_1_files/figure-html/unnamed-chunk-569-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>As an example with real data, let’s estimate the same markov regime switching model for the SP500 returns.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># read file</span>
+my.f &lt;-<span class="st"> &#39;data/SP500.csv&#39;</span>
+df.SP500 &lt;-<span class="st"> </span><span class="kw">read.csv</span>(my.f, 
+                     <span class="dt">colClasses =</span> <span class="kw">c</span>(<span class="st">&#39;Date&#39;</span>,<span class="st">&#39;numeric&#39;</span>))
+
+<span class="co"># set calc.ret</span>
+calc.ret &lt;-<span class="st"> </span><span class="cf">function</span>(P) {
+  <span class="kw">return</span>(<span class="kw">c</span>(<span class="ot">NA</span>, P[<span class="dv">2</span><span class="op">:</span><span class="kw">length</span>(P)]<span class="op">/</span>P[<span class="dv">1</span><span class="op">:</span>(<span class="kw">length</span>(P) <span class="op">-</span><span class="st"> </span><span class="dv">1</span>)] <span class="op">-</span><span class="st"> </span><span class="dv">1</span>))
+}
+
+<span class="co"># set return column</span>
+df.SP500<span class="op">$</span>ret &lt;-<span class="st"> </span><span class="kw">calc.ret</span>(df.SP500<span class="op">$</span>price)
+
+<span class="co"># set input objects to MS_Regress_Fit</span>
+ret &lt;-<span class="st"> </span><span class="kw">na.omit</span>(df.SP500<span class="op">$</span>ret)
+dep &lt;-<span class="st"> </span><span class="kw">matrix</span>(ret, <span class="dt">nrow =</span> <span class="kw">length</span>(ret))
+indep &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">rep</span>(<span class="dv">1</span>, <span class="kw">length</span>(dep)),<span class="dt">nrow =</span> <span class="kw">length</span>(dep))
+
+S &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>)   <span class="co"># where to switch (in this case in the only indep)</span>
+k &lt;-<span class="st"> </span><span class="dv">2</span>      <span class="co"># number of states</span>
+distIn &lt;-<span class="st"> &quot;Normal&quot;</span> <span class="co">#distribution assumption</span>
+
+my.SP500.MS.model &lt;-<span class="st"> </span><span class="kw">MS_Regress_Fit</span>(dep,indep,S,k)  <span class="co"># fitting the model</span></code></pre></div>
+<p>And now, we check the result.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># printing output</span>
+<span class="kw">print</span>(my.SP500.MS.model)    </code></pre></div>
+<pre><code>## 
+## 
+## ***** Numerical Optimization for MS Model Converged *****
+## 
+## Final log Likelihood: 6033.029 
+## Number of parameters: 6 
+## Distribution Assumption -&gt; Normal 
+## 
+## ***** Final Parameters *****
+## 
+## ---&gt; Non Switching Parameters &lt;---
+## 
+## There was no Non Switching Parameters. Skipping this result
+## 
+## ---&gt;   Switching Parameters   &lt;---
+## 
+##   State 1
+##       Model Standard Deviation: 0.0055
+##       Std Error:                0.0002 (0.00)
+##   State 2
+##       Model Standard Deviation: 0.0140
+##       Std Error:                0.0005 (0.00)
+## 
+##   Switching Parameters for Indep  Column  1 
+## 
+##   State  1
+##      Value:      0.0011
+##      Std error:  0.0002 (0.00)
+##   State  2
+##      Value:      -0.0006
+##      Std error:  0.0006 (0.30)
+## 
+## ---&gt; Transition Probabilities Matrix &lt;---
+## 
+##       0.96   0.06   
+##       0.04   0.94   
+## 
+## ---&gt; Expected Duration of Regimes &lt;---
+## 
+##      Expected duration of Regime #1: 27.61 time periods
+##      Expected duration of Regime #2: 17.24 time periods</code></pre>
+<p>The model identified two volatility regimes from the SP500 returns. In the first, low volatility regime, the standard deviation of the returns is 0.548%. In the second state with high uncertainty, the value of the standard deviation is 1.4%. As we expected, the high volatility state has a negative mean of -0.0569% and the low volatility state has a positive mean of 0.109%. The information from the model is that the SP500 index goes down faster than it goes up. More interesting information is related to the expected duration of the states. A bull market, with positive average returns, tends to last approximately 28 days, while a bear market cycle lasts 17 days. In the US market, equity prices go up slowly and fall fast.</p>
+<p>A common figure in the analysis of markov switching models is the price dynamic in different states. It is a time series plot with overlapped information. Let’s try it. First, we create a <code>factor</code> object assuming a state threshold of 50%; if the probability of state one in time <em>t</em> is higher than 50%, we will assume state one is true. We then use the resulting <code>factor</code> as a color property in a <code>ggplot</code> figure.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
+
+<span class="co"># get smooth probs of states</span>
+smooth.prob =<span class="st"> </span><span class="kw">as.numeric</span>(my.SP500.MS.model<span class="op">@</span>smoothProb[,<span class="dv">1</span>])
+
+<span class="co"># build df to plot</span>
+df.to.plot &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">smooth.prob =</span> smooth.prob, 
+                         <span class="dt">ref.date =</span> df.SP500<span class="op">$</span>date[<span class="dv">2</span><span class="op">:</span><span class="kw">nrow</span>(df.SP500)],
+                         <span class="dt">price =</span> df.SP500<span class="op">$</span>price[<span class="dv">2</span><span class="op">:</span><span class="kw">nrow</span>(df.SP500)])
+
+<span class="co"># create factor from probs</span>
+df.to.plot<span class="op">$</span>States &lt;-<span class="st"> </span><span class="kw">ifelse</span>(df.to.plot<span class="op">$</span>smooth.prob <span class="op">&gt;</span><span class="st"> </span><span class="fl">0.5</span>,
+                            <span class="st">&#39;State 1&#39;</span>,<span class="st">&#39;State 2&#39;</span>)
+
+<span class="co"># plot with ggplot</span>
+p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(df.to.plot,
+            <span class="kw">aes</span>(<span class="dt">y=</span>price, <span class="dt">x =</span>ref.date, <span class="dt">color=</span>States)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>()
+
+<span class="co"># plot it!</span>
+<span class="kw">print</span>(p)</code></pre></div>
+<p><img src="ProcAnFinDataR_ed_1_files/figure-html/unnamed-chunk-573-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>The figure shows how the price increases in state 1 and decreases in state 2. From 2013 to 2015, it is clearly a bull market trend for the SP500 prices.</p>
+</div>
+<div id="forecasting-regime-switching-models" class="section level3">
+<h3><span class="header-section-number">9.6.3</span> Forecasting Regime Switching Models</h3>
+<p>Package <code>MS_Regress</code> provides function <code>MS_Regress_For</code> for statically forecasting an univariate markov switching model. Its inputs are: a model estimated with <code>MS_Regress_Fit</code>, argument <code>myModel</code>, and the set of new explanatory variables in input <code>newIndep</code>. Let’s use it to forecast the next day return of the SP500. In our case, since the regime switching model only had an intercept, we set <code>newIndep = 1</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># make static forecast of regime switching model</span>
+newIndep &lt;-<span class="st"> </span><span class="dv">1</span>
+
+my.for &lt;-<span class="st"> </span><span class="kw">MS_Regress_For</span>(my.SP500.MS.model, newIndep)
+
+<span class="co"># print output</span>
+<span class="kw">print</span>(my.for)</code></pre></div>
+<pre><code>## $condMean
+##              [,1]
+## [1,] 0.0009647028
+## 
+## $condStd
+##             [,1]
+## [1,] 0.006140928</code></pre>
+<p>The model predicts, the day after the last date available in the SP500 data (2017-02-28), the stock market index will increase its value in 0.096%, with a volatility of 0.61%.</p>
+</div>
+</div>
+<div id="dealing-with-several-models" class="section level2">
+<h2><span class="header-section-number">9.7</span> Dealing with Several Models</h2>
+<p>In the practice of research, it is likely we will estimate more than one model. We might want to test different models, have different study cases, or run a robustness test by estimating the same model in different time periods. Learning how to manage different models efficiently in R is important. This issue become more important when the scale of the research increases. More data and more models require an efficient computational structure.</p>
+<p>In chapter <a href="programming.html#programming">7</a>, we learned we can use functions from the <code>apply</code> family or package <code>dplyr</code> to do iterative data tasks. We can use it to estimate several models from the data. Let’s start with an example. Here, we will estimate an Arima model for the returns of four stocks selected randomly. The extra information to be included in the code from section <a href="models.html#arima-estimating">9.4.2</a> is the vector with the stock’s tickers. First, let’s load the data.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">10</span>)
+
+<span class="co"># set number of stocks</span>
+n.stocks &lt;-<span class="st"> </span><span class="dv">4</span>
+
+<span class="co"># load data from .RData</span>
+<span class="kw">load</span>(<span class="st">&#39;data/SP500-Stocks-WithRet.RData&#39;</span>)
+
+<span class="co"># select tickers</span>
+my.tickers &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="kw">unique</span>(my.df<span class="op">$</span>ticker), n.stocks)
+
+<span class="co"># set my.df</span>
+my.df.stocks &lt;-<span class="st"> </span>my.df[my.df<span class="op">$</span>ticker <span class="op">%in%</span><span class="st"> </span>my.tickers, ]
+
+<span class="co"># renew factors in ticker</span>
+my.df.stocks<span class="op">$</span>ticker &lt;-<span class="st"> </span><span class="kw">as.factor</span>(<span class="kw">as.character</span>(my.df.stocks<span class="op">$</span>ticker))</code></pre></div>
+<p>Now, what we want to do with this data is separate the returns by ticker and use function <code>arima</code> to estimate a model for each stock. One solution is to use function <code>tapply</code>: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my.l &lt;-<span class="st"> </span><span class="kw">tapply</span>(<span class="dt">X =</span> my.df.stocks<span class="op">$</span>ret, 
+               <span class="dt">INDEX =</span> my.df.stocks<span class="op">$</span>ticker, 
+               <span class="dt">FUN =</span> arima, 
+               <span class="dt">order =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>))</code></pre></div>
+<p>Each model is available in <code>my.l</code>. To retrieve all coefficients, we can use <code>sapply</code> and function <code>coef</code>:  </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(<span class="kw">sapply</span>(<span class="dt">X =</span> my.l, <span class="dt">FUN =</span> coef))</code></pre></div>
+<pre><code>##                    DOW           GPC          JEC
+## ar1       0.0087664911 -0.0292559871 0.0241489275
+## intercept 0.0006910872  0.0007219031 0.0003833143
+##                    OKE
+## ar1       0.0517872000
+## intercept 0.0009778744</code></pre>
+<p>A limitation is, by using <code>tapply</code>, we are restricted to using a single column of <code>my.df</code>. Notice how input <code>X</code> of <code>tapply</code> only accepts one vector. To use more columns of the <code>dataframe</code> in a group type operation, we can use function <code>by</code>. This function will break a <code>dataframe</code> into several smaller ones, based on a factor or character object. We then pass a function to be applied to each smaller <code>dataframe</code>.</p>
+<p>For an example of estimating several models with function <code>by</code>, let’s calculate the beta coefficient for all stocks in our database. First, let’s load the index data and add a new column in <code>my.df</code> with the returns of the SP500 index.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># load SP500 data</span>
+df.sp500 &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="dt">file =</span> <span class="st">&#39;data/SP500.csv&#39;</span>, 
+                     <span class="dt">colClasses =</span> <span class="kw">c</span>(<span class="st">&#39;Date&#39;</span>,<span class="st">&#39;numeric&#39;</span>))
+
+<span class="co"># calculate return</span>
+df.sp500<span class="op">$</span>ret &lt;-<span class="st"> </span><span class="kw">calc.ret</span>(df.sp500<span class="op">$</span>price)
+
+
+<span class="co"># find location of dates in df.sp500</span>
+idx &lt;-<span class="st"> </span><span class="kw">match</span>(my.df<span class="op">$</span>ref.date, df.sp500<span class="op">$</span>date)
+
+<span class="co"># create column in my.df with sp500 returns</span>
+my.df<span class="op">$</span>ret.sp500 &lt;-<span class="st"> </span>df.sp500<span class="op">$</span>ret[idx]</code></pre></div>
+<p>The next step is to create a function that will take a <code>dataframe</code> as input, use the returns of the asset and the returns of the SP500 index to output the beta. Have a look:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">estimate.beta &lt;-<span class="st"> </span><span class="cf">function</span>(df) {
+  <span class="co"># Function to estimate beta from dataframe of stocks returns</span>
+  <span class="co">#</span>
+  <span class="co"># Args:</span>
+  <span class="co">#   df - Dataframe with columns ret and ret.sp500</span>
+  <span class="co">#</span>
+  <span class="co"># Returns:</span>
+  <span class="co">#   The value of beta</span>
+  
+  my.model &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="dt">data =</span> df, <span class="dt">formula =</span> ret <span class="op">~</span><span class="st"> </span>ret.sp500)
+  
+  <span class="kw">return</span>(<span class="kw">coef</span>(my.model)[<span class="dv">2</span>])
+}</code></pre></div>
+<p>Now, we can use the previous function with <code>by</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># calculate beta for each stock</span>
+my.betas &lt;-<span class="st"> </span><span class="kw">by</span>(<span class="dt">data =</span> my.df, 
+               <span class="dt">INDICES =</span> my.df<span class="op">$</span>ticker, 
+               <span class="dt">FUN =</span> estimate.beta)</code></pre></div>
+<p>The values of the different <code>betas</code> are available in object <code>my.betas</code>. Let’s look at the distribution of our betas using a histogram:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
+
+df.to.plot &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">betas =</span> <span class="kw">as.numeric</span>(my.betas)) 
+
+p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(df.to.plot, <span class="kw">aes</span>(<span class="dt">x=</span>betas)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_histogram</span>()
+
+<span class="kw">print</span>(p)</code></pre></div>
+<p><img src="ProcAnFinDataR_ed_1_files/figure-html/unnamed-chunk-582-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>For the SP500 data, we find no negative value of beta. Given the market portfolio is built as an average of the stocks, not surprisingly, the average beta equals one.</p>
+<p>Another way of storing and managing several models is to use the capabilities of list-columns with <code>dplyr</code>. Look at the next example of code, where we replicate the previous procedure of estimating an Arima model for several stocks using functions from <code>dplyr</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
+
+my.tab &lt;-<span class="st"> </span>my.df <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">group_by</span>(ticker) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">do</span>(<span class="dt">my.model =</span> <span class="kw">arima</span>(<span class="dt">x =</span> .<span class="op">$</span>ret, <span class="dt">order =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>)))
+
+<span class="kw">print</span>(<span class="kw">head</span>(my.tab))</code></pre></div>
+<pre><code>## # A tibble: 6 × 2
+##   ticker    my.model
+##    &lt;chr&gt;      &lt;list&gt;
+## 1      A &lt;S3: Arima&gt;
+## 2    AAL &lt;S3: Arima&gt;
+## 3    AAP &lt;S3: Arima&gt;
+## 4   AAPL &lt;S3: Arima&gt;
+## 5    ABC &lt;S3: Arima&gt;
+## 6    ABT &lt;S3: Arima&gt;</code></pre>
+<p>We have a list-column, called <code>my.model</code>, storing the objects with each result from the estimation. We can also use <code>mutate</code> to get information about the model. Look at the next code, where we present the coefficients of the model in the same object.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my.model.tab &lt;-<span class="st"> </span>my.df <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">group_by</span>(ticker) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">do</span>(<span class="dt">my.model =</span> <span class="kw">arima</span>(<span class="dt">x =</span> .<span class="op">$</span>ret, <span class="dt">order =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>))) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">alpha =</span> <span class="kw">coef</span>(my.model)[<span class="dv">2</span>],
+         <span class="dt">ar1 =</span> <span class="kw">coef</span>(my.model)[<span class="dv">1</span>])
+
+<span class="kw">print</span>(<span class="kw">head</span>(my.model.tab))</code></pre></div>
+<pre><code>## # A tibble: 6 × 4
+##   ticker    my.model        alpha          ar1
+##    &lt;chr&gt;      &lt;list&gt;        &lt;dbl&gt;        &lt;dbl&gt;
+## 1      A &lt;S3: Arima&gt; 0.0006101093 -0.010115360
+## 2    AAL &lt;S3: Arima&gt; 0.0017778322  0.006841853
+## 3    AAP &lt;S3: Arima&gt; 0.0009725565 -0.026065447
+## 4   AAPL &lt;S3: Arima&gt; 0.0009459582  0.022077870
+## 5    ABC &lt;S3: Arima&gt; 0.0007552257 -0.049711324
+## 6    ABT &lt;S3: Arima&gt; 0.0003933039  0.001729130</code></pre>
+<p>Another trick in handling models with <code>dplyr</code> is to use package <code>broom</code> <span class="citation">(Robinson <a href="#ref-broom">2017</a>)</span> to access the estimated coefficients. In the previous use of <code>mutate</code>, we added two columns in <code>my.tab</code> with the <em>alpha</em> and <em>ar1</em> coefficients. A simpler, more direct way of accessing information for all coefficients is to use function <code>tidy</code> from <code>broom</code>. Have a look:    </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(broom)
+
+<span class="co"># get coefs with tidy</span>
+my.coef.tab &lt;-<span class="st"> </span>my.model.tab <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">tidy</span>(my.model)
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(<span class="kw">head</span>(my.coef.tab))</code></pre></div>
+<pre><code>## Source: local data frame [6 x 6]
+## Groups: ticker, alpha, ar1 [3]
+## 
+##   ticker        alpha          ar1      term      estimate
+##    &lt;chr&gt;        &lt;dbl&gt;        &lt;dbl&gt;     &lt;chr&gt;         &lt;dbl&gt;
+## 1      A 0.0006101093 -0.010115360       ar1 -0.0101153599
+## 2      A 0.0006101093 -0.010115360 intercept  0.0006101093
+## 3    AAL 0.0017778322  0.006841853       ar1  0.0068418534
+## 4    AAL 0.0017778322  0.006841853 intercept  0.0017778322
+## 5    AAP 0.0009725565 -0.026065447       ar1 -0.0260654469
+## 6    AAP 0.0009725565 -0.026065447 intercept  0.0009725565
+## # ... with 1 more variables: std.error &lt;dbl&gt;</code></pre>
+<p>Notice how function <code>tidy</code> included the estimated errors from the model. If we had more coefficients, they would also be reported in <code>my.coef.tab</code>. As for general information about the model, we can use function <code>glance</code>: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># get info on models</span>
+my.info.models &lt;-<span class="st"> </span>my.model.tab <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">glance</span>(my.model)
+
+<span class="kw">print</span>(<span class="kw">head</span>(my.info.models))</code></pre></div>
+<pre><code>## Source: local data frame [6 x 7]
+## Groups: ticker, alpha, ar1 [6]
+## 
+##   ticker        alpha          ar1      sigma   logLik
+##    &lt;chr&gt;        &lt;dbl&gt;        &lt;dbl&gt;      &lt;dbl&gt;    &lt;dbl&gt;
+## 1      A 0.0006101093 -0.010115360 0.01875836 4503.189
+## 2    AAL 0.0017778322  0.006841853 0.03069869 3635.755
+## 3    AAP 0.0009725565 -0.026065447 0.01720277 4655.637
+## 4   AAPL 0.0009459582  0.022077870 0.01649846 4729.252
+## 5    ABC 0.0007552257 -0.049711324 0.01320499 5121.377
+## 6    ABT 0.0003933039  0.001729130 0.01162294 5346.108
+## # ... with 2 more variables: AIC &lt;dbl&gt;, BIC &lt;dbl&gt;</code></pre>
+<p>It includes information about coefficients and statistics about each model, such as log-likelihood, AIC (Akaike Informatino Criteria), and BIC (Bayesan Information Criteria).</p>
+</div>
+<div id="reporting-models" class="section level2">
+<h2><span class="header-section-number">9.8</span> Reporting Models with <code>texreg</code></h2>
+<p>After creating many models, the next step is to report the results in a visually appealing fashion. One solution is to retrieve information from the models and manually build customized tables to be included in the final document. Luckily for R users, there are packages that facilitate the construction and customization of estimation tables. The most popular ones are <code>xtable</code>, <code>texreg</code> and <code>stargazer</code>.   </p>
+<p>As an example, let’s use package <code>texreg</code> to report the results from calculating beta of four stocks. We will use function <code>screenreg</code>, which outputs a text representation of the estimation table, including all the bells and whistles we usually expect. Have a look:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(texreg)
+<span class="kw">library</span>(dplyr)
+
+<span class="kw">set.seed</span>(<span class="dv">20</span>)
+
+<span class="co"># get tickers</span>
+my.tickers &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="kw">unique</span>(my.df<span class="op">$</span>ticker), <span class="dv">4</span>)
+df.stocks &lt;-<span class="st"> </span>my.df[my.df<span class="op">$</span>ticker <span class="op">%in%</span><span class="st"> </span>my.tickers, ]
+
+<span class="co"># estimate betas</span>
+beta.tab &lt;-<span class="st"> </span>df.stocks <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">group_by</span>(ticker) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">do</span>(<span class="dt">beta.model =</span> <span class="kw">lm</span>(<span class="dt">data=</span>., ret <span class="op">~</span><span class="st"> </span>ret.sp500))
+
+<span class="co"># report result</span>
+est.table &lt;-<span class="st"> </span><span class="kw">screenreg</span>(<span class="dt">l =</span> beta.tab<span class="op">$</span>beta.model, 
+                       <span class="dt">custom.model.names =</span> beta.tab<span class="op">$</span>ticker, 
+                       <span class="dt">custom.coef.names =</span> <span class="kw">c</span>(<span class="st">&#39;Alpha&#39;</span>, <span class="st">&#39;Beta&#39;</span>),
+                       <span class="dt">digits =</span> <span class="dv">2</span>)
+
+<span class="co"># print it</span>
+<span class="kw">print</span>(est.table)</code></pre></div>
+<pre><code>## 
+## =============================================================
+##            DRI          K            RHT          TJX        
+## -------------------------------------------------------------
+## Alpha         0.00         0.00         0.00         0.00 *  
+##              (0.00)       (0.00)       (0.00)       (0.00)   
+## Beta          0.83 ***     0.49 ***     1.24 ***     0.80 ***
+##              (0.03)       (0.02)       (0.04)       (0.03)   
+## -------------------------------------------------------------
+## R^2           0.28         0.23         0.35         0.34    
+## Adj. R^2      0.28         0.23         0.35         0.34    
+## Num. obs.  1761         1761         1761         1761       
+## RMSE          0.01         0.01         0.02         0.01    
+## =============================================================
+## *** p &lt; 0.001, ** p &lt; 0.01, * p &lt; 0.05</code></pre>
+<p>In the previous code, we use a list of models from <code>beta.tab$beta.model</code>, defined custom names of models using input <code>custom.model.names</code>, coefficient names with <code>custom.coef.names</code>, and the number of digits with input <code>digits</code>. Package <code>texreg</code> offers many more options to the user. You can customize your estimation table in many ways. Exporting to other formats, such as latex and html, is possible and recommended. For Microsoft Office users, function <code>htmlreg</code> also allows to export a table to a Word file. You can do that by setting input <code>file</code> as a <em>.doc</em> file. If you work with estimation tables on a day-to-day basis, package <code>texreg</code> will save you a lot of time.</p>
+
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-campbell1997econometrics">
+<p>Campbell, John Y, Andrew Wen-Chuan Lo, Archie Craig MacKinlay, and others. 1997. <em>The Econometrics of Financial Markets</em>. Vol. 2. princeton University press Princeton, NJ.</p>
+</div>
+<div id="ref-brooks2014introductory">
+<p>Brooks, Chris. 2014. <em>Introductory Econometrics for Finance</em>. Cambridge university press.</p>
+</div>
+<div id="ref-hamilton1994time">
+<p>Hamilton, James Douglas. 1994. <em>Time Series Analysis</em>. Vol. 2. Princeton university press Princeton.</p>
+</div>
+<div id="ref-greene2003econometric">
+<p>Greene, William H. 2003. <em>Econometric Analysis</em>. Pearson Education India.</p>
+</div>
+<div id="ref-kleiber2008applied">
+<p>Kleiber, Christian, and Achim Zeileis. 2008. <em>Applied Econometrics with R</em>. Springer Science &amp; Business Media.</p>
+</div>
+<div id="ref-car">
+<p>Fox, John, and Sanford Weisberg. 2011. <em>An R Companion to Applied Regression</em>. Second. Thousand Oaks CA: Sage. <a href="http://socserv.socsci.mcmaster.ca/jfox/Books/Companion" class="uri">http://socserv.socsci.mcmaster.ca/jfox/Books/Companion</a>.</p>
+</div>
+<div id="ref-maddala2001introduction">
+<p>Maddala, GS. 2001. “Introduction to Econometrics.” John Wiley &amp; Sons.</p>
+</div>
+<div id="ref-lmtest">
+<p>Zeileis, Achim, and Torsten Hothorn. 2002. “Diagnostic Checking in Regression Relationships.” <em>R News</em> 2 (3): 7–10. <a href="https://CRAN.R-project.org/doc/Rnews/" class="uri">https://CRAN.R-project.org/doc/Rnews/</a>.</p>
+</div>
+<div id="ref-gvlma">
+<p>Pena, Edsel A., and Elizabeth H. Slate. 2014. <em>Gvlma: Global Validation of Linear Models Assumptions</em>. <a href="https://CRAN.R-project.org/package=gvlma" class="uri">https://CRAN.R-project.org/package=gvlma</a>.</p>
+</div>
+<div id="ref-sandwich">
+<p>Zeileis, Achim. 2004. “Econometric Computing with Hc and Hac Covariance Matrix Estimators.” Institut für Statistik und Mathematik, WU Vienna University of Economics; Business.</p>
+</div>
+<div id="ref-hsiao2014analysis">
+<p>Hsiao, Cheng. 2014. <em>Analysis of Panel Data</em>. 54. Cambridge university press.</p>
+</div>
+<div id="ref-plm">
+<p>Croissant, Yves, and Giovanni Millo. 2008. “Panel Data Econometrics in R: The plm Package.” <em>Journal of Statistical Software</em> 27 (2). <a href="http://www.jstatsoft.org/v27/i02/" class="uri">http://www.jstatsoft.org/v27/i02/</a>.</p>
+</div>
+<div id="ref-grunfeld1958determinants">
+<p>Grunfeld, Y. 1958. “The Determinants of Corporate Investment, Unpublished Ph. d.” <em>D Thesis, the University of Chicago</em>.</p>
+</div>
+<div id="ref-kleiber2010grunfeld">
+<p>Kleiber, Christian, and Achim Zeileis. 2010. “The Grunfeld Data at 50.” <em>German Economic Review</em> 11 (4). Wiley Online Library: 404–17.</p>
+</div>
+<div id="ref-hausman1978specification">
+<p>Hausman, Jerry A. 1978. “Specification Tests in Econometrics.” <em>Econometrica: Journal of the Econometric Society</em>. JSTOR, 1251–71.</p>
+</div>
+<div id="ref-hyndman2007automatic">
+<p>Hyndman, RJ, and Y Khandakar. 2007. “Automatic Time Series Forecasting: The Forecast Package for R 7. 2008.” <em>URL: Https://Www. Jstatsoft. Org/Article/View/V027i03 [Accessed 2016-02-24][WebCite Cache]</em>.</p>
+</div>
+<div id="ref-tseries">
+<p>Trapletti, Adrian, and Kurt Hornik. 2017. <em>Tseries: Time Series Analysis and Computational Finance</em>. <a href="https://CRAN.R-project.org/package=tseries" class="uri">https://CRAN.R-project.org/package=tseries</a>.</p>
+</div>
+<div id="ref-engle1982autoregressive">
+<p>Engle, Robert F. 1982. “Autoregressive Conditional Heteroscedasticity with Estimates of the Variance of United Kingdom Inflation.” <em>Econometrica: Journal of the Econometric Society</em>. JSTOR, 987–1007.</p>
+</div>
+<div id="ref-bollerslev1986generalized">
+<p>Bollerslev, Tim. 1986. “Generalized Autoregressive Conditional Heteroskedasticity.” <em>Journal of Econometrics</em> 31 (3). Elsevier: 307–27.</p>
+</div>
+<div id="ref-fgarch">
+<p>Wuertz, Diethelm, Yohan Chalabi with contribution from Michal Miklovic, Chris Boudt, Pierre Chausse, and others. 2016. <em>FGarch: Rmetrics - Autoregressive Conditional Heteroskedastic Modelling</em>. <a href="https://CRAN.R-project.org/package=fGarch" class="uri">https://CRAN.R-project.org/package=fGarch</a>.</p>
+</div>
+<div id="ref-rugarch">
+<p>Ghalanos, Alexios. 2015. <em>Rugarch: Univariate Garch Models.</em></p>
+</div>
+<div id="ref-tsay2005analysis">
+<p>Tsay, Ruey S. 2005. <em>Analysis of Financial Time Series</em>. Vol. 543. John Wiley &amp; Sons.</p>
+</div>
+<div id="ref-fints">
+<p>Graves, Spencer. 2014. <em>FinTS: Companion to Tsay (2005) Analysis of Financial Time Series</em>. <a href="https://CRAN.R-project.org/package=FinTS" class="uri">https://CRAN.R-project.org/package=FinTS</a>.</p>
+</div>
+<div id="ref-hamilton:1994">
+<p>Hamilton, James. 1994. <em>Time Series Analysis</em>. Princeton University Press.</p>
+</div>
+<div id="ref-mswm">
+<p>Sanchez-Espigares, Josep A., and Alberto Lopez-Moreno. 2014. <em>MSwM: Fitting Markov Switching Models</em>. <a href="https://CRAN.R-project.org/package=MSwM" class="uri">https://CRAN.R-project.org/package=MSwM</a>.</p>
+</div>
+<div id="ref-fmarkovswitching">
+<p>Perlin, Marcelo. 2014. <em>FMarkovSwitching: R Package for Estimation, Simulation and Forecasting of a Univariate Markov Switching Model</em>. <a href="https://R-Forge.R-project.org/projects/rmetrics/" class="uri">https://R-Forge.R-project.org/projects/rmetrics/</a>.</p>
+</div>
+<div id="ref-broom">
+<p>Robinson, David. 2017. <em>Broom: Convert Statistical Analysis Objects into Tidy Data Frames</em>. <a href="https://CRAN.R-project.org/package=broom" class="uri">https://CRAN.R-project.org/package=broom</a>.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="Figures.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="research-scripts.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "Sepia",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

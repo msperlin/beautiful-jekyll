@@ -1,0 +1,1947 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Processing and Analyzing Financial Data with R</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="Processing and Analyzing Financial Data with R">
+  <meta name="generator" content="bookdown 0.3 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Processing and Analyzing Financial Data with R" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="figs/CAPADigital_FinancialDataR.jpg" />
+  <meta property="og:description" content="Processing and Analyzing Financial Data with R" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Processing and Analyzing Financial Data with R" />
+  
+  <meta name="twitter:description" content="Processing and Analyzing Financial Data with R" />
+  <meta name="twitter:image" content="figs/CAPADigital_FinancialDataR.jpg" />
+
+<meta name="author" content="Marcelo S. Perlin (marcelo.perlin@ufrgs.br)">
+
+
+<meta name="date" content="2017-04-29">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="BasicObjects.html">
+<link rel="next" href="Financial-data.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Processing and Analyzing Financial Data with R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome!</a></li>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#what-is-r"><i class="fa fa-check"></i><b>1.1</b> What is R</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#why-choose-r"><i class="fa fa-check"></i><b>1.2</b> Why Choose R</a></li>
+<li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#what-can-you-do-with-r-and-rstudio"><i class="fa fa-check"></i><b>1.3</b> What Can You Do With R and RStudio?</a></li>
+<li class="chapter" data-level="1.4" data-path="introduction.html"><a href="introduction.html#installing-r-and-rstudio"><i class="fa fa-check"></i><b>1.4</b> Installing R and RStudio</a></li>
+<li class="chapter" data-level="1.5" data-path="introduction.html"><a href="introduction.html#resources-in-the-web"><i class="fa fa-check"></i><b>1.5</b> Resources in the Web</a></li>
+<li class="chapter" data-level="1.6" data-path="introduction.html"><a href="introduction.html#structure-and-organization"><i class="fa fa-check"></i><b>1.6</b> Structure and Organization</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html"><i class="fa fa-check"></i><b>2</b> Basic Operations in R</a><ul>
+<li class="chapter" data-level="2.1" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#working-with-r"><i class="fa fa-check"></i><b>2.1</b> Working With R</a></li>
+<li class="chapter" data-level="2.2" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#objects-in-r"><i class="fa fa-check"></i><b>2.2</b> Objects in R</a></li>
+<li class="chapter" data-level="2.3" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#international-and-local-formats"><i class="fa fa-check"></i><b>2.3</b> International and Local Formats</a></li>
+<li class="chapter" data-level="2.4" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#types-of-files-in-r"><i class="fa fa-check"></i><b>2.4</b> Types of Files in R</a></li>
+<li class="chapter" data-level="2.5" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#explaining-the-rstudio-screen"><i class="fa fa-check"></i><b>2.5</b> Explaining the RStudio Screen</a></li>
+<li class="chapter" data-level="2.6" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#running-scripts-from-rstudio"><i class="fa fa-check"></i><b>2.6</b> Running Scripts from RStudio</a></li>
+<li class="chapter" data-level="2.7" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#testing-and-debugging-code"><i class="fa fa-check"></i><b>2.7</b> Testing and Debugging Code</a></li>
+<li class="chapter" data-level="2.8" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#creating-simple-objects"><i class="fa fa-check"></i><b>2.8</b> Creating Simple Objects</a></li>
+<li class="chapter" data-level="2.9" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#creating-vectors"><i class="fa fa-check"></i><b>2.9</b> Creating Vectors</a></li>
+<li class="chapter" data-level="2.10" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#knowing-your-environment"><i class="fa fa-check"></i><b>2.10</b> Knowing Your Environment</a></li>
+<li class="chapter" data-level="2.11" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#displaying-and-formatting-output"><i class="fa fa-check"></i><b>2.11</b> Displaying and Formatting Output</a><ul>
+<li class="chapter" data-level="2.11.1" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#customizing-the-output"><i class="fa fa-check"></i><b>2.11.1</b> Customizing the Output</a></li>
+</ul></li>
+<li class="chapter" data-level="2.12" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#finding-the-size-of-objects"><i class="fa fa-check"></i><b>2.12</b> Finding the Size of Objects</a></li>
+<li class="chapter" data-level="2.13" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#selecting-the-elements-of-an-atomic-vector"><i class="fa fa-check"></i><b>2.13</b> Selecting the Elements of an Atomic Vector</a></li>
+<li class="chapter" data-level="2.14" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#removing-objects-from-the-memory"><i class="fa fa-check"></i><b>2.14</b> Removing Objects from the Memory</a></li>
+<li class="chapter" data-level="2.15" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#displaying-and-setting-the-working-directory"><i class="fa fa-check"></i><b>2.15</b> Displaying and Setting the Working Directory</a></li>
+<li class="chapter" data-level="2.16" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#cancelling-code-execution"><i class="fa fa-check"></i><b>2.16</b> Cancelling Code Execution</a></li>
+<li class="chapter" data-level="2.17" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#code-comments"><i class="fa fa-check"></i><b>2.17</b> Code Comments</a></li>
+<li class="chapter" data-level="2.18" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#looking-for-help"><i class="fa fa-check"></i><b>2.18</b> Looking for Help</a></li>
+<li class="chapter" data-level="2.19" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#r-packages"><i class="fa fa-check"></i><b>2.19</b> R Packages</a><ul>
+<li class="chapter" data-level="2.19.1" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#installing-packages-from-cran"><i class="fa fa-check"></i><b>2.19.1</b> Installing Packages from CRAN</a></li>
+<li class="chapter" data-level="2.19.2" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#installing-packages-from-github"><i class="fa fa-check"></i><b>2.19.2</b> Installing Packages from Github</a></li>
+<li class="chapter" data-level="2.19.3" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#loading-packages"><i class="fa fa-check"></i><b>2.19.3</b> Loading Packages</a></li>
+<li class="chapter" data-level="2.19.4" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#upgrading-packages"><i class="fa fa-check"></i><b>2.19.4</b> Upgrading Packages</a></li>
+</ul></li>
+<li class="chapter" data-level="2.20" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#using-code-completion-with-tab"><i class="fa fa-check"></i><b>2.20</b> Using Code Completion with <em>tab</em></a></li>
+<li class="chapter" data-level="2.21" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#interacting-with-files-and-the-operating-system"><i class="fa fa-check"></i><b>2.21</b> Interacting with Files and the Operating System</a><ul>
+<li class="chapter" data-level="2.21.1" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#listing-files-and-folders"><i class="fa fa-check"></i><b>2.21.1</b> Listing Files and Folders</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="BasicObjects.html"><a href="BasicObjects.html"><i class="fa fa-check"></i><b>3</b> Basic Object Classes</a><ul>
+<li class="chapter" data-level="3.1" data-path="BasicObjects.html"><a href="BasicObjects.html#numeric-objects"><i class="fa fa-check"></i><b>3.1</b> <code>Numeric</code> Objects</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-and-manipulating-numeric-objects"><i class="fa fa-check"></i><b>3.1.1</b> Creating and Manipulating <code>numeric</code> Objects</a></li>
+<li class="chapter" data-level="3.1.2" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-a-numeric-sequence"><i class="fa fa-check"></i><b>3.1.2</b> Creating a <code>numeric</code> Sequence</a></li>
+<li class="chapter" data-level="3.1.3" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-vectors-with-repeated-elements"><i class="fa fa-check"></i><b>3.1.3</b> Creating Vectors with Repeated Elements</a></li>
+<li class="chapter" data-level="3.1.4" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-vectors-with-random-numbers"><i class="fa fa-check"></i><b>3.1.4</b> Creating Vectors with Random Numbers</a></li>
+<li class="chapter" data-level="3.1.5" data-path="BasicObjects.html"><a href="BasicObjects.html#accessing-the-elements-of-a-numeric-vector"><i class="fa fa-check"></i><b>3.1.5</b> Accessing the Elements of a <code>numeric</code> Vector</a></li>
+<li class="chapter" data-level="3.1.6" data-path="BasicObjects.html"><a href="BasicObjects.html#modifying-and-removing-elements-of-a-numeric-vector"><i class="fa fa-check"></i><b>3.1.6</b> Modifying and Removing Elements of a <code>numeric</code> Vector</a></li>
+<li class="chapter" data-level="3.1.7" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-groups-from-a-numeric-vector"><i class="fa fa-check"></i><b>3.1.7</b> Creating Groups from a <code>numeric</code> Vector</a></li>
+<li class="chapter" data-level="3.1.8" data-path="BasicObjects.html"><a href="BasicObjects.html#other-functions-for-manipulating-numerical-vectors"><i class="fa fa-check"></i><b>3.1.8</b> Other Functions for Manipulating Numerical Vectors</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="BasicObjects.html"><a href="BasicObjects.html#character-objects"><i class="fa fa-check"></i><b>3.2</b> <code>Character</code> Objects</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-a-simple-character-object"><i class="fa fa-check"></i><b>3.2.1</b> Creating a Simple <code>character</code> Object</a></li>
+<li class="chapter" data-level="3.2.2" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-structured-character-objects"><i class="fa fa-check"></i><b>3.2.2</b> Creating Structured <code>character</code> Objects</a></li>
+<li class="chapter" data-level="3.2.3" data-path="BasicObjects.html"><a href="BasicObjects.html#character-constants"><i class="fa fa-check"></i><b>3.2.3</b> <code>character</code> Constants</a></li>
+<li class="chapter" data-level="3.2.4" data-path="BasicObjects.html"><a href="BasicObjects.html#selecting-characters-of-a-text-object"><i class="fa fa-check"></i><b>3.2.4</b> Selecting Characters of a Text Object</a></li>
+<li class="chapter" data-level="3.2.5" data-path="BasicObjects.html"><a href="BasicObjects.html#finding-and-replacing-characters-of-a-text"><i class="fa fa-check"></i><b>3.2.5</b> Finding and Replacing Characters of a Text</a></li>
+<li class="chapter" data-level="3.2.6" data-path="BasicObjects.html"><a href="BasicObjects.html#splitting-text"><i class="fa fa-check"></i><b>3.2.6</b> Splitting Text</a></li>
+<li class="chapter" data-level="3.2.7" data-path="BasicObjects.html"><a href="BasicObjects.html#finding-the-number-of-characters-in-a-text"><i class="fa fa-check"></i><b>3.2.7</b> Finding the Number of Characters in a Text</a></li>
+<li class="chapter" data-level="3.2.8" data-path="BasicObjects.html"><a href="BasicObjects.html#generating-combinations-of-text"><i class="fa fa-check"></i><b>3.2.8</b> Generating Combinations of Text</a></li>
+<li class="chapter" data-level="3.2.9" data-path="BasicObjects.html"><a href="BasicObjects.html#encoding-of-character-objects"><i class="fa fa-check"></i><b>3.2.9</b> Encoding of <code>character</code> Objects</a></li>
+<li class="chapter" data-level="3.2.10" data-path="BasicObjects.html"><a href="BasicObjects.html#other-functions-for-manipulating-character"><i class="fa fa-check"></i><b>3.2.10</b> Other Functions for Manipulating <code>character</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="BasicObjects.html"><a href="BasicObjects.html#factor-objects"><i class="fa fa-check"></i><b>3.3</b> <code>Factor</code> Objects</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-factors"><i class="fa fa-check"></i><b>3.3.1</b> Creating <code>factors</code></a></li>
+<li class="chapter" data-level="3.3.2" data-path="BasicObjects.html"><a href="BasicObjects.html#modifying-factors"><i class="fa fa-check"></i><b>3.3.2</b> Modifying <code>factors</code></a></li>
+<li class="chapter" data-level="3.3.3" data-path="BasicObjects.html"><a href="BasicObjects.html#converting-factors-to-other-classes"><i class="fa fa-check"></i><b>3.3.3</b> Converting <code>factors</code> to Other Classes</a></li>
+<li class="chapter" data-level="3.3.4" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-contingency-tables"><i class="fa fa-check"></i><b>3.3.4</b> Creating Contingency Tables</a></li>
+<li class="chapter" data-level="3.3.5" data-path="BasicObjects.html"><a href="BasicObjects.html#other-functions-for-manipulating-factors"><i class="fa fa-check"></i><b>3.3.5</b> Other Functions for Manipulating <code>factors</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="BasicObjects.html"><a href="BasicObjects.html#logical-objects"><i class="fa fa-check"></i><b>3.4</b> <code>Logical</code> Objects</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-logical-objects"><i class="fa fa-check"></i><b>3.4.1</b> Creating <code>logical</code> Objects</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="BasicObjects.html"><a href="BasicObjects.html#date-and-time-objects"><i class="fa fa-check"></i><b>3.5</b> Date and Time Objects</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-simple-dates"><i class="fa fa-check"></i><b>3.5.1</b> Creating Simple Dates</a></li>
+<li class="chapter" data-level="3.5.2" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-a-sequence-of-dates"><i class="fa fa-check"></i><b>3.5.2</b> Creating a Sequence of <code>Dates</code></a></li>
+<li class="chapter" data-level="3.5.3" data-path="BasicObjects.html"><a href="BasicObjects.html#operations-with-dates"><i class="fa fa-check"></i><b>3.5.3</b> Operations with <code>Dates</code></a></li>
+<li class="chapter" data-level="3.5.4" data-path="BasicObjects.html"><a href="BasicObjects.html#dealing-with-time"><i class="fa fa-check"></i><b>3.5.4</b> Dealing with Time</a></li>
+<li class="chapter" data-level="3.5.5" data-path="BasicObjects.html"><a href="BasicObjects.html#customizing-the-output-format-of-dates-and-times"><i class="fa fa-check"></i><b>3.5.5</b> Customizing the Output Format of Dates and Times</a></li>
+<li class="chapter" data-level="3.5.6" data-path="BasicObjects.html"><a href="BasicObjects.html#find-the-current-date-and-time"><i class="fa fa-check"></i><b>3.5.6</b> Find the Current Date and Time</a></li>
+<li class="chapter" data-level="3.5.7" data-path="BasicObjects.html"><a href="BasicObjects.html#other-functions-for-manipulating-dates-and-time"><i class="fa fa-check"></i><b>3.5.7</b> Other Functions for Manipulating Dates and Time</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="BasicObjects.html"><a href="BasicObjects.html#missing-data---na-not-available"><i class="fa fa-check"></i><b>3.6</b> Missing Data - <code>NA</code> (<em>Not available</em>)</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="BasicObjects.html"><a href="BasicObjects.html#defining-na-values"><i class="fa fa-check"></i><b>3.6.1</b> Defining <code>NA</code> Values</a></li>
+<li class="chapter" data-level="3.6.2" data-path="BasicObjects.html"><a href="BasicObjects.html#finding-and-replacing-na"><i class="fa fa-check"></i><b>3.6.2</b> Finding and Replacing <code>NA</code></a></li>
+<li class="chapter" data-level="3.6.3" data-path="BasicObjects.html"><a href="BasicObjects.html#other-useful-functions-for-treating-na"><i class="fa fa-check"></i><b>3.6.3</b> Other Useful Functions for Treating <code>NA</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html"><i class="fa fa-check"></i><b>4</b> Data Structure Objects</a><ul>
+<li class="chapter" data-level="4.1" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#lists"><i class="fa fa-check"></i><b>4.1</b> <code>Lists</code></a><ul>
+<li class="chapter" data-level="4.1.1" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#creating-lists"><i class="fa fa-check"></i><b>4.1.1</b> Creating <code>lists</code></a></li>
+<li class="chapter" data-level="4.1.2" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#accessing-the-elements-of-a-list"><i class="fa fa-check"></i><b>4.1.2</b> Accessing the Elements of a <code>list</code></a></li>
+<li class="chapter" data-level="4.1.3" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#adding-and-removing-elements-from-a-list"><i class="fa fa-check"></i><b>4.1.3</b> Adding and Removing Elements from a <code>list</code></a></li>
+<li class="chapter" data-level="4.1.4" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#processing-the-elements-of-a-list"><i class="fa fa-check"></i><b>4.1.4</b> Processing the Elements of a <code>list</code></a></li>
+<li class="chapter" data-level="4.1.5" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#other-functions-for-manipulating-lists"><i class="fa fa-check"></i><b>4.1.5</b> Other Functions for Manipulating <code>lists</code></a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#matrices"><i class="fa fa-check"></i><b>4.2</b> <code>Matrices</code></a><ul>
+<li class="chapter" data-level="4.2.1" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#selecting-elements-from-a-matrix"><i class="fa fa-check"></i><b>4.2.1</b> Selecting Elements from a <code>matrix</code></a></li>
+<li class="chapter" data-level="4.2.2" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#other-useful-functions-for-manipulating-matrices"><i class="fa fa-check"></i><b>4.2.2</b> Other Useful Functions for Manipulating Matrices</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#dataframes"><i class="fa fa-check"></i><b>4.3</b> <code>Dataframes</code></a><ul>
+<li class="chapter" data-level="4.3.1" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#creating-dataframes"><i class="fa fa-check"></i><b>4.3.1</b> Creating <code>dataframes</code></a></li>
+<li class="chapter" data-level="4.3.2" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#accessing-information-from-a-dataframe"><i class="fa fa-check"></i><b>4.3.2</b> Accessing Information from a <code>dataframe</code></a></li>
+<li class="chapter" data-level="4.3.3" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#modifying-a-dataframe"><i class="fa fa-check"></i><b>4.3.3</b> Modifying a <code>dataframe</code></a></li>
+<li class="chapter" data-level="4.3.4" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#sorting-a-dataframe"><i class="fa fa-check"></i><b>4.3.4</b> Sorting a <code>dataframe</code></a></li>
+<li class="chapter" data-level="4.3.5" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#combining-and-aggregating-dataframes"><i class="fa fa-check"></i><b>4.3.5</b> Combining and Aggregating <code>dataframes</code></a></li>
+<li class="chapter" data-level="4.3.6" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#reporting-a-dataframe-table"><i class="fa fa-check"></i><b>4.3.6</b> Reporting a <code>Dataframe</code> Table</a></li>
+<li class="chapter" data-level="4.3.7" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#the-format-of-the-dataframe-long-and-wide"><i class="fa fa-check"></i><b>4.3.7</b> The Format of the <code>dataframe</code> (<em>long</em> and <em>wide</em>)</a></li>
+<li class="chapter" data-level="4.3.8" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#extensions-of-the-dataframe-class"><i class="fa fa-check"></i><b>4.3.8</b> Extensions of the <code>dataframe</code> Class</a></li>
+<li class="chapter" data-level="4.3.9" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#other-useful-functions-for-handling-dataframes"><i class="fa fa-check"></i><b>4.3.9</b> Other Useful Functions for Handling <code>dataframes</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="Financial-data.html"><a href="Financial-data.html"><i class="fa fa-check"></i><b>5</b> Financial Data and Common Operations</a><ul>
+<li class="chapter" data-level="5.1" data-path="Financial-data.html"><a href="Financial-data.html#data-from-financial-markets"><i class="fa fa-check"></i><b>5.1</b> Data from Financial Markets</a></li>
+<li class="chapter" data-level="5.2" data-path="Financial-data.html"><a href="Financial-data.html#data-from-the-financial-evaluation-of-projects"><i class="fa fa-check"></i><b>5.2</b> Data from the Financial Evaluation of Projects</a></li>
+<li class="chapter" data-level="5.3" data-path="Financial-data.html"><a href="Financial-data.html#data-from-financial-statements"><i class="fa fa-check"></i><b>5.3</b> Data from Financial Statements</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="importing.html"><a href="importing.html"><i class="fa fa-check"></i><b>6</b> Importing and Exporting Data</a><ul>
+<li class="chapter" data-level="6.1" data-path="importing.html"><a href="importing.html#importing-data-from-local-files"><i class="fa fa-check"></i><b>6.1</b> Importing Data from Local Files</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="importing.html"><a href="importing.html#importing-data-from-a-.csv-file-comma-separated-values"><i class="fa fa-check"></i><b>6.1.1</b> Importing Data from a <em>.csv</em> File (<em>comma separated values</em>)</a></li>
+<li class="chapter" data-level="6.1.2" data-path="importing.html"><a href="importing.html#importing-data-from-an-excel-file"><i class="fa fa-check"></i><b>6.1.2</b> Importing Data from an <em>Excel</em> File</a></li>
+<li class="chapter" data-level="6.1.3" data-path="importing.html"><a href="importing.html#importing-data-from-a-.rdata-file"><i class="fa fa-check"></i><b>6.1.3</b> Importing Data from a <em>.RData</em> File</a></li>
+<li class="chapter" data-level="6.1.4" data-path="importing.html"><a href="importing.html#importing-data-from-sqlite"><i class="fa fa-check"></i><b>6.1.4</b> Importing Data from SQLITE</a></li>
+<li class="chapter" data-level="6.1.5" data-path="importing.html"><a href="importing.html#importing-data-from-a-text-file"><i class="fa fa-check"></i><b>6.1.5</b> Importing Data from a Text File</a></li>
+<li class="chapter" data-level="6.1.6" data-path="importing.html"><a href="importing.html#other-file-formats"><i class="fa fa-check"></i><b>6.1.6</b> Other File Formats</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="importing.html"><a href="importing.html#importing-data-using-the-internet"><i class="fa fa-check"></i><b>6.2</b> Importing Data Using the Internet</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="importing.html"><a href="importing.html#package-quantmod"><i class="fa fa-check"></i><b>6.2.1</b> Package <code>quantmod</code></a></li>
+<li class="chapter" data-level="6.2.2" data-path="importing.html"><a href="importing.html#package-batchgetsymbols"><i class="fa fa-check"></i><b>6.2.2</b> Package <code>BatchGetSymbols</code></a></li>
+<li class="chapter" data-level="6.2.3" data-path="importing.html"><a href="importing.html#package-finreportr"><i class="fa fa-check"></i><b>6.2.3</b> Package <code>finreportr</code></a></li>
+<li class="chapter" data-level="6.2.4" data-path="importing.html"><a href="importing.html#package-tidyquant"><i class="fa fa-check"></i><b>6.2.4</b> Package <code>tidyquant</code></a></li>
+<li class="chapter" data-level="6.2.5" data-path="importing.html"><a href="importing.html#package-gethfdata"><i class="fa fa-check"></i><b>6.2.5</b> Package <code>GetHFData</code></a></li>
+<li class="chapter" data-level="6.2.6" data-path="importing.html"><a href="importing.html#package-ustyc"><i class="fa fa-check"></i><b>6.2.6</b> Package <code>ustyc</code></a></li>
+<li class="chapter" data-level="6.2.7" data-path="importing.html"><a href="importing.html#quandl"><i class="fa fa-check"></i><b>6.2.7</b> Package <code>Quandl</code></a></li>
+<li class="chapter" data-level="6.2.8" data-path="importing.html"><a href="importing.html#package-rbitcoin"><i class="fa fa-check"></i><b>6.2.8</b> Package <code>Rbitcoin</code></a></li>
+<li class="chapter" data-level="6.2.9" data-path="importing.html"><a href="importing.html#other-packages"><i class="fa fa-check"></i><b>6.2.9</b> Other Packages</a></li>
+<li class="chapter" data-level="6.2.10" data-path="importing.html"><a href="importing.html#accessing-data-from-web-pages-webscraping"><i class="fa fa-check"></i><b>6.2.10</b> Accessing Data from Web Pages (<em>webscraping</em>)</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="importing.html"><a href="importing.html#exporting-to-local-file"><i class="fa fa-check"></i><b>6.3</b> Exporting to Local File</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="importing.html"><a href="importing.html#exporting-data-to-a-.csv-file"><i class="fa fa-check"></i><b>6.3.1</b> Exporting Data to a <em>.csv</em> File</a></li>
+<li class="chapter" data-level="6.3.2" data-path="importing.html"><a href="importing.html#exporting-data-to-a-rdata-file"><i class="fa fa-check"></i><b>6.3.2</b> Exporting Data to a <em>RData</em> File</a></li>
+<li class="chapter" data-level="6.3.3" data-path="importing.html"><a href="importing.html#exporting-data-to-an-excel-file"><i class="fa fa-check"></i><b>6.3.3</b> Exporting Data to an Excel File</a></li>
+<li class="chapter" data-level="6.3.4" data-path="importing.html"><a href="importing.html#exporting-data-to-a-text-file"><i class="fa fa-check"></i><b>6.3.4</b> Exporting Data to a Text File</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="programming.html"><a href="programming.html"><i class="fa fa-check"></i><b>7</b> Programming and Data Analysis with R</a><ul>
+<li class="chapter" data-level="7.1" data-path="programming.html"><a href="programming.html#creating-functions"><i class="fa fa-check"></i><b>7.1</b> Creating Functions</a></li>
+<li class="chapter" data-level="7.2" data-path="programming.html"><a href="programming.html#using-loops-for"><i class="fa fa-check"></i><b>7.2</b> Using Loops (<code>for</code>)</a></li>
+<li class="chapter" data-level="7.3" data-path="programming.html"><a href="programming.html#conditional-statements-if-else-switch"><i class="fa fa-check"></i><b>7.3</b> Conditional Statements (<code>if</code>, <code>else</code>, <code>switch</code>)</a></li>
+<li class="chapter" data-level="7.4" data-path="programming.html"><a href="programming.html#using-apply-functions"><i class="fa fa-check"></i><b>7.4</b> Using <code>apply</code> Functions</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="programming.html"><a href="programming.html#using-lapply"><i class="fa fa-check"></i><b>7.4.1</b> Using <code>lapply</code></a></li>
+<li class="chapter" data-level="7.4.2" data-path="programming.html"><a href="programming.html#using-sapply"><i class="fa fa-check"></i><b>7.4.2</b> Using <code>sapply</code></a></li>
+<li class="chapter" data-level="7.4.3" data-path="programming.html"><a href="programming.html#using-tapply"><i class="fa fa-check"></i><b>7.4.3</b> Using <code>tapply</code></a></li>
+<li class="chapter" data-level="7.4.4" data-path="programming.html"><a href="programming.html#using-mapply"><i class="fa fa-check"></i><b>7.4.4</b> Using <code>mapply</code></a></li>
+<li class="chapter" data-level="7.4.5" data-path="programming.html"><a href="programming.html#using-apply"><i class="fa fa-check"></i><b>7.4.5</b> Using <code>apply</code></a></li>
+<li class="chapter" data-level="7.4.6" data-path="programming.html"><a href="programming.html#using-by"><i class="fa fa-check"></i><b>7.4.6</b> Using <code>by</code></a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="programming.html"><a href="programming.html#data-manipulation-with-package-dplyr"><i class="fa fa-check"></i><b>7.5</b> Data Manipulation with Package <code>dplyr</code></a><ul>
+<li class="chapter" data-level="7.5.1" data-path="programming.html"><a href="programming.html#manipulating-a-dataframe-with-dplyr"><i class="fa fa-check"></i><b>7.5.1</b> Manipulating a <code>dataframe</code> with <code>dplyr</code></a></li>
+<li class="chapter" data-level="7.5.2" data-path="programming.html"><a href="programming.html#the-pipeline-operator"><i class="fa fa-check"></i><b>7.5.2</b> The Pipeline Operator (<code>%&gt;%</code>)</a></li>
+<li class="chapter" data-level="7.5.3" data-path="programming.html"><a href="programming.html#simple-group-operations-with-dplyr"><i class="fa fa-check"></i><b>7.5.3</b> Simple Group Operations with <code>dplyr</code></a></li>
+<li class="chapter" data-level="7.5.4" data-path="programming.html"><a href="programming.html#complex-group-operations-with-dplyr"><i class="fa fa-check"></i><b>7.5.4</b> Complex Group Operations with <code>dplyr</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="Figures.html"><a href="Figures.html"><i class="fa fa-check"></i><b>8</b> Creating and Saving Figures with <code>ggplot2</code></a><ul>
+<li class="chapter" data-level="8.1" data-path="Figures.html"><a href="Figures.html#using-graphic-windows"><i class="fa fa-check"></i><b>8.1</b> Using Graphic Windows</a></li>
+<li class="chapter" data-level="8.2" data-path="Figures.html"><a href="Figures.html#creating-figures-with-function-qplot"><i class="fa fa-check"></i><b>8.2</b> Creating Figures with Function <code>qplot</code></a></li>
+<li class="chapter" data-level="8.3" data-path="Figures.html"><a href="Figures.html#using-ggplot"><i class="fa fa-check"></i><b>8.3</b> Creating Figures with Function <code>ggplot</code></a><ul>
+<li class="chapter" data-level="8.3.1" data-path="Figures.html"><a href="Figures.html#using-themes"><i class="fa fa-check"></i><b>8.3.1</b> Using Themes</a></li>
+<li class="chapter" data-level="8.3.2" data-path="Figures.html"><a href="Figures.html#creating-panels-with-facet_wrap"><i class="fa fa-check"></i><b>8.3.2</b> Creating Panels with <code>facet_wrap</code></a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="Figures.html"><a href="Figures.html#using-pipelines-for-data-analysis-and-figures"><i class="fa fa-check"></i><b>8.4</b> Using Pipelines for Data Analysis and Figures</a></li>
+<li class="chapter" data-level="8.5" data-path="Figures.html"><a href="Figures.html#creating-statistical-graphics"><i class="fa fa-check"></i><b>8.5</b> Creating Statistical Graphics</a><ul>
+<li class="chapter" data-level="8.5.1" data-path="Figures.html"><a href="Figures.html#creating-histograms"><i class="fa fa-check"></i><b>8.5.1</b> Creating Histograms</a></li>
+<li class="chapter" data-level="8.5.2" data-path="Figures.html"><a href="Figures.html#creating-boxplot-figures"><i class="fa fa-check"></i><b>8.5.2</b> Creating <em>boxplot</em> Figures</a></li>
+<li class="chapter" data-level="8.5.3" data-path="Figures.html"><a href="Figures.html#creating-qq-plots"><i class="fa fa-check"></i><b>8.5.3</b> Creating <em>QQ</em> Plots</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="Figures.html"><a href="Figures.html#saving-graphics-to-a-file"><i class="fa fa-check"></i><b>8.6</b> Saving Graphics to a File</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="models.html"><a href="models.html"><i class="fa fa-check"></i><b>9</b> Financial Econometrics with R</a><ul>
+<li class="chapter" data-level="9.1" data-path="models.html"><a href="models.html#linear-models-ols"><i class="fa fa-check"></i><b>9.1</b> Linear Models (OLS)</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="models.html"><a href="models.html#simulating-a-linear-model"><i class="fa fa-check"></i><b>9.1.1</b> Simulating a Linear Model</a></li>
+<li class="chapter" data-level="9.1.2" data-path="models.html"><a href="models.html#estimating-ols"><i class="fa fa-check"></i><b>9.1.2</b> Estimating a Linear Model</a></li>
+<li class="chapter" data-level="9.1.3" data-path="models.html"><a href="models.html#testing-ols"><i class="fa fa-check"></i><b>9.1.3</b> Statistical Inference in Linear Models</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="models.html"><a href="models.html#generalized-linear-models-glm"><i class="fa fa-check"></i><b>9.2</b> Generalized Linear Models (GLM)</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="models.html"><a href="models.html#simulating-a-glm-model"><i class="fa fa-check"></i><b>9.2.1</b> Simulating a GLM Model</a></li>
+<li class="chapter" data-level="9.2.2" data-path="models.html"><a href="models.html#estimating-a-glm-model"><i class="fa fa-check"></i><b>9.2.2</b> Estimating a GLM Model</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="models.html"><a href="models.html#panel-data-models"><i class="fa fa-check"></i><b>9.3</b> Panel Data Models</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="models.html"><a href="models.html#simulating-panel-data-models"><i class="fa fa-check"></i><b>9.3.1</b> Simulating Panel Data Models</a></li>
+<li class="chapter" data-level="9.3.2" data-path="models.html"><a href="models.html#estimating-panel-data-models"><i class="fa fa-check"></i><b>9.3.2</b> Estimating Panel Data Models</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="models.html"><a href="models.html#arima-models"><i class="fa fa-check"></i><b>9.4</b> Arima Models</a><ul>
+<li class="chapter" data-level="9.4.1" data-path="models.html"><a href="models.html#simulating-arima-models"><i class="fa fa-check"></i><b>9.4.1</b> Simulating Arima Models</a></li>
+<li class="chapter" data-level="9.4.2" data-path="models.html"><a href="models.html#arima-estimating"><i class="fa fa-check"></i><b>9.4.2</b> Estimating Arima Models</a></li>
+<li class="chapter" data-level="9.4.3" data-path="models.html"><a href="models.html#forecasting-arima-models"><i class="fa fa-check"></i><b>9.4.3</b> Forecasting Arima Models</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="models.html"><a href="models.html#garch-models"><i class="fa fa-check"></i><b>9.5</b> Garch Models</a><ul>
+<li class="chapter" data-level="9.5.1" data-path="models.html"><a href="models.html#simulating-garch-models"><i class="fa fa-check"></i><b>9.5.1</b> Simulating Garch Models</a></li>
+<li class="chapter" data-level="9.5.2" data-path="models.html"><a href="models.html#estimating-garch"><i class="fa fa-check"></i><b>9.5.2</b> Estimating Garch Models</a></li>
+<li class="chapter" data-level="9.5.3" data-path="models.html"><a href="models.html#forecasting-garch-models"><i class="fa fa-check"></i><b>9.5.3</b> Forecasting Garch Models</a></li>
+</ul></li>
+<li class="chapter" data-level="9.6" data-path="models.html"><a href="models.html#regime-switching-models"><i class="fa fa-check"></i><b>9.6</b> Regime Switching Models</a><ul>
+<li class="chapter" data-level="9.6.1" data-path="models.html"><a href="models.html#simulating-regime-switching-models"><i class="fa fa-check"></i><b>9.6.1</b> Simulating Regime Switching Models</a></li>
+<li class="chapter" data-level="9.6.2" data-path="models.html"><a href="models.html#estimating-regime-switching-models"><i class="fa fa-check"></i><b>9.6.2</b> Estimating Regime Switching Models</a></li>
+<li class="chapter" data-level="9.6.3" data-path="models.html"><a href="models.html#forecasting-regime-switching-models"><i class="fa fa-check"></i><b>9.6.3</b> Forecasting Regime Switching Models</a></li>
+</ul></li>
+<li class="chapter" data-level="9.7" data-path="models.html"><a href="models.html#dealing-with-several-models"><i class="fa fa-check"></i><b>9.7</b> Dealing with Several Models</a></li>
+<li class="chapter" data-level="9.8" data-path="models.html"><a href="models.html#reporting-models"><i class="fa fa-check"></i><b>9.8</b> Reporting Models with <code>texreg</code></a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="research-scripts.html"><a href="research-scripts.html"><i class="fa fa-check"></i><b>10</b> Writing Research Scripts</a><ul>
+<li class="chapter" data-level="10.1" data-path="research-scripts.html"><a href="research-scripts.html#structure-of-a-research-script"><i class="fa fa-check"></i><b>10.1</b> Structure of a Research Script</a></li>
+<li class="chapter" data-level="10.2" data-path="research-scripts.html"><a href="research-scripts.html#folder-structure"><i class="fa fa-check"></i><b>10.2</b> Folder Structure</a></li>
+<li class="chapter" data-level="10.3" data-path="research-scripts.html"><a href="research-scripts.html#ExampleResearch"><i class="fa fa-check"></i><b>10.3</b> Examples of Research Scripts</a><ul>
+<li class="chapter" data-level="10.3.1" data-path="research-scripts.html"><a href="research-scripts.html#research-performance"><i class="fa fa-check"></i><b>10.3.1</b> The performance of international investments</a></li>
+<li class="chapter" data-level="10.3.2" data-path="research-scripts.html"><a href="research-scripts.html#research-prophet"><i class="fa fa-check"></i><b>10.3.2</b> Can we predict stock’s returns with Prophet?</a></li>
+<li class="chapter" data-level="10.3.3" data-path="research-scripts.html"><a href="research-scripts.html#research-gethfdata"><i class="fa fa-check"></i><b>10.3.3</b> An Analysis of High Frequency trade Data</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://sites.google.com/view/pmfdr/home" target="blank">Book Companion Site</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Processing and Analyzing Financial Data with R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="DataStructureObjects" class="section level1">
+<h1><span class="header-section-number">Chapter 4</span> Data Structure Objects</h1>
+<p>In chapter <a href="BasicObjects.html#BasicObjects">3</a> we learned about the basic classes of objects in R. Together, the basic classes can represent a wide variety of data. When dealing with rich datasets, the number of created objects increases significantly. While you can work storing each information in each object, the code becomes messy. In practice, we organize our information in table like structures, with rows and columns, containing numeric or textual data. When we represent our dataset in a tabular format, the code using this data becomes simpler and more efficient. This is the main format of how raw data is imported into R.</p>
+<p>In this section, we will present details about the classes that can store and organize our datasets, <code>lists</code>, <code>dataframes</code>, and <code>matrix</code>.</p>
+<div id="lists" class="section level2">
+<h2><span class="header-section-number">4.1</span> <code>Lists</code></h2>
+<p>A <code>list</code> is a flexible object that can hold different types of objects. Unlike atomic vectors, a <code>list</code> has no restriction on the classes or types of elements. In the same <code>list</code> object, we can group <code>numeric</code> objects with <code>character</code> objects, <code>factor</code> with <code>Dates</code>, and even <code>lists</code> within <code>lists</code>. Each element of a list need not have the same length as the others. These properties make the <code>list</code> class the most flexible object in R. It is not by accident that most functions in R return an object of type <code>list</code>. </p>
+<div id="creating-lists" class="section level3">
+<h3><span class="header-section-number">4.1.1</span> Creating <code>lists</code></h3>
+<p>A list can be created with the <code>list</code> command, followed by their comma-separated elements: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># create a list with three elements</span>
+my.l &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dv">1</span>, <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>), <span class="kw">c</span>(<span class="st">&#39;a&#39;</span>, <span class="st">&#39;b&#39;</span>))
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(my.l)</code></pre></div>
+<pre><code>## [[1]]
+## [1] 1
+## 
+## [[2]]
+## [1] 1 2 3
+## 
+## [[3]]
+## [1] &quot;a&quot; &quot;b&quot;</code></pre>
+<p>Notice how a <code>list</code> type object is printed differently than atomic vectors. The elements of the <code>list</code> are separated vertically and the content appears within double brackets (<code>[[ ]]</code>).</p>
+<p>The elements of a <code>list</code> can also be named. This greatly facilitates working with <code>lists</code> because the names can give the user a hint about its content. An example:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># create named list</span>
+my.named.l &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">ticker =</span> <span class="st">&#39;ABC&#39;</span>, 
+                   <span class="dt">name.company =</span> <span class="st">&#39;Company ABC&#39;</span>,
+                   <span class="dt">price =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="fl">1.5</span>,<span class="dv">2</span>,<span class="fl">2.3</span>), 
+                   <span class="dt">market =</span> <span class="st">&#39;NYSE&#39;</span>, 
+                   <span class="dt">date.price =</span> <span class="kw">as.Date</span>(<span class="st">&#39;2016-01-01&#39;</span>)<span class="op">+</span><span class="dv">0</span><span class="op">:</span><span class="dv">3</span>)
+
+<span class="co"># print list          </span>
+<span class="kw">print</span>(my.named.l)</code></pre></div>
+<pre><code>## $ticker
+## [1] &quot;ABC&quot;
+## 
+## $name.company
+## [1] &quot;Company ABC&quot;
+## 
+## $price
+## [1] 1.0 1.5 2.0 2.3
+## 
+## $market
+## [1] &quot;NYSE&quot;
+## 
+## $date.price
+## [1] &quot;2016-01-01&quot; &quot;2016-01-02&quot; &quot;2016-01-03&quot; &quot;2016-01-04&quot;</code></pre>
+<p>In this example, we have a named list with several elements with different classes and lengths. Each element provides different information about a company. We could use the same data structure for storing information in a large number of companies.</p>
+</div>
+<div id="accessing-the-elements-of-a-list" class="section level3">
+<h3><span class="header-section-number">4.1.2</span> Accessing the Elements of a <code>list</code></h3>
+<p>As mentioned, the individual elements of a <code>list</code> can be accessed with double brackets ( <code>[[ ]]</code>), as in: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set list</span>
+my.l &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dv">2</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="kw">c</span>(<span class="st">&#39;a&#39;</span>, <span class="st">&#39;b&#39;</span>))
+
+<span class="co"># print second element of my.l</span>
+<span class="kw">print</span>(my.l[[<span class="dv">2</span>]])</code></pre></div>
+<pre><code>## [1] 1 2 3 4 5</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># print third element of my.l</span>
+<span class="kw">print</span>(my.l[[<span class="dv">3</span>]])</code></pre></div>
+<pre><code>## [1] &quot;a&quot; &quot;b&quot;</code></pre>
+<p>You can also access the elements of a <code>list</code> with simple brackets (<code>[]</code>), but be careful with this operation as the result will not be the element itself, but another <code>list</code>. This is an easy and common mistake to go unnoticed, resulting in errors in the code. See below:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># accessing list with [[ ]]</span>
+<span class="kw">class</span>(my.l[[<span class="dv">2</span>]])</code></pre></div>
+<pre><code>## [1] &quot;integer&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># accessing list with [ ]</span>
+<span class="kw">class</span>(my.l[<span class="dv">2</span>])</code></pre></div>
+<pre><code>## [1] &quot;list&quot;</code></pre>
+<p>If we try to add an element to <code>my.l[2]</code>, we will receive an error message.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># adding an element to a list (WRONG)</span>
+my.l[<span class="dv">2</span>] <span class="op">+</span><span class="st"> </span><span class="dv">1</span></code></pre></div>
+<pre><code>## Error in my.l[2] + 1: non-numeric argument to binary operator</code></pre>
+<p>An error is returned because a <code>list</code> object cannot be summed with a <code>numeric</code> object. To fix it, simply use double brackets, as in <code>my.l[[2]] + 1</code>. Accessing elements of a list with simple brackets is only useful when looking for a sublist within a larger list. As an example, if we wanted to obtain the first and second elements of <code>my.l</code>, we would write:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set new list with first and second element of my.l</span>
+my.new.l &lt;-<span class="st"> </span>my.l[<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)]
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(my.new.l)</code></pre></div>
+<pre><code>## [[1]]
+## [1] 2
+## 
+## [[2]]
+## [1] 1 2 3 4 5</code></pre>
+<p>Using its position to access elements of a <code>list</code> is not advised. The problem is, if you are working interactively with a <code>list</code>, the position of the elements may change as new data arrives. The best way of working with this object is to name each element. Here, the named elements can be accessed with the symbol <code>$</code> or <code>[['name']]</code>. This prevents errors because, by modifying the <code>list</code> and adding elements, you can change the order of elements, but not the names.</p>
+<p>Next, we provide several examples of how to access the elements of a <code>list</code> using <code>$</code> and double brackets.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># accessing elements of a list using $</span>
+<span class="kw">print</span>(my.named.l<span class="op">$</span>ticker)</code></pre></div>
+<pre><code>## [1] &quot;ABC&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(my.named.l<span class="op">$</span>price)</code></pre></div>
+<pre><code>## [1] 1.0 1.5 2.0 2.3</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># accessing elements of a list using [[&#39;name&#39;]]</span>
+<span class="kw">print</span>(my.named.l[[<span class="st">&#39;ticker&#39;</span>]])</code></pre></div>
+<pre><code>## [1] &quot;ABC&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(my.named.l[[<span class="st">&#39;price&#39;</span>]])</code></pre></div>
+<pre><code>## [1] 1.0 1.5 2.0 2.3</code></pre>
+<p>Another useful trick for working with lists is you can access all inner elements directly, in one line of code, by simply using consecutive brackets or names. See below:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my.l &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">slot1 =</span> <span class="kw">c</span>(<span class="dt">num1 =</span> <span class="dv">1</span>, <span class="dt">num2 =</span> <span class="dv">2</span>, <span class="dt">num3 =</span> <span class="dv">3</span>), 
+             <span class="dt">slot2 =</span> <span class="kw">c</span>(<span class="st">&#39;a&#39;</span>, <span class="st">&#39;b&#39;</span>))
+
+<span class="co"># access the second value of the first element of my.l</span>
+<span class="kw">print</span>(my.l[[<span class="dv">1</span>]][<span class="dv">2</span>])</code></pre></div>
+<pre><code>## num2 
+##    2</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># access the first value of the second element of my.l</span>
+<span class="kw">print</span>(my.l[[<span class="dv">2</span>]][<span class="dv">1</span>])</code></pre></div>
+<pre><code>## [1] &quot;a&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># access the value &#39;num3&#39; in &#39;slot1&#39;</span>
+<span class="kw">print</span>(my.l[[<span class="st">&#39;slot1&#39;</span>]][<span class="st">&#39;num3&#39;</span>])</code></pre></div>
+<pre><code>## num3 
+##    3</code></pre>
+<p>This operation is very useful when interested in a few elements within a larger object. It avoids the need for creating intermediate objects.</p>
+</div>
+<div id="adding-and-removing-elements-from-a-list" class="section level3">
+<h3><span class="header-section-number">4.1.3</span> Adding and Removing Elements from a <code>list</code></h3>
+<p>To add or replace elements in a <code>list</code>, just set the new object in the desired position:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set list</span>
+my.l &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="st">&#39;a&#39;</span>,<span class="dv">1</span>,<span class="dv">3</span>)
+
+<span class="co"># show it</span>
+<span class="kw">print</span>(my.l)</code></pre></div>
+<pre><code>## [[1]]
+## [1] &quot;a&quot;
+## 
+## [[2]]
+## [1] 1
+## 
+## [[3]]
+## [1] 3</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># change value at position 4</span>
+my.l[[<span class="dv">4</span>]] &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>)
+
+<span class="co"># change value at position 2</span>
+my.l[[<span class="dv">2</span>]] &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;b&#39;</span>)
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(my.l)</code></pre></div>
+<pre><code>## [[1]]
+## [1] &quot;a&quot;
+## 
+## [[2]]
+## [1] &quot;b&quot;
+## 
+## [[3]]
+## [1] 3
+## 
+## [[4]]
+## [1] 1 2 3 4 5</code></pre>
+<p>This operation is also possible with the use of names and <code>$</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set named list</span>
+my.l &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">slot1 =</span> <span class="st">&#39;a&#39;</span>, <span class="dt">slot2 =</span> <span class="dv">5</span>)
+
+<span class="co"># print it</span>
+<span class="kw">print</span>(my.l)</code></pre></div>
+<pre><code>## $slot1
+## [1] &quot;a&quot;
+## 
+## $slot2
+## [1] 5</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># add a new slot</span>
+my.l<span class="op">$</span>slot3 &lt;-<span class="st"> </span><span class="dv">10</span>
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(my.l)</code></pre></div>
+<pre><code>## $slot1
+## [1] &quot;a&quot;
+## 
+## $slot2
+## [1] 5
+## 
+## $slot3
+## [1] 10</code></pre>
+<p>To remove elements from a <code>list</code>, set the element to the reserved symbol <code>NULL</code>, as in: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set list</span>
+my.l &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">text =</span> <span class="st">&#39;b&#39;</span>, <span class="dt">num1 =</span> <span class="dv">2</span>, <span class="dt">num2 =</span> <span class="dv">4</span>)
+
+<span class="co"># remove third element</span>
+my.l[[<span class="dv">3</span>]] &lt;-<span class="st"> </span><span class="ot">NULL</span>
+
+<span class="co"># show result</span>
+<span class="kw">print</span>(my.l)</code></pre></div>
+<pre><code>## $text
+## [1] &quot;b&quot;
+## 
+## $num1
+## [1] 2</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># remove element &#39;num1&#39;</span>
+my.l<span class="op">$</span>num1 &lt;-<span class="st"> </span><span class="ot">NULL</span>
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(my.l)</code></pre></div>
+<pre><code>## $text
+## [1] &quot;b&quot;</code></pre>
+<p>Another way of removing elements from a <code>list</code> is to use a negative index, which will exclude it from the returned object. See the next example, where we remove the second element of a <code>list</code> using a negative index.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set list</span>
+my.l &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">a=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>), <span class="dt">b=</span><span class="st">&#39;text&#39;</span>)
+
+<span class="co"># print my.l without second element</span>
+<span class="kw">print</span>(my.l[[<span class="op">-</span><span class="dv">2</span>]])</code></pre></div>
+<pre><code>## [1] 1 2</code></pre>
+<p>As with atomic vectors, removing elements of a <code>list</code> can also be accomplished with logical conditions. See next:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set list</span>
+my.l &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>)
+
+<span class="co"># remove all elements higher than 2</span>
+my.l[my.l <span class="op">&gt;</span><span class="st"> </span><span class="dv">2</span>] &lt;-<span class="st"> </span><span class="ot">NULL</span>
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(my.l)</code></pre></div>
+<pre><code>## [[1]]
+## [1] 1
+## 
+## [[2]]
+## [1] 2</code></pre>
+<p>However, note this operation only works because all elements of <code>my.l</code> are numeric, and a logical test can be applied to all cases. If that is not possible for a particular element, R returns a <code>NA</code> value. See an example next:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set list</span>
+my.l &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="st">&#39;a&#39;</span>, <span class="st">&#39;b&#39;</span>)
+
+<span class="co"># print logical test (return NA value)</span>
+<span class="kw">print</span>(my.l <span class="op">&gt;</span><span class="st"> </span><span class="dv">2</span>)</code></pre></div>
+<pre><code>## [1] FALSE FALSE  TRUE  TRUE    NA    NA</code></pre>
+</div>
+<div id="processing-the-elements-of-a-list" class="section level3">
+<h3><span class="header-section-number">4.1.4</span> Processing the Elements of a <code>list</code></h3>
+<p>Important information about objects of the type <code>list</code> is that its elements can be processed and handled individually with specific functions. We will learn more about this topic in chapter <a href="programming.html#programming">7</a>. For now, it is important to give a summary of how that works.</p>
+<p>As an example, consider a list of numeric vectors of different sizes, as follows:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set list with different numerical vectors.</span>
+my.l.num &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>), 
+                 <span class="kw">seq</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">50</span>), 
+                 <span class="kw">seq</span>(<span class="op">-</span><span class="dv">5</span>,<span class="dv">5</span>, <span class="dt">by=</span><span class="fl">0.5</span>))</code></pre></div>
+<p>Let’s assume we wanted to calculate the average of each vector in <code>my.l.num</code> and store the result in an atomic vector. We could do this by calling the <code>mean</code> function to each element of the <code>list</code>, as in: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># calculate means</span>
+mean.<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">mean</span>(my.l.num[[<span class="dv">1</span>]])
+mean.<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">mean</span>(my.l.num[[<span class="dv">2</span>]])
+mean.<span class="dv">3</span> &lt;-<span class="st"> </span><span class="kw">mean</span>(my.l.num[[<span class="dv">3</span>]])
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(<span class="kw">c</span>(mean.<span class="dv">1</span>, mean.<span class="dv">2</span>, mean.<span class="dv">3</span>))</code></pre></div>
+<pre><code>## [1]  2.0 25.5  0.0</code></pre>
+<p>An easier, more elegant, and smarter way of doing that would be to use the <code>sapply</code> function. All you need is the name of the list and the name of the function used to process each element. See next: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># using sapply</span>
+my.mean &lt;-<span class="st"> </span><span class="kw">sapply</span>(my.l.num, mean)
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(my.mean)</code></pre></div>
+<pre><code>## [1]  2.0 25.5  0.0</code></pre>
+<p>As expected, the result is identical to the previous example. Using function <code>sapply</code> is preferable, because it is more compact and efficient than the alternative - creating <code>mean.1</code>, and <code>mean.2</code> and <code>mean.3</code>. Notice the first example code only works for a <code>list</code> with three elements. If we had a fourth element and we wanted to keep this code structure, we would have to add a new line <code>mean.4 &lt;- mean(my.l.num[[4]])</code> and modify the output command to <code>print &lt;-c(mean.1, mean.2, mean.3, mean.4))</code>. Function <code>sapply</code> works the same way in <code>lists</code> of any size. If we had more elements in <code>my.l.num</code>, no modification is necessary in <code>my.mean &lt;- sapply(my.l.num, mean)</code>, making it easier to extend the code for more information. By combining a flexible object, such as a <code>list</code>, and processing capabilities, performing extensive operations in many complex objects in R is easy.</p>
+<p>This use of generic procedures is one of the premises of good and efficient programming practices. For the case of R, the rule is simple: always write code that is flexible to the size of your objects. The arrival of new data should never require modifications in the code. This is called the <em>DRY</em> rule (<strong>don’t repeat yourself</strong>). If you are repeating codes, as in the previous example, certainly there is a more elegant and flexible solution that could be used. In R, there are several other functions for processing <code>lists</code>. These will be explained in greater detail in chapter <a href="programming.html#programming">7</a>.</p>
+</div>
+<div id="other-functions-for-manipulating-lists" class="section level3">
+<h3><span class="header-section-number">4.1.5</span> Other Functions for Manipulating <code>lists</code></h3>
+<ul>
+<li><strong>unlist</strong> - Returns the elements of a <code>list</code> in a single atomic vector. </li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># create list</span>
+my.named.l &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">ticker =</span> <span class="st">&#39;XXXX4&#39;</span>, 
+                   <span class="dt">price =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="fl">1.5</span>,<span class="dv">2</span>,<span class="dv">3</span>), 
+                   <span class="dt">market =</span> <span class="st">&#39;Bovespa&#39;</span>)
+
+<span class="co"># unlist its elements                  </span>
+my.unlisted &lt;-<span class="st"> </span><span class="kw">unlist</span>(my.named.l)
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(my.unlisted)</code></pre></div>
+<pre><code>##    ticker    price1    price2    price3    price4    market 
+##   &quot;XXXX4&quot;       &quot;1&quot;     &quot;1.5&quot;       &quot;2&quot;       &quot;3&quot; &quot;Bovespa&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(my.unlisted)</code></pre></div>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<ul>
+<li><strong>as.list</strong> - Converts an object to the <code>list</code> type. </li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set atomic vector</span>
+my.x &lt;-<span class="st"> </span><span class="dv">10</span><span class="op">:</span><span class="dv">13</span>
+
+<span class="co"># convert to list</span>
+my.x.as.list &lt;-<span class="st"> </span><span class="kw">as.list</span>(my.x)
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(my.x.as.list)</code></pre></div>
+<pre><code>## [[1]]
+## [1] 10
+## 
+## [[2]]
+## [1] 11
+## 
+## [[3]]
+## [1] 12
+## 
+## [[4]]
+## [1] 13</code></pre>
+<ul>
+<li><strong>names</strong> - Returns or defines the names of the elements of a <code>list</code>. </li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set named list</span>
+my.l &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">value1 =</span> <span class="dv">1</span>, <span class="dt">value2 =</span> <span class="dv">2</span>, <span class="dt">value3 =</span> <span class="dv">3</span>)
+
+<span class="co"># print its names</span>
+<span class="kw">print</span>(<span class="kw">names</span>(my.l))</code></pre></div>
+<pre><code>## [1] &quot;value1&quot; &quot;value2&quot; &quot;value3&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># change its names</span>
+<span class="kw">names</span>(my.l) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;num1&#39;</span>, <span class="st">&#39;num2&#39;</span>, <span class="st">&#39;num3&#39;</span>)
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(my.l)</code></pre></div>
+<pre><code>## $num1
+## [1] 1
+## 
+## $num2
+## [1] 2
+## 
+## $num3
+## [1] 3</code></pre>
+</div>
+</div>
+<div id="matrices" class="section level2">
+<h2><span class="header-section-number">4.2</span> <code>Matrices</code></h2>
+<p>As you may remember from your math classes, a matrix is a two-dimensional representation of numbers, arranged in rows and columns. Using matrices is a powerful way of representing numerical data in two dimensions, and in certain cases, matrix functions can simplify complex mathematical operations.  </p>
+<p>In R, matrix are objects with two dimensions, where all elements must have the same class. You can think of matrices as atomic vectors with one extra dimension. In matrices, lines and columns are named. When used correctly, <code>matrix</code> objects facilitate the storage and context of the data. </p>
+<p>A simple example of using matrices in finance is the representation of stock prices over time. The row of the matrix represents the different dates, and the columns set each stock apart. An example is given next.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="right">AAP</th>
+<th align="right">COG</th>
+<th align="right">BLK</th>
+<th align="right">CAM</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">2010-01-04</td>
+<td align="right">40.38</td>
+<td align="right">46.23</td>
+<td align="right">238.58</td>
+<td align="right">43.43</td>
+</tr>
+<tr class="even">
+<td align="left">2010-01-05</td>
+<td align="right">40.14</td>
+<td align="right">46.17</td>
+<td align="right">239.61</td>
+<td align="right">43.96</td>
+</tr>
+<tr class="odd">
+<td align="left">2010-01-06</td>
+<td align="right">40.49</td>
+<td align="right">45.97</td>
+<td align="right">234.67</td>
+<td align="right">44.26</td>
+</tr>
+<tr class="even">
+<td align="left">2010-01-07</td>
+<td align="right">40.48</td>
+<td align="right">45.56</td>
+<td align="right">237.25</td>
+<td align="right">44.50</td>
+</tr>
+<tr class="odd">
+<td align="left">2010-01-08</td>
+<td align="right">40.64</td>
+<td align="right">45.46</td>
+<td align="right">238.92</td>
+<td align="right">44.86</td>
+</tr>
+</tbody>
+</table>
+<p>The above matrix could be created in R with the following code:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set raw data with prices </span>
+raw.data &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">40.38</span>,  <span class="fl">40.14</span>,  <span class="fl">40.49</span>,  <span class="fl">40.48</span>,  <span class="fl">40.64</span>,
+              <span class="fl">46.23</span>,  <span class="fl">46.17</span>,  <span class="fl">45.97</span>,  <span class="fl">45.56</span>,  <span class="fl">45.46</span>,
+              <span class="fl">238.58</span>, <span class="fl">239.61</span>, <span class="fl">234.67</span>, <span class="fl">237.25</span>, <span class="fl">238.92</span>,
+              <span class="fl">43.43</span>,  <span class="fl">43.96</span>,  <span class="fl">44.26</span>,  <span class="fl">44.5</span>,   <span class="fl">44.86</span>)
+
+<span class="co"># create matrix          </span>
+my.mat &lt;-<span class="st"> </span><span class="kw">matrix</span>(raw.data, <span class="dt">nrow =</span> <span class="dv">5</span>, <span class="dt">ncol =</span> <span class="dv">4</span>)
+<span class="kw">colnames</span>(my.mat) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;AAP&#39;</span>, <span class="st">&#39;COG&#39;</span>, <span class="st">&#39;BLK&#39;</span>, <span class="st">&#39;CAM&#39;</span>)
+<span class="kw">rownames</span>(my.mat) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;2010-01-04&quot;</span>, <span class="st">&quot;2010-01-05&quot;</span>, <span class="st">&quot;2010-01-06&quot;</span>, 
+                      <span class="st">&quot;2010-01-07&quot;</span>, <span class="st">&quot;2010-01-08&quot;</span>)
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(my.mat)</code></pre></div>
+<pre><code>##              AAP   COG    BLK   CAM
+## 2010-01-04 40.38 46.23 238.58 43.43
+## 2010-01-05 40.14 46.17 239.61 43.96
+## 2010-01-06 40.49 45.97 234.67 44.26
+## 2010-01-07 40.48 45.56 237.25 44.50
+## 2010-01-08 40.64 45.46 238.92 44.86</code></pre>
+<p>That was a long code! But, do not worry. In practical situations, the financial data will be imported from an external source, a local file on your computer, or from the internet. Rare are the cases where actual data is typed in the editor.</p>
+<p>In the previous example of creating a <code>matrix</code> object, we set the number of rows and columns explicitly with arguments <code>nrow = 4</code> and <code>ncol = 3</code>. The names of rows and columns are defined with functions <code>colnames</code> and <code>rownames</code>, using a left side notation as in <code>rownames(my.mat) &lt;- c(...)</code>. Going further, we can also retrieve the names of rows and columns with the same functions:  </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># print the names of columns </span>
+<span class="kw">print</span>(<span class="kw">colnames</span>(my.mat))</code></pre></div>
+<pre><code>## [1] &quot;AAP&quot; &quot;COG&quot; &quot;BLK&quot; &quot;CAM&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># print the names of rows</span>
+<span class="kw">print</span>(<span class="kw">rownames</span>(my.mat))</code></pre></div>
+<pre><code>## [1] &quot;2010-01-04&quot; &quot;2010-01-05&quot; &quot;2010-01-06&quot; &quot;2010-01-07&quot;
+## [5] &quot;2010-01-08&quot;</code></pre>
+<p>After matrix <code>my.mat</code> is created, we have at our disposal all its numerical properties. A simple example of using matrix operations in finance is the calculation of the value of a portfolio. If an investor has 200 shares of AAP, 300 share of COG, 100 of BLK and 50 of CAM, the value of his portfolio over time can be calculated as follows:</p>
+<p><span class="math display">\[V _t = \sum _{i=1} ^{4} N _i P_{i,t}\]</span></p>
+<p>In this formula, <span class="math inline">\(N_i\)</span> is the number of shares purchased for each asset, and <span class="math inline">\(P_{i,t}\)</span> is the price of stock <em>i</em> at date <em>t</em>. This is a simple operation to be performed with a matrix multiplication. Translating the procedure to R code, we have:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set vector with shares purchased</span>
+my.stocks &lt;-<span class="st"> </span><span class="kw">as.matrix</span>(<span class="kw">c</span>(<span class="dv">200</span>, <span class="dv">300</span>, <span class="dv">100</span>, <span class="dv">50</span>), <span class="dt">nrow =</span> <span class="dv">4</span>)
+
+<span class="co"># get value of portfolio with matrix multiplication</span>
+my.port &lt;-<span class="st"> </span>my.mat <span class="op">%*%</span><span class="st"> </span>my.stocks
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(my.port)</code></pre></div>
+<pre><code>##               [,1]
+## 2010-01-04 47974.5
+## 2010-01-05 48038.0
+## 2010-01-06 47569.0
+## 2010-01-07 47714.0
+## 2010-01-08 47901.0</code></pre>
+<p>In this last example, we use symbol <code>%*%</code>, which does a matrix multiplication between two objects of the class <code>matrix</code>. The result shows the value of the portfolio over time, resulting in a small loss for the investor at the last date.  </p>
+<p>In R, a <code>matrix</code> type of object does not need to be composed of <code>numeric</code> values. You can also create matrices with <code>character</code> elements or other types. See the following examples:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># create matrix with character</span>
+my.mat.char &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>), <span class="dv">3</span>), 
+                      <span class="dt">nrow =</span> <span class="dv">3</span>, 
+                      <span class="dt">ncol =</span> <span class="dv">3</span>)
+
+<span class="co"># print it                    </span>
+<span class="kw">print</span>(my.mat.char)</code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,] &quot;a&quot;  &quot;a&quot;  &quot;a&quot; 
+## [2,] &quot;b&quot;  &quot;b&quot;  &quot;b&quot; 
+## [3,] &quot;c&quot;  &quot;c&quot;  &quot;c&quot;</code></pre>
+<p>Now with a <code>logic</code> type:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># create matrix with logical</span>
+my.mat.logical &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">sample</span>(<span class="kw">c</span>(<span class="ot">TRUE</span>,<span class="ot">FALSE</span>), 
+                                <span class="dt">size =</span> <span class="dv">3</span><span class="op">*</span><span class="dv">3</span>,
+                                <span class="dt">replace =</span> <span class="ot">TRUE</span>),
+                         <span class="dt">nrow =</span> <span class="dv">3</span>, 
+                         <span class="dt">ncol =</span> <span class="dv">3</span>)
+
+<span class="co"># print it                    </span>
+<span class="kw">print</span>(my.mat.logical)</code></pre></div>
+<pre><code>##       [,1]  [,2]  [,3]
+## [1,]  TRUE FALSE  TRUE
+## [2,] FALSE FALSE FALSE
+## [3,]  TRUE FALSE  TRUE</code></pre>
+<p>This flexibility allows the user to expand the representation of two-dimensional data beyond numerical values.</p>
+<div id="selecting-elements-from-a-matrix" class="section level3">
+<h3><span class="header-section-number">4.2.1</span> Selecting Elements from a <code>matrix</code></h3>
+<p>Following the same notation of atomic vector, you can select <em>pieces</em> of a <code>matrix</code> using indexing. A difference here is that matrices are two-dimensional objects, while atomic vectors are one-dimensional.<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> The extra dimension of matrices requires selecting elements not only by lines, but also by columns. The elements of an array can be accessed with notation <code>[i, j]</code> where <em>i</em> represents the row and <em>j</em> the column. See the following example:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># create matrix</span>
+my.mat &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>, <span class="dt">nrow =</span> <span class="dv">3</span>)
+
+<span class="co"># display it</span>
+<span class="kw">print</span>(my.mat)</code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    4    7
+## [2,]    2    5    8
+## [3,]    3    6    9</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># display element in [1,2]</span>
+<span class="kw">print</span>(my.mat[<span class="dv">1</span>,<span class="dv">2</span>])</code></pre></div>
+<pre><code>## [1] 4</code></pre>
+<p>To select an entire row or column, simply leave a blank index, as in the following example:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># select all rows from column 2</span>
+<span class="kw">print</span>(my.mat[ , <span class="dv">2</span>])</code></pre></div>
+<pre><code>## [1] 4 5 6</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># select all columns from row 1</span>
+<span class="kw">print</span>(my.mat[<span class="dv">1</span>, ])</code></pre></div>
+<pre><code>## [1] 1 4 7</code></pre>
+<p>Notice the result of indexing is an atomic vector, not a <code>matrix</code>. If we wanted the extracted piece to maintain its <code>matrix</code> class, with vertical or horizontal orientation, we could force this conversion using functions <code>as.matrix</code> and <code>matrix</code>:  </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># force matrix conversion and print result</span>
+<span class="kw">print</span>(<span class="kw">as.matrix</span>(my.mat[ ,<span class="dv">2</span>]))</code></pre></div>
+<pre><code>##      [,1]
+## [1,]    4
+## [2,]    5
+## [3,]    6</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># force matrix conversion for one row and print result</span>
+<span class="kw">print</span>(<span class="kw">matrix</span>(my.mat[<span class="dv">1</span>, ], <span class="dt">nrow=</span><span class="dv">1</span>))</code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    4    7</code></pre>
+<p>Pieces of the <code>matrix</code> can also be selected using vectors. If we wanted a new <code>matrix</code> with all elements from the second row and first column to the third row and second column, we could use the following code:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># select some elements and print it</span>
+<span class="kw">print</span>(my.mat[<span class="dv">2</span><span class="op">:</span><span class="dv">3</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>])</code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]    2    5
+## [2,]    3    6</code></pre>
+<p>Finally, using logical tests to select elements of matrices is also possible. See next: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set matrix</span>
+my.mat &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>, <span class="dt">nrow =</span> <span class="dv">3</span>)
+
+<span class="co"># print logical matrix where value is higher than 5</span>
+<span class="kw">print</span>(my.mat <span class="op">&gt;</span><span class="dv">5</span>)</code></pre></div>
+<pre><code>##       [,1]  [,2] [,3]
+## [1,] FALSE FALSE TRUE
+## [2,] FALSE FALSE TRUE
+## [3,] FALSE  TRUE TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># print the result</span>
+<span class="kw">print</span>(my.mat[my.mat <span class="op">&gt;</span><span class="dv">5</span>])</code></pre></div>
+<pre><code>## [1] 6 7 8 9</code></pre>
+</div>
+<div id="other-useful-functions-for-manipulating-matrices" class="section level3">
+<h3><span class="header-section-number">4.2.2</span> Other Useful Functions for Manipulating Matrices</h3>
+<ul>
+<li><strong>as.matrix</strong> - Transforms raw data to a <code>matrix</code> object. </li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set matrix</span>
+my.mat &lt;-<span class="st"> </span><span class="kw">as.matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>)
+
+<span class="co"># print it</span>
+<span class="kw">print</span>(my.mat)</code></pre></div>
+<pre><code>##      [,1]
+## [1,]    1
+## [2,]    2
+## [3,]    3
+## [4,]    4
+## [5,]    5</code></pre>
+<ul>
+<li><strong>t</strong> - Returns a transposed <code>matrix</code>.  </li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set matrix</span>
+my.mat &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">seq</span>(<span class="dv">10</span>,<span class="dv">20</span>, <span class="dt">length.out =</span> <span class="dv">6</span>), <span class="dt">nrow =</span> <span class="dv">3</span>)
+
+<span class="co"># print it</span>
+<span class="kw">print</span>(my.mat)</code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]   10   16
+## [2,]   12   18
+## [3,]   14   20</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># transpose and print</span>
+<span class="kw">print</span>(<span class="kw">t</span>(my.mat))</code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]   10   12   14
+## [2,]   16   18   20</code></pre>
+<ul>
+<li><strong>rbind</strong> - Returns the merger (bind) of matrices, with row orientation. </li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set matrices and print</span>
+my.mat.<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="dt">nrow =</span> <span class="dv">1</span>)
+<span class="kw">print</span>(my.mat.<span class="dv">1</span>)</code></pre></div>
+<pre><code>##      [,1] [,2] [,3] [,4] [,5]
+## [1,]    1    2    3    4    5</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my.mat.<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">10</span><span class="op">:</span><span class="dv">14</span>, <span class="dt">nrow =</span> <span class="dv">1</span>)
+<span class="kw">print</span>(my.mat.<span class="dv">2</span>)</code></pre></div>
+<pre><code>##      [,1] [,2] [,3] [,4] [,5]
+## [1,]   10   11   12   13   14</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># bind them together using the rows</span>
+my.rbind.mat &lt;-<span class="st"> </span><span class="kw">rbind</span>(my.mat.<span class="dv">1</span>, my.mat.<span class="dv">2</span>)
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(my.rbind.mat)</code></pre></div>
+<pre><code>##      [,1] [,2] [,3] [,4] [,5]
+## [1,]    1    2    3    4    5
+## [2,]   10   11   12   13   14</code></pre>
+<ul>
+<li><strong>cbind</strong> - Returns the merger (bind) of matrices, with column orientation. </li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set matrices and print</span>
+my.mat.<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">nrow =</span> <span class="dv">2</span>)
+<span class="kw">print</span>(my.mat.<span class="dv">1</span>)</code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]    1    3
+## [2,]    2    4</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my.mat.<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">10</span><span class="op">:</span><span class="dv">13</span>, <span class="dt">nrow =</span> <span class="dv">2</span>)
+<span class="kw">print</span>(my.mat.<span class="dv">2</span>)</code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]   10   12
+## [2,]   11   13</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># bind them together using the columns</span>
+my.cbind.mat &lt;-<span class="st"> </span><span class="kw">cbind</span>(my.mat.<span class="dv">1</span>, my.mat.<span class="dv">2</span>)
+
+<span class="co"># print the result</span>
+<span class="kw">print</span>(my.cbind.mat)</code></pre></div>
+<pre><code>##      [,1] [,2] [,3] [,4]
+## [1,]    1    3   10   12
+## [2,]    2    4   11   13</code></pre>
+<ul>
+<li><strong>rowMeans</strong> - Returns the mean of a matrix, row wise. </li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set matrix</span>
+my.mat &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>, <span class="dt">nrow=</span><span class="dv">3</span>)
+<span class="kw">print</span>(<span class="kw">rowMeans</span>(my.mat))</code></pre></div>
+<pre><code>## [1] 4 5 6</code></pre>
+<ul>
+<li><strong>colMeans</strong> - Returns the mean of a matrix, column wise. </li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set matrix</span>
+my.mat &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>, <span class="dt">nrow=</span><span class="dv">3</span>)
+<span class="kw">print</span>(<span class="kw">colMeans</span>(my.mat))</code></pre></div>
+<pre><code>## [1] 2 5 8</code></pre>
+</div>
+</div>
+<div id="dataframes" class="section level2">
+<h2><span class="header-section-number">4.3</span> <code>Dataframes</code></h2>
+<p>In R, <code>dataframe</code> objects are the most used and most important to understand. In short, <code>dataframes</code> is a table with rows and columns. Its big difference from the <code>matrix</code> type is it allows for each column to have a different class. This flexibility makes the <code>dataframe</code> a better object to represent heterogeneous datasets. There is also a positive aspect of data organization. The tabular structure forces the data to be <em>paired</em>, where each row is a different data point and each data point has several pieces of information (columns). This simple data structure can accommodate an infinite variety of information. New data points increase the rows, and new information increases the columns. </p>
+<p>Another positive aspect of using <code>dataframes</code> in R is that several functions expect a <code>dataframe</code> as input. For example, the data manipulation package <code>dplyr</code> and the graphical package <code>ggplot2</code> work from a <code>dataframe</code> only. Operations of importing and exporting information are mostly <code>dataframe</code> oriented. Without doubt, <code>dataframes</code> are at the centre of a series of functionalities in R, and they are one of the most important classes to learn. Most of the work in processing financial data will be related to this object.</p>
+<div id="creating-dataframes" class="section level3">
+<h3><span class="header-section-number">4.3.1</span> Creating <code>dataframes</code></h3>
+<p>As with other classes, the creation of a <code>dataframe</code> can be accomplished with a function with the same name, <code>data.frame</code>. In the next example, we use a <code>dataframe</code> to accommodate the financial data used before. Have a look: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set ticker symbols as a vector</span>
+ticker &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&#39;AAP&#39;</span>,<span class="dv">5</span>), <span class="kw">rep</span>(<span class="st">&#39;COG&#39;</span>, <span class="dv">5</span>), <span class="kw">rep</span>(<span class="st">&#39;BLK&#39;</span>, <span class="dv">5</span>), <span class="kw">rep</span>(<span class="st">&#39;CAM&#39;</span>,<span class="dv">5</span>))
+
+<span class="co"># set a date vector</span>
+date &lt;-<span class="st"> </span><span class="kw">as.Date</span>(<span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;2010-01-04&quot;</span>, <span class="st">&quot;2010-01-05&quot;</span>, <span class="st">&quot;2010-01-06&quot;</span>, 
+                      <span class="st">&quot;2010-01-07&quot;</span>, <span class="st">&quot;2010-01-08&quot;</span>), <span class="dv">4</span>) )
+
+<span class="co"># set prices                      </span>
+prices &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">40.38</span>,  <span class="fl">40.14</span>,  <span class="fl">40.49</span>,  <span class="fl">40.48</span>,  <span class="fl">40.64</span>,
+            <span class="fl">46.23</span>,  <span class="fl">46.17</span>,  <span class="fl">45.97</span>,  <span class="fl">45.56</span>,  <span class="fl">45.46</span>,
+            <span class="fl">238.58</span>, <span class="fl">239.61</span>, <span class="fl">234.67</span>, <span class="fl">237.25</span>, <span class="fl">238.92</span>,
+            <span class="fl">43.43</span>,  <span class="fl">43.96</span>,  <span class="fl">44.26</span>,  <span class="fl">44.5</span>,   <span class="fl">44.86</span>)
+
+<span class="co"># create dataframe          </span>
+my.df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">ticker =</span> ticker, 
+                    <span class="dt">date =</span> date, 
+                    <span class="dt">prices =</span> prices)
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(my.df)</code></pre></div>
+<pre><code>##    ticker       date prices
+## 1     AAP 2010-01-04  40.38
+## 2     AAP 2010-01-05  40.14
+## 3     AAP 2010-01-06  40.49
+## 4     AAP 2010-01-07  40.48
+## 5     AAP 2010-01-08  40.64
+## 6     COG 2010-01-04  46.23
+## 7     COG 2010-01-05  46.17
+## 8     COG 2010-01-06  45.97
+## 9     COG 2010-01-07  45.56
+## 10    COG 2010-01-08  45.46
+## 11    BLK 2010-01-04 238.58
+## 12    BLK 2010-01-05 239.61
+## 13    BLK 2010-01-06 234.67
+## 14    BLK 2010-01-07 237.25
+## 15    BLK 2010-01-08 238.92
+## 16    CAM 2010-01-04  43.43
+## 17    CAM 2010-01-05  43.96
+## 18    CAM 2010-01-06  44.26
+## 19    CAM 2010-01-07  44.50
+## 20    CAM 2010-01-08  44.86</code></pre>
+<p>We used function <code>rep</code> to replicate and facilitate the creation of the data for the <code>dataframe</code> object. Notice how all our data is now stored in a single object, facilitating access and organization of the resulting code. The content of <code>my.df</code> can be viewed in RStudio. To do so, click on the object name in the <em>environment</em> tab, top right of the screen. After that, a viewer will appear on the main screen of the program, as in <a href="DataStructureObjects.html#fig:example-view">4.1</a>. </p>
+<div class="figure" style="text-align: center"><span id="fig:example-view"></span>
+<img src="figs/Command_view.png" alt="Example of viewing a dataframe in RStudio" width="100%" />
+<p class="caption">
+Figure 4.1: Example of viewing a dataframe in RStudio
+</p>
+</div>
+<p>The advantages of using the viewer is that you can explore the data and sort the columns easily, by just clicking in their names. For those who like to use the prompt, you can open the viewer with function <code>View</code>, as in <code>View(my.df)</code>. </p>
+</div>
+<div id="accessing-information-from-a-dataframe" class="section level3">
+<h3><span class="header-section-number">4.3.2</span> Accessing Information from a <code>dataframe</code></h3>
+<p>A <code>dataframe</code> object makes use of same commands and symbols used for object of type <code>matrix</code> and <code>list</code>. These functions are generic and can be customized for different objects, including user-created classes.</p>
+<p>To find out the names of the columns of a <code>dataframe</code>, we have two functions, <code>names</code> and <code>colnames</code>, with the exact same behaviour:  </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># get names of columns with names</span>
+<span class="kw">names</span>(my.df)</code></pre></div>
+<pre><code>## [1] &quot;ticker&quot; &quot;date&quot;   &quot;prices&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># get names of columns with colnames</span>
+<span class="kw">colnames</span>(my.df)</code></pre></div>
+<pre><code>## [1] &quot;ticker&quot; &quot;date&quot;   &quot;prices&quot;</code></pre>
+<p>To access a particular column of a <code>dataframe</code>, we can use operator <code>$</code> or the name/position of the column with brackets. See next:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># get column ticker from my.df</span>
+my.ticker &lt;-<span class="st"> </span>my.df<span class="op">$</span>ticker   
+
+<span class="co"># get column price from my.df</span>
+my.prices &lt;-<span class="st"> </span>my.df[<span class="st">&#39;prices&#39;</span>]
+
+<span class="co"># get second column from my.df</span>
+my.date &lt;-<span class="st"> </span>my.df[ ,<span class="dv">2</span>] 
+
+<span class="co"># print the results</span>
+<span class="kw">print</span>(my.ticker)</code></pre></div>
+<pre><code>##  [1] AAP AAP AAP AAP AAP COG COG COG COG COG BLK BLK BLK BLK
+## [15] BLK CAM CAM CAM CAM CAM
+## Levels: AAP BLK CAM COG</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(my.prices)</code></pre></div>
+<pre><code>##    prices
+## 1   40.38
+## 2   40.14
+## 3   40.49
+## 4   40.48
+## 5   40.64
+## 6   46.23
+## 7   46.17
+## 8   45.97
+## 9   45.56
+## 10  45.46
+## 11 238.58
+## 12 239.61
+## 13 234.67
+## 14 237.25
+## 15 238.92
+## 16  43.43
+## 17  43.96
+## 18  44.26
+## 19  44.50
+## 20  44.86</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(my.date)</code></pre></div>
+<pre><code>##  [1] &quot;2010-01-04&quot; &quot;2010-01-05&quot; &quot;2010-01-06&quot; &quot;2010-01-07&quot;
+##  [5] &quot;2010-01-08&quot; &quot;2010-01-04&quot; &quot;2010-01-05&quot; &quot;2010-01-06&quot;
+##  [9] &quot;2010-01-07&quot; &quot;2010-01-08&quot; &quot;2010-01-04&quot; &quot;2010-01-05&quot;
+## [13] &quot;2010-01-06&quot; &quot;2010-01-07&quot; &quot;2010-01-08&quot; &quot;2010-01-04&quot;
+## [17] &quot;2010-01-05&quot; &quot;2010-01-06&quot; &quot;2010-01-07&quot; &quot;2010-01-08&quot;</code></pre>
+<p>Another important piece of information about <code>dataframe</code> objects is, internally, they are stored as <code>lists</code>, where each element is a column. This is important because some properties of <code>lists</code> also work for <code>dataframes</code>. One example is using double bracket (<code>[[ ]]</code>) for selecting columns:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># select column in dataframe with list notation</span>
+<span class="kw">print</span>(my.df[[<span class="dv">2</span>]])</code></pre></div>
+<pre><code>##  [1] &quot;2010-01-04&quot; &quot;2010-01-05&quot; &quot;2010-01-06&quot; &quot;2010-01-07&quot;
+##  [5] &quot;2010-01-08&quot; &quot;2010-01-04&quot; &quot;2010-01-05&quot; &quot;2010-01-06&quot;
+##  [9] &quot;2010-01-07&quot; &quot;2010-01-08&quot; &quot;2010-01-04&quot; &quot;2010-01-05&quot;
+## [13] &quot;2010-01-06&quot; &quot;2010-01-07&quot; &quot;2010-01-08&quot; &quot;2010-01-04&quot;
+## [17] &quot;2010-01-05&quot; &quot;2010-01-06&quot; &quot;2010-01-07&quot; &quot;2010-01-08&quot;</code></pre>
+<p>To access specific rows and columns of a <code>dataframe</code>, use single brackets together with atomic vectors that indicate positions:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># accessing rows 1:5, column 2</span>
+<span class="kw">print</span>(my.df[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="dv">2</span>])</code></pre></div>
+<pre><code>## [1] &quot;2010-01-04&quot; &quot;2010-01-05&quot; &quot;2010-01-06&quot; &quot;2010-01-07&quot;
+## [5] &quot;2010-01-08&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># accessing rows 1:5, columns 1 and 2</span>
+<span class="kw">print</span>(my.df[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)])</code></pre></div>
+<pre><code>##   ticker       date
+## 1    AAP 2010-01-04
+## 2    AAP 2010-01-05
+## 3    AAP 2010-01-06
+## 4    AAP 2010-01-07
+## 5    AAP 2010-01-08</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># accessing rows 1:5, all columns</span>
+<span class="kw">print</span>(my.df[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, ])</code></pre></div>
+<pre><code>##   ticker       date prices
+## 1    AAP 2010-01-04  40.38
+## 2    AAP 2010-01-05  40.14
+## 3    AAP 2010-01-06  40.49
+## 4    AAP 2010-01-07  40.48
+## 5    AAP 2010-01-08  40.64</code></pre>
+<p>Column selection can also be performed using names. Look at the following example:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># selecting rows 1 to 3, columns &#39;ticker&#39; and &#39;prices&#39;</span>
+<span class="kw">print</span>(my.df[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="kw">c</span>(<span class="st">&#39;ticker&#39;</span>,<span class="st">&#39;prices&#39;</span>)])</code></pre></div>
+<pre><code>##   ticker prices
+## 1    AAP  40.38
+## 2    AAP  40.14
+## 3    AAP  40.49</code></pre>
+</div>
+<div id="modifying-a-dataframe" class="section level3">
+<h3><span class="header-section-number">4.3.3</span> Modifying a <code>dataframe</code></h3>
+<p>To create a new column in a <code>dataframe</code>, simply allocate an atomic vector of any class with the same length as the number of rows in the existing <code>dataframe</code>. If we want to insert a sequence of values as a new column in <code>my.df</code>, we could do it as follows: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># add a sequence to my.df</span>
+my.df<span class="op">$</span>my.seq &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(my.df)
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(my.df)</code></pre></div>
+<pre><code>##    ticker       date prices my.seq
+## 1     AAP 2010-01-04  40.38      1
+## 2     AAP 2010-01-05  40.14      2
+## 3     AAP 2010-01-06  40.49      3
+## 4     AAP 2010-01-07  40.48      4
+## 5     AAP 2010-01-08  40.64      5
+## 6     COG 2010-01-04  46.23      6
+## 7     COG 2010-01-05  46.17      7
+## 8     COG 2010-01-06  45.97      8
+## 9     COG 2010-01-07  45.56      9
+## 10    COG 2010-01-08  45.46     10
+## 11    BLK 2010-01-04 238.58     11
+## 12    BLK 2010-01-05 239.61     12
+## 13    BLK 2010-01-06 234.67     13
+## 14    BLK 2010-01-07 237.25     14
+## 15    BLK 2010-01-08 238.92     15
+## 16    CAM 2010-01-04  43.43     16
+## 17    CAM 2010-01-05  43.96     17
+## 18    CAM 2010-01-06  44.26     18
+## 19    CAM 2010-01-07  44.50     19
+## 20    CAM 2010-01-08  44.86     20</code></pre>
+<p>You can also perform this modification of a <code>dataframe</code> with single brackets or the position of the new column:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set new col by name</span>
+my.df[<span class="st">&#39;my.seq.2&#39;</span>] &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">1</span>,<span class="dv">100</span>, <span class="dt">length.out =</span> <span class="kw">nrow</span>(my.df))
+
+<span class="co"># set new col by position</span>
+my.df[[<span class="dv">6</span>]] &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">1</span>,<span class="dv">10</span>, <span class="dt">length.out =</span> <span class="kw">nrow</span>(my.df))
+<span class="kw">print</span>(my.df)</code></pre></div>
+<pre><code>##    ticker       date prices my.seq   my.seq.2        V6
+## 1     AAP 2010-01-04  40.38      1   1.000000  1.000000
+## 2     AAP 2010-01-05  40.14      2   6.210526  1.473684
+## 3     AAP 2010-01-06  40.49      3  11.421053  1.947368
+## 4     AAP 2010-01-07  40.48      4  16.631579  2.421053
+## 5     AAP 2010-01-08  40.64      5  21.842105  2.894737
+## 6     COG 2010-01-04  46.23      6  27.052632  3.368421
+## 7     COG 2010-01-05  46.17      7  32.263158  3.842105
+## 8     COG 2010-01-06  45.97      8  37.473684  4.315789
+## 9     COG 2010-01-07  45.56      9  42.684211  4.789474
+## 10    COG 2010-01-08  45.46     10  47.894737  5.263158
+## 11    BLK 2010-01-04 238.58     11  53.105263  5.736842
+## 12    BLK 2010-01-05 239.61     12  58.315789  6.210526
+## 13    BLK 2010-01-06 234.67     13  63.526316  6.684211
+## 14    BLK 2010-01-07 237.25     14  68.736842  7.157895
+## 15    BLK 2010-01-08 238.92     15  73.947368  7.631579
+## 16    CAM 2010-01-04  43.43     16  79.157895  8.105263
+## 17    CAM 2010-01-05  43.96     17  84.368421  8.578947
+## 18    CAM 2010-01-06  44.26     18  89.578947  9.052632
+## 19    CAM 2010-01-07  44.50     19  94.789474  9.526316
+## 20    CAM 2010-01-08  44.86     20 100.000000 10.000000</code></pre>
+<p>When using column position for setting a new column into a <code>dataframe</code>, its name becomes <code>V6</code>, i.e. <em>variable 6</em>. In R, when no name is entered by the user, this is the default allocation. However, it is always good policy to name all columns of the <code>dataframe</code> with some hint to its content. As for columns that will not be used, simply remove them prior to processing. In our example, we can rename the columns using function <code>colnames</code>: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># rename colnames</span>
+<span class="kw">colnames</span>(my.df) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;ticker&#39;</span>, <span class="st">&#39;date&#39;</span>, <span class="st">&#39;prices&#39;</span>, 
+                     <span class="st">&#39;my.seq&#39;</span>, <span class="st">&#39;my.seq.2&#39;</span>, <span class="st">&#39;my.seq.3&#39;</span>)
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(my.df)</code></pre></div>
+<pre><code>##    ticker       date prices my.seq   my.seq.2  my.seq.3
+## 1     AAP 2010-01-04  40.38      1   1.000000  1.000000
+## 2     AAP 2010-01-05  40.14      2   6.210526  1.473684
+## 3     AAP 2010-01-06  40.49      3  11.421053  1.947368
+## 4     AAP 2010-01-07  40.48      4  16.631579  2.421053
+## 5     AAP 2010-01-08  40.64      5  21.842105  2.894737
+## 6     COG 2010-01-04  46.23      6  27.052632  3.368421
+## 7     COG 2010-01-05  46.17      7  32.263158  3.842105
+## 8     COG 2010-01-06  45.97      8  37.473684  4.315789
+## 9     COG 2010-01-07  45.56      9  42.684211  4.789474
+## 10    COG 2010-01-08  45.46     10  47.894737  5.263158
+## 11    BLK 2010-01-04 238.58     11  53.105263  5.736842
+## 12    BLK 2010-01-05 239.61     12  58.315789  6.210526
+## 13    BLK 2010-01-06 234.67     13  63.526316  6.684211
+## 14    BLK 2010-01-07 237.25     14  68.736842  7.157895
+## 15    BLK 2010-01-08 238.92     15  73.947368  7.631579
+## 16    CAM 2010-01-04  43.43     16  79.157895  8.105263
+## 17    CAM 2010-01-05  43.96     17  84.368421  8.578947
+## 18    CAM 2010-01-06  44.26     18  89.578947  9.052632
+## 19    CAM 2010-01-07  44.50     19  94.789474  9.526316
+## 20    CAM 2010-01-08  44.86     20 100.000000 10.000000</code></pre>
+<p>R allows using spaces in the names of columns. If we wanted a column to be named <code>My Column 1</code>, you could set it as:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set df</span>
+temp.df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="st">&#39;My Column 1&#39;</span> =<span class="st"> </span><span class="kw">runif</span>(<span class="dv">5</span>), <span class="dt">check.names=</span><span class="ot">FALSE</span>)
+
+<span class="co"># set columns name &quot;My Column 2&quot; with grave accent</span>
+temp.df<span class="op">$</span><span class="st">`</span><span class="dt">My column 2</span><span class="st">`</span> &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">5</span>)
+
+<span class="co"># set columns name &quot;My Column 3&quot; with apostrophe</span>
+temp.df<span class="op">$</span><span class="st">&#39;My column 3&#39;</span> &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">5</span>)
+
+<span class="co">#print result</span>
+<span class="kw">print</span>(temp.df)</code></pre></div>
+<pre><code>##   My Column 1 My column 2 My column 3
+## 1   0.3151841  0.55032776   0.1472167
+## 2   0.2826696  0.64836951   0.8223904
+## 3   0.7131957  0.23478670   0.4135184
+## 4   0.8621379  0.07629721   0.6125206
+## 5   0.1063235  0.92309504   0.0681205</code></pre>
+<p>Within function <code>data.frame</code>, we need to use <code>check.names=FALSE</code> for custom column names, otherwise the spaces in the are converted to dots. When using <code>$</code> or brackets, we use the grave accent and apostrophe to encapsulate the column name. You can access the custom column using the same notation or with brackets (<code>temp.df['My column 1']</code>). This is a great feature because it allows us to create the final version of tables directly in R. We set the names of the columns as they should appear in the final version of the report and export the <code>dataframe</code> to a spreadsheet-like tool. Within this software, you can format your table to your needs and later export it to the final report. In later section, we will discuss a more elegant way of exporting tables from R using specialized packages.</p>
+<p>To remove the columns of a <code>dataframe</code>, just set the column to a <code>NULL</code> value: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># removing columns</span>
+my.df<span class="op">$</span>my.seq &lt;-<span class="st"> </span><span class="ot">NULL</span>
+my.df<span class="op">$</span>my.seq.<span class="dv">2</span> &lt;-<span class="st"> </span><span class="ot">NULL</span>
+my.df<span class="op">$</span>my.seq.<span class="dv">3</span> &lt;-<span class="st"> </span><span class="ot">NULL</span>
+my.df<span class="op">$</span>V6 &lt;-<span class="st"> </span><span class="ot">NULL</span>
+
+<span class="co"># print final result</span>
+<span class="kw">print</span>(my.df[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, ])</code></pre></div>
+<pre><code>##   ticker       date prices
+## 1    AAP 2010-01-04  40.38
+## 2    AAP 2010-01-05  40.14
+## 3    AAP 2010-01-06  40.49
+## 4    AAP 2010-01-07  40.48
+## 5    AAP 2010-01-08  40.64</code></pre>
+<p>You can also remove columns using negative indices. For example, in the following code, we create a new <code>dataframe</code> without the first and third columns of <code>my.df</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># create new dataframe without cols 1 and 3 of my.df</span>
+new.df &lt;-<span class="st"> </span>my.df[ ,<span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">3</span>)]
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(new.df)</code></pre></div>
+<pre><code>##  [1] &quot;2010-01-04&quot; &quot;2010-01-05&quot; &quot;2010-01-06&quot; &quot;2010-01-07&quot;
+##  [5] &quot;2010-01-08&quot; &quot;2010-01-04&quot; &quot;2010-01-05&quot; &quot;2010-01-06&quot;
+##  [9] &quot;2010-01-07&quot; &quot;2010-01-08&quot; &quot;2010-01-04&quot; &quot;2010-01-05&quot;
+## [13] &quot;2010-01-06&quot; &quot;2010-01-07&quot; &quot;2010-01-08&quot; &quot;2010-01-04&quot;
+## [17] &quot;2010-01-05&quot; &quot;2010-01-06&quot; &quot;2010-01-07&quot; &quot;2010-01-08&quot;</code></pre>
+<p>Just as we have done for matrices, indexing <code>dataframes</code> with a logical condition is also possible. If we are only interested in stock AAP, we can create a new <code>dataframe</code> by selecting the rows where information for this stock is found:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set logical index for selecting data about stock</span>
+my.idx &lt;-<span class="st"> </span>my.df<span class="op">$</span>ticker <span class="op">==</span><span class="st"> &#39;AAP&#39;</span>
+
+<span class="co"># create new df with index</span>
+my.df.stock &lt;-<span class="st"> </span>my.df[my.idx, ]
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(my.df.stock)</code></pre></div>
+<pre><code>##   ticker       date prices
+## 1    AAP 2010-01-04  40.38
+## 2    AAP 2010-01-05  40.14
+## 3    AAP 2010-01-06  40.49
+## 4    AAP 2010-01-07  40.48
+## 5    AAP 2010-01-08  40.64</code></pre>
+<p>We can also interact different columns using logical objects. If we wanted to find out the date where the stock had its highest historical value, we can use the following code:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># find index with which.max</span>
+my.idx &lt;-<span class="st"> </span><span class="kw">which.max</span>(my.df.stock<span class="op">$</span>price)
+
+<span class="co"># get date</span>
+my.date &lt;-<span class="st"> </span>my.df.stock<span class="op">$</span>date[my.idx]
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(my.date)</code></pre></div>
+<pre><code>## [1] &quot;2010-01-08&quot;</code></pre>
+<p>Therefore, in our dataset, the highest price of stock AAP was 40.64, and it happened in date 2010-01-08.</p>
+</div>
+<div id="sorting-a-dataframe" class="section level3">
+<h3><span class="header-section-number">4.3.4</span> Sorting a <code>dataframe</code></h3>
+<p>After creating or importing a <code>dataframe</code>, you can sort its rows according to the values of any column. A common case where a sort operation is needed is when financial data is imported, but the dates are not ascending. Depending on the situation, it may be easier (or expected) to deal with data where the dates are always increasing along the rows. The sorting operation in <code>dataframes</code> is performed using function <code>order</code>.  </p>
+<p>Consider creating a <code>data.frame</code> with the following values:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set new df</span>
+my.df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">col1 =</span> <span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">1</span>,<span class="dv">2</span>), 
+                    <span class="dt">col2 =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">3</span>), 
+                    <span class="dt">col3 =</span> <span class="kw">c</span>(<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>))
+
+<span class="co"># print it                  </span>
+<span class="kw">print</span>(my.df)</code></pre></div>
+<pre><code>##   col1 col2 col3
+## 1    4    1    a
+## 2    1    1    b
+## 3    2    3    c</code></pre>
+<p>Function <code>order</code> returns the position of the elements for the sorted vector. With the first column of <code>my.df</code>, the positions of the elements in an ascending order are:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set index with positions of ascending order in col1</span>
+idx &lt;-<span class="st"> </span><span class="kw">order</span>(my.df<span class="op">$</span>col1)
+
+<span class="co"># print it</span>
+<span class="kw">print</span>(idx)</code></pre></div>
+<pre><code>## [1] 2 3 1</code></pre>
+<p>Therefore, when using the output of function <code>order</code> as an index of an existing <code>dataframe</code>, you get a new version of the <code>dataframe</code>, where all rows are set according to the ascending values of a particular column. See next:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># order my.df by col1</span>
+my.df.<span class="dv">2</span> &lt;-<span class="st"> </span>my.df[<span class="kw">order</span>(my.df<span class="op">$</span>col1), ]
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(my.df.<span class="dv">2</span>)</code></pre></div>
+<pre><code>##   col1 col2 col3
+## 2    1    1    b
+## 3    2    3    c
+## 1    4    1    a</code></pre>
+<p>This operation may also be performed considering more than one column. See the following example, where we sort the rows of <code>my.df</code> using columns <code>col2</code> and <code>col1</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># sort df with col2 and col1</span>
+my.df.<span class="dv">3</span> &lt;-<span class="st"> </span>my.df[<span class="kw">order</span>(my.df<span class="op">$</span>col2, my.df<span class="op">$</span>col1), ]
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(my.df.<span class="dv">3</span>)</code></pre></div>
+<pre><code>##   col1 col2 col3
+## 2    1    1    b
+## 1    4    1    a
+## 3    2    3    c</code></pre>
+</div>
+<div id="combining-and-aggregating-dataframes" class="section level3">
+<h3><span class="header-section-number">4.3.5</span> Combining and Aggregating <code>dataframes</code></h3>
+<p>Sometimes, it is necessary to join different <code>dataframes</code>. This usually happens when the data is imported from different sources, and we need to combine them into a single object in R. In the simplest case of combining data frames, we join them according to the rows (vertically) or columns (horizontally). For that, we have functions <code>rbind</code> (row bind) and <code>cbind</code> (column bind). Examples of usage are given next.  </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set two dfs with same colnames</span>
+my.df.<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">col1 =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="dt">col2 =</span> <span class="kw">rep</span>(<span class="st">&#39;a&#39;</span>, <span class="dv">5</span>))
+my.df.<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">col1 =</span> <span class="dv">6</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">col2 =</span> <span class="kw">rep</span>(<span class="st">&#39;b&#39;</span>, <span class="dv">5</span>))
+
+<span class="co"># bind them by rows</span>
+my.df &lt;-<span class="st"> </span><span class="kw">rbind</span>(my.df.<span class="dv">1</span>, my.df.<span class="dv">2</span>)
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(my.df)</code></pre></div>
+<pre><code>##    col1 col2
+## 1     1    a
+## 2     2    a
+## 3     3    a
+## 4     4    a
+## 5     5    a
+## 6     6    b
+## 7     7    b
+## 8     8    b
+## 9     9    b
+## 10   10    b</code></pre>
+<p>Notice, in the previous example, the names of the columns are the same. Function <code>rbind</code> searches for equal names in both <code>dataframes</code>. This means, if we swapped the positions of the columns, there would be no change in the result of the bind operation. If the names of the columns don’t match, an error is returned. See next:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set two df with different colnames</span>
+my.df.<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">col1 =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, 
+                      <span class="dt">col2 =</span> <span class="kw">rep</span>(<span class="st">&#39;a&#39;</span>, <span class="dv">5</span>))
+my.df.<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">col1 =</span> <span class="dv">6</span><span class="op">:</span><span class="dv">10</span>, 
+                      <span class="dt">col3 =</span> <span class="kw">rep</span>(<span class="st">&#39;b&#39;</span>, <span class="dv">5</span>))
+
+<span class="co"># bind them by rows (ERROR)</span>
+my.df &lt;-<span class="st"> </span><span class="kw">rbind</span>(my.df.<span class="dv">1</span>, my.df.<span class="dv">2</span>)</code></pre></div>
+<pre><code>## ##Error in match.names(clabs, names(xi)) :
+##  names do not match previous names</code></pre>
+<p>In the case where you have various <code>dataframes</code> with different column names and a row bind operation is necessary, one solution is to use function <code>bind_rows</code> of package <code>dplyr</code>, which places <code>NA</code> values whenever a missing column is found. Have a look: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># load package</span>
+<span class="kw">library</span>(dplyr)
+
+<span class="co"># bind them by rows</span>
+my.df &lt;-<span class="st"> </span><span class="kw">bind_rows</span>(my.df.<span class="dv">1</span>, 
+                   my.df.<span class="dv">2</span>)
+
+<span class="co"># print result (NAs where there should be a column)</span>
+<span class="kw">print</span>(my.df)</code></pre></div>
+<pre><code>##    col1 col2
+## 1     1    a
+## 2     2    a
+## 3     3    a
+## 4     4    a
+## 5     5    a
+## 6     6    b
+## 7     7    b
+## 8     8    b
+## 9     9    b
+## 10   10    b</code></pre>
+<p>For the case of column bind with function <code>cbind</code>, the names of the columns must be different, but the number of rows must be the same. See an example next. </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set two dfs</span>
+my.df.<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">col1 =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="dt">col2 =</span> <span class="kw">rep</span>(<span class="st">&#39;a&#39;</span>, <span class="dv">5</span>))
+my.df.<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">col3 =</span> <span class="dv">6</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">col4 =</span> <span class="kw">rep</span>(<span class="st">&#39;b&#39;</span>, <span class="dv">5</span>))
+
+<span class="co"># column bind dfs</span>
+my.df &lt;-<span class="st"> </span><span class="kw">cbind</span>(my.df.<span class="dv">1</span>, my.df.<span class="dv">2</span>)
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(my.df)</code></pre></div>
+<pre><code>##   col1 col2 col3 col4
+## 1    1    a    6    b
+## 2    2    a    7    b
+## 3    3    a    8    b
+## 4    4    a    9    b
+## 5    5    a   10    b</code></pre>
+<p>If the number of rows don’t match, an error is returned by <code>cbind</code>. But, if the names of columns are the same, the function still accepts the inputs. Have a look:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set two dfs with same name in one</span>
+my.df.<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">col1 =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="dt">col2 =</span> <span class="kw">rep</span>(<span class="st">&#39;a&#39;</span>, <span class="dv">5</span>))
+my.df.<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">col1 =</span> <span class="dv">6</span><span class="op">:</span><span class="dv">10</span>)
+
+<span class="co"># column bind dfs</span>
+my.df &lt;-<span class="st"> </span><span class="kw">cbind</span>(my.df.<span class="dv">1</span>, my.df.<span class="dv">2</span>)
+
+<span class="co"># print result (!)</span>
+<span class="kw">print</span>(my.df)</code></pre></div>
+<pre><code>##   col1 col2 col1
+## 1    1    a    6
+## 2    2    a    7
+## 3    3    a    8
+## 4    4    a    9
+## 5    5    a   10</code></pre>
+<p>Yes, we have two columns named <code>col1</code>, but in different positions. If we accessed <code>my.df$col1</code>, it returns the first column. This is a strange behaviour of R. You should pay attention to these cases to avoid bugs in the code.</p>
+<p>For more complex cases, where the binding process must happen according to some index, such as dates, it is possible to combine two <code>dataframes</code> using function <code>merge</code>: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set dfs</span>
+my.df.<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">date =</span> <span class="kw">as.Date</span>(<span class="st">&#39;2016-01-01&#39;</span>)<span class="op">+</span><span class="dv">0</span><span class="op">:</span><span class="dv">10</span>, 
+                      <span class="dt">x =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">11</span>)
+
+my.df.<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">date =</span> <span class="kw">as.Date</span>(<span class="st">&#39;2016-01-05&#39;</span>)<span class="op">+</span><span class="dv">0</span><span class="op">:</span><span class="dv">10</span>,
+                      <span class="dt">y =</span> <span class="kw">seq</span>(<span class="dv">20</span>,<span class="dv">30</span>, <span class="dt">length.out =</span> <span class="dv">11</span>))
+
+<span class="co"># merge dfs by date                   </span>
+my.df &lt;-<span class="st"> </span><span class="kw">merge</span>(my.df.<span class="dv">1</span>, my.df.<span class="dv">2</span>, <span class="dt">by =</span> <span class="st">&#39;date&#39;</span>)
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(my.df)</code></pre></div>
+<pre><code>##         date  x  y
+## 1 2016-01-05  5 20
+## 2 2016-01-06  6 21
+## 3 2016-01-07  7 22
+## 4 2016-01-08  8 23
+## 5 2016-01-09  9 24
+## 6 2016-01-10 10 25
+## 7 2016-01-11 11 26</code></pre>
+<p>From the result, we can see the resulting <code>dataframe</code> retained only the information shared between the two objects, the rows where columns <code>date</code> are equal in both <code>dataframes</code>.</p>
+<p>Another usefull function is <code>match</code>, which does a look up operation in vectors. For example, if we wanted to find the indices in <code>my.df.2</code> that match the dates in <code>my.df.1</code>, we can write:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set lookup index</span>
+idx &lt;-<span class="st"> </span><span class="kw">match</span>(my.df.<span class="dv">1</span><span class="op">$</span>date, my.df.<span class="dv">2</span><span class="op">$</span>date)
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(idx)</code></pre></div>
+<pre><code>##  [1] NA NA NA NA  1  2  3  4  5  6  7</code></pre>
+<p>Now we can use the index to set a new column in <code>my.df.1</code> with data from <code>my.df.2</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># use idx to set col in my.df.1</span>
+my.df.<span class="dv">1</span><span class="op">$</span>y.<span class="dv">2</span> &lt;-<span class="st"> </span>my.df.<span class="dv">2</span><span class="op">$</span>y[idx]
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(my.df.<span class="dv">1</span>)</code></pre></div>
+<pre><code>##          date  x y.2
+## 1  2016-01-01  1  NA
+## 2  2016-01-02  2  NA
+## 3  2016-01-03  3  NA
+## 4  2016-01-04  4  NA
+## 5  2016-01-05  5  20
+## 6  2016-01-06  6  21
+## 7  2016-01-07  7  22
+## 8  2016-01-08  8  23
+## 9  2016-01-09  9  24
+## 10 2016-01-10 10  25
+## 11 2016-01-11 11  26</code></pre>
+<p>A different from the use of <code>merge</code> is that <code>NA</code> values are set where there is not matching date.</p>
+</div>
+<div id="reporting-a-dataframe-table" class="section level3">
+<h3><span class="header-section-number">4.3.6</span> Reporting a <code>Dataframe</code> Table</h3>
+<p><code>Dataframes</code> can be used to represent and export tables to text editing softwares, such as Word and LaTeX. The simplest way of exporting a table from a <code>dataframe</code> object is to write it in a spreadsheet-like tool, format it, and export the final version to the report. Specific packages can write a <code>dataframe</code> table in an Excel file. We will study these packages in chapter <a href="importing.html#importing">6</a>.</p>
+<p>A more elaborate way is to remove the middle man and export the table directly from R to a LaTeX or Word file. Let’s start with an example for LaTeX. In the next chunk of code, we will create a print-ready table as a <code>dataframe</code> and export it to a LaTeX file using package <code>xtable</code>.  </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set number of rows in table</span>
+N =<span class="st"> </span><span class="dv">10</span>
+
+<span class="co"># create artifitial data</span>
+<span class="kw">set.seed</span>(<span class="dv">20</span>)
+my.returns &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">50</span><span class="op">*</span>N), <span class="dt">ncol =</span> N)
+
+<span class="co"># set columns of df</span>
+my.names &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&#39;Stock&#39;</span>,<span class="dv">1</span><span class="op">:</span>N)
+my.mean.return &lt;-<span class="st"> </span><span class="kw">colMeans</span>(my.returns)
+my.sd.return &lt;-<span class="st"> </span><span class="kw">apply</span>(my.returns, sd, <span class="dt">MARGIN =</span> <span class="dv">2</span>)
+my.max.return &lt;-<span class="st"> </span><span class="kw">apply</span>(my.returns, max, <span class="dt">MARGIN =</span> <span class="dv">2</span>)
+my.min.return &lt;-<span class="st"> </span><span class="kw">apply</span>(my.returns, min, <span class="dt">MARGIN =</span> <span class="dv">2</span>)
+
+<span class="co"># set table</span>
+my.table &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="st">&#39;Stocks&#39;</span> =<span class="st"> </span>my.names,
+                       <span class="st">&#39;Mean Ret.&#39;</span> =<span class="st"> </span>my.mean.return,
+                       <span class="st">&#39;StDev. of Ret.&#39;</span> =<span class="st"> </span>my.sd.return,
+                       <span class="st">&#39;Max. Ret.&#39;</span> =<span class="st"> </span>my.max.return,
+                       <span class="st">&#39;Min. Ret.&#39;</span> =<span class="st"> </span>my.min.return, 
+                       <span class="dt">check.names =</span> F)</code></pre></div>
+<p>The artificial data was set as a <code>matrix</code> object containing random values from the Normal distribution. Each stock has its returns as a column in <code>my.returns</code>. Several statistics for each column are calculated using function <code>apply</code>. This function allows the user to apply a procedure to several columns of a <code>matrix</code>. We will study it further in chapter <a href="programming.html#programming">7</a>.</p>
+<p>In the creation of the <code>dataframe</code>, notice how we used column names with space by encapsulating the text with apostrophes. It was also necessary to use input <code>check.names = FALSE</code>, so R does not change the original name of the columns. Now that we have our data, let’s export it to LaTeX.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(xtable)
+
+<span class="co"># set xtable object</span>
+my.xtable &lt;-<span class="st"> </span><span class="kw">xtable</span>(<span class="dt">x =</span> my.table, 
+                    <span class="dt">label =</span> <span class="st">&#39;tab:DescRetStats&#39;</span>,
+                    <span class="dt">caption =</span> <span class="st">&#39;Descriptive Statistics for Returns&#39;</span>)
+
+<span class="co"># check if folder exists</span>
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">dir.exists</span>(<span class="st">&#39;tabs&#39;</span>)) { 
+    <span class="kw">dir.create</span>(<span class="st">&#39;tabs&#39;</span>)
+}
+
+<span class="co"># print output to latex file</span>
+my.f.tex &lt;-<span class="st"> &#39;tabs/MyTable.tex&#39;</span>
+
+<span class="co"># save it</span>
+<span class="kw">print</span>(my.xtable,
+      <span class="dt">include.rownames =</span> <span class="ot">FALSE</span>,
+      <span class="dt">file =</span> my.f.tex,
+      <span class="dt">type=</span><span class="st">&#39;latex&#39;</span>)</code></pre></div>
+<p>In function <code>xtable</code>, we kept it simple by only using arguments <code>caption</code> and <code>label</code>. The resulting LaTeX file is saved in folder <code>tabs</code> of the current directory. If it doesn’t exist, you can create it with <code>dir.create('tabs')</code>. There are many more options for customization. The result in a compiled latex file will be identical to Table , a print-ready material for an scientific article or report.</p>
+
+<p>Another interesting package worth mentioning at this stage is <code>stargazer</code>. Like <code>texreg</code>, it provides many options for customizing a table and exporting it. One innovation over <code>texreg</code> is it offers templates for journals, such as a table template for <em>American Economic Review</em>, <em>Quarterly Journal of Economics</em>, and others. Let’s give it a try by replicating the previous table. In the next code, we again use object <code>my.table</code> to export a LaTeX table. The result is reported in Table .  </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(stargazer)
+
+my.stargazer &lt;-<span class="st"> </span><span class="kw">stargazer</span>(my.table, 
+                          <span class="dt">summary =</span> <span class="ot">FALSE</span>, 
+                          <span class="dt">title =</span> <span class="st">&#39;Descriptive Statistics for Returns&#39;</span>, 
+                          <span class="dt">type =</span> <span class="st">&#39;latex&#39;</span>, 
+                          <span class="dt">style =</span> <span class="st">&#39;qje&#39;</span>, 
+                          <span class="dt">font.size =</span> <span class="st">&#39;footnotesize&#39;</span>, 
+                          <span class="dt">rownames =</span> <span class="ot">FALSE</span>, 
+                          <span class="dt">out.header =</span> <span class="ot">FALSE</span>,
+                          <span class="dt">header =</span> <span class="ot">FALSE</span>,
+                          <span class="dt">label =</span> <span class="st">&#39;tab:DescRetStats_stargazer&#39;</span> )</code></pre></div>
+
+<p>As for exporting tables to Word (Microsoft) or Writer (Libreoffice) files, there is no direct way of doing so using <code>xtable</code> or <code>stargazer</code>. But, a simple workaround is to use either package to output a table to a temporary <em>.html</em> or <em>.doc</em> file and then copy and paste the result in the final report. This operation works because <em>.html</em> and <em>.doc</em> files share a similar format for tables. Let’s try it. First, we will save the table in a new file with the <em>.html</em> extension:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set html file for output</span>
+my.f.html &lt;-<span class="st"> &#39;tabs/MyTable.html&#39;</span>
+
+<span class="co"># write it!</span>
+<span class="kw">print</span>(<span class="dt">x =</span> my.xtable,
+      <span class="dt">file =</span> my.f.html,
+      <span class="dt">type =</span> <span class="st">&#39;html&#39;</span>,
+      <span class="dt">include.rownames =</span> <span class="ot">FALSE</span> )</code></pre></div>
+<p>Once the file is available, we can open tabs/MyTable.html with any web browser, select and copy the table and, finally, paste it in our <em>.docx</em> document. The result should look like Figure <a href="DataStructureObjects.html#fig:Writer-TableExample">4.2</a>.</p>
+<div class="figure" style="text-align: center"><span id="fig:Writer-TableExample"></span>
+<img src="figs/Writer-TableExample.png" alt="Example of table in Writer (LibreOffice)" width="75%" />
+<p class="caption">
+Figure 4.2: Example of table in Writer (LibreOffice)
+</p>
+</div>
+<p>If you deal with lots of figures and tables in <em>.docx</em> (Word/Writer) or <em>.ppt</em> (Powerpoint/Impress) files, packages <code>knitr</code> <span class="citation">(Xie <a href="#ref-knitr">2015</a>)</span> and <code>ReporteRs</code> <span class="citation">(Gohel <a href="#ref-reporters">2017</a>)</span> can save you a lot of time and effort. Both have extensive capabilities of automating the process of creating reports.  </p>
+</div>
+<div id="the-format-of-the-dataframe-long-and-wide" class="section level3">
+<h3><span class="header-section-number">4.3.7</span> The Format of the <code>dataframe</code> (<em>long</em> and <em>wide</em>)</h3>
+<p>After understanding the basics of <code>dataframe</code> manipulation, it is important to discuss the format of the object and how it facilitates future work. This is a relatively new topic that came up with the introduction of specific packages for data manipulation and graphics. At the heart of the debate, we discuss whether the data should be guided by columns (<em>wide</em> format) or lines (<em>long</em> format).  </p>
+<p><strong>In the wide format</strong>, the rows are usually indexed by a single factor, such as a date, and the columns indicate the different variables. As new information is added to the database, it usually grows in the number of columns. An example:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">refdate</th>
+<th align="right">STOCK1</th>
+<th align="right">STOCK2</th>
+<th align="right">STOCK3</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">2017-04-30</td>
+<td align="right">10.02</td>
+<td align="right">3.15</td>
+<td align="right">5.19</td>
+</tr>
+<tr class="even">
+<td align="left">2017-05-01</td>
+<td align="right">9.79</td>
+<td align="right">3.34</td>
+<td align="right">5.06</td>
+</tr>
+<tr class="odd">
+<td align="left">2017-05-02</td>
+<td align="right">8.08</td>
+<td align="right">2.74</td>
+<td align="right">5.61</td>
+</tr>
+<tr class="even">
+<td align="left">2017-05-03</td>
+<td align="right">7.33</td>
+<td align="right">2.56</td>
+<td align="right">5.99</td>
+</tr>
+</tbody>
+</table>
+<p>Note, the above table has three distinct pieces of information for each data point: ticker, price, and date. If we added one more stock, the table would be incremented by one column. If we wanted to include a new variable such as traded volume, we would need to create a new table or a structured naming system for the columns.</p>
+<p><strong>In the long format</strong>, each row of the <code>dataframe</code> is new information and each column is a variable. Table rows may or may not be unique (does not repeat). As new data is added, the table usually grows in the number of rows. Example:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">refdate</th>
+<th align="left">ticker</th>
+<th align="right">price</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">2017-04-30</td>
+<td align="left">STOCK1</td>
+<td align="right">10.02</td>
+</tr>
+<tr class="even">
+<td align="left">2017-05-01</td>
+<td align="left">STOCK1</td>
+<td align="right">9.79</td>
+</tr>
+<tr class="odd">
+<td align="left">2017-05-02</td>
+<td align="left">STOCK1</td>
+<td align="right">8.08</td>
+</tr>
+<tr class="even">
+<td align="left">2017-05-03</td>
+<td align="left">STOCK1</td>
+<td align="right">7.33</td>
+</tr>
+<tr class="odd">
+<td align="left">2017-04-30</td>
+<td align="left">STOCK2</td>
+<td align="right">3.15</td>
+</tr>
+<tr class="even">
+<td align="left">2017-05-01</td>
+<td align="left">STOCK2</td>
+<td align="right">3.34</td>
+</tr>
+<tr class="odd">
+<td align="left">2017-05-02</td>
+<td align="left">STOCK2</td>
+<td align="right">2.74</td>
+</tr>
+<tr class="even">
+<td align="left">2017-05-03</td>
+<td align="left">STOCK2</td>
+<td align="right">2.56</td>
+</tr>
+<tr class="odd">
+<td align="left">2017-04-30</td>
+<td align="left">STOCK3</td>
+<td align="right">5.19</td>
+</tr>
+<tr class="even">
+<td align="left">2017-05-01</td>
+<td align="left">STOCK3</td>
+<td align="right">5.06</td>
+</tr>
+<tr class="odd">
+<td align="left">2017-05-02</td>
+<td align="left">STOCK3</td>
+<td align="right">5.61</td>
+</tr>
+<tr class="even">
+<td align="left">2017-05-03</td>
+<td align="left">STOCK3</td>
+<td align="right">5.99</td>
+</tr>
+</tbody>
+</table>
+<p>This argument may seem trivial since the information is the same in both formats. But, make no mistake: the format of the data is very important and may facilitate the analysis of the data. Specialized packages, such as <code>dplyr</code> <span class="citation">(Wickham and Francois <a href="#ref-dplyr">2016</a>)</span> and <code>ggplot2</code> <span class="citation">(Wickham <a href="#ref-wickham2009ggplot2">2009</a>)</span>, expect a <code>dataframe</code> in the <em>long</em> format; therefore, this structure must be prioritized if one is using these packages.</p>
+<p>In finance, the wide format is used in the creation and manipulation of investment portfolios with the creation of a matrix of returns. This matrix separates the different assets by columns and rows representing different time periods. Each value in the matrix is the return (percent change) of a particular asset from one period to the other. The wide format is justified as the matrix notation facilitates matrix calculations. I emphasize, however, these same calculations could also be performed with the <em>long</em> format. Conversion between formats is also possible, as we will see next.</p>
+<div id="converting-a-dataframe-structure-long-and-wide" class="section level4">
+<h4><span class="header-section-number">4.3.7.1</span> Converting a <code>dataframe</code> Structure (long and wide)</h4>
+<p>The conversion from one format to the other is possible with the <code>tidyr</code> package <span class="citation">(Wickham <a href="#ref-tidyr">2016</a><a href="#ref-tidyr">c</a>)</span>. See the following example, where we change the <em>wide</em> format of the previous table for the <em>long</em> format using function <code>gather</code>. Here, it is necessary to know the variable <code>id</code> that will index the lines (in this case, the dates) and the names of the new columns.  </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyr)
+
+<span class="co"># set dates and stock vectors</span>
+refdate &lt;-<span class="st"> </span><span class="kw">as.Date</span>(<span class="st">&#39;2015-01-01&#39;</span>) <span class="op">+</span><span class="st"> </span><span class="dv">0</span><span class="op">:</span><span class="dv">3</span>
+STOCK1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">11</span>, <span class="fl">10.5</span>, <span class="dv">12</span>)
+STOCK2 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>, <span class="fl">3.1</span>, <span class="fl">3.2</span>, <span class="fl">3.5</span>)
+STOCK3 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">6</span>, <span class="dv">7</span>, <span class="fl">7.5</span>, <span class="dv">6</span>)
+
+<span class="co"># create wide dataframe</span>
+my.df.wide &lt;-<span class="st"> </span><span class="kw">data.frame</span>(refdate, STOCK1, STOCK2, STOCK3)
+
+<span class="co"># convert wide to long</span>
+my.df.long &lt;-<span class="st"> </span><span class="kw">gather</span>(<span class="dt">data =</span> my.df.wide,
+                     <span class="dt">key =</span> <span class="st">&#39;ticker&#39;</span>,
+                     <span class="dt">value =</span> <span class="st">&#39;price&#39;</span>,
+                     <span class="op">-</span><span class="st"> </span>refdate)
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(my.df.long)</code></pre></div>
+<pre><code>##       refdate ticker price
+## 1  2015-01-01 STOCK1  10.0
+## 2  2015-01-02 STOCK1  11.0
+## 3  2015-01-03 STOCK1  10.5
+## 4  2015-01-04 STOCK1  12.0
+## 5  2015-01-01 STOCK2   3.0
+## 6  2015-01-02 STOCK2   3.1
+## 7  2015-01-03 STOCK2   3.2
+## 8  2015-01-04 STOCK2   3.5
+## 9  2015-01-01 STOCK3   6.0
+## 10 2015-01-02 STOCK3   7.0
+## 11 2015-01-03 STOCK3   7.5
+## 12 2015-01-04 STOCK3   6.0</code></pre>
+<p>To perform the reverse conversion, <em>long</em> to <em>wide</em>, we can use the <code>spread</code> function from the same package, <code>tidyr</code>: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># convert from long to wide</span>
+my.df.wide.converted &lt;-<span class="st"> </span><span class="kw">spread</span>(<span class="dt">data =</span> my.df.long, 
+                               <span class="dt">key =</span> <span class="st">&#39;ticker&#39;</span>,
+                               <span class="dt">value =</span> <span class="st">&#39;price&#39;</span>)
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(my.df.wide.converted)</code></pre></div>
+<pre><code>##      refdate STOCK1 STOCK2 STOCK3
+## 1 2015-01-01   10.0    3.0    6.0
+## 2 2015-01-02   11.0    3.1    7.0
+## 3 2015-01-03   10.5    3.2    7.5
+## 4 2015-01-04   12.0    3.5    6.0</code></pre>
+<p>With more complex conversions, where it is necessary to aggregate some variables, I recommend package <code>reshape2</code> <span class="citation">(Wickham <a href="#ref-wickham2007reshape2">2007</a>)</span>, which offers more features than <code>tidyr</code>. The syntax, however, is different. See the following code, where we use the functions of the package <code>reshape2</code> for the same procedure performed previously.   </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(reshape2)
+
+<span class="co"># use melt to change from wide to long</span>
+my.df.long &lt;-<span class="st"> </span><span class="kw">melt</span>(<span class="dt">data =</span> my.df.wide, 
+                   <span class="dt">id.vars =</span> <span class="st">&#39;refdate&#39;</span>, 
+                   <span class="dt">variable.name =</span> <span class="st">&#39;ticker&#39;</span>, 
+                   <span class="dt">value.name =</span> <span class="st">&#39;price&#39;</span>)
+
+<span class="co"># print result                 </span>
+<span class="kw">print</span>(my.df.long)</code></pre></div>
+<pre><code>##       refdate ticker price
+## 1  2015-01-01 STOCK1  10.0
+## 2  2015-01-02 STOCK1  11.0
+## 3  2015-01-03 STOCK1  10.5
+## 4  2015-01-04 STOCK1  12.0
+## 5  2015-01-01 STOCK2   3.0
+## 6  2015-01-02 STOCK2   3.1
+## 7  2015-01-03 STOCK2   3.2
+## 8  2015-01-04 STOCK2   3.5
+## 9  2015-01-01 STOCK3   6.0
+## 10 2015-01-02 STOCK3   7.0
+## 11 2015-01-03 STOCK3   7.5
+## 12 2015-01-04 STOCK3   6.0</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># use melt to change from long to wide</span>
+my.df.wide.converted &lt;-<span class="st"> </span><span class="kw">dcast</span>(<span class="dt">data =</span> my.df.long, 
+                              <span class="dt">formula =</span> refdate <span class="op">~</span><span class="st"> </span>ticker, 
+                              <span class="dt">value.var =</span> <span class="st">&#39;price&#39;</span>)
+<span class="kw">print</span>(my.df.wide.converted)</code></pre></div>
+<pre><code>##      refdate STOCK1 STOCK2 STOCK3
+## 1 2015-01-01   10.0    3.0    6.0
+## 2 2015-01-02   11.0    3.1    7.0
+## 3 2015-01-03   10.5    3.2    7.5
+## 4 2015-01-04   12.0    3.5    6.0</code></pre>
+<p>It is important to know these functions when working with R, because often, the researcher has no control over the format of the imported data. When necessary, convert the data to the <em>long</em> format after importing it. This will facilitate the further processing of the data with specialized packages.</p>
+</div>
+</div>
+<div id="extensions-of-the-dataframe-class" class="section level3">
+<h3><span class="header-section-number">4.3.8</span> Extensions of the <code>dataframe</code> Class</h3>
+<p>As mentioned in the previous chapter, one of the benefits of using R is the existence of packages designed to deal with specific problems. This is also true for extensions of the basic data structure. While the <code>dataframe</code> class is a good solution for most cases, sometimes, it can make more sense to store the data in a specific type of custom object. Over time, several solutions that improve the base <code>dataframe</code> have been developed.</p>
+<p>For example, it is common in research to work with numeric data indexed by time. We can store this dataset in a matrix format, so each line represents dates and each column represents a variable. With this format, time operations, such as period aggregations, are easier to perform. This is the main idea of package <code>xts</code> <span class="citation">(Ryan and Ulrich <a href="#ref-xts2014">2014</a>)</span>. The great benefit of this alternative <code>dataframe</code> is that several functions for time aggregation and manipulation are available. We can turn a whole set of daily data for several variables to the weekly frequency in one line of code. In addition, various other functions automatically recognize the time index and adapt accordingly. One example is the creation of a figure with the values of a variable over time. The horizontal axes of the figure are automatically arranged as dates, without the need of an explicit definition. </p>
+<p>See the following example, where we represent the same stock data as a <code>xts</code> object: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># load pkg</span>
+<span class="kw">library</span>(xts)
+
+<span class="co"># set ticker symbols as a vector</span>
+ticker &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;AAP&#39;</span>, <span class="st">&#39;COG&#39;</span>, <span class="st">&#39;BLK&#39;</span>, <span class="st">&#39;CAM&#39;</span>)
+
+<span class="co"># set a date vector</span>
+date &lt;-<span class="st"> </span><span class="kw">as.Date</span>(<span class="kw">c</span>(<span class="st">&quot;2010-01-04&quot;</span>, <span class="st">&quot;2010-01-05&quot;</span>, <span class="st">&quot;2010-01-06&quot;</span>, 
+                  <span class="st">&quot;2010-01-07&quot;</span>, <span class="st">&quot;2010-01-08&quot;</span>))
+
+<span class="co"># set prices as  matrix                   </span>
+price.mat &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="fl">40.38</span>,  <span class="fl">40.13</span>,  <span class="fl">40.49</span>,  <span class="fl">40.48</span>,  <span class="fl">40.63</span>,
+                      <span class="fl">46.23</span>,  <span class="fl">46.16</span>,  <span class="fl">45.97</span>,  <span class="fl">45.56</span>,  <span class="fl">45.45</span>,
+                      <span class="fl">238.58</span>, <span class="fl">239.61</span>, <span class="fl">234.66</span>, <span class="fl">237.25</span>, <span class="fl">238.91</span>,
+                      <span class="fl">43.43</span>,  <span class="fl">43.95</span>,  <span class="fl">44.25</span>,  <span class="fl">44.5</span>,   <span class="fl">44.86</span>),
+                    <span class="dt">nrow =</span> <span class="kw">length</span>(date))
+
+<span class="co"># set xts object</span>
+my.xts &lt;-<span class="st"> </span><span class="kw">xts</span>(price.mat, <span class="dt">order.by =</span> date)
+
+<span class="co"># set colnames</span>
+<span class="kw">colnames</span>(my.xts) &lt;-<span class="st"> </span>ticker
+
+<span class="co"># print it</span>
+<span class="kw">print</span>(my.xts)</code></pre></div>
+<pre><code>##              AAP   COG    BLK   CAM
+## 2010-01-04 40.38 46.23 238.58 43.43
+## 2010-01-05 40.13 46.16 239.61 43.95
+## 2010-01-06 40.49 45.97 234.66 44.25
+## 2010-01-07 40.48 45.56 237.25 44.50
+## 2010-01-08 40.63 45.45 238.91 44.86</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># show its class</span>
+<span class="kw">class</span>(my.xts)</code></pre></div>
+<pre><code>## [1] &quot;xts&quot; &quot;zoo&quot;</code></pre>
+<p>In creating the <code>xts</code> object, notice how the time index is explicitly defined using argument <code>order.by</code>. This is a necessary step in creating every <code>xts</code> object.</p>
+<p>The previous code can give the impression that object <code>my.xts</code> is similar to a native <code>dataframe</code>. However, make no mistake. By having an explicit time index, object <code>my.xts</code> can be used for several temporal procedures. See the following example, where we create a new <code>xts</code> object with two columns and calculate their average for each week.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set number of time periods</span>
+N &lt;-<span class="st"> </span><span class="dv">500</span>
+
+<span class="co"># create matrix with data</span>
+my.mat &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="kw">seq</span>(<span class="dv">1</span>, N), <span class="kw">seq</span>(N, <span class="dv">1</span>)), <span class="dt">nrow=</span>N)
+
+<span class="co"># set xts object</span>
+my.xts &lt;-<span class="st"> </span><span class="kw">xts</span>(my.mat, <span class="dt">order.by =</span> <span class="kw">as.Date</span>(<span class="st">&#39;2016-01-01&#39;</span>)<span class="op">+</span><span class="dv">1</span><span class="op">:</span>N)
+
+<span class="co"># apply mean function for each weel</span>
+my.xts.weekly.mean &lt;-<span class="st"> </span><span class="kw">apply.weekly</span>(my.xts, mean)
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(<span class="kw">head</span>(my.xts.weekly.mean))</code></pre></div>
+<pre><code>##            [,1]  [,2]
+## 2016-01-03  1.5 499.5
+## 2016-01-10  6.0 495.0
+## 2016-01-17 13.0 488.0
+## 2016-01-24 20.0 481.0
+## 2016-01-31 27.0 474.0
+## 2016-02-07 34.0 467.0</code></pre>
+<p>In finance, these time aggregations with <code>xts</code> objects are useful when working with data in different time frequencies. It is common to aggregate transaction data in the financial market for high frequency intervals of 5 by 5 minutes. Such procedure is easily accomplished in R through the correct representation of the data as <code>xts</code> objects. There are several other features in this package. Users that work frequently with time indexed data are encouraged to read the manual and learn more about it.</p>
+<p>Package <code>xts</code> is not alone as an alternative to <code>dataframes</code>. For example, the data structure proposed by package <code>data.table</code> <span class="citation">(Dowle et al. <a href="#ref-datatable2015">2015</a>)</span> prioritizes processing time and using a compact notation. Package <code>dplyr</code> <span class="citation">(Wickham and Francois <a href="#ref-dplyr">2016</a>)</span> and <code>tibble</code> <span class="citation">(Wickham, Francois, and Müller <a href="#ref-tibble">2017</a>)</span> also provide alternatives to the native <code>dataframe</code> with similar goals. If the user is working with large-scale datasets, using these packages is strongly recommended. Throughout the book, whenever needed, we will work with these packages for fast data processing and easier notation. The use of package <code>dplyr</code> will be discussed in chapter <a href="programming.html#programming">7</a>.   </p>
+<p>Most basic functions of accessing and handling <code>dataframes</code> work equivalently for these alternative objects. So, everything you learned before can be used in the same way for other types of tabular data structures.</p>
+</div>
+<div id="other-useful-functions-for-handling-dataframes" class="section level3">
+<h3><span class="header-section-number">4.3.9</span> Other Useful Functions for Handling <code>dataframes</code></h3>
+<ul>
+<li><strong>head</strong> Returns the first <code>n</code> rows of a <code>dataframe</code>. This function is mostly used for showing only a small part of a <code>dataframe</code> in the prompt. </li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set df</span>
+my.df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">col1 =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">5000</span>, <span class="dt">col2 =</span> <span class="kw">rep</span>(<span class="st">&#39;a&#39;</span>, <span class="dv">5000</span>))
+
+<span class="co"># print its first 5 rows</span>
+<span class="kw">print</span>(<span class="kw">head</span>(my.df, <span class="dv">5</span>))</code></pre></div>
+<pre><code>##   col1 col2
+## 1    1    a
+## 2    2    a
+## 3    3    a
+## 4    4    a
+## 5    5    a</code></pre>
+<ul>
+<li><strong>tail</strong> - Returns the last <code>n</code> rows of a <code>dataframe</code>. Also used to glimpse a <code>dataframe</code>. </li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># print its last 5 rows</span>
+<span class="kw">print</span>(<span class="kw">tail</span>(my.df, <span class="dv">5</span>))</code></pre></div>
+<pre><code>##      col1 col2
+## 4996 4996    a
+## 4997 4997    a
+## 4998 4998    a
+## 4999 4999    a
+## 5000 5000    a</code></pre>
+<ul>
+<li><strong>complete.cases</strong> - Returns a logical vector with the same length as the number of rows of the <code>dataframe</code>, containing <code>TRUE</code> when all columns have non <code>NA</code> values and <code>FALSE</code> otherwise. </li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># create df</span>
+my.df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="ot">NA</span>, <span class="dv">10</span>),
+                    <span class="dt">y =</span> <span class="kw">c</span>(<span class="dv">5</span><span class="op">:</span><span class="dv">10</span>, <span class="ot">NA</span>))
+
+<span class="co"># show df</span>
+<span class="kw">print</span>(my.df)</code></pre></div>
+<pre><code>##    x  y
+## 1  1  5
+## 2  2  6
+## 3  3  7
+## 4  4  8
+## 5  5  9
+## 6 NA 10
+## 7 10 NA</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># print logical test of complete.cases</span>
+<span class="kw">print</span>(<span class="kw">complete.cases</span>(my.df))</code></pre></div>
+<pre><code>## [1]  TRUE  TRUE  TRUE  TRUE  TRUE FALSE FALSE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># print all rows where there is at least one NA</span>
+<span class="kw">print</span>(<span class="kw">which</span>(<span class="op">!</span><span class="kw">complete.cases</span>(my.df)))</code></pre></div>
+<pre><code>## [1] 6 7</code></pre>
+<ul>
+<li><strong>na.omit</strong> - Returns a <code>dataframe</code> without the rows where a <code>NA</code> is found. </li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(<span class="kw">na.omit</span>(my.df))</code></pre></div>
+<pre><code>##   x y
+## 1 1 5
+## 2 2 6
+## 3 3 7
+## 4 4 8
+## 5 5 9</code></pre>
+<ul>
+<li><strong>unique</strong> - Returns a <code>dataframe</code> where all duplicated rows are removed and only the unique cases, row wise, are left. </li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set df with repeating rows</span>
+my.df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">col1 =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>), 
+                    <span class="dt">col2 =</span> <span class="kw">c</span>(<span class="st">&#39;A&#39;</span>,<span class="st">&#39;A&#39;</span>,<span class="st">&#39;A&#39;</span>,<span class="st">&#39;C&#39;</span>,<span class="st">&#39;C&#39;</span>,<span class="st">&#39;B&#39;</span>,<span class="st">&#39;D&#39;</span>))
+
+<span class="co"># print it                  </span>
+<span class="kw">print</span>(my.df)</code></pre></div>
+<pre><code>##   col1 col2
+## 1    1    A
+## 2    1    A
+## 3    2    A
+## 4    3    C
+## 5    3    C
+## 6    4    B
+## 7    5    D</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># print unique df</span>
+<span class="kw">print</span>(<span class="kw">unique</span>(my.df))</code></pre></div>
+<pre><code>##   col1 col2
+## 1    1    A
+## 3    2    A
+## 4    3    C
+## 6    4    B
+## 7    5    D</code></pre>
+
+</div>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-knitr">
+<p>Xie, Yihui. 2015. <em>Dynamic Documents with R and Knitr</em>. Vol. 29. CRC Press.</p>
+</div>
+<div id="ref-reporters">
+<p>Gohel, David. 2017. <em>ReporteRs: Microsoft Word and Powerpoint Documents Generation</em>. <a href="https://CRAN.R-project.org/package=ReporteRs" class="uri">https://CRAN.R-project.org/package=ReporteRs</a>.</p>
+</div>
+<div id="ref-dplyr">
+<p>Wickham, Hadley, and Romain Francois. 2016. <em>Dplyr: A Grammar of Data Manipulation</em>. <a href="https://CRAN.R-project.org/package=dplyr" class="uri">https://CRAN.R-project.org/package=dplyr</a>.</p>
+</div>
+<div id="ref-wickham2009ggplot2">
+<p>Wickham, Hadley. 2009. <em>Ggplot2: Elegant Graphics for Data Analysis</em>. Springer Science &amp; Business Media.</p>
+</div>
+<div id="ref-tidyr">
+<p>Wickham, Hadley. 2016c. <em>Tidyr: Easily Tidy Data with Spread() and Gather() Functions</em>. <a href="https://CRAN.R-project.org/package=tidyr" class="uri">https://CRAN.R-project.org/package=tidyr</a>.</p>
+</div>
+<div id="ref-wickham2007reshape2">
+<p>Wickham, Hadley. 2007. “Reshaping Data with the reshape Package.” <em>Journal of Statistical Software</em> 21 (12): 1–20. <a href="http://www.jstatsoft.org/v21/i12/" class="uri">http://www.jstatsoft.org/v21/i12/</a>.</p>
+</div>
+<div id="ref-xts2014">
+<p>Ryan, Jeffrey A., and Joshua M. Ulrich. 2014. <em>Xts: EXtensible Time Series</em>. <a href="https://CRAN.R-project.org/package=xts" class="uri">https://CRAN.R-project.org/package=xts</a>.</p>
+</div>
+<div id="ref-datatable2015">
+<p>Dowle, M, A Srinivasan, T Short, S Lianoglou with contributions from R Saporta, and E Antonyan. 2015. <em>Data.table: Extension of Data.frame</em>. <a href="https://CRAN.R-project.org/package=data.table" class="uri">https://CRAN.R-project.org/package=data.table</a>.</p>
+</div>
+<div id="ref-tibble">
+<p>Wickham, Hadley, Romain Francois, and Kirill Müller. 2017. <em>Tibble: Simple Data Frames</em>. <a href="https://CRAN.R-project.org/package=tibble" class="uri">https://CRAN.R-project.org/package=tibble</a>.</p>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>To avoid confusion, atomic vectors in R have no dimension attribute in the strict sense of the function. When using the <code>dim</code> function in an atomic vector, such as <code>dim(c(1,2,4))</code>, the result is <code>NULL</code>. Away from the computing environment, however, atomic vectors can be considered one-dimensional objects as it can only increases its size in one direction.<a href="DataStructureObjects.html#fnref1">↩</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="BasicObjects.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="Financial-data.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "Sepia",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

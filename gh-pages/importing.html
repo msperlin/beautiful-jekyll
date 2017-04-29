@@ -1,0 +1,1544 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Processing and Analyzing Financial Data with R</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="Processing and Analyzing Financial Data with R">
+  <meta name="generator" content="bookdown 0.3 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Processing and Analyzing Financial Data with R" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="figs/CAPADigital_FinancialDataR.jpg" />
+  <meta property="og:description" content="Processing and Analyzing Financial Data with R" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Processing and Analyzing Financial Data with R" />
+  
+  <meta name="twitter:description" content="Processing and Analyzing Financial Data with R" />
+  <meta name="twitter:image" content="figs/CAPADigital_FinancialDataR.jpg" />
+
+<meta name="author" content="Marcelo S. Perlin (marcelo.perlin@ufrgs.br)">
+
+
+<meta name="date" content="2017-04-29">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="Financial-data.html">
+<link rel="next" href="programming.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Processing and Analyzing Financial Data with R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome!</a></li>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#what-is-r"><i class="fa fa-check"></i><b>1.1</b> What is R</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#why-choose-r"><i class="fa fa-check"></i><b>1.2</b> Why Choose R</a></li>
+<li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#what-can-you-do-with-r-and-rstudio"><i class="fa fa-check"></i><b>1.3</b> What Can You Do With R and RStudio?</a></li>
+<li class="chapter" data-level="1.4" data-path="introduction.html"><a href="introduction.html#installing-r-and-rstudio"><i class="fa fa-check"></i><b>1.4</b> Installing R and RStudio</a></li>
+<li class="chapter" data-level="1.5" data-path="introduction.html"><a href="introduction.html#resources-in-the-web"><i class="fa fa-check"></i><b>1.5</b> Resources in the Web</a></li>
+<li class="chapter" data-level="1.6" data-path="introduction.html"><a href="introduction.html#structure-and-organization"><i class="fa fa-check"></i><b>1.6</b> Structure and Organization</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html"><i class="fa fa-check"></i><b>2</b> Basic Operations in R</a><ul>
+<li class="chapter" data-level="2.1" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#working-with-r"><i class="fa fa-check"></i><b>2.1</b> Working With R</a></li>
+<li class="chapter" data-level="2.2" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#objects-in-r"><i class="fa fa-check"></i><b>2.2</b> Objects in R</a></li>
+<li class="chapter" data-level="2.3" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#international-and-local-formats"><i class="fa fa-check"></i><b>2.3</b> International and Local Formats</a></li>
+<li class="chapter" data-level="2.4" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#types-of-files-in-r"><i class="fa fa-check"></i><b>2.4</b> Types of Files in R</a></li>
+<li class="chapter" data-level="2.5" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#explaining-the-rstudio-screen"><i class="fa fa-check"></i><b>2.5</b> Explaining the RStudio Screen</a></li>
+<li class="chapter" data-level="2.6" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#running-scripts-from-rstudio"><i class="fa fa-check"></i><b>2.6</b> Running Scripts from RStudio</a></li>
+<li class="chapter" data-level="2.7" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#testing-and-debugging-code"><i class="fa fa-check"></i><b>2.7</b> Testing and Debugging Code</a></li>
+<li class="chapter" data-level="2.8" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#creating-simple-objects"><i class="fa fa-check"></i><b>2.8</b> Creating Simple Objects</a></li>
+<li class="chapter" data-level="2.9" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#creating-vectors"><i class="fa fa-check"></i><b>2.9</b> Creating Vectors</a></li>
+<li class="chapter" data-level="2.10" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#knowing-your-environment"><i class="fa fa-check"></i><b>2.10</b> Knowing Your Environment</a></li>
+<li class="chapter" data-level="2.11" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#displaying-and-formatting-output"><i class="fa fa-check"></i><b>2.11</b> Displaying and Formatting Output</a><ul>
+<li class="chapter" data-level="2.11.1" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#customizing-the-output"><i class="fa fa-check"></i><b>2.11.1</b> Customizing the Output</a></li>
+</ul></li>
+<li class="chapter" data-level="2.12" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#finding-the-size-of-objects"><i class="fa fa-check"></i><b>2.12</b> Finding the Size of Objects</a></li>
+<li class="chapter" data-level="2.13" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#selecting-the-elements-of-an-atomic-vector"><i class="fa fa-check"></i><b>2.13</b> Selecting the Elements of an Atomic Vector</a></li>
+<li class="chapter" data-level="2.14" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#removing-objects-from-the-memory"><i class="fa fa-check"></i><b>2.14</b> Removing Objects from the Memory</a></li>
+<li class="chapter" data-level="2.15" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#displaying-and-setting-the-working-directory"><i class="fa fa-check"></i><b>2.15</b> Displaying and Setting the Working Directory</a></li>
+<li class="chapter" data-level="2.16" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#cancelling-code-execution"><i class="fa fa-check"></i><b>2.16</b> Cancelling Code Execution</a></li>
+<li class="chapter" data-level="2.17" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#code-comments"><i class="fa fa-check"></i><b>2.17</b> Code Comments</a></li>
+<li class="chapter" data-level="2.18" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#looking-for-help"><i class="fa fa-check"></i><b>2.18</b> Looking for Help</a></li>
+<li class="chapter" data-level="2.19" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#r-packages"><i class="fa fa-check"></i><b>2.19</b> R Packages</a><ul>
+<li class="chapter" data-level="2.19.1" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#installing-packages-from-cran"><i class="fa fa-check"></i><b>2.19.1</b> Installing Packages from CRAN</a></li>
+<li class="chapter" data-level="2.19.2" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#installing-packages-from-github"><i class="fa fa-check"></i><b>2.19.2</b> Installing Packages from Github</a></li>
+<li class="chapter" data-level="2.19.3" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#loading-packages"><i class="fa fa-check"></i><b>2.19.3</b> Loading Packages</a></li>
+<li class="chapter" data-level="2.19.4" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#upgrading-packages"><i class="fa fa-check"></i><b>2.19.4</b> Upgrading Packages</a></li>
+</ul></li>
+<li class="chapter" data-level="2.20" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#using-code-completion-with-tab"><i class="fa fa-check"></i><b>2.20</b> Using Code Completion with <em>tab</em></a></li>
+<li class="chapter" data-level="2.21" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#interacting-with-files-and-the-operating-system"><i class="fa fa-check"></i><b>2.21</b> Interacting with Files and the Operating System</a><ul>
+<li class="chapter" data-level="2.21.1" data-path="basic-operations-in-r.html"><a href="basic-operations-in-r.html#listing-files-and-folders"><i class="fa fa-check"></i><b>2.21.1</b> Listing Files and Folders</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="BasicObjects.html"><a href="BasicObjects.html"><i class="fa fa-check"></i><b>3</b> Basic Object Classes</a><ul>
+<li class="chapter" data-level="3.1" data-path="BasicObjects.html"><a href="BasicObjects.html#numeric-objects"><i class="fa fa-check"></i><b>3.1</b> <code>Numeric</code> Objects</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-and-manipulating-numeric-objects"><i class="fa fa-check"></i><b>3.1.1</b> Creating and Manipulating <code>numeric</code> Objects</a></li>
+<li class="chapter" data-level="3.1.2" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-a-numeric-sequence"><i class="fa fa-check"></i><b>3.1.2</b> Creating a <code>numeric</code> Sequence</a></li>
+<li class="chapter" data-level="3.1.3" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-vectors-with-repeated-elements"><i class="fa fa-check"></i><b>3.1.3</b> Creating Vectors with Repeated Elements</a></li>
+<li class="chapter" data-level="3.1.4" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-vectors-with-random-numbers"><i class="fa fa-check"></i><b>3.1.4</b> Creating Vectors with Random Numbers</a></li>
+<li class="chapter" data-level="3.1.5" data-path="BasicObjects.html"><a href="BasicObjects.html#accessing-the-elements-of-a-numeric-vector"><i class="fa fa-check"></i><b>3.1.5</b> Accessing the Elements of a <code>numeric</code> Vector</a></li>
+<li class="chapter" data-level="3.1.6" data-path="BasicObjects.html"><a href="BasicObjects.html#modifying-and-removing-elements-of-a-numeric-vector"><i class="fa fa-check"></i><b>3.1.6</b> Modifying and Removing Elements of a <code>numeric</code> Vector</a></li>
+<li class="chapter" data-level="3.1.7" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-groups-from-a-numeric-vector"><i class="fa fa-check"></i><b>3.1.7</b> Creating Groups from a <code>numeric</code> Vector</a></li>
+<li class="chapter" data-level="3.1.8" data-path="BasicObjects.html"><a href="BasicObjects.html#other-functions-for-manipulating-numerical-vectors"><i class="fa fa-check"></i><b>3.1.8</b> Other Functions for Manipulating Numerical Vectors</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="BasicObjects.html"><a href="BasicObjects.html#character-objects"><i class="fa fa-check"></i><b>3.2</b> <code>Character</code> Objects</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-a-simple-character-object"><i class="fa fa-check"></i><b>3.2.1</b> Creating a Simple <code>character</code> Object</a></li>
+<li class="chapter" data-level="3.2.2" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-structured-character-objects"><i class="fa fa-check"></i><b>3.2.2</b> Creating Structured <code>character</code> Objects</a></li>
+<li class="chapter" data-level="3.2.3" data-path="BasicObjects.html"><a href="BasicObjects.html#character-constants"><i class="fa fa-check"></i><b>3.2.3</b> <code>character</code> Constants</a></li>
+<li class="chapter" data-level="3.2.4" data-path="BasicObjects.html"><a href="BasicObjects.html#selecting-characters-of-a-text-object"><i class="fa fa-check"></i><b>3.2.4</b> Selecting Characters of a Text Object</a></li>
+<li class="chapter" data-level="3.2.5" data-path="BasicObjects.html"><a href="BasicObjects.html#finding-and-replacing-characters-of-a-text"><i class="fa fa-check"></i><b>3.2.5</b> Finding and Replacing Characters of a Text</a></li>
+<li class="chapter" data-level="3.2.6" data-path="BasicObjects.html"><a href="BasicObjects.html#splitting-text"><i class="fa fa-check"></i><b>3.2.6</b> Splitting Text</a></li>
+<li class="chapter" data-level="3.2.7" data-path="BasicObjects.html"><a href="BasicObjects.html#finding-the-number-of-characters-in-a-text"><i class="fa fa-check"></i><b>3.2.7</b> Finding the Number of Characters in a Text</a></li>
+<li class="chapter" data-level="3.2.8" data-path="BasicObjects.html"><a href="BasicObjects.html#generating-combinations-of-text"><i class="fa fa-check"></i><b>3.2.8</b> Generating Combinations of Text</a></li>
+<li class="chapter" data-level="3.2.9" data-path="BasicObjects.html"><a href="BasicObjects.html#encoding-of-character-objects"><i class="fa fa-check"></i><b>3.2.9</b> Encoding of <code>character</code> Objects</a></li>
+<li class="chapter" data-level="3.2.10" data-path="BasicObjects.html"><a href="BasicObjects.html#other-functions-for-manipulating-character"><i class="fa fa-check"></i><b>3.2.10</b> Other Functions for Manipulating <code>character</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="BasicObjects.html"><a href="BasicObjects.html#factor-objects"><i class="fa fa-check"></i><b>3.3</b> <code>Factor</code> Objects</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-factors"><i class="fa fa-check"></i><b>3.3.1</b> Creating <code>factors</code></a></li>
+<li class="chapter" data-level="3.3.2" data-path="BasicObjects.html"><a href="BasicObjects.html#modifying-factors"><i class="fa fa-check"></i><b>3.3.2</b> Modifying <code>factors</code></a></li>
+<li class="chapter" data-level="3.3.3" data-path="BasicObjects.html"><a href="BasicObjects.html#converting-factors-to-other-classes"><i class="fa fa-check"></i><b>3.3.3</b> Converting <code>factors</code> to Other Classes</a></li>
+<li class="chapter" data-level="3.3.4" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-contingency-tables"><i class="fa fa-check"></i><b>3.3.4</b> Creating Contingency Tables</a></li>
+<li class="chapter" data-level="3.3.5" data-path="BasicObjects.html"><a href="BasicObjects.html#other-functions-for-manipulating-factors"><i class="fa fa-check"></i><b>3.3.5</b> Other Functions for Manipulating <code>factors</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="BasicObjects.html"><a href="BasicObjects.html#logical-objects"><i class="fa fa-check"></i><b>3.4</b> <code>Logical</code> Objects</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-logical-objects"><i class="fa fa-check"></i><b>3.4.1</b> Creating <code>logical</code> Objects</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="BasicObjects.html"><a href="BasicObjects.html#date-and-time-objects"><i class="fa fa-check"></i><b>3.5</b> Date and Time Objects</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-simple-dates"><i class="fa fa-check"></i><b>3.5.1</b> Creating Simple Dates</a></li>
+<li class="chapter" data-level="3.5.2" data-path="BasicObjects.html"><a href="BasicObjects.html#creating-a-sequence-of-dates"><i class="fa fa-check"></i><b>3.5.2</b> Creating a Sequence of <code>Dates</code></a></li>
+<li class="chapter" data-level="3.5.3" data-path="BasicObjects.html"><a href="BasicObjects.html#operations-with-dates"><i class="fa fa-check"></i><b>3.5.3</b> Operations with <code>Dates</code></a></li>
+<li class="chapter" data-level="3.5.4" data-path="BasicObjects.html"><a href="BasicObjects.html#dealing-with-time"><i class="fa fa-check"></i><b>3.5.4</b> Dealing with Time</a></li>
+<li class="chapter" data-level="3.5.5" data-path="BasicObjects.html"><a href="BasicObjects.html#customizing-the-output-format-of-dates-and-times"><i class="fa fa-check"></i><b>3.5.5</b> Customizing the Output Format of Dates and Times</a></li>
+<li class="chapter" data-level="3.5.6" data-path="BasicObjects.html"><a href="BasicObjects.html#find-the-current-date-and-time"><i class="fa fa-check"></i><b>3.5.6</b> Find the Current Date and Time</a></li>
+<li class="chapter" data-level="3.5.7" data-path="BasicObjects.html"><a href="BasicObjects.html#other-functions-for-manipulating-dates-and-time"><i class="fa fa-check"></i><b>3.5.7</b> Other Functions for Manipulating Dates and Time</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="BasicObjects.html"><a href="BasicObjects.html#missing-data---na-not-available"><i class="fa fa-check"></i><b>3.6</b> Missing Data - <code>NA</code> (<em>Not available</em>)</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="BasicObjects.html"><a href="BasicObjects.html#defining-na-values"><i class="fa fa-check"></i><b>3.6.1</b> Defining <code>NA</code> Values</a></li>
+<li class="chapter" data-level="3.6.2" data-path="BasicObjects.html"><a href="BasicObjects.html#finding-and-replacing-na"><i class="fa fa-check"></i><b>3.6.2</b> Finding and Replacing <code>NA</code></a></li>
+<li class="chapter" data-level="3.6.3" data-path="BasicObjects.html"><a href="BasicObjects.html#other-useful-functions-for-treating-na"><i class="fa fa-check"></i><b>3.6.3</b> Other Useful Functions for Treating <code>NA</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html"><i class="fa fa-check"></i><b>4</b> Data Structure Objects</a><ul>
+<li class="chapter" data-level="4.1" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#lists"><i class="fa fa-check"></i><b>4.1</b> <code>Lists</code></a><ul>
+<li class="chapter" data-level="4.1.1" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#creating-lists"><i class="fa fa-check"></i><b>4.1.1</b> Creating <code>lists</code></a></li>
+<li class="chapter" data-level="4.1.2" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#accessing-the-elements-of-a-list"><i class="fa fa-check"></i><b>4.1.2</b> Accessing the Elements of a <code>list</code></a></li>
+<li class="chapter" data-level="4.1.3" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#adding-and-removing-elements-from-a-list"><i class="fa fa-check"></i><b>4.1.3</b> Adding and Removing Elements from a <code>list</code></a></li>
+<li class="chapter" data-level="4.1.4" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#processing-the-elements-of-a-list"><i class="fa fa-check"></i><b>4.1.4</b> Processing the Elements of a <code>list</code></a></li>
+<li class="chapter" data-level="4.1.5" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#other-functions-for-manipulating-lists"><i class="fa fa-check"></i><b>4.1.5</b> Other Functions for Manipulating <code>lists</code></a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#matrices"><i class="fa fa-check"></i><b>4.2</b> <code>Matrices</code></a><ul>
+<li class="chapter" data-level="4.2.1" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#selecting-elements-from-a-matrix"><i class="fa fa-check"></i><b>4.2.1</b> Selecting Elements from a <code>matrix</code></a></li>
+<li class="chapter" data-level="4.2.2" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#other-useful-functions-for-manipulating-matrices"><i class="fa fa-check"></i><b>4.2.2</b> Other Useful Functions for Manipulating Matrices</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#dataframes"><i class="fa fa-check"></i><b>4.3</b> <code>Dataframes</code></a><ul>
+<li class="chapter" data-level="4.3.1" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#creating-dataframes"><i class="fa fa-check"></i><b>4.3.1</b> Creating <code>dataframes</code></a></li>
+<li class="chapter" data-level="4.3.2" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#accessing-information-from-a-dataframe"><i class="fa fa-check"></i><b>4.3.2</b> Accessing Information from a <code>dataframe</code></a></li>
+<li class="chapter" data-level="4.3.3" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#modifying-a-dataframe"><i class="fa fa-check"></i><b>4.3.3</b> Modifying a <code>dataframe</code></a></li>
+<li class="chapter" data-level="4.3.4" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#sorting-a-dataframe"><i class="fa fa-check"></i><b>4.3.4</b> Sorting a <code>dataframe</code></a></li>
+<li class="chapter" data-level="4.3.5" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#combining-and-aggregating-dataframes"><i class="fa fa-check"></i><b>4.3.5</b> Combining and Aggregating <code>dataframes</code></a></li>
+<li class="chapter" data-level="4.3.6" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#reporting-a-dataframe-table"><i class="fa fa-check"></i><b>4.3.6</b> Reporting a <code>Dataframe</code> Table</a></li>
+<li class="chapter" data-level="4.3.7" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#the-format-of-the-dataframe-long-and-wide"><i class="fa fa-check"></i><b>4.3.7</b> The Format of the <code>dataframe</code> (<em>long</em> and <em>wide</em>)</a></li>
+<li class="chapter" data-level="4.3.8" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#extensions-of-the-dataframe-class"><i class="fa fa-check"></i><b>4.3.8</b> Extensions of the <code>dataframe</code> Class</a></li>
+<li class="chapter" data-level="4.3.9" data-path="DataStructureObjects.html"><a href="DataStructureObjects.html#other-useful-functions-for-handling-dataframes"><i class="fa fa-check"></i><b>4.3.9</b> Other Useful Functions for Handling <code>dataframes</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="Financial-data.html"><a href="Financial-data.html"><i class="fa fa-check"></i><b>5</b> Financial Data and Common Operations</a><ul>
+<li class="chapter" data-level="5.1" data-path="Financial-data.html"><a href="Financial-data.html#data-from-financial-markets"><i class="fa fa-check"></i><b>5.1</b> Data from Financial Markets</a></li>
+<li class="chapter" data-level="5.2" data-path="Financial-data.html"><a href="Financial-data.html#data-from-the-financial-evaluation-of-projects"><i class="fa fa-check"></i><b>5.2</b> Data from the Financial Evaluation of Projects</a></li>
+<li class="chapter" data-level="5.3" data-path="Financial-data.html"><a href="Financial-data.html#data-from-financial-statements"><i class="fa fa-check"></i><b>5.3</b> Data from Financial Statements</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="importing.html"><a href="importing.html"><i class="fa fa-check"></i><b>6</b> Importing and Exporting Data</a><ul>
+<li class="chapter" data-level="6.1" data-path="importing.html"><a href="importing.html#importing-data-from-local-files"><i class="fa fa-check"></i><b>6.1</b> Importing Data from Local Files</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="importing.html"><a href="importing.html#importing-data-from-a-.csv-file-comma-separated-values"><i class="fa fa-check"></i><b>6.1.1</b> Importing Data from a <em>.csv</em> File (<em>comma separated values</em>)</a></li>
+<li class="chapter" data-level="6.1.2" data-path="importing.html"><a href="importing.html#importing-data-from-an-excel-file"><i class="fa fa-check"></i><b>6.1.2</b> Importing Data from an <em>Excel</em> File</a></li>
+<li class="chapter" data-level="6.1.3" data-path="importing.html"><a href="importing.html#importing-data-from-a-.rdata-file"><i class="fa fa-check"></i><b>6.1.3</b> Importing Data from a <em>.RData</em> File</a></li>
+<li class="chapter" data-level="6.1.4" data-path="importing.html"><a href="importing.html#importing-data-from-sqlite"><i class="fa fa-check"></i><b>6.1.4</b> Importing Data from SQLITE</a></li>
+<li class="chapter" data-level="6.1.5" data-path="importing.html"><a href="importing.html#importing-data-from-a-text-file"><i class="fa fa-check"></i><b>6.1.5</b> Importing Data from a Text File</a></li>
+<li class="chapter" data-level="6.1.6" data-path="importing.html"><a href="importing.html#other-file-formats"><i class="fa fa-check"></i><b>6.1.6</b> Other File Formats</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="importing.html"><a href="importing.html#importing-data-using-the-internet"><i class="fa fa-check"></i><b>6.2</b> Importing Data Using the Internet</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="importing.html"><a href="importing.html#package-quantmod"><i class="fa fa-check"></i><b>6.2.1</b> Package <code>quantmod</code></a></li>
+<li class="chapter" data-level="6.2.2" data-path="importing.html"><a href="importing.html#package-batchgetsymbols"><i class="fa fa-check"></i><b>6.2.2</b> Package <code>BatchGetSymbols</code></a></li>
+<li class="chapter" data-level="6.2.3" data-path="importing.html"><a href="importing.html#package-finreportr"><i class="fa fa-check"></i><b>6.2.3</b> Package <code>finreportr</code></a></li>
+<li class="chapter" data-level="6.2.4" data-path="importing.html"><a href="importing.html#package-tidyquant"><i class="fa fa-check"></i><b>6.2.4</b> Package <code>tidyquant</code></a></li>
+<li class="chapter" data-level="6.2.5" data-path="importing.html"><a href="importing.html#package-gethfdata"><i class="fa fa-check"></i><b>6.2.5</b> Package <code>GetHFData</code></a></li>
+<li class="chapter" data-level="6.2.6" data-path="importing.html"><a href="importing.html#package-ustyc"><i class="fa fa-check"></i><b>6.2.6</b> Package <code>ustyc</code></a></li>
+<li class="chapter" data-level="6.2.7" data-path="importing.html"><a href="importing.html#quandl"><i class="fa fa-check"></i><b>6.2.7</b> Package <code>Quandl</code></a></li>
+<li class="chapter" data-level="6.2.8" data-path="importing.html"><a href="importing.html#package-rbitcoin"><i class="fa fa-check"></i><b>6.2.8</b> Package <code>Rbitcoin</code></a></li>
+<li class="chapter" data-level="6.2.9" data-path="importing.html"><a href="importing.html#other-packages"><i class="fa fa-check"></i><b>6.2.9</b> Other Packages</a></li>
+<li class="chapter" data-level="6.2.10" data-path="importing.html"><a href="importing.html#accessing-data-from-web-pages-webscraping"><i class="fa fa-check"></i><b>6.2.10</b> Accessing Data from Web Pages (<em>webscraping</em>)</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="importing.html"><a href="importing.html#exporting-to-local-file"><i class="fa fa-check"></i><b>6.3</b> Exporting to Local File</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="importing.html"><a href="importing.html#exporting-data-to-a-.csv-file"><i class="fa fa-check"></i><b>6.3.1</b> Exporting Data to a <em>.csv</em> File</a></li>
+<li class="chapter" data-level="6.3.2" data-path="importing.html"><a href="importing.html#exporting-data-to-a-rdata-file"><i class="fa fa-check"></i><b>6.3.2</b> Exporting Data to a <em>RData</em> File</a></li>
+<li class="chapter" data-level="6.3.3" data-path="importing.html"><a href="importing.html#exporting-data-to-an-excel-file"><i class="fa fa-check"></i><b>6.3.3</b> Exporting Data to an Excel File</a></li>
+<li class="chapter" data-level="6.3.4" data-path="importing.html"><a href="importing.html#exporting-data-to-a-text-file"><i class="fa fa-check"></i><b>6.3.4</b> Exporting Data to a Text File</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="programming.html"><a href="programming.html"><i class="fa fa-check"></i><b>7</b> Programming and Data Analysis with R</a><ul>
+<li class="chapter" data-level="7.1" data-path="programming.html"><a href="programming.html#creating-functions"><i class="fa fa-check"></i><b>7.1</b> Creating Functions</a></li>
+<li class="chapter" data-level="7.2" data-path="programming.html"><a href="programming.html#using-loops-for"><i class="fa fa-check"></i><b>7.2</b> Using Loops (<code>for</code>)</a></li>
+<li class="chapter" data-level="7.3" data-path="programming.html"><a href="programming.html#conditional-statements-if-else-switch"><i class="fa fa-check"></i><b>7.3</b> Conditional Statements (<code>if</code>, <code>else</code>, <code>switch</code>)</a></li>
+<li class="chapter" data-level="7.4" data-path="programming.html"><a href="programming.html#using-apply-functions"><i class="fa fa-check"></i><b>7.4</b> Using <code>apply</code> Functions</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="programming.html"><a href="programming.html#using-lapply"><i class="fa fa-check"></i><b>7.4.1</b> Using <code>lapply</code></a></li>
+<li class="chapter" data-level="7.4.2" data-path="programming.html"><a href="programming.html#using-sapply"><i class="fa fa-check"></i><b>7.4.2</b> Using <code>sapply</code></a></li>
+<li class="chapter" data-level="7.4.3" data-path="programming.html"><a href="programming.html#using-tapply"><i class="fa fa-check"></i><b>7.4.3</b> Using <code>tapply</code></a></li>
+<li class="chapter" data-level="7.4.4" data-path="programming.html"><a href="programming.html#using-mapply"><i class="fa fa-check"></i><b>7.4.4</b> Using <code>mapply</code></a></li>
+<li class="chapter" data-level="7.4.5" data-path="programming.html"><a href="programming.html#using-apply"><i class="fa fa-check"></i><b>7.4.5</b> Using <code>apply</code></a></li>
+<li class="chapter" data-level="7.4.6" data-path="programming.html"><a href="programming.html#using-by"><i class="fa fa-check"></i><b>7.4.6</b> Using <code>by</code></a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="programming.html"><a href="programming.html#data-manipulation-with-package-dplyr"><i class="fa fa-check"></i><b>7.5</b> Data Manipulation with Package <code>dplyr</code></a><ul>
+<li class="chapter" data-level="7.5.1" data-path="programming.html"><a href="programming.html#manipulating-a-dataframe-with-dplyr"><i class="fa fa-check"></i><b>7.5.1</b> Manipulating a <code>dataframe</code> with <code>dplyr</code></a></li>
+<li class="chapter" data-level="7.5.2" data-path="programming.html"><a href="programming.html#the-pipeline-operator"><i class="fa fa-check"></i><b>7.5.2</b> The Pipeline Operator (<code>%&gt;%</code>)</a></li>
+<li class="chapter" data-level="7.5.3" data-path="programming.html"><a href="programming.html#simple-group-operations-with-dplyr"><i class="fa fa-check"></i><b>7.5.3</b> Simple Group Operations with <code>dplyr</code></a></li>
+<li class="chapter" data-level="7.5.4" data-path="programming.html"><a href="programming.html#complex-group-operations-with-dplyr"><i class="fa fa-check"></i><b>7.5.4</b> Complex Group Operations with <code>dplyr</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="Figures.html"><a href="Figures.html"><i class="fa fa-check"></i><b>8</b> Creating and Saving Figures with <code>ggplot2</code></a><ul>
+<li class="chapter" data-level="8.1" data-path="Figures.html"><a href="Figures.html#using-graphic-windows"><i class="fa fa-check"></i><b>8.1</b> Using Graphic Windows</a></li>
+<li class="chapter" data-level="8.2" data-path="Figures.html"><a href="Figures.html#creating-figures-with-function-qplot"><i class="fa fa-check"></i><b>8.2</b> Creating Figures with Function <code>qplot</code></a></li>
+<li class="chapter" data-level="8.3" data-path="Figures.html"><a href="Figures.html#using-ggplot"><i class="fa fa-check"></i><b>8.3</b> Creating Figures with Function <code>ggplot</code></a><ul>
+<li class="chapter" data-level="8.3.1" data-path="Figures.html"><a href="Figures.html#using-themes"><i class="fa fa-check"></i><b>8.3.1</b> Using Themes</a></li>
+<li class="chapter" data-level="8.3.2" data-path="Figures.html"><a href="Figures.html#creating-panels-with-facet_wrap"><i class="fa fa-check"></i><b>8.3.2</b> Creating Panels with <code>facet_wrap</code></a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="Figures.html"><a href="Figures.html#using-pipelines-for-data-analysis-and-figures"><i class="fa fa-check"></i><b>8.4</b> Using Pipelines for Data Analysis and Figures</a></li>
+<li class="chapter" data-level="8.5" data-path="Figures.html"><a href="Figures.html#creating-statistical-graphics"><i class="fa fa-check"></i><b>8.5</b> Creating Statistical Graphics</a><ul>
+<li class="chapter" data-level="8.5.1" data-path="Figures.html"><a href="Figures.html#creating-histograms"><i class="fa fa-check"></i><b>8.5.1</b> Creating Histograms</a></li>
+<li class="chapter" data-level="8.5.2" data-path="Figures.html"><a href="Figures.html#creating-boxplot-figures"><i class="fa fa-check"></i><b>8.5.2</b> Creating <em>boxplot</em> Figures</a></li>
+<li class="chapter" data-level="8.5.3" data-path="Figures.html"><a href="Figures.html#creating-qq-plots"><i class="fa fa-check"></i><b>8.5.3</b> Creating <em>QQ</em> Plots</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="Figures.html"><a href="Figures.html#saving-graphics-to-a-file"><i class="fa fa-check"></i><b>8.6</b> Saving Graphics to a File</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="models.html"><a href="models.html"><i class="fa fa-check"></i><b>9</b> Financial Econometrics with R</a><ul>
+<li class="chapter" data-level="9.1" data-path="models.html"><a href="models.html#linear-models-ols"><i class="fa fa-check"></i><b>9.1</b> Linear Models (OLS)</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="models.html"><a href="models.html#simulating-a-linear-model"><i class="fa fa-check"></i><b>9.1.1</b> Simulating a Linear Model</a></li>
+<li class="chapter" data-level="9.1.2" data-path="models.html"><a href="models.html#estimating-ols"><i class="fa fa-check"></i><b>9.1.2</b> Estimating a Linear Model</a></li>
+<li class="chapter" data-level="9.1.3" data-path="models.html"><a href="models.html#testing-ols"><i class="fa fa-check"></i><b>9.1.3</b> Statistical Inference in Linear Models</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="models.html"><a href="models.html#generalized-linear-models-glm"><i class="fa fa-check"></i><b>9.2</b> Generalized Linear Models (GLM)</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="models.html"><a href="models.html#simulating-a-glm-model"><i class="fa fa-check"></i><b>9.2.1</b> Simulating a GLM Model</a></li>
+<li class="chapter" data-level="9.2.2" data-path="models.html"><a href="models.html#estimating-a-glm-model"><i class="fa fa-check"></i><b>9.2.2</b> Estimating a GLM Model</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="models.html"><a href="models.html#panel-data-models"><i class="fa fa-check"></i><b>9.3</b> Panel Data Models</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="models.html"><a href="models.html#simulating-panel-data-models"><i class="fa fa-check"></i><b>9.3.1</b> Simulating Panel Data Models</a></li>
+<li class="chapter" data-level="9.3.2" data-path="models.html"><a href="models.html#estimating-panel-data-models"><i class="fa fa-check"></i><b>9.3.2</b> Estimating Panel Data Models</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="models.html"><a href="models.html#arima-models"><i class="fa fa-check"></i><b>9.4</b> Arima Models</a><ul>
+<li class="chapter" data-level="9.4.1" data-path="models.html"><a href="models.html#simulating-arima-models"><i class="fa fa-check"></i><b>9.4.1</b> Simulating Arima Models</a></li>
+<li class="chapter" data-level="9.4.2" data-path="models.html"><a href="models.html#arima-estimating"><i class="fa fa-check"></i><b>9.4.2</b> Estimating Arima Models</a></li>
+<li class="chapter" data-level="9.4.3" data-path="models.html"><a href="models.html#forecasting-arima-models"><i class="fa fa-check"></i><b>9.4.3</b> Forecasting Arima Models</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="models.html"><a href="models.html#garch-models"><i class="fa fa-check"></i><b>9.5</b> Garch Models</a><ul>
+<li class="chapter" data-level="9.5.1" data-path="models.html"><a href="models.html#simulating-garch-models"><i class="fa fa-check"></i><b>9.5.1</b> Simulating Garch Models</a></li>
+<li class="chapter" data-level="9.5.2" data-path="models.html"><a href="models.html#estimating-garch"><i class="fa fa-check"></i><b>9.5.2</b> Estimating Garch Models</a></li>
+<li class="chapter" data-level="9.5.3" data-path="models.html"><a href="models.html#forecasting-garch-models"><i class="fa fa-check"></i><b>9.5.3</b> Forecasting Garch Models</a></li>
+</ul></li>
+<li class="chapter" data-level="9.6" data-path="models.html"><a href="models.html#regime-switching-models"><i class="fa fa-check"></i><b>9.6</b> Regime Switching Models</a><ul>
+<li class="chapter" data-level="9.6.1" data-path="models.html"><a href="models.html#simulating-regime-switching-models"><i class="fa fa-check"></i><b>9.6.1</b> Simulating Regime Switching Models</a></li>
+<li class="chapter" data-level="9.6.2" data-path="models.html"><a href="models.html#estimating-regime-switching-models"><i class="fa fa-check"></i><b>9.6.2</b> Estimating Regime Switching Models</a></li>
+<li class="chapter" data-level="9.6.3" data-path="models.html"><a href="models.html#forecasting-regime-switching-models"><i class="fa fa-check"></i><b>9.6.3</b> Forecasting Regime Switching Models</a></li>
+</ul></li>
+<li class="chapter" data-level="9.7" data-path="models.html"><a href="models.html#dealing-with-several-models"><i class="fa fa-check"></i><b>9.7</b> Dealing with Several Models</a></li>
+<li class="chapter" data-level="9.8" data-path="models.html"><a href="models.html#reporting-models"><i class="fa fa-check"></i><b>9.8</b> Reporting Models with <code>texreg</code></a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="research-scripts.html"><a href="research-scripts.html"><i class="fa fa-check"></i><b>10</b> Writing Research Scripts</a><ul>
+<li class="chapter" data-level="10.1" data-path="research-scripts.html"><a href="research-scripts.html#structure-of-a-research-script"><i class="fa fa-check"></i><b>10.1</b> Structure of a Research Script</a></li>
+<li class="chapter" data-level="10.2" data-path="research-scripts.html"><a href="research-scripts.html#folder-structure"><i class="fa fa-check"></i><b>10.2</b> Folder Structure</a></li>
+<li class="chapter" data-level="10.3" data-path="research-scripts.html"><a href="research-scripts.html#ExampleResearch"><i class="fa fa-check"></i><b>10.3</b> Examples of Research Scripts</a><ul>
+<li class="chapter" data-level="10.3.1" data-path="research-scripts.html"><a href="research-scripts.html#research-performance"><i class="fa fa-check"></i><b>10.3.1</b> The performance of international investments</a></li>
+<li class="chapter" data-level="10.3.2" data-path="research-scripts.html"><a href="research-scripts.html#research-prophet"><i class="fa fa-check"></i><b>10.3.2</b> Can we predict stock’s returns with Prophet?</a></li>
+<li class="chapter" data-level="10.3.3" data-path="research-scripts.html"><a href="research-scripts.html#research-gethfdata"><i class="fa fa-check"></i><b>10.3.3</b> An Analysis of High Frequency trade Data</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://sites.google.com/view/pmfdr/home" target="blank">Book Companion Site</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Processing and Analyzing Financial Data with R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="importing" class="section level1">
+<h1><span class="header-section-number">Chapter 6</span> Importing and Exporting Data</h1>
+<p>In chapter <a href="DataStructureObjects.html#DataStructureObjects">4</a>, we studied the main types of R objects and the many ways to manipulate them. In particular, we looked at <code>dataframes</code>, an efficient storage type to represent our data in a tabular format. We learned more about the types of financial data in chapter <a href="Financial-data.html#Financial-data">5</a>. In this chapter, we will study the process of importing and exporting datasets with R. In most cases of data analysis, the database will be contained in an external source, such as a local file or the web.</p>
+<div id="importing-data-from-local-files" class="section level2">
+<h2><span class="header-section-number">6.1</span> Importing Data from Local Files</h2>
+<p>The easiest way to import data into R is using a local file. Here, we will discuss four main formats and their file extensions: the <em>comma separated values</em> format (<em>.csv</em>), Microsoft Excel files (<em>.xls</em>, <em>.xlsx</em>), R native data (<em>.RData</em>), SQLITE (<em>.SQLITE</em>) and unstructured text files (<em>.txt</em>). These are the most common cases one will find in a data analysis situation. As with the previous chapters, all data used in the examples is publicly available in the book website.</p>
+<p>Throughout this chapter, we will assume the imported files are located within a subdirectory called <code>data</code>, available in the current working directory. If you are not sure about the current working folder, just call command <code>print(getwd())</code> so it shows it in the prompt. This step is important, as you must provide the exact address of the imported file to R. If no address is informed, R assumes the file is available in the working directory. If you are not working in the same directory as your data file, you’ll need to inform its full address, as in <code>my.f &lt;- 'C:/My Data/MyData.csv'</code>. However, keeping the R script in a different root folder than the data file is not recommended.</p>
+<p>Since R allows the use of relative paths, using a folder for the script and a subfolder for the data files is good policy. For example, if you are working in a script located at directory <code>C:/My Research</code> and you placed all data files inside <code>C:/My Research/data/</code>, you could first use function <code>setwd</code> at the beginning of <em>script</em> to change the directory and then use the relative path of the file, as in <code>my.f &lt;- 'data/my_data.csv'</code>, to load the information. The resulting script would look like the next code:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set working directory</span>
+my.d &lt;-<span class="st"> &#39;C:/My Research/&#39;</span>
+<span class="kw">setwd</span>(my.d)
+
+<span class="co"># set file to be imported</span>
+my.f &lt;-<span class="st"> &#39;data/my_data.csv&#39;</span></code></pre></div>
+<p>Notice how the code is self-contained and portable. If you sent the code to someone else as a compressed <em>.zip</em> file, the receiver only has to unzip the file, open the main script, change the directory in <code>my.d</code> and <em>source</em> (execute) the script. Given the relative paths were used in the rest of the code, R will be able to find all data files, and the code will run without problems.</p>
+<div id="importing-data-from-a-.csv-file-comma-separated-values" class="section level3">
+<h3><span class="header-section-number">6.1.1</span> Importing Data from a <em>.csv</em> File (<em>comma separated values</em>)</h3>
+<p>Consider the data file called SP500.csv, located in folder <code>data</code> from the current working directory. This file contains daily closing prices of the SP500 index from 2010-01-04 until 2017-02-28. Since SP500.csv is a simple text file, you can open it in any text editor. </p>
+<p>The first lines of SP500.csv, also called header lines, shows the column names. Rows are set using line breaks, and all columns are separated by commas (<code>,</code>). This is an international standard. For some countries, the international standard is confusing, because the comma symbol can also indicate decimal values. If this is your case, my suggestion is to give preference to the international notation. Since a <em>.csv</em> file is editable, you can manually replace all commas with a point. Programs, such as Notepad and <a href="https://notepad-plus-plus.org/">Notepad++</a>, perform this task easily with <em>search and replace</em> functions. Another solution is to use the capabilities of the import function in R and set the decimal and column separator in the R code.</p>
+<p>To load the contents of file SP500.csv in R, use the <code>read.csv</code> function. </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set file to read</span>
+my.f &lt;-<span class="st"> &#39;data/SP500.csv&#39;</span>
+
+<span class="co"># read file</span>
+my.df.sp500 &lt;-<span class="st"> </span><span class="kw">read.csv</span>(my.f)
+
+<span class="co"># print it</span>
+<span class="kw">print</span>(<span class="kw">head</span>(my.df.sp500))</code></pre></div>
+<pre><code>##         date   price
+## 1 2010-01-04 1132.99
+## 2 2010-01-05 1136.52
+## 3 2010-01-06 1137.14
+## 4 2010-01-07 1141.69
+## 5 2010-01-08 1144.98
+## 6 2010-01-11 1146.98</code></pre>
+<p>The contents of the imported file are set as a <code>dataframe</code> object in R. As mentioned in the previous chapter, each column of a <code>dataframe</code> has a class. We can check the class of <code>my.df.sp500</code> using functions <code>class</code> and <code>sapply</code>. The latter is a special type of function that applies a procedure to several elements of a <code>list</code> or <code>dataframe</code>. In this case, we apply function <code>class</code> to each column of <code>my.df.sp500</code>. The use of <code>sapply</code> will be detailed in the chapter <a href="programming.html#programming">7</a>. The classes of the columns are presented next.  </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># print classes of all columns of my.df.sp500</span>
+<span class="kw">print</span>(<span class="kw">sapply</span>(my.df.sp500, class))</code></pre></div>
+<pre><code>##      date     price 
+##  &quot;factor&quot; &quot;numeric&quot;</code></pre>
+<p>Note that the column of dates (<code>date</code>) was imported as a <code>factor</code> vector, not as a <code>Date</code> object. This is a common mistake because, by default, function <code>read.csv</code> imports text data as factors. The problem is <code>factors</code> do not have the same properties as a <code>Date</code> object, and a bug is likely to occur once the user tries to manipulate the column.</p>
+<p>The solution for the problem is simple: indicate the class of columns with the <code>colClasses</code> input, as in the following code:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># read csv file with correct col classes</span>
+my.df.sp500 &lt;-<span class="st"> </span><span class="kw">read.csv</span>(my.f,  <span class="dt">colClasses =</span> <span class="kw">c</span>(<span class="st">&#39;Date&#39;</span>, <span class="st">&#39;numeric&#39;</span>))
+
+<span class="co"># print column classes</span>
+<span class="kw">print</span>(<span class="kw">sapply</span>(my.df.sp500, class))</code></pre></div>
+<pre><code>##      date     price 
+##    &quot;Date&quot; &quot;numeric&quot;</code></pre>
+<p>As we can see, the result is now correct. Another way to do it is to change the class of columns with the conversion functions <code>as.Date</code> and <code>as.numeric</code>:  </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># load raw data</span>
+my.df.sp500 &lt;-<span class="st"> </span><span class="kw">read.csv</span>(my.f)
+
+<span class="co"># convert columns to correct classes</span>
+my.df.sp500<span class="op">$</span>date &lt;-<span class="st"> </span><span class="kw">as.Date</span>(my.df.sp500<span class="op">$</span>date)
+my.df.sp500<span class="op">$</span>price &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(my.df.sp500<span class="op">$</span>price)
+
+<span class="co"># print column classes</span>
+<span class="kw">print</span>(<span class="kw">sapply</span>(my.df.sp500, class))</code></pre></div>
+<pre><code>##      date     price 
+##    &quot;Date&quot; &quot;numeric&quot;</code></pre>
+<p>Again, we got the desired result. As a rule of thumb, <strong>whenever data is imported into R, it is essential to verify the classes of the columns</strong>. You’ll be able to avoid many problems by simply checking the imported data.</p>
+<p>Going further, function <code>read.csv</code> has several other features in addition to those presented here. Using its inputs, you can set the column names, ignore the first <code>n</code> lines of the file, among many other possibilities. In most cases, however, the direct use of the function suffices.</p>
+<p>Another possibility for importing <em>.csv</em> files as <code>dataframes</code> in R is using function <code>read_csv</code> from package <code>readr</code> <span class="citation">(Wickham, Hester, and Francois <a href="#ref-readr">2016</a>)</span>. The biggest benefit of this function is it reads the data very quickly, and it uses a clever format for defining the classes of the columns. If you are dealing with many large files with several columns, using <code>readr::read_csv</code> is strongly advised. Consider the next example. </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(readr)
+
+<span class="co"># read file with readr::read_csv</span>
+my.df.sp500 &lt;-<span class="st"> </span><span class="kw">read_csv</span>(my.f)</code></pre></div>
+<pre><code>## Parsed with column specification:
+## cols(
+##   date = col_date(format = &quot;&quot;),
+##   price = col_double()
+## )</code></pre>
+<p>Notice how the previous code presented a message, entitled <code>Parsed with column specification:</code>. This message shows how the function set the attributes of the columns by reading the first 1000 lines of the file. We can use this information in our own code by copying the text and assigning it to a variable. Have a look:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(readr)
+
+<span class="co"># set cols from import message</span>
+my.cols &lt;-<span class="st"> </span><span class="kw">cols</span>(<span class="dt">date =</span> <span class="kw">col_date</span>(<span class="dt">format =</span> <span class="st">&quot;&quot;</span>),
+                <span class="dt">price =</span> <span class="kw">col_double</span>() ) 
+
+<span class="co"># read file with readr::read_csv</span>
+my.df.sp500 &lt;-<span class="st"> </span><span class="kw">read_csv</span>(my.f, <span class="dt">col_types =</span> my.cols)</code></pre></div>
+<p>Now, let’s check the classes of the column:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># print column classes</span>
+<span class="kw">print</span>(<span class="kw">sapply</span>(my.df.sp500, class))</code></pre></div>
+<pre><code>##      date     price 
+##    &quot;Date&quot; &quot;numeric&quot;</code></pre>
+<p>As expected, it looks good. Both columns have the expected format. So, a possible set of steps using <code>readr::read_csv</code> is, first, to read the file without arguments in <code>read_csv</code>, copy the default column classes from the output message, add it as argument <code>col_types</code>, and re-execute the script. This is handy when the imported file has several columns and manually defining each column class requires lots of typing.</p>
+</div>
+<div id="importing-data-from-an-excel-file" class="section level3">
+<h3><span class="header-section-number">6.1.2</span> Importing Data from an <em>Excel</em> File</h3>
+<p>In many situations, the data to be analysed is contained in a Microsoft Excel file, with <em>.xls</em> or <em>.xlsx</em> extension. Although it is not an efficient or portable data storage format, Excel is a very popular software in finance because of it spreadsheet-like capacities. It is not uncommon for data to be stored and distributed in this format.</p>
+<p>R does not have a native function for importing Excel files; therefore, we must install and use packages to perform this operation. There are several options, but the main packages are <code>XLConnect</code> <span class="citation">(Mirai Solutions GmbH <a href="#ref-xlsconnect2016">2016</a>)</span>, <code>xlsx</code> <span class="citation">(Dragulescu <a href="#ref-xlsx2014">2014</a>)</span>, <code>readxl</code> <span class="citation">(Wickham <a href="#ref-readxl2016">2016</a><a href="#ref-readxl2016">a</a>)</span> and <code>tidyxl</code> <span class="citation">(Garmonsway <a href="#ref-tidyxl">2017</a>)</span>.   </p>
+<p>Although the previous cited packages have similar goals, each has its peculiarities. If reading Excel files is important to your work, I strongly advise you study the differences between these packages. For example, package <code>tidyxl</code> was specially designed to read unstructured Excel files, where the desired information is not contained in the tabular format. Package <code>XLConnect</code> allows the user to open a live connection and control an Excel file from R, making it possible to export and send data, format cells, create graphics in Excel, and more.</p>
+<p>In this section, we will give priority to package <code>readxl</code>, one of the easiest and most straightforward packages to use. It also does not require the installation of external software such as <em>Java</em>. Let’s start with an example. Consider a file, called <code>SP500-Excel.xlsx</code>, that contains the same SP500 data as the previous example. We can import the information from the file using function <code>read_excel</code> from <code>readxl</code>: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(readxl)
+
+<span class="co"># set excel file</span>
+my.f &lt;-<span class="st"> &#39;data/SP500-Excel.xlsx&#39;</span>
+
+<span class="co"># read excel file </span>
+my.df &lt;-<span class="st"> </span><span class="kw">read_excel</span>(my.f, <span class="dt">sheet =</span> <span class="st">&#39;sp500-prices&#39;</span>)
+
+<span class="co"># print classes</span>
+<span class="kw">print</span>(<span class="kw">sapply</span>(my.df, class))</code></pre></div>
+<pre><code>## $date
+## [1] &quot;POSIXct&quot; &quot;POSIXt&quot; 
+## 
+## $price
+## [1] &quot;numeric&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># print with head (first five rows)</span>
+<span class="kw">print</span>(<span class="kw">head</span>(my.df))</code></pre></div>
+<pre><code>## # A tibble: 6 × 2
+##         date   price
+##       &lt;dttm&gt;   &lt;dbl&gt;
+## 1 2010-01-04 1132.99
+## 2 2010-01-05 1136.52
+## 3 2010-01-06 1137.14
+## 4 2010-01-07 1141.69
+## 5 2010-01-08 1144.98
+## 6 2010-01-11 1146.98</code></pre>
+<p>As we can see, one of the benefits of using Excel files is the classes of the columns are taken from the classes in the Excel file. That is, if the classes are correct in Excel, then they will automatically be correct in R. In our case, the date column of file data/SP500-Excel.xlsx was correctly set as a <code>POSIXct</code> object. Likewise, even if the Excel file used commas for decimals, the import process would still be successful as the conversion is handled internally.</p>
+<p>The downside of using Excel files for storing data is its low portability and the longer time required to read it. This may not be a problem for small datasets, but when handling a large volume of data, using Excel files can be very frustrating, and it is not advised.</p>
+</div>
+<div id="importing-data-from-a-.rdata-file" class="section level3">
+<h3><span class="header-section-number">6.1.3</span> Importing Data from a <em>.RData</em> File</h3>
+<p>R has a native format to save objects from the environment to a local file with extension <em>.RData</em>. The great benefit in using this format is the saved file is compact, and its access is fast. The downside is it has low portability, i.e., it can be difficult to use the files in other software. </p>
+<p>To create a new <em>.RData</em> file, use the <code>save</code> function, and to load the data file, use the <code>load</code> function. See the following example, where we create a <em>.RData</em> file with some content, clear R’s memory, and then load the previously created file:  </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set a object</span>
+my.x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">100</span>
+
+<span class="co"># set name of RData file</span>
+my.file &lt;-<span class="st"> &#39;data/temp.RData&#39;</span>
+
+<span class="co"># save it</span>
+<span class="kw">save</span>(<span class="dt">list =</span> <span class="kw">c</span>(<span class="st">&#39;my.x&#39;</span>), <span class="dt">file =</span> my.file)</code></pre></div>
+<p>We can verify the existence of the file with the <code>list.files</code> function: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># print contents of data folder</span>
+<span class="kw">print</span>(<span class="kw">list.files</span>(<span class="st">&#39;data&#39;</span>))</code></pre></div>
+<pre><code>##  [1] &quot;AdjustedPrices-InternacionalIndices.RDATA&quot;
+##  [2] &quot;BovStocks_2011-12-01_2016-11-29.csv&quot;      
+##  [3] &quot;BovStocks_2011-12-01_2016-11-29.RData&quot;    
+##  [4] &quot;example_gethfdata.RDATA&quot;                  
+##  [5] &quot;FileWithLatinChar.txt&quot;                    
+##  [6] &quot;grunfeld.csv&quot;                             
+##  [7] &quot;HFData.csv&quot;                               
+##  [8] &quot;HFData_6_Assets_15 min.RData&quot;             
+##  [9] &quot;MktIndices_and_Symbols.csv&quot;               
+## [10] &quot;MySQLiteDatabase.SQLITE&quot;                  
+## [11] &quot;SP500-Excel.xlsx&quot;                         
+## [12] &quot;SP500-Stocks-WithRet.RData&quot;               
+## [13] &quot;SP500-Stocks_long.csv&quot;                    
+## [14] &quot;SP500-Stocks_wide.csv&quot;                    
+## [15] &quot;SP500.csv&quot;                                
+## [16] &quot;SP500_2011-11-13_2016-11-11.csv&quot;          
+## [17] &quot;TDData.csv&quot;                               
+## [18] &quot;temp.csv&quot;                                 
+## [19] &quot;temp.RData&quot;                               
+## [20] &quot;temp.txt&quot;                                 
+## [21] &quot;temp.xlsx&quot;                                
+## [22] &quot;temp_xts.RData&quot;</code></pre>
+<p>As expected, the data/temp.RData file is available, along with several others. Now, let’s clear the memory and load the <em>.RData</em> file created in the previous step.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># clear environment</span>
+<span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">ls</span>())
+
+<span class="co"># load file</span>
+<span class="kw">load</span>(<span class="dt">file =</span> <span class="st">&#39;data/temp.RData&#39;</span>)
+
+<span class="co"># print all objects in environment</span>
+<span class="kw">print</span>(<span class="kw">ls</span>())</code></pre></div>
+<pre><code>## [1] &quot;my.x&quot;</code></pre>
+<p>We can see object <code>my.x</code> was recovered, and it is available in the environment.</p>
+</div>
+<div id="importing-data-from-sqlite" class="section level3">
+<h3><span class="header-section-number">6.1.4</span> Importing Data from SQLITE</h3>
+<p>The use of <em>.csv</em> or <em>.RData</em> files for storing datasets has its limits as the size of the files increases. If you are waiting a long time to read a <code>dataframe</code> from a file, you should look for alternatives. Likewise, if you are working in a network of computers and many people are using the same data, it makes sense to keep and distribute the information from a central server. This way, every user can have access to the same information concurrently.</p>
+<p>This brings us to the topic of <em>database software</em>. These specific programs usually work with a query language, called <em>SQL</em> (<em>Structured Query Language</em>). It allows the user to read portions of the data and even manipulate it efficiently. There are many options of database software that integrates nicely with R. The list includes <strong>mySQL</strong>, <strong>SQLite</strong> and <strong>MariaDB</strong>. Here, we will provide a quick tutorial on this topic, using SQLITE, which is the easiest one to work with, as it doesn’t need any server configuration.   </p>
+<p>Before moving to the examples, we need to understand how to use database software. First, R will connect to the database and return a connection object. Based on this connection, we will send queries for importing data from this database using a <em>SQL</em> language. The main advantage is we can have a large database of, let’s say, 10 GB and only load a small portion of it in R. This operation is also very quick, allowing efficient access to the available tables.</p>
+<p>As an example, let’s first create a SQLITE database. For that, we will set two large <code>dataframes</code> with random data and save both in a SQLITE file using package <code>RSQLite</code>. </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(RSQLite)
+
+<span class="co"># set number of rows in df</span>
+N =<span class="st"> </span><span class="dv">10</span><span class="op">^</span><span class="dv">6</span> 
+
+<span class="co"># create simulated dataframe</span>
+my.large.df.<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">x=</span><span class="kw">runif</span>(N), 
+                            <span class="dt">G=</span> <span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&#39;A&#39;</span>,<span class="st">&#39;B&#39;</span>),
+                                      <span class="dt">size =</span> N,
+                                      <span class="dt">replace =</span> <span class="ot">TRUE</span>))
+
+my.large.df.<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">x=</span><span class="kw">runif</span>(N), 
+                            <span class="dt">G =</span> <span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&#39;A&#39;</span>,<span class="st">&#39;B&#39;</span>),
+                                       <span class="dt">size =</span> N,
+                                       <span class="dt">replace =</span> <span class="ot">TRUE</span>))
+
+<span class="co"># set name of SQLITE file</span>
+f.sqlite &lt;-<span class="st"> &#39;data/MySQLiteDatabase.SQLITE&#39;</span>
+
+<span class="co"># open connection</span>
+my.con &lt;-<span class="st"> </span><span class="kw">dbConnect</span>(<span class="dt">drv =</span> <span class="kw">SQLite</span>(), f.sqlite)
+
+<span class="co"># write df to sqlite</span>
+<span class="kw">dbWriteTable</span>(<span class="dt">conn =</span> my.con, <span class="dt">name =</span> <span class="st">&#39;MyTable1&#39;</span>, <span class="dt">value =</span> my.large.df.<span class="dv">1</span>)</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dbWriteTable</span>(<span class="dt">conn =</span> my.con, <span class="dt">name =</span> <span class="st">&#39;MyTable2&#39;</span>, <span class="dt">value =</span> my.large.df.<span class="dv">2</span>)</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># disconnect</span>
+<span class="kw">dbDisconnect</span>(my.con)</code></pre></div>
+<p>The <code>TRUE</code> output of <code>dbWriteTable</code> indicates everything went well. A connection was opened using function <code>dbConnect</code>, and the <code>dataframes</code> were written to a SQLITE file, called data/MySQLiteDatabase.SQLITE. Unlike other database software, SQLITE stores data and configurations from a single file, without the need of a formal server. Also, notice how we disconnected from the database with function <code>dbDisconnect</code>.   </p>
+<p>Now, let’s use the previously created file to read the tables back into R.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set name of SQLITE file</span>
+f.sqlite &lt;-<span class="st"> &#39;data/MySQLiteDatabase.SQLITE&#39;</span>
+
+<span class="co"># open connection</span>
+my.con &lt;-<span class="st"> </span><span class="kw">dbConnect</span>(<span class="dt">drv =</span> <span class="kw">SQLite</span>(), f.sqlite)
+
+<span class="co"># read table</span>
+my.df &lt;-<span class="st"> </span><span class="kw">dbReadTable</span>(<span class="dt">conn =</span> my.con, <span class="dt">name =</span> <span class="st">&#39;MyTable1&#39;</span>)
+
+<span class="co"># print with str</span>
+<span class="kw">print</span>(<span class="kw">str</span>(my.df))</code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    1000000 obs. of  2 variables:
+##  $ x: num  0.5356 0.0931 0.1698 0.8998 0.4226 ...
+##  $ G: chr  &quot;B&quot; &quot;B&quot; &quot;A&quot; &quot;A&quot; ...
+## NULL</code></pre>
+<p>It worked. The <code>dataframe</code> is exactly as expected. </p>
+<p>Another example of using SQLITE is with the actual SQL statements. Notice, in the previous code, we used function <code>dbReadTable</code> to get the contents of all rows in table <code>MyTable1</code>. Now, lets use an SQL command to get only the rows where the <code>G</code> column is equal to <code>A</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set sql statement</span>
+my.SQL &lt;-<span class="st"> &quot;select * from myTable2 where G=&#39;A&#39;&quot;</span>
+
+<span class="co"># get query</span>
+my.df.A &lt;-<span class="st"> </span><span class="kw">dbGetQuery</span>(<span class="dt">conn =</span> my.con, <span class="dt">statement =</span> my.SQL)
+
+<span class="co"># disconnect from db</span>
+<span class="kw">dbDisconnect</span>(my.con)
+
+<span class="co"># print with str</span>
+<span class="kw">print</span>(<span class="kw">str</span>(my.df.A))</code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    500154 obs. of  2 variables:
+##  $ x: num  0.0064 0.4769 0.4825 0.1253 0.7501 ...
+##  $ G: chr  &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; ...
+## NULL</code></pre>
+<p>It also worked as expected.</p>
+<p>In this simple example, we can see how easy it is to create a connection to a database, retrieve tables, and disconnect. If you have to work with large datasets, which, in my opinion is any database that occupies more than 4 GB of your computer memory, it is worth moving it to proper database software. You’ll be able to retrieve data fast, without the need of loading the whole database in the computer’s memory. If you have a server available in your workplace, I strongly advise learning how to connect to it and use the SQL language to your advantage. There are many other ways you can query and manipulate data using SQL. Several tutorials are available in the internet.</p>
+</div>
+<div id="importing-data-from-a-text-file" class="section level3">
+<h3><span class="header-section-number">6.1.5</span> Importing Data from a Text File</h3>
+<p>In some cases, we are faced with data stored in a non-structured format, usually as raw text files. You can read the contents of a text file with function <code>readLines</code>. See next: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set file to read</span>
+my.f &lt;-<span class="st"> &#39;data/SP500.csv&#39;</span>
+
+<span class="co"># read file line by line</span>
+my.txt &lt;-<span class="st"> </span><span class="kw">readLines</span>(my.f)
+
+<span class="co"># print first five lines</span>
+<span class="kw">print</span>(my.txt[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>])</code></pre></div>
+<pre><code>## [1] &quot;\&quot;date\&quot;,\&quot;price\&quot;&quot;     &quot;2010-01-04,1132.98999&quot; 
+## [3] &quot;2010-01-05,1136.52002&quot;  &quot;2010-01-06,1137.140015&quot;
+## [5] &quot;2010-01-07,1141.689941&quot;</code></pre>
+<p>In this example, we imported the entire content of file <code>SP500.csv</code> as a <code>character</code> vector named <code>my.txt</code>. Each element of <code>my.txt</code> is a line of <code>SP500.csv</code>. If needed, we could write a routine to process each line, separating the columns with the <code>strsplit</code> function and saving the information of interest to another object. </p>
+</div>
+<div id="other-file-formats" class="section level3">
+<h3><span class="header-section-number">6.1.6</span> Other File Formats</h3>
+<p>Using the import functions for files with extensions <em>.csv</em>, <em>.xlsx</em> and <em>.RData</em> is sufficient in most situations. Nonetheless, it is worth noting R has specific functions for other, less popular, formats. This includes files exported from other statistical software, such as SPSS, SAS, Matlab, Eviews, among many others. If you are required to read files from different software, I suggest a thorough study of package <code>foreign</code> <span class="citation">(R Core Team <a href="#ref-RCoreTeam2015foreign">2015</a>)</span>.</p>
+</div>
+</div>
+<div id="importing-data-using-the-internet" class="section level2">
+<h2><span class="header-section-number">6.2</span> Importing Data Using the Internet</h2>
+<p>One of the great advantages of using R for data analysis is the amount of data that can be imported over the web. This is practical because a database can be downloaded or updated with a simple command, avoiding all the manual and tedious work of collecting data manually. It is also easy to share code, as anyone can download the exact same dataset with a single line of code.</p>
+<p>In most cases, the importation of financial data from the web is performed using specific packages. For Finance, there are several packages with this purpose. Here, we will describe the main packages: <code>quantmod</code>, <code>BatchGetSymbols</code>, <code>finreportr</code>, <code>tidyquant</code>, <code>GetHFData</code>, <code>ustyc</code>, <code>Quandl</code> and <code>Rbitcoin</code>.</p>
+<div id="package-quantmod" class="section level3">
+<h3><span class="header-section-number">6.2.1</span> Package <code>quantmod</code></h3>
+<p>To import daily trade data of stocks, one of the most popular packages is <code>quantmod</code> <span class="citation">(Ryan <a href="#ref-quantmod2015">2015</a>)</span>. You can download information for a huge number of stocks from different sources, such as <em>Yahoo Finance</em> and <em>Google Finance</em>. </p>
+<p>In the following example, we will get data for the FTSE equity index using function <code>getSymbols</code>. In this case, a simple search on the <a href="https://finance.yahoo.com/">Yahoo Finance site</a> shows its code is <code>^FTSE</code>. See the next example. </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(quantmod)
+
+<span class="co"># get data for FTSE</span>
+my.df &lt;-<span class="st"> </span><span class="kw">getSymbols</span>(<span class="dt">Symbols =</span> <span class="st">&#39;^FTSE&#39;</span>, <span class="dt">auto.assign =</span> <span class="ot">FALSE</span>)
+
+<span class="co"># print last rows</span>
+<span class="kw">print</span>(<span class="kw">tail</span>(my.df))</code></pre></div>
+<pre><code>##            FTSE.Open FTSE.High FTSE.Low FTSE.Close
+## 2017-04-21    7118.5    7134.5   7104.2     7114.6
+## 2017-04-24    7114.6    7273.9   7114.6     7264.7
+## 2017-04-25    7264.7    7290.8   7258.7     7275.6
+## 2017-04-26    7275.6    7302.6   7262.3     7288.7
+## 2017-04-27    7288.7    7289.4   7224.4     7237.2
+## 2017-04-28    7237.2    7243.3   7197.3     7203.9
+##            FTSE.Volume FTSE.Adjusted
+## 2017-04-21   896918700        7114.6
+## 2017-04-24  1027266000        7264.7
+## 2017-04-25   835369300        7275.6
+## 2017-04-26   860455200        7288.7
+## 2017-04-27  1094741200        7237.2
+## 2017-04-28  1148718800        7203.9</code></pre>
+<p>In the call to <code>getSymbols</code>, we used argument <code>auto.assign = F</code>. This forces the function to save the data to object <code>my.df</code> and not auto-assign the data to a new object with the name of the asset. Notice the last date of the imported data is 2017-04-28, which is the last date when markets were opened in the UK at the time of the compilation of the book. The imported data includes the opening price (<code>Open</code>), maximum price (<code>High</code>), minimum (<code>Low</code>), closing price (<code>Close</code>), trading volume (<code>Volume</code>), and the adjusted price (<code>Adjusted</code>). All data is in the daily frequency, and each column shows different information about the trade prices of a stock. In <code>my.df</code>, the only column with not so obvious content is <code>Adjusted</code>. It contains closing prices adjusted to dividends, split, and inplits. These are events that can artificially change a stock price. We discussed these issues in chapter <a href="Financial-data.html#Financial-data">5</a>.</p>
+<p>Some attention is required when downloading trade data for some exchanges. Yahoo Finance has specific codes for specific markets. As an example, all tickers from the Brazilian equity market have the <code>.SA</code> text attached to their original ticker. So, stock <code>PETR4</code> becomes <code>PETR4.SA</code>. You should investigate if Yahoo Finance has a particular format for the market you are interested. You can do that by looking for the tickers in the <a href="https://finance.yahoo.com/">website</a>.</p>
+<p>While downloading data for one asset can be useful, in most data analysis cases, we will be interested in downloading and analyzing information for several stocks. To perform a batch download of stock data with <code>quantmod</code>, it is necessary to create a new <em>enviroment</em>. This process, however, is quite simple. See the next example, where we download data for Microsoft (MSFT), Google (GOOGL), JP-Morgan (JPM), and General Electric (GE): </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set tickers</span>
+my.tickers &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;MSFT&#39;</span>,<span class="st">&#39;GOOGL&#39;</span>,<span class="st">&#39;JPM&#39;</span>,<span class="st">&#39;GE&#39;</span>)
+
+<span class="co"># create new environment</span>
+my.env &lt;-<span class="st"> </span><span class="kw">new.env</span>()
+
+<span class="co"># download fin data and save to my.env</span>
+<span class="kw">getSymbols</span>(<span class="dt">Symbols =</span> my.tickers, <span class="dt">env =</span> my.env)</code></pre></div>
+<pre><code>## [1] &quot;MSFT&quot;  &quot;GOOGL&quot; &quot;JPM&quot;   &quot;GE&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># print objects in my.env</span>
+<span class="kw">print</span>(<span class="kw">names</span>(my.env))</code></pre></div>
+<pre><code>## [1] &quot;JPM&quot;         &quot;GOOGL&quot;       &quot;GE&quot;          &quot;.getSymbols&quot;
+## [5] &quot;MSFT&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># print contents of MSFT</span>
+<span class="kw">print</span>(<span class="kw">tail</span>(my.env<span class="op">$</span>MSFT))</code></pre></div>
+<pre><code>##            MSFT.Open MSFT.High MSFT.Low MSFT.Close
+## 2017-04-21     65.67     66.70    65.45      66.40
+## 2017-04-24     67.48     67.66    67.10      67.53
+## 2017-04-25     67.90     68.04    67.60      67.92
+## 2017-04-26     68.08     68.31    67.62      67.83
+## 2017-04-27     68.15     68.38    67.58      68.27
+## 2017-04-28     68.91     69.14    67.69      68.46
+##            MSFT.Volume MSFT.Adjusted
+## 2017-04-21    32390600         66.40
+## 2017-04-24    29715500         67.53
+## 2017-04-25    30087700         67.92
+## 2017-04-26    25704400         67.83
+## 2017-04-27    33464900         68.27
+## 2017-04-28    39423500         68.46</code></pre>
+<p>The previous code downloads data for all tickers in <code>my.tickers</code>. The resulting <code>dataframe</code> objects are available in environment <code>my.env</code>, and we can access them using operator <code>$</code>. There are easier ways of organizing financial data for several tickers, as we will soon learn. Ideally, we should have all stocks in a long <code>dataframe</code>.</p>
+</div>
+<div id="package-batchgetsymbols" class="section level3">
+<h3><span class="header-section-number">6.2.2</span> Package <code>BatchGetSymbols</code></h3>
+<p>Another possibility for downloading financial data from Yahoo Finance and Google Finance is package <code>BatchGetSymbols</code> <span class="citation">(Perlin <a href="#ref-BatchGetSymbols">2016</a>)</span>. The main difference between <code>BatchGetSymbols</code> and <code>quantmod</code> is it organizes the dataset in a structured way. All the financial data from different tickers is kept in the same <code>dataframe</code>, facilitating further analysis. </p>
+<p>Look at the following example, where we download financial data regarding four stocks for the previous 30 days using function <code>BatchGetSymbols</code>. </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(BatchGetSymbols)
+
+<span class="co"># set tickers</span>
+my.tickers &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;MSFT&#39;</span>,<span class="st">&#39;GOOGL&#39;</span>,<span class="st">&#39;JPM&#39;</span>,<span class="st">&#39;GE&#39;</span>)
+
+<span class="co"># set dates</span>
+first.date &lt;-<span class="st"> </span><span class="kw">Sys.Date</span>()<span class="op">-</span><span class="dv">30</span>
+last.date &lt;-<span class="st"> </span><span class="kw">Sys.Date</span>()
+
+l.out &lt;-<span class="st"> </span><span class="kw">BatchGetSymbols</span>(<span class="dt">tickers =</span> my.tickers,
+                         <span class="dt">first.date =</span> first.date,
+                         <span class="dt">last.date =</span> last.date)</code></pre></div>
+<pre><code>## 
+## Running BatchGetSymbols for:
+##    tickers = MSFT, GOOGL, JPM, GE
+##    Downloading data for benchmark ticker
+## Downloading Data for MSFT from yahoo (1|4) - Good stuff!
+## Downloading Data for GOOGL from yahoo (2|4) - Nice!
+## Downloading Data for JPM from yahoo (3|4) - OK!
+## Downloading Data for GE from yahoo (4|4) - Got it!</code></pre>
+<p>The output of <code>BatchGetSymbols</code> is a <code>list</code>, where element <code>df.control</code> contains a <code>dataframe</code> with the result of the download process. The package not only downloads the data, but also keeps track of possible errors and missing values. Let’s see the content of this <code>dataframe</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># print result of download process</span>
+<span class="kw">print</span>(l.out<span class="op">$</span>df.control)</code></pre></div>
+<pre><code>##   ticker   src download.status total.obs
+## 1   MSFT yahoo              OK        21
+## 2  GOOGL yahoo              OK        21
+## 3    JPM yahoo              OK        21
+## 4     GE yahoo              OK        21
+##   perc.benchmark.dates threshold.decision
+## 1                    1               KEEP
+## 2                    1               KEEP
+## 3                    1               KEEP
+## 4                    1               KEEP</code></pre>
+<p>Object <code>df.control</code> shows all tickers were valid, and we got 21 observations (rows) for each.</p>
+<p>As for the actual financial data, it is contained in element <code>df.tickers</code> of <code>l.out</code>. Let’s look:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># print df.tickers</span>
+<span class="kw">print</span>(<span class="kw">tail</span>(l.out<span class="op">$</span>df.tickers))</code></pre></div>
+<pre><code>##    price.open price.high price.low price.close   volume
+## 79      30.27      30.38     29.45       29.55 71936900
+## 80      29.85      29.93     29.49       29.55 47640000
+## 81      29.45      29.60     29.32       29.45 39764600
+## 82      29.52      29.55     29.26       29.26 36606000
+## 83      29.29      29.31     29.02       29.08 32777900
+## 84      29.10      29.16     28.93       28.99 23929100
+##    price.adjusted   ref.date ticker
+## 79          29.55 2017-04-21     GE
+## 80          29.55 2017-04-24     GE
+## 81          29.45 2017-04-25     GE
+## 82          29.26 2017-04-26     GE
+## 83          29.08 2017-04-27     GE
+## 84          28.99 2017-04-28     GE</code></pre>
+<p>As expected, the information about prices and volume is there. Notice it also includes a column, called <code>ticker</code>, containing the symbols of the stocks. Later, in chapter <a href="programming.html#programming">7</a>, we will use this column to make calculations for each stock in our dataset.</p>
+<p>Another useful function of <code>BatchGetSymbols</code> is <code>GetSP500Stocks</code>, which imports the current composition of the SP500 index, including the tickers of the stocks. So, by using <code>GetSP500Stocks</code> and <code>BatchGetSymbols</code> together, you can easily download a large amount of stock data for the US market. Consider the following chunk of code, where we performed such operation:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(BatchGetSymbols)
+
+<span class="co"># set tickers</span>
+my.tickers &lt;-<span class="st"> </span><span class="kw">GetSP500Stocks</span>()<span class="op">$</span>ticker
+
+<span class="co"># set dates</span>
+first.date &lt;-<span class="st"> </span><span class="kw">Sys.Date</span>()<span class="op">-</span><span class="dv">30</span>
+last.date &lt;-<span class="st"> </span><span class="kw">Sys.Date</span>()
+
+l.out &lt;-<span class="st"> </span><span class="kw">BatchGetSymbols</span>(<span class="dt">tickers =</span> my.tickers,
+                         <span class="dt">first.date =</span> first.date,
+                         <span class="dt">last.date =</span> last.date)</code></pre></div>
+<p>Be aware running the previous code takes time, but once you have the data, you can save it locally and use it in a future study.</p>
+</div>
+<div id="package-finreportr" class="section level3">
+<h3><span class="header-section-number">6.2.3</span> Package <code>finreportr</code></h3>
+<p>Package <code>finreportr</code> <span class="citation">(Lee <a href="#ref-finreportr">2016</a>)</span> is designed to download financial data from the U.S. Securities and Exchange Commission. Every company with traded assets in the American market is required to file information with government agencies, including financial statements (see chapter <a href="Financial-data.html#Financial-data">5</a>). What <code>finreportr</code> does is use webscraping tools to access and acquire this information from the SEC website. First, let’s look at the available functions. </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(finreportr)
+
+<span class="co"># print available functions in finreportr</span>
+<span class="kw">ls</span>(<span class="st">&#39;package:finreportr&#39;</span>)</code></pre></div>
+<pre><code>## [1] &quot;AnnualReports&quot;   &quot;CompanyInfo&quot;     &quot;GetBalanceSheet&quot;
+## [4] &quot;GetCashFlow&quot;     &quot;GetIncome&quot;</code></pre>
+<p>We have 5 functions at our disposal. Let’s try function <code>CompanyInfo</code> for Facebook (FB):</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my.ticker &lt;-<span class="st"> &#39;FB&#39;</span>
+info &lt;-<span class="st"> </span><span class="kw">CompanyInfo</span>(my.ticker)
+<span class="kw">print</span>(info)</code></pre></div>
+<pre><code>##        company        CIK  SIC state state.inc FY.end
+## 1 Facebook Inc 0001326801 7370    CA        DE   1231
+##     street.address          city.state
+## 1 1601 WILLOW ROAD MENLO PARK CA 94025</code></pre>
+<p>As we can see, the formal name of Facebook is Facebook Inc, and its registered address is 1601 WILLOW ROAD, MENLO PARK CA 94025. We can access the income statement of a traded company using function <code>GetIncome</code>. Let’s give it a try:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set final year</span>
+my.year &lt;-<span class="st"> </span><span class="dv">2016</span>
+
+<span class="co"># get income for FB</span>
+my.income &lt;-<span class="st"> </span><span class="kw">GetIncome</span>(my.ticker, my.year)
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(<span class="kw">head</span>(my.income))</code></pre></div>
+<pre><code>##            Metric Units      Amount  startDate    endDate
+## 1        Revenues   usd  7872000000 2013-01-01 2013-12-31
+## 2        Revenues   usd 12466000000 2014-01-01 2014-12-31
+## 3        Revenues   usd 17928000000 2015-01-01 2015-12-31
+## 4 Cost of Revenue   usd  1875000000 2013-01-01 2013-12-31
+## 5 Cost of Revenue   usd  2153000000 2014-01-01 2014-12-31
+## 6 Cost of Revenue   usd  2867000000 2015-01-01 2015-12-31</code></pre>
+<p>Let’s see what types of financial information we find in the <code>Metric</code> column. We will cut off the size of the text so it fits the book page nicelly.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># get unique fields</span>
+unique.fields &lt;-<span class="st"> </span><span class="kw">unique</span>(my.income<span class="op">$</span>Metric)
+
+<span class="co"># cut size of string</span>
+unique.fields &lt;-<span class="st"> </span><span class="kw">substr</span>(unique.fields,<span class="dv">1</span>, <span class="dv">60</span>)
+
+<span class="co"># print result</span>
+<span class="kw">print</span>(unique.fields)</code></pre></div>
+<pre><code>##  [1] &quot;Revenues&quot;                                                    
+##  [2] &quot;Cost of Revenue&quot;                                             
+##  [3] &quot;Research and Development Expense&quot;                            
+##  [4] &quot;Selling and Marketing Expense&quot;                               
+##  [5] &quot;General and Administrative Expense&quot;                          
+##  [6] &quot;Costs and Expenses&quot;                                          
+##  [7] &quot;Operating Income (Loss)&quot;                                     
+##  [8] &quot;Nonoperating Income (Expense)&quot;                               
+##  [9] &quot;Income (Loss) from Continuing Operations before Income Taxes&quot;
+## [10] &quot;Income Tax Expense (Benefit)&quot;                                
+## [11] &quot;Net Income (Loss) Attributable to Parent&quot;                    
+## [12] &quot;Undistributed Earnings (Loss) Allocated to Participating Sec&quot;
+## [13] &quot;Net Income (Loss) Available to Common Stockholders, Basic&quot;   
+## [14] &quot;Earnings Per Share, Basic&quot;                                   
+## [15] &quot;Earnings Per Share, Diluted&quot;                                 
+## [16] &quot;Weighted Average Number of Shares Outstanding, Basic&quot;        
+## [17] &quot;Weighted Average Number of Shares Outstanding, Diluted&quot;      
+## [18] &quot;Allocated Share-based Compensation Expense&quot;</code></pre>
+<p>We have not only revenues and earnings per share but plenty more. We could use function <code>GetIncome</code> to download and store income information about US companies in a large scale.</p>
+<p>Let’s see how each Facebook investor was financially compensated in the previous years:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set col and date</span>
+my.col &lt;-<span class="st"> &#39;Earnings Per Share, Basic&#39;</span>
+
+<span class="co"># print earnings per share</span>
+<span class="kw">print</span>(my.income[my.income<span class="op">$</span>Metric <span class="op">==</span><span class="st"> </span>my.col, ])</code></pre></div>
+<pre><code>##                       Metric       Units Amount  startDate
+## 40 Earnings Per Share, Basic usdPerShare   0.62 2013-01-01
+## 41 Earnings Per Share, Basic usdPerShare   1.12 2014-01-01
+## 42 Earnings Per Share, Basic usdPerShare   1.31 2015-01-01
+##       endDate
+## 40 2013-12-31
+## 41 2014-12-31
+## 42 2015-12-31</code></pre>
+<p>From the data, we can see Facebook investors received an increasing earning per share throughout the years. This is interesting as, in the past, there was some disbelief in the capacity of the company in generating cash flow. The financial data indicates that this was not the case.</p>
+<p>An interesting aspect of <code>finreportr</code> is it works using tickers as input. You can easily merge information from this package with information in other datasets, such as equity prices from Yahoo Finance.</p>
+</div>
+<div id="package-tidyquant" class="section level3">
+<h3><span class="header-section-number">6.2.4</span> Package <code>tidyquant</code></h3>
+<p>Package <code>tidyquant</code> provides functions related to financial data acquisition and processing. It is an ambitious project that offers many solutions in the field of finance. The package is designed to interact well with the <em>tidyverse</em> format, also know as the <em>long</em> format, discussed in chapter <a href="DataStructureObjects.html#DataStructureObjects">4</a>. </p>
+<p>The package includes functions for obtaining financial data from the web, manipulation of financial data, and the calculation of performance measures of portfolios. It also integrates nicely with the pipeline operator, which will be discussed in chapter <a href="programming.html#programming">7</a>.</p>
+<p>In its current version, <code>tidyquant</code> has 47 functions. Let’s look at its main functionalities. First, we will obtain price data for Apple stocks (AAPL) using function <code>tq_get</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyquant)
+
+<span class="co"># set stock and dates</span>
+my.ticker &lt;-<span class="st"> &#39;AAPL&#39;</span>
+first.date &lt;-<span class="st"> &#39;2017-01-01&#39;</span>
+last.date &lt;-<span class="st">  </span><span class="kw">Sys.Date</span>()
+
+<span class="co"># get data with tq_get</span>
+my.df &lt;-<span class="st"> </span><span class="kw">tq_get</span>(my.ticker,
+                <span class="dt">get =</span> <span class="st">&quot;stock.prices&quot;</span>, 
+                <span class="dt">from =</span> first.date, 
+                <span class="dt">to =</span> last.date)
+
+<span class="kw">print</span>(<span class="kw">tail</span>(my.df))</code></pre></div>
+<pre><code>## # A tibble: 6 × 7
+##         date   open   high    low  close   volume adjusted
+##       &lt;date&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;
+## 1 2017-04-21 142.44 142.68 141.85 142.27 17245200   142.27
+## 2 2017-04-24 143.50 143.95 143.18 143.64 17099200   143.64
+## 3 2017-04-25 143.91 144.90 143.87 144.53 18290300   144.53
+## 4 2017-04-26 144.47 144.60 143.38 143.68 19769400   143.68
+## 5 2017-04-27 143.92 144.16 143.31 143.79 14106100   143.79
+## 6 2017-04-28 144.09 144.30 143.27 143.65 20763500   143.65</code></pre>
+<p>As we can see, the price data is the same as using <code>quantmod</code> and <code>BatchGetSymbols</code>. In fact, the origin of it is the same, Yahoo Finance. One interesting aspect of <code>tidyquant</code> is the same function, <code>tq_get</code>, can be used to download other financial information from different sources, such as Google Finance, Morning Star, FRED, and Oanda. For example, we can download key financial ratios from Morning Star by setting <code>get='key.ratios'</code> in <code>tq_get</code>. </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># get key financial rations of AAPL</span>
+df.key.ratios &lt;-<span class="st"> </span><span class="kw">tq_get</span>(<span class="st">&quot;AAPL&quot;</span>,<span class="dt">get =</span> <span class="st">&quot;key.ratios&quot;</span>)
+
+<span class="co"># print it</span>
+<span class="kw">print</span>(df.key.ratios)           </code></pre></div>
+<pre><code>## # A tibble: 7 × 2
+##             section               data
+##               &lt;chr&gt;             &lt;list&gt;
+## 1        Financials &lt;tibble [150 × 5]&gt;
+## 2     Profitability &lt;tibble [170 × 5]&gt;
+## 3            Growth &lt;tibble [160 × 5]&gt;
+## 4         Cash Flow  &lt;tibble [50 × 5]&gt;
+## 5  Financial Health &lt;tibble [240 × 5]&gt;
+## 6 Efficiency Ratios  &lt;tibble [80 × 5]&gt;
+## 7  Valuation Ratios  &lt;tibble [40 × 5]&gt;</code></pre>
+<p>Object <code>df.key.ratios</code> offers fundamental information about Apple. In this case, the output is an object of class <code>tibble</code>, a special type of <code>dataframe</code>. Column <code>data</code> in <code>df.key.ratios</code> is a <code>list-column</code>, allowing objects other than single values to take an element in the table. Its behaviour is the same as for other <code>list</code> objects. For example, we can look into the profitability section with the following notation:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># get profitability table</span>
+df.profitability &lt;-<span class="st"> </span>df.key.ratios<span class="op">$</span>data[[<span class="dv">2</span>]]
+
+<span class="co"># print it</span>
+<span class="kw">print</span>(<span class="kw">tail</span>(df.profitability))</code></pre></div>
+<pre><code>## # A tibble: 6 × 5
+##     sub.section group          category       date  value
+##           &lt;chr&gt; &lt;dbl&gt;             &lt;chr&gt;     &lt;date&gt;  &lt;dbl&gt;
+## 1 Profitability    32 Interest Coverage 2011-09-01     NA
+## 2 Profitability    32 Interest Coverage 2012-09-01     NA
+## 3 Profitability    32 Interest Coverage 2013-09-01 369.79
+## 4 Profitability    32 Interest Coverage 2014-09-01 140.28
+## 5 Profitability    32 Interest Coverage 2015-09-01  99.93
+## 6 Profitability    32 Interest Coverage 2016-09-01  43.15</code></pre>
+<p>A novel and noteworthy aspect of <code>tidyquant</code> is the access to information about US stock exchanges using function <code>tq_exchange</code>. Look at the next example, where we access information about all stocks traded in AMEX. </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># get stocks in AMEX</span>
+<span class="kw">print</span>(<span class="kw">head</span>(<span class="kw">tq_exchange</span>(<span class="st">&#39;AMEX&#39;</span>)))</code></pre></div>
+<pre><code>## # A tibble: 6 × 7
+##   symbol
+##    &lt;chr&gt;
+## 1   XXII
+## 2    FAX
+## 3    IAF
+## 4     CH
+## 5    ABE
+## 6    FCO
+## # ... with 6 more variables: company &lt;chr&gt;,
+## #   last.sale.price &lt;dbl&gt;, market.cap &lt;chr&gt;,
+## #   ipo.year &lt;dbl&gt;, sector &lt;chr&gt;, industry &lt;chr&gt;</code></pre>
+<p>We can also get information about components of an index using function <code>tq_index</code>. The available market indices are: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># print available indices</span>
+<span class="kw">print</span>(<span class="kw">tq_index_options</span>())</code></pre></div>
+<pre><code>##  [1] &quot;DOWJONES&quot;    &quot;DJI&quot;         &quot;DJT&quot;         &quot;DJU&quot;        
+##  [5] &quot;SP100&quot;       &quot;SP400&quot;       &quot;SP500&quot;       &quot;SP600&quot;      
+##  [9] &quot;RUSSELL1000&quot; &quot;RUSSELL2000&quot; &quot;RUSSELL3000&quot; &quot;AMEX&quot;       
+## [13] &quot;AMEXGOLD&quot;    &quot;AMEXOIL&quot;     &quot;NASDAQ&quot;      &quot;NASDAQ100&quot;  
+## [17] &quot;NYSE&quot;        &quot;SOX&quot;</code></pre>
+<p>Let’s get information for <code>&quot;DOWJONES&quot;</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># get components of &quot;DOWJONES&quot;</span>
+<span class="kw">print</span>(<span class="kw">tq_index</span>(<span class="st">&quot;DOWJONES&quot;</span>))</code></pre></div>
+<pre><code>## # A tibble: 65 × 2
+##    symbol                      company
+##     &lt;chr&gt;                        &lt;chr&gt;
+## 1     MMM                           3M
+## 2     ALK             ALASKA AIR GROUP
+## 3     AAL AMERICAN AIRLINES GROUP INC.
+## 4     AEP      AMERICAN ELECTRIC POWER
+## 5     AXP             AMERICAN EXPRESS
+## 6     AWK         AMERICAN WATER WORKS
+## 7    AAPL                        APPLE
+## 8     CAR            AVIS BUDGET GROUP
+## 9     CAT                  CATERPILLAR
+## 10    CNP           CENTERPOINT ENERGY
+## # ... with 55 more rows</code></pre>
+<p>These functions are useful because they give the user access to the current tickers for each market. By using functions <code>tq_exchange</code> or <code>tq_index</code> with <code>tq_get</code>, downloading comprehensive information for American stock exchanges becomes very easy. </p>
+<p>We only looked into a few functions from package <code>tidyquant</code> related to importing datasets. It also offers solutions for the usual manipulations, such as calculating returns and functions for portfolio analytics, among others. You can find more details about this package in its <a href="http://www.business-science.io/r-packages.html">website</a>.</p>
+</div>
+<div id="package-gethfdata" class="section level3">
+<h3><span class="header-section-number">6.2.5</span> Package <code>GetHFData</code></h3>
+<p>Package <code>GetHFData</code> <span class="citation">(Perlin and Ramos <a href="#ref-gethfdata">2016</a>)</span> is designed to facilitate the importation and analysis of high frequency trading data from Bovespa, the Brazilian Financial exchange. It allows access to trade data in the equity and derivative market. At the time of this book, <code>GetHFData</code> is the only available package in CRAN that allows direct and free access to high frequency data. The functions from the package allow the user to get information from the ftp site and download raw or aggregate datasets. In section <a href="research-scripts.html#research-gethfdata">10.3.3</a> we provide a full example of processing and manipulating high frequency data using <code>GetHFData</code>.</p>
+<p>Let’s try a simple example by downloading trade data for the last available date for the two most traded stocks in the Brazilian financial market, Petrobras (PETR4) and Vale do Rio Doce (VALE5).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(GetHFData)
+
+<span class="co"># set tickers and type of market</span>
+my.ticker &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;PETR4&#39;</span>,<span class="st">&#39;VALE5&#39;</span>)
+my.type.market &lt;-<span class="st"> &#39;equity&#39;</span>
+
+<span class="co"># get available dates from ftp</span>
+df.available.dates &lt;-<span class="st"> </span><span class="kw">ghfd_get_ftp_contents</span>(my.type.market)</code></pre></div>
+<pre><code>## 
+## Reading ftp contents for equity (attempt = 1|10)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set last date</span>
+last.date &lt;-<span class="st"> </span><span class="kw">max</span>(df.available.dates<span class="op">$</span>dates)
+
+<span class="co"># get data!</span>
+my.df &lt;-<span class="st"> </span><span class="kw">ghfd_get_HF_data</span>(<span class="dt">my.assets =</span> my.ticker, 
+                          <span class="dt">type.market =</span> <span class="st">&#39;equity&#39;</span>,
+                          <span class="dt">first.date =</span> last.date,
+                          <span class="dt">last.date =</span> last.date,
+                          <span class="dt">type.output =</span> <span class="st">&#39;agg&#39;</span>,
+                          <span class="dt">agg.diff =</span> <span class="st">&#39;5 min&#39;</span>)</code></pre></div>
+<pre><code>## 
+## Running ghfd_get_HF_Data for:
+##    type.market = equity
+##    my.assets = PETR4, VALE5
+##    type.output = agg
+##       agg.diff = 5 min
+## Reading ftp contents for equity (attempt = 1|10)
+##    Found  550  files in ftp
+##    First available date in ftp:  2015-03-02
+##    Last available date in ftp:   2017-04-26
+##    First date to download:  2017-04-26
+##    Last date to download:   2017-04-26
+## Downloading ftp files/NEG_20170426.zip (1|1) Attempt 1
+##    -&gt; Reading files - Imported  869951 lines, 433 unique tickers
+##    -&gt; Processing file - Found 64945 lines for 2 selected tickers
+##    -&gt; Aggregation resulted in dataframe with 165 rows</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># print results</span>
+<span class="kw">print</span>(<span class="kw">head</span>(my.df))</code></pre></div>
+<pre><code>##   InstrumentSymbol SessionDate       TradeDateTime n.trades
+## 1            PETR4  2017-04-26 2017-04-26 10:05:00      314
+## 2            PETR4  2017-04-26 2017-04-26 10:10:00      207
+## 3            PETR4  2017-04-26 2017-04-26 10:15:00      273
+## 4            PETR4  2017-04-26 2017-04-26 10:20:00      267
+## 5            PETR4  2017-04-26 2017-04-26 10:25:00      245
+## 6            PETR4  2017-04-26 2017-04-26 10:30:00      430
+##   last.price weighted.price    period.ret period.ret.volat
+## 1      14.20       14.17837  0.0028248588     0.0004373366
+## 2      14.22       14.21401  0.0007037298     0.0003708157
+## 3      14.18       14.21541 -0.0035137034     0.0003747119
+## 4      14.14       14.14605 -0.0028208745     0.0003976880
+## 5      14.13       14.12624 -0.0007072136     0.0003367954
+## 6      14.18       14.17620  0.0035385704     0.0003493024
+##   sum.qtd sum.vol n.buys n.sells Tradetime
+## 1  554100 7856221    136     178  10:05:00
+## 2  343300 4879665    111      96  10:10:00
+## 3  526400 7482957    129     144  10:15:00
+## 4  461500 6528396     97     170  10:20:00
+## 5  365900 5168790     88     157  10:25:00
+## 6  571600 8103092    221     209  10:30:00</code></pre>
+<p>The output of <code>ghfd_get_HF_data</code> is a <code>dataframe</code> with several columns, such as time frame, last price, volatility, number of buyer/seller initiated trades, among other information. The user can also download raw data, without aggregation, by setting option <code>type.output='raw'</code>. Let’s give it a try:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(GetHFData)
+
+<span class="co"># set tickers and type of market</span>
+my.ticker &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;PETR4&#39;</span>,<span class="st">&#39;VALE5&#39;</span>)
+my.type.market &lt;-<span class="st"> &#39;equity&#39;</span>
+
+<span class="co"># get available dates from ftp</span>
+df.available.dates &lt;-<span class="st"> </span><span class="kw">ghfd_get_ftp_contents</span>(my.type.market)</code></pre></div>
+<pre><code>## 
+## Reading ftp contents for equity (attempt = 1|10)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set last date</span>
+last.date &lt;-<span class="st"> </span><span class="kw">max</span>(df.available.dates<span class="op">$</span>dates)
+
+<span class="co"># get data!</span>
+my.df &lt;-<span class="st"> </span><span class="kw">ghfd_get_HF_data</span>(<span class="dt">my.assets =</span> my.ticker, 
+                          <span class="dt">type.market =</span> <span class="st">&#39;equity&#39;</span>,
+                          <span class="dt">first.date =</span> last.date,
+                          <span class="dt">last.date =</span> last.date,
+                          <span class="dt">type.output =</span> <span class="st">&#39;raw&#39;</span>)</code></pre></div>
+<pre><code>## 
+## Running ghfd_get_HF_Data for:
+##    type.market = equity
+##    my.assets = PETR4, VALE5
+##    type.output = raw
+## Reading ftp contents for equity (attempt = 1|10)
+##    Found  550  files in ftp
+##    First available date in ftp:  2015-03-02
+##    Last available date in ftp:   2017-04-26
+##    First date to download:  2017-04-26
+##    Last date to download:   2017-04-26
+## Downloading ftp files/NEG_20170426.zip (1|1) Attempt 1
+##    -&gt; Reading files - Imported  869951 lines, 433 unique tickers
+##    -&gt; Processing file - Found 64945 lines for 2 selected tickers</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># print results</span>
+<span class="kw">print</span>(<span class="kw">head</span>(my.df))</code></pre></div>
+<pre><code>##   SessionDate InstrumentSymbol TradePrice TradedQuantity
+## 1  2017-04-26            PETR4      14.16           4000
+## 2  2017-04-26            PETR4      14.16           2000
+## 3  2017-04-26            PETR4      14.16            100
+## 4  2017-04-26            PETR4      14.16           5000
+## 5  2017-04-26            PETR4      14.16            300
+## 6  2017-04-26            PETR4      14.16           1000
+##      Tradetime CrossTradeIndicator BuyMember SellMember
+## 1 10:07:12.379                   0       386         59
+## 2 10:07:12.379                   0       174        386
+## 3 10:07:12.379                   0       114        147
+## 4 10:07:12.379                   0       386        147
+## 5 10:07:12.379                   0        15        147
+## 6 10:07:12.379                   0         3         39
+##         TradeDateTime TradeSign
+## 1 2017-04-26 10:07:12        -1
+## 2 2017-04-26 10:07:12        -1
+## 3 2017-04-26 10:07:12        -1
+## 4 2017-04-26 10:07:12        -1
+## 5 2017-04-26 10:07:12        -1
+## 6 2017-04-26 10:07:12        -1</code></pre>
+<p>In the chapter about research scripts, we will use this package for studying the intraday pattern of liquidity in the stock market. More details about the package can be found in <span class="citation">Perlin and Ramos (<a href="#ref-gethfdata">2016</a>)</span>.</p>
+</div>
+<div id="package-ustyc" class="section level3">
+<h3><span class="header-section-number">6.2.6</span> Package <code>ustyc</code></h3>
+<p>Package <code>ustyc</code> allows the download of yield curve data from the <a href="https://www.treasury.gov/Pages/default.aspx">US Treasury data feed system</a>. The yield curve is the nominal return an investor would receive for different maturities. The values of yields are based on prices of US government debt instruments traded on the secondary market. Since US bonds have minimal default risk, these values are commonly used as benchmarks for risk free returns in financial markets. </p>
+<p>Using package <code>ustyc</code> is very simple. All you need to do is call function <code>getYieldCurve</code>. In the following example, we will download the yield curve for year 2016. </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ustyc)
+
+<span class="co"># get yield curve</span>
+my.yield.curve &lt;-<span class="st"> </span><span class="kw">getYieldCurve</span>(<span class="dt">year =</span> <span class="dv">2016</span>)</code></pre></div>
+<p>The return object is a list, where the yield curve data is contained in slot <code>df</code>. Each row represents a date, and each column represents a different maturity:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># print result</span>
+<span class="kw">print</span>(<span class="kw">head</span>(my.yield.curve<span class="op">$</span>df))</code></pre></div>
+<pre><code>##            BC_1MONTH BC_3MONTH BC_6MONTH BC_1YEAR BC_2YEAR
+## 2016-01-04      0.17      0.22      0.49     0.61     1.02
+## 2016-01-05      0.20      0.20      0.49     0.68     1.04
+## 2016-01-06      0.21      0.21      0.47     0.67     0.99
+## 2016-01-07      0.20      0.20      0.46     0.66     0.96
+## 2016-01-08      0.20      0.20      0.45     0.64     0.94
+## 2016-01-11      0.19      0.21      0.48     0.63     0.94
+##            BC_3YEAR BC_5YEAR BC_7YEAR BC_10YEAR BC_20YEAR
+## 2016-01-04     1.31     1.73     2.06      2.24      2.64
+## 2016-01-05     1.32     1.73     2.06      2.25      2.67
+## 2016-01-06     1.26     1.65     1.98      2.18      2.59
+## 2016-01-07     1.22     1.61     1.94      2.16      2.56
+## 2016-01-08     1.20     1.57     1.91      2.13      2.55
+## 2016-01-11     1.20     1.58     1.94      2.17      2.59
+##            BC_30YEAR BC_30YEARDISPLAY
+## 2016-01-04      2.98             2.98
+## 2016-01-05      3.01             3.01
+## 2016-01-06      2.94             2.94
+## 2016-01-07      2.92             2.92
+## 2016-01-08      2.91             2.91
+## 2016-01-11      2.96             2.96</code></pre>
+<p>In section <a href="Figures.html#using-ggplot">8.3</a>, we will learn how to use this data to plot the US yield curve.</p>
+</div>
+<div id="quandl" class="section level3">
+<h3><span class="header-section-number">6.2.7</span> Package <code>Quandl</code></h3>
+<p>Another major source of financial data is the <em>Quandl</em> platform. It is an established and comprehensive system that provides access to a series of free and paid data. It provides information for several types of financial markets, such as equity, options, futures, currencies, commodities, and more. Several central banks and research institutions also provide economic and financial information in this platform. I strongly recommend browsing the available datasets from the <a href="https://www.quandl.com/">Quandl website</a>. </p>
+<p>The first step in using <code>Quandl</code> is to register a new user at the <a href="https://www.quandl.com/">website</a>. Soon after, go to <em>account settings</em> and click <em>API KEY</em>. This page should show a code, such as <code>Asv8Ac7zuZzJSCGxynfG</code>. Copy this text to the clipboard (<em>Control + c</em>) and, in R, define a character object containing the copied content as follows:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set api key to quandl</span>
+my.api.key &lt;-<span class="st"> &#39;Asv8Ac7zuZzJSCGxynfG&#39;</span></code></pre></div>
+<p>This API key is unique to each user, and the one presented here will not work in your computer. You need to get your own to run the examples. After finding and setting your own API key, go to <a href="https://www.quandl.com/search?query=">Quandl’s website</a> and look for the symbol of the time series of interest. As an example, we will use the symbol <code>WGC/GOLD_DAILY_EUR</code>, which represents the time series of gold prices in euro. Another, more practical way of finding the Quandl symbol is to use funtion <code>Quandl.search</code> to lookup a search string directly from R.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(Quandl)
+
+<span class="co"># search string in quandl</span>
+df.search &lt;-<span class="st"> </span><span class="kw">Quandl.search</span>(<span class="st">&#39;Gold in Euro&#39;</span>, <span class="dt">silent =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<p>In our case, the function returned a <code>dataframe</code> with 10 rows and 13 columns. Let’s have a look in the names of the columns:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># print columns from </span>
+<span class="kw">print</span>(<span class="kw">colnames</span>(df.search))</code></pre></div>
+<pre><code>##  [1] &quot;id&quot;                    &quot;dataset_code&quot;         
+##  [3] &quot;database_code&quot;         &quot;name&quot;                 
+##  [5] &quot;description&quot;           &quot;refreshed_at&quot;         
+##  [7] &quot;newest_available_date&quot; &quot;oldest_available_date&quot;
+##  [9] &quot;column_names&quot;          &quot;frequency&quot;            
+## [11] &quot;type&quot;                  &quot;premium&quot;              
+## [13] &quot;database_id&quot;</code></pre>
+<p>The <code>description</code> column gives information about the available datasets matching the search string. The actual Quandl code is given by combining <code>database_id</code> with <code>dataset_code</code>.</p>
+<p>With the API key and the Quandl symbol, we use function <code>Quandl.api_key</code> from package <code>Quandl</code> to register our key and function <code>Quandl</code> to download the data. See the full example next:  </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(Quandl)
+
+<span class="co"># register api key</span>
+<span class="kw">Quandl.api_key</span>(my.api.key)
+
+<span class="co"># set symbol and dates</span>
+my.symbol &lt;-<span class="st"> &#39;WGC/GOLD_DAILY_EUR&#39;</span>
+first.date &lt;-<span class="st"> </span><span class="kw">as.Date</span>(<span class="st">&#39;2000-01-01&#39;</span>)
+last.date &lt;-<span class="st"> </span><span class="kw">Sys.Date</span>()
+
+<span class="co"># get data!</span>
+my.df &lt;-<span class="st"> </span><span class="kw">Quandl</span>(<span class="dt">code =</span> my.symbol,
+                <span class="dt">type=</span><span class="st">&#39;raw&#39;</span>, 
+                <span class="dt">start_date =</span> first.date,
+                <span class="dt">end_date =</span> last.date)
+
+<span class="kw">print</span>(<span class="kw">tail</span>(my.df))</code></pre></div>
+<pre><code>##            Date    Value
+## 4515 2000-01-10 274.3301
+## 4516 2000-01-07 274.1764
+## 4517 2000-01-06 269.9777
+## 4518 2000-01-05 271.3069
+## 4519 2000-01-04 273.2482
+## 4520 2000-01-03 280.2000</code></pre>
+<p>Notice how we used <code>type = 'raw'</code> in the inputs of <code>Quandl</code>. This option forces the function to output a <code>dataframe</code>. Other options include the output of objects of type <code>ts</code>, <code>zoo</code>, <code>xts</code> and <code>timeSeries</code>. If using <code>Quandl</code> will become part of your data analysis routine, I strongly recommend reading the help manual of the package. Several parameters can be passed to function <code>Quandl</code>, including the choice for applying transformations in the resulting dataset. You can find more details about using <code>Quandl</code> in R from its <a href="https://docs.quandl.com/docs/r">website</a>.</p>
+</div>
+<div id="package-rbitcoin" class="section level3">
+<h3><span class="header-section-number">6.2.8</span> Package <code>Rbitcoin</code></h3>
+<p>Given the popularity of cripto-currencies, another package worth mentioning is <code>RBitcoin</code>. It allows access to trade data from several Bitcoin exchanges. Here, let’s show a simple example of importing trade data from the <code>'kraken'</code> exchange, using Euro as the currency.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(Rbitcoin)
+
+<span class="co"># set mkt, currency pair and type of action</span>
+my.mkt &lt;-<span class="st"> &quot;kraken&quot;</span>
+my.currency &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;BTC&quot;</span>,<span class="st">&quot;EUR&quot;</span>)
+my.action &lt;-<span class="st"> &#39;trades&#39;</span>
+
+<span class="co"># import data</span>
+my.l &lt;-<span class="st"> </span><span class="kw">market.api.process</span>(<span class="dt">market =</span> my.mkt,
+                           <span class="dt">currency_pair =</span> my.currency,
+                           <span class="dt">action =</span> my.action)
+
+<span class="co"># print it</span>
+<span class="kw">print</span>(my.l)</code></pre></div>
+<pre><code>## $market
+## [1] &quot;kraken&quot;
+## 
+## $base
+## [1] &quot;BTC&quot;
+## 
+## $quote
+## [1] &quot;EUR&quot;
+## 
+## $timestamp
+## [1] &quot;2017-04-29 09:54:37 BRT&quot;
+## 
+## $market_timestamp
+## [1] NA
+## 
+## $trades
+##                      date    price     amount
+##    1: 2017-04-29 11:31:18 1205.663 0.01330197
+##    2: 2017-04-29 11:31:26 1205.663 1.09558546
+##    3: 2017-04-29 11:31:42 1205.550 0.04203006
+##    4: 2017-04-29 11:31:42 1205.553 0.60000000
+##    5: 2017-04-29 11:31:47 1205.870 0.04179951
+##   ---                                        
+##  996: 2017-04-29 12:53:01 1204.550 0.02968839
+##  997: 2017-04-29 12:53:49 1203.556 0.60000000
+##  998: 2017-04-29 12:53:49 1203.000 0.31760000
+##  999: 2017-04-29 12:53:49 1203.000 1.06746000
+## 1000: 2017-04-29 12:53:51 1204.549 0.01551121
+##                       tid type
+##    1:                  NA  bid
+##    2:                  NA  bid
+##    3:                  NA  bid
+##    4:                  NA  bid
+##    5:                  NA  bid
+##   ---                         
+##  996:                  NA  bid
+##  997:                  NA  ask
+##  998:                  NA  ask
+##  999:                  NA  ask
+## 1000: 1493470431496723624  bid</code></pre>
+<p>The output of <code>market.api.process</code> is a <code>list</code> object with information about Bitcoin in the <code>'kraken'</code> market. The actual trades are available in the <code>trade</code> slot of <code>my.l</code>. Let’s have a look at its content:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(<span class="kw">tail</span>(my.l<span class="op">$</span>trades))</code></pre></div>
+<pre><code>##                   date    price     amount
+## 1: 2017-04-29 12:53:01 1204.550 0.42468714
+## 2: 2017-04-29 12:53:01 1204.550 0.02968839
+## 3: 2017-04-29 12:53:49 1203.556 0.60000000
+## 4: 2017-04-29 12:53:49 1203.000 0.31760000
+## 5: 2017-04-29 12:53:49 1203.000 1.06746000
+## 6: 2017-04-29 12:53:51 1204.549 0.01551121
+##                    tid type
+## 1:                  NA  bid
+## 2:                  NA  bid
+## 3:                  NA  ask
+## 4:                  NA  ask
+## 5:                  NA  ask
+## 6: 1493470431496723624  bid</code></pre>
+<p>It includes price and time information for the past 1000 trades. The package also includes functions for looking into the order book of each market and managing Bitcoin wallets. More details about the functionalities of the package are found in its <a href="https://github.com/jangorecki/Rbitcoin">website</a>.</p>
+</div>
+<div id="other-packages" class="section level3">
+<h3><span class="header-section-number">6.2.9</span> Other Packages</h3>
+<p>In CRAN, you’ll find many more packages for importing financial datasets in R. In this section, we focused on packages that are free and easy to use. Interface to commercial data sources is also possible. Several companies provide APIs for serving data to their clients. Packages such as <code>Rblpapi</code> (Bloomberg), <code>IBrokers</code> (Interactive Brokers), <code>TFX</code> (TrueFX), <code>rdatastream</code> (Thomson Dataworks) can make R communicate with these APIs and allow importation of datasets. If the company you use is not presented here, the <a href="https://cran.r-project.org/">list of CRAN packages</a> can help you find a package for other data vendors.</p>
+</div>
+<div id="accessing-data-from-web-pages-webscraping" class="section level3">
+<h3><span class="header-section-number">6.2.10</span> Accessing Data from Web Pages (<em>webscraping</em>)</h3>
+<p>The previous packages are useful, as they make it easy to import data directly from the web. In many cases, however, the information of interest is not available in packages, but in a web page - usually in a tabular format. The main advantage of using information from a webpage is that, every time we run the code, we can get current information as the site is updated. By doing this on a large scale, we can build complex systems to help make decisions.</p>
+<p>The process of extracting information from web pages is called <em>webscraping</em>. Depending on the structure and technology used in the internet page, importing its content can be as trivial as a single line in R or a complex process as a full script. Let’s look at two examples; first, we will retrieve tabular information about SP500 index from Wikipedia and, second, we will extract current inflation and interest rate from the Reserve Bank of Australia (RBA) website. </p>
+<div id="scraping-the-components-of-the-sp500-index-from-wikipedia" class="section level4">
+<h4><span class="header-section-number">6.2.10.1</span> Scraping the Components of the SP500 Index from Wikipedia</h4>
+<p>In its website, Wikipedia offers a <a href="https://en.wikipedia.org/wiki/List_of_S%26P_500_companies">section</a> about the components of the SP500 index. This information is presented in a tabular format, Figure <a href="importing.html#fig:SP500-wikipedia">6.1</a>.</p>
+<div class="figure" style="text-align: center"><span id="fig:SP500-wikipedia"></span>
+<img src="figs/SP500-Wikipedia.png" alt="Mirror of Wikipedia page on SP500 components" width="75%" />
+<p class="caption">
+Figure 6.1: Mirror of Wikipedia page on SP500 components
+</p>
+</div>
+<p>The information in this web page is constantly updated, and we can use it to import information about the stocks belonging to the SP500 index. Before delving into the R code, we need to understand how a webpage works. In a nutshell, a webpage is nothing more than a lengthy <em>html</em> code interpreted by your browser. A numerical value or text presented in the website can usually be found within the code. This code has a particular structure with classes and formats. Every element of a webpage has an address, called <em>xpath</em> . In chrome and firefox browsers, you can see the actual code of a webpage by using the mouse to right-click any part of the webpage and selecting <em>show source code</em>.</p>
+<p>The first step in webscraping is finding out where the information you want is located. You can do that by right clicking in the specific location of the number/text in the website and selecting <em>inspect</em>. This will open an extra window in the browser. Once you do that, right click in the selection and chose <em>copy</em> and <em>copy xpath</em>. In Figure <a href="importing.html#fig:SP500-Wikipedia-webscraping">6.2</a>, we see a mirror of what you should be seeing in your browser.</p>
+<div class="figure" style="text-align: center"><span id="fig:SP500-Wikipedia-webscraping"></span>
+<img src="figs/SP500-Wikipedia_webscraping.png" alt="Finding xpath from website" width="75%" />
+<p class="caption">
+Figure 6.2: Finding xpath from website
+</p>
+</div>
+<p>In this case, the copied <em>xpath</em> is:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="st">&#39;//*[@id=&quot;mw-content-text&quot;]/table[1]/thead/tr/th[2]&#39;</span></code></pre></div>
+<p>This is the address of the header of the table. We can go to an upper level and get all the content of the table, including header, rows, and columns. This is equivalent to address <code>//*[@id=&quot;mw-content-text&quot;]/table[1]</code>.</p>
+<p>Now that we have the location of what we want, let’s load package <code>rvest</code> <span class="citation">(Wickham <a href="#ref-rvest">2016</a><a href="#ref-rvest">b</a>)</span> and use functions <code>read_html</code>, <code>html_nodes</code> and <code>html_table</code> to import the desired table into R:    </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(rvest)
+
+<span class="co"># set url and xpath</span>
+my.url &lt;-<span class="st"> &#39;https://en.wikipedia.org/wiki/List_of_S%26P_500_companies&#39;</span>
+my.xpath &lt;-<span class="st"> &#39;//*[@id=&quot;mw-content-text&quot;]/table[1]&#39;</span>
+
+<span class="co"># get nodes from html</span>
+out.nodes &lt;-<span class="st"> </span><span class="kw">html_nodes</span>(<span class="kw">read_html</span>(my.url),
+                        <span class="dt">xpath =</span> my.xpath)
+
+<span class="co"># get table from nodes (each element in </span>
+<span class="co"># list is a table)</span>
+df.SP500Stocks &lt;-<span class="st"> </span><span class="kw">html_table</span>(out.nodes)
+
+<span class="co"># isolate it and print it</span>
+df.SP500Stocks &lt;-<span class="st"> </span>df.SP500Stocks[[<span class="dv">1</span>]]
+<span class="kw">print</span>(<span class="kw">head</span>(df.SP500Stocks))</code></pre></div>
+<pre><code>##   Ticker symbol            Security SEC filings
+## 1           MMM          3M Company     reports
+## 2           ABT Abbott Laboratories     reports
+## 3          ABBV         AbbVie Inc.     reports
+## 4           ACN       Accenture plc     reports
+## 5          ATVI Activision Blizzard     reports
+## 6           AYI   Acuity Brands Inc     reports
+##              GICS Sector                 GICS Sub Industry
+## 1            Industrials          Industrial Conglomerates
+## 2            Health Care             Health Care Equipment
+## 3            Health Care                   Pharmaceuticals
+## 4 Information Technology    IT Consulting &amp; Other Services
+## 5 Information Technology       Home Entertainment Software
+## 6            Industrials Electrical Components &amp; Equipment
+##    Address of Headquarters Date first added     CIK
+## 1      St. Paul, Minnesota                    66740
+## 2  North Chicago, Illinois       1964-03-31    1800
+## 3  North Chicago, Illinois       2012-12-31 1551152
+## 4          Dublin, Ireland       2011-07-06 1467373
+## 5 Santa Monica, California       2015-08-31  718877
+## 6         Atlanta, Georgia       2016-05-03 1144215</code></pre>
+<p>Object <code>df.SP500Stocks</code> contains a mirror of the data from the Wikipedia website. The names of the columns require a bit of work, but the data is intact and could be further used in a script.</p>
+</div>
+<div id="scraping-the-website-of-the-reserve-bank-of-australia" class="section level4">
+<h4><span class="header-section-number">6.2.10.2</span> Scraping the Website of the Reserve Bank of Australia</h4>
+<p>As another example of webscraping with R, let’s import information from the Reserve Bank of Australia. When accessed in 2017-03-24, its <a href="http://www.rba.gov.au/">home page</a> mirrors Figure <a href="importing.html#fig:RBA-website">6.3</a>.</p>
+<div class="figure" style="text-align: center"><span id="fig:RBA-website"></span>
+<img src="figs/website_RBA-webscrapping.png" alt="Website for the Reserve Bank of Australia" width="75%" />
+<p class="caption">
+Figure 6.3: Website for the Reserve Bank of Australia
+</p>
+</div>
+<p>As you can see, the website offers financial information, such as news and market rates. Let’s assume we are interested in the information about current cash/bank rate and inflation, right upper corner of the webpage. The first step is finding out the <em>xpath</em> of the information we want. Using the procedure described in previous example, we find out the address of both values, market rate and current inflation:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my.xpath.inflation &lt;-<span class="st"> &#39;//*[@id=&quot;content&quot;]/section[1]/div/div[2]/p&#39;</span>
+my.xpath.int.rate &lt;-<span class="st"> &#39;//*[@id=&quot;content&quot;]/section[1]/div/div[1]/p&#39;</span></code></pre></div>
+<p>A difference from the previous example is we are not importing a table, but a simple text from the website. For that, we use function <code>html_text</code> and not <code>html_table</code>. The full code and its output is presented next.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(rvest)
+
+<span class="co"># set address of RBA</span>
+my.url &lt;-<span class="st"> &#39;http://www.rba.gov.au/&#39;</span>
+
+<span class="co"># read html</span>
+html.code &lt;-<span class="st"> </span><span class="kw">read_html</span>(my.url)
+
+<span class="co"># set xpaths</span>
+my.xpath.inflation &lt;-<span class="st"> &#39;//*[@id=&quot;content&quot;]/section[1]/div/div[2]/p&#39;</span>
+my.xpath.int.rate &lt;-<span class="st"> &#39;//*[@id=&quot;content&quot;]/section[1]/div/div[1]/p&#39;</span>
+
+<span class="co"># get inflation from html</span>
+my.inflation &lt;-<span class="st"> </span><span class="kw">html_text</span>(<span class="kw">html_nodes</span>(html.code,
+                                     <span class="dt">xpath =</span> my.xpath.inflation ))
+
+<span class="co"># get interest rate from html</span>
+my.int.rate &lt;-<span class="st"> </span><span class="kw">html_text</span>(<span class="kw">html_nodes</span>(<span class="dt">x =</span> html.code,
+                                   <span class="dt">xpath =</span> my.xpath.int.rate ))
+
+<span class="co"># print result</span>
+<span class="kw">cat</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">Current inflation in AUS:&quot;</span>, my.inflation)
+<span class="kw">cat</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">Current interest rate AUS:&quot;</span>, my.int.rate)</code></pre></div>
+<pre><code>## 
+## Current inflation in AUS:  1.5%</code></pre>
+<pre><code>## 
+## Current interest rate in AUS:  1.50%</code></pre>
+<p>The use of <em>Webscraping</em> techniques becomes a strong ally of the researcher. They give you access to an immense amount of information available on the web. However, each scenario of <em>webscraping</em> is particular. It is not always the case that you can import data directly and easily as in the previous examples. Readers interested in this topic should study the functionalities of packages <code>rvest</code> <span class="citation">(Wickham <a href="#ref-rvest">2016</a><a href="#ref-rvest">b</a>)</span>, <code>XML</code> <span class="citation">(Lang and CRAN Team <a href="#ref-XML">2016</a>)</span>, <code>RSelenium</code> <span class="citation">(Harrison <a href="#ref-RSelenium">2016</a>)</span> and <code>splashr</code> (<a href="https://github.com/hrbrmstr/splashr">available in Github</a>). Each one of these is best suited to particular webscraping problems.    </p>
+</div>
+</div>
+</div>
+<div id="exporting-to-local-file" class="section level2">
+<h2><span class="header-section-number">6.3</span> Exporting to Local File</h2>
+<p>A very common operation in the use of R is to write data to files. Exporting data from R involves a decision regarding the format. The user must take into account three points in this decision: the resulting file size, the speed of the export process, and the compatibility with other softwares.</p>
+<p>In most situations, the use of <em>.csv</em> files satisfies all points. Since it is simply a text file that can be opened and imported into any system, sharing it with others is straightforward. Moreover, the resulting <em>.csv</em> file size is not excessive. And, if the size of the generated file is large, you can compress it using the <em>zip</em> function. For these reasons, in most situations, the use of <em>.csv</em> files in importing and exporting information is preferable. However, if the user will only use R and he is not interested in portability, the next best solution is exporting the information in the <em>RData</em> format. Both options are described next.</p>
+<div id="exporting-data-to-a-.csv-file" class="section level3">
+<h3><span class="header-section-number">6.3.1</span> Exporting Data to a <em>.csv</em> File</h3>
+<p>To write a <em>.csv</em> file, use the <code>write.csv</code> function.  </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set the number of rows</span>
+N &lt;-<span class="st"> </span><span class="dv">100</span>
+
+<span class="co"># set dataframe</span>
+my.df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">y =</span> <span class="kw">runif</span>(N), <span class="dt">z =</span> <span class="kw">rep</span>(<span class="st">&#39;a&#39;</span>,N))
+
+<span class="co"># set file out</span>
+f.out &lt;-<span class="st"> &#39;data/temp.csv&#39;</span>
+
+<span class="co"># write to files</span>
+<span class="kw">write.csv</span>(<span class="dt">x =</span> my.df, <span class="dt">file =</span> f.out)</code></pre></div>
+<p>In the previous example, we save the object <code>my.df</code> into a file, called <code>temp.csv</code>, located in the <code>data</code> working directory. We can check its contents using <code>read.csv</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># read it</span>
+my.df.import &lt;-<span class="st"> </span><span class="kw">read.csv</span>(f.out)
+
+<span class="co"># print first five rows</span>
+<span class="kw">print</span>(<span class="kw">head</span>(my.df.import))</code></pre></div>
+<pre><code>##   X          y z
+## 1 1 0.94310436 a
+## 2 2 0.09576562 a
+## 3 3 0.83607165 a
+## 4 4 0.54296618 a
+## 5 5 0.18040286 a
+## 6 6 0.24491982 a</code></pre>
+<p>Note that a column called <code>x</code>, containing the name/number of lines, has been added. If you do not want this new column, just set option <code>row.names = FALSE</code> as in <code>write.csv(x = my.df, file = f.out, row.names = FALSE)</code>. See the difference in the following example.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set the number of rows</span>
+N &lt;-<span class="st"> </span><span class="dv">100</span>
+
+<span class="co"># set dataframe</span>
+my.df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">y =</span> <span class="kw">runif</span>(N), <span class="dt">z =</span> <span class="kw">rep</span>(<span class="st">&#39;a&#39;</span>,N))
+
+<span class="co"># set file out</span>
+f.out &lt;-<span class="st"> &#39;data/temp.csv&#39;</span>
+
+<span class="co"># write to files (without rownames)</span>
+<span class="kw">write.csv</span>(<span class="dt">x =</span> my.df, <span class="dt">file =</span> f.out, <span class="dt">row.names=</span><span class="ot">FALSE</span>)
+
+<span class="co"># check result</span>
+my.df.import &lt;-<span class="st"> </span><span class="kw">read.csv</span>(f.out)
+<span class="kw">print</span>(<span class="kw">head</span>(my.df.import))</code></pre></div>
+<pre><code>##            y z
+## 1 0.44766527 a
+## 2 0.07018106 a
+## 3 0.61232054 a
+## 4 0.34981644 a
+## 5 0.93399924 a
+## 6 0.52537067 a</code></pre>
+<p>As we can see, the row numbers are no longer saved as a column in the <em>.csv</em> file.</p>
+</div>
+<div id="exporting-data-to-a-rdata-file" class="section level3">
+<h3><span class="header-section-number">6.3.2</span> Exporting Data to a <em>RData</em> File</h3>
+<p>The native solution for exporting R objects is function <code>save</code>. It usage is simple; just name the objects to save and the name of the local file. Have a look:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set random data</span>
+my.x &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">100</span>)
+my.df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">y =</span> <span class="kw">runif</span>(<span class="dv">100</span>),
+                    <span class="dt">z =</span> <span class="kw">runif</span>(<span class="dv">100</span>))
+
+my.f &lt;-<span class="st"> &#39;data/temp.RData&#39;</span>
+<span class="kw">save</span>(<span class="dt">list =</span> <span class="kw">c</span>(<span class="st">&#39;my.x&#39;</span>, <span class="st">&#39;my.df&#39;</span>),
+     <span class="dt">file =</span> my.f)</code></pre></div>
+<p>After saving it, the contents of file data/temp.RData includes objects <code>my.df</code> and <code>my.x</code>. A note here is important. If you are saving custom classes of objects into a <em>.RData</em> file, you must first load the package before reading the file. Otherwise, R will not understand the custom format.</p>
+</div>
+<div id="exporting-data-to-an-excel-file" class="section level3">
+<h3><span class="header-section-number">6.3.3</span> Exporting Data to an Excel File</h3>
+<p>Exporting a <code>dataframe</code> to an Excel file is also easy. Again, there is no native function in R that performs this procedure. We can, however, use package <code>xlsx</code>. A requisite for using this package is the installation of Java in the operating system. For Windows users, visit the <a href="https://www.java.com/pt_BR/">Java site</a> and install the software. After that, install <code>xlsx</code> with command <code>install.packages('xlsx')</code> and try loading it with <code>library(xlsx)</code>. If you got an error message about <em>Java</em> , try rebooting your system. </p>
+<p>An example of usage is given next.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(xlsx)
+
+<span class="co"># create dataframe</span>
+N &lt;-<span class="st"> </span><span class="dv">50</span>
+my.df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">y =</span> <span class="kw">seq</span>(<span class="dv">1</span>,N), <span class="dt">z =</span> <span class="kw">rep</span>(<span class="st">&#39;a&#39;</span>,N))
+
+<span class="co"># set excel file</span>
+f.out &lt;-<span class="st"> &#39;data/temp.xlsx&#39;</span>
+
+<span class="co"># write to excel</span>
+<span class="kw">write.xlsx</span>(<span class="dt">x =</span> my.df, <span class="dt">file =</span> f.out, <span class="dt">sheetName =</span> <span class="st">&quot;my df&quot;</span>)</code></pre></div>
+<p>If you want to save several <code>dataframes</code> into several worksheets of the same Excel file, you must use input option <code>append=TRUE</code> in the call to <code>write.xlsx</code>. Otherwise, the function will create a new file on each call and erase all previous content. See the following example, where we export two <em>dataframes</em> for two different sheets in the same Excel file: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># create two dataframes</span>
+N &lt;-<span class="st"> </span><span class="dv">25</span>
+my.df.A &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">y =</span> <span class="kw">seq</span>(<span class="dv">1</span>,N), 
+                      <span class="dt">z =</span> <span class="kw">rep</span>(<span class="st">&#39;a&#39;</span>,N))
+
+my.df.B &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">z =</span> <span class="kw">rep</span>(<span class="st">&#39;b&#39;</span>,N))
+
+<span class="co"># set file out</span>
+f.out &lt;-<span class="st"> &#39;data/temp.xlsx&#39;</span>
+
+<span class="co"># write in different sheets</span>
+<span class="kw">write.xlsx</span>(<span class="dt">x =</span> my.df.A, 
+           <span class="dt">file =</span> f.out, 
+           <span class="dt">sheetName =</span> <span class="st">&quot;my df A&quot;</span>)
+
+<span class="kw">write.xlsx</span>(<span class="dt">x =</span> my.df.B, 
+           <span class="dt">file =</span> f.out, 
+           <span class="dt">sheetName =</span> <span class="st">&quot;my df B&quot;</span>, 
+           <span class="dt">append =</span> <span class="ot">TRUE</span> )</code></pre></div>
+</div>
+<div id="exporting-data-to-a-text-file" class="section level3">
+<h3><span class="header-section-number">6.3.4</span> Exporting Data to a Text File</h3>
+<p>In some situations, you may need to export an output to a file, for example, when you need to save the log record of a procedure, or when you need to record information in a specific format not supported by R. This procedure is quite simple. Using function <code>cat</code>, use input <code>file</code> to set the name of the local file. All the text supplied in function <code>cat</code> will be written in the corresponding text file. See next: </p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set file</span>
+my.f &lt;-<span class="st"> &#39;data/temp.txt&#39;</span>
+
+<span class="co"># set some string</span>
+my.str &lt;-<span class="st"> </span><span class="kw">paste</span>(letters[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>], <span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>, <span class="dt">collapse =</span> <span class="st">&#39;&#39;</span>)
+
+<span class="co"># save string to file</span>
+<span class="kw">cat</span>(my.str, <span class="dt">file =</span> my.f, <span class="dt">append =</span> <span class="ot">FALSE</span>)</code></pre></div>
+<p>In the previous example, we created a text object with the first five letters of the alphabet, separated by the symbol <code>\n</code>, which indicates a line break. We then execute a call to <code>cat</code> with arguments <code>file</code> and <code>append</code>. The latter sets the option to add new text to the end of the file or not. We can check the result with the <code>readLines</code> function:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(<span class="kw">readLines</span>(my.f))</code></pre></div>
+<pre><code>## [1] &quot;a &quot; &quot;b &quot; &quot;c &quot; &quot;d &quot; &quot;e &quot;</code></pre>
+<p>As we can see, it worked as expected.</p>
+
+</div>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-readr">
+<p>Wickham, Hadley, Jim Hester, and Romain Francois. 2016. <em>Readr: Read Tabular Data</em>. <a href="https://CRAN.R-project.org/package=readr" class="uri">https://CRAN.R-project.org/package=readr</a>.</p>
+</div>
+<div id="ref-xlsconnect2016">
+<p>Mirai Solutions GmbH. 2016. <em>XLConnect: Excel Connector for R</em>. <a href="https://CRAN.R-project.org/package=XLConnect" class="uri">https://CRAN.R-project.org/package=XLConnect</a>.</p>
+</div>
+<div id="ref-xlsx2014">
+<p>Dragulescu, Adrian A. 2014. <em>Xlsx: Read, Write, Format Excel 2007 and Excel 97/2000/Xp/2003 Files</em>. <a href="https://CRAN.R-project.org/package=xlsx" class="uri">https://CRAN.R-project.org/package=xlsx</a>.</p>
+</div>
+<div id="ref-readxl2016">
+<p>Wickham, Hadley. 2016a. <em>Readxl: Read Excel Files</em>. <a href="https://CRAN.R-project.org/package=readxl" class="uri">https://CRAN.R-project.org/package=readxl</a>.</p>
+</div>
+<div id="ref-tidyxl">
+<p>Garmonsway, Duncan. 2017. <em>Tidyxl: Read Untidy Excel Files</em>. <a href="https://CRAN.R-project.org/package=tidyxl" class="uri">https://CRAN.R-project.org/package=tidyxl</a>.</p>
+</div>
+<div id="ref-RCoreTeam2015foreign">
+<p>R Core Team. 2015. <em>Foreign: Read Data Stored by Minitab, S, Sas, Spss, Stata, Systat, Weka, dBase, ...</em> <a href="https://CRAN.R-project.org/package=foreign" class="uri">https://CRAN.R-project.org/package=foreign</a>.</p>
+</div>
+<div id="ref-quantmod2015">
+<p>Ryan, Jeffrey A. 2015. <em>Quantmod: Quantitative Financial Modelling Framework</em>. <a href="https://CRAN.R-project.org/package=quantmod" class="uri">https://CRAN.R-project.org/package=quantmod</a>.</p>
+</div>
+<div id="ref-BatchGetSymbols">
+<p>Perlin, Marcelo. 2016. <em>BatchGetSymbols: Downloads and Organizes Financial Data for Multiple Tickers</em>.</p>
+</div>
+<div id="ref-finreportr">
+<p>Lee, Seward. 2016. <em>Finreportr: Financial Data from U.S. Securities and Exchange Commission</em>. <a href="https://CRAN.R-project.org/package=finreportr" class="uri">https://CRAN.R-project.org/package=finreportr</a>.</p>
+</div>
+<div id="ref-gethfdata">
+<p>Perlin, Marcelo, and Henrique Ramos. 2016. <em>GetHFData: A R Package for Downloading and Aggregating High Frequency Trading Data from Bovespa</em>. <em>Available at SSRN</em>. <a href="https://ssrn.com/abstract=2824058" class="uri">https://ssrn.com/abstract=2824058</a>.</p>
+</div>
+<div id="ref-rvest">
+<p>Wickham, Hadley. 2016b. <em>Rvest: Easily Harvest (Scrape) Web Pages</em>. <a href="https://CRAN.R-project.org/package=rvest" class="uri">https://CRAN.R-project.org/package=rvest</a>.</p>
+</div>
+<div id="ref-XML">
+<p>Lang, Duncan Temple, and the CRAN Team. 2016. <em>XML: Tools for Parsing and Generating Xml Within R and S-Plus</em>. <a href="https://CRAN.R-project.org/package=XML" class="uri">https://CRAN.R-project.org/package=XML</a>.</p>
+</div>
+<div id="ref-RSelenium">
+<p>Harrison, John. 2016. <em>RSelenium: R Bindings for Selenium Webdriver</em>. <a href="https://CRAN.R-project.org/package=RSelenium" class="uri">https://CRAN.R-project.org/package=RSelenium</a>.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="Financial-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="programming.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "Sepia",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
