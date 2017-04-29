@@ -464,9 +464,9 @@ my.rnd.vec &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span cla
 
 <span class="co"># print it</span>
 <span class="kw">print</span>(my.rnd.vec)</code></pre></div>
-<pre><code>##  [1] -0.91021913  0.40101710  1.36449014  0.07861130
-##  [5]  0.02141932  0.55000838  1.21953040  0.49819744
-##  [9] -0.38623241  0.64995345</code></pre>
+<pre><code>##  [1]  1.29496054  0.62211594 -1.00556952 -1.97609401
+##  [5]  0.03672060  0.05874805  0.06625312 -0.27009747
+##  [9] -0.47914749 -0.17395741</code></pre>
 <p>In the previous code, we generated ten random numbers from a normal distribution, with mean zero and standard deviation equal to one.</p>
 <p>Function <code>runif</code> generates random values uniformly distributed between a maximum and a minimum value. It is commonly used to simulate probabilities with values between zero and one. Function <code>runif</code> has three input parameters: the desired number of random values, the minimum value, and maximum value. See the following example:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># create a random vector with minimum and maximum</span>
@@ -474,8 +474,9 @@ my.rnd.vec &lt;-<span class="st"> </span><span class="kw">runif</span>(<span cla
 
 <span class="co"># print it</span>
 <span class="kw">print</span>(my.rnd.vec)</code></pre></div>
-<pre><code>##  [1]  2.1048634 -4.2450133 -0.3203952 -0.5111128  3.1584834
-##  [6] -1.9457063 -0.9354009 -1.9781582  1.0084554 -2.3876494</code></pre>
+<pre><code>##  [1] -0.77339276  4.62593949  0.09063671  0.87974787
+##  [5] -0.06671261 -3.31100238 -0.67933090  1.82255261
+##  [9] -3.83461198  2.02706246</code></pre>
 <p>Note that both functions, <code>rnorm</code> and <code>runif</code>, are limited to their respective distribution. An alternative and flexible way to generate random values is to use the <code>sample</code> function. It accepts any vector as input and returns a scrambled version of its elements. Its flexibility lies in the fact that the input vector can be anything. For example, if we wanted to create a random vector with elements taken from vector <code>c(0, 5, 15, 20, 25)</code>, we could do it as follows: </p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># create sequence</span>
 my.vec &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">0</span>, <span class="dt">to =</span> <span class="dv">25</span>, <span class="dt">by=</span><span class="dv">5</span>)
@@ -485,7 +486,7 @@ my.rnd.vec &lt;-<span class="st"> </span><span class="kw">sample</span>(my.vec)
 
 <span class="co"># print it</span>
 <span class="kw">print</span>(my.rnd.vec)</code></pre></div>
-<pre><code>## [1]  0 20 25  5 10 15</code></pre>
+<pre><code>## [1]  0 20  5 10 25 15</code></pre>
 <p>Function <code>sample</code> also allows the random selection of several elements. If we wanted to select randomly only one element of <code>my.vec</code>, we could write the code as:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># sample one element of my.vec</span>
 my.rnd.vec &lt;-<span class="st"> </span><span class="kw">sample</span>(my.vec, <span class="dt">size =</span> <span class="dv">1</span>)
@@ -499,7 +500,7 @@ my.rnd.vec &lt;-<span class="st"> </span><span class="kw">sample</span>(my.vec, 
 
 <span class="co"># print it</span>
 <span class="kw">print</span>(my.rnd.vec)</code></pre></div>
-<pre><code>## [1]  5 25</code></pre>
+<pre><code>## [1] 15 25</code></pre>
 <p>It is also possible to select values from a smaller vector to create a larger vector. Consider the case where you have a vector with numbers <code>c(5, 10, 15)</code> and want to create a random vector with ten elements removed from that smaller vector. For that, we use option <code>replace = TRUE</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># create vector</span>
 my.vec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">15</span>)
@@ -507,11 +508,11 @@ my.vec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">
 <span class="co"># sample</span>
 my.rnd.vec &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dt">x =</span> my.vec, <span class="dt">size =</span> <span class="dv">10</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>)
 <span class="kw">print</span>(my.rnd.vec)</code></pre></div>
-<pre><code>##  [1] 15 15 15 10  5 15 15  5  5  5</code></pre>
+<pre><code>##  [1] 10 10  5 15 15  5 10 10  5  5</code></pre>
 <p>Another important feature of <code>sample</code> is it works for any type of vector, not only for those of the <code>numeric</code> class. This means we can randomize any sort of object. Have a look:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># example of sample with characters</span>
 <span class="kw">print</span>(<span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&#39;elem 1&#39;</span>,<span class="st">&#39;elem 2&#39;</span>,<span class="st">&#39;elem 3&#39;</span>), <span class="dv">1</span>))</code></pre></div>
-<pre><code>## [1] &quot;elem 1&quot;</code></pre>
+<pre><code>## [1] &quot;elem 3&quot;</code></pre>
 <p>At this point, it is important to acknowledge that <strong>the generation of random values in R is not entirely random!</strong> Internally, the computer chooses values from a queue. Each time functions, such as <code>rnorm</code>, <code>runif</code>, and <code>sample</code>, are called in the code, the computer chooses a different place in this queue according to various parameters, such as time itself. The practical effect is that the chosen values from the queue are unpredictable from the user point of view.</p>
 <p>However, you can select set the place in the queue of random values using function <code>set.seed</code>. In practical terms, the result is that all numbers and random selections will be the same in every code execution. Using <code>set.seed</code> is strongly recommended for the reproducibility of codes involving randomness. We will use this function throughout the book, so anyone can replicate the results from the code. See the following example. </p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set seed with integer 10</span>
@@ -1727,14 +1728,14 @@ my.day &lt;-<span class="st"> </span><span class="kw">Sys.Date</span>()
 <p>To find the current date and time, we use function <code>Sys.time</code>: </p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># get time!</span>
 <span class="kw">print</span>(<span class="kw">Sys.time</span>())</code></pre></div>
-<pre><code>## [1] &quot;2017-04-29 09:51:40 BRT&quot;</code></pre>
+<pre><code>## [1] &quot;2017-04-29 12:48:48 BRT&quot;</code></pre>
 <p>Going further, based on these functions, we can write:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># example of log message</span>
 my.str &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&#39;This code was executed in &#39;</span>, <span class="kw">Sys.time</span>())
 
 <span class="co"># print it</span>
 <span class="kw">print</span>(my.str)</code></pre></div>
-<pre><code>## [1] &quot;This code was executed in 2017-04-29 09:51:40&quot;</code></pre>
+<pre><code>## [1] &quot;This code was executed in 2017-04-29 12:48:49&quot;</code></pre>
 </div>
 <div id="other-functions-for-manipulating-dates-and-time" class="section level3">
 <h3><span class="header-section-number">3.5.7</span> Other Functions for Manipulating Dates and Time</h3>
@@ -1941,6 +1942,26 @@ my.mat[<span class="dv">2</span>,<span class="dv">2</span>] &lt;-<span class="st
 <p>Freitas, Wilson. 2016. <em>Bizdays: Business Days Calculations and Utilities</em>. <a href="https://CRAN.R-project.org/package=bizdays" class="uri">https://CRAN.R-project.org/package=bizdays</a>.</p>
 </div>
 </div>
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://pafdr.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
             </section>
 
           </div>

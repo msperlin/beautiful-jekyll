@@ -699,7 +699,7 @@ out.dir &lt;-<span class="st"> &#39;many_datafiles/&#39;</span>
 
 <span class="co"># clean up folder before creating new files</span>
 <span class="kw">file.remove</span>(<span class="kw">list.files</span>(out.dir, <span class="dt">full.names =</span> <span class="ot">TRUE</span>)) </code></pre></div>
-<pre><code>## logical(0)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set vec with filenames</span>
 file.names &lt;-<span class="st"> </span><span class="kw">paste0</span>(out.dir, pattern.name, <span class="kw">seq</span>(<span class="dv">1</span>,n.files), <span class="st">&#39;.csv&#39;</span>)
 
@@ -1528,6 +1528,26 @@ my.tab &lt;-<span class="st"> </span>my.df <span class="op">%&gt;%</span>
 <p>Bache, Stefan Milton, and Hadley Wickham. 2014. <em>Magrittr: A Forward-Pipe Operator for R</em>. <a href="https://CRAN.R-project.org/package=magrittr" class="uri">https://CRAN.R-project.org/package=magrittr</a>.</p>
 </div>
 </div>
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://pafdr.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
             </section>
 
           </div>

@@ -1159,52 +1159,52 @@ my.l &lt;-<span class="st"> </span><span class="kw">market.api.process</span>(<s
 ## [1] &quot;EUR&quot;
 ## 
 ## $timestamp
-## [1] &quot;2017-04-29 09:54:37 BRT&quot;
+## [1] &quot;2017-04-29 12:51:12 BRT&quot;
 ## 
 ## $market_timestamp
 ## [1] NA
 ## 
 ## $trades
 ##                      date    price     amount
-##    1: 2017-04-29 11:31:18 1205.663 0.01330197
-##    2: 2017-04-29 11:31:26 1205.663 1.09558546
-##    3: 2017-04-29 11:31:42 1205.550 0.04203006
-##    4: 2017-04-29 11:31:42 1205.553 0.60000000
-##    5: 2017-04-29 11:31:47 1205.870 0.04179951
+##    1: 2017-04-29 14:23:01 1214.130 0.08280759
+##    2: 2017-04-29 14:23:01 1214.130 0.39896416
+##    3: 2017-04-29 14:23:01 1214.130 0.02450127
+##    4: 2017-04-29 14:23:01 1214.171 0.01312275
+##    5: 2017-04-29 14:23:04 1214.489 0.08280973
 ##   ---                                        
-##  996: 2017-04-29 12:53:01 1204.550 0.02968839
-##  997: 2017-04-29 12:53:49 1203.556 0.60000000
-##  998: 2017-04-29 12:53:49 1203.000 0.31760000
-##  999: 2017-04-29 12:53:49 1203.000 1.06746000
-## 1000: 2017-04-29 12:53:51 1204.549 0.01551121
+##  996: 2017-04-29 15:50:23 1214.989 0.02200000
+##  997: 2017-04-29 15:50:48 1214.989 0.10500000
+##  998: 2017-04-29 15:51:12 1212.550 0.00208028
+##  999: 2017-04-29 15:51:12 1211.640 0.40000000
+## 1000: 2017-04-29 15:51:12 1211.640 0.09791972
 ##                       tid type
 ##    1:                  NA  bid
-##    2:                  NA  bid
-##    3:                  NA  bid
+##    2:                  NA  ask
+##    3:                  NA  ask
 ##    4:                  NA  bid
 ##    5:                  NA  bid
 ##   ---                         
 ##  996:                  NA  bid
-##  997:                  NA  ask
+##  997:                  NA  bid
 ##  998:                  NA  ask
 ##  999:                  NA  ask
-## 1000: 1493470431496723624  bid</code></pre>
+## 1000: 1493481072633953524  ask</code></pre>
 <p>The output of <code>market.api.process</code> is a <code>list</code> object with information about Bitcoin in the <code>'kraken'</code> market. The actual trades are available in the <code>trade</code> slot of <code>my.l</code>. Let’s have a look at its content:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(<span class="kw">tail</span>(my.l<span class="op">$</span>trades))</code></pre></div>
 <pre><code>##                   date    price     amount
-## 1: 2017-04-29 12:53:01 1204.550 0.42468714
-## 2: 2017-04-29 12:53:01 1204.550 0.02968839
-## 3: 2017-04-29 12:53:49 1203.556 0.60000000
-## 4: 2017-04-29 12:53:49 1203.000 0.31760000
-## 5: 2017-04-29 12:53:49 1203.000 1.06746000
-## 6: 2017-04-29 12:53:51 1204.549 0.01551121
+## 1: 2017-04-29 15:50:08 1214.989 0.12570669
+## 2: 2017-04-29 15:50:23 1214.989 0.02200000
+## 3: 2017-04-29 15:50:48 1214.989 0.10500000
+## 4: 2017-04-29 15:51:12 1212.550 0.00208028
+## 5: 2017-04-29 15:51:12 1211.640 0.40000000
+## 6: 2017-04-29 15:51:12 1211.640 0.09791972
 ##                    tid type
 ## 1:                  NA  bid
 ## 2:                  NA  bid
-## 3:                  NA  ask
+## 3:                  NA  bid
 ## 4:                  NA  ask
 ## 5:                  NA  ask
-## 6: 1493470431496723624  bid</code></pre>
+## 6: 1493481072633953524  ask</code></pre>
 <p>It includes price and time information for the past 1000 trades. The package also includes functions for looking into the order book of each market and managing Bitcoin wallets. More details about the functionalities of the package are found in its <a href="https://github.com/jangorecki/Rbitcoin">website</a>.</p>
 </div>
 <div id="other-packages" class="section level3">
@@ -1486,6 +1486,26 @@ my.str &lt;-<span class="st"> </span><span class="kw">paste</span>(letters[<span
 <p>Harrison, John. 2016. <em>RSelenium: R Bindings for Selenium Webdriver</em>. <a href="https://CRAN.R-project.org/package=RSelenium" class="uri">https://CRAN.R-project.org/package=RSelenium</a>.</p>
 </div>
 </div>
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://pafdr.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
             </section>
 
           </div>

@@ -1012,8 +1012,8 @@ n.cran.packages &lt;-<span class="st"> </span><span class="kw">nrow</span>(df.cr
 
 <span class="co"># print it</span>
 <span class="kw">print</span>(n.cran.packages)</code></pre></div>
-<pre><code>## [1] 10455</code></pre>
-<p>If asked about which mirror to use, simply select the one closest to you. Currently (2017-04-29 09:51:31), there are 10455 packages available on the CRAN servers. We can see some details of the first three packages in <code>df.cran.pkgs</code> with function <code>print</code> and some indexing: </p>
+<pre><code>## [1] 10456</code></pre>
+<p>If asked about which mirror to use, simply select the one closest to you. Currently (2017-04-29 12:48:45), there are 10456 packages available on the CRAN servers. We can see some details of the first three packages in <code>df.cran.pkgs</code> with function <code>print</code> and some indexing: </p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># print information about the first three packages</span>
 <span class="kw">print</span>(df.cran.pkgs[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, ])</code></pre></div>
 <pre><code>##        Package  Version Priority
@@ -1201,19 +1201,20 @@ my.dirs &lt;-<span class="st"> </span><span class="kw">list.dirs</span>(<span cl
 ##  [2] &quot;./_book&quot;                       
 ##  [3] &quot;./_bookdown_files&quot;             
 ##  [4] &quot;./data&quot;                        
-##  [5] &quot;./eqs&quot;                         
-##  [6] &quot;./fig_ggplot&quot;                  
-##  [7] &quot;./figs&quot;                        
-##  [8] &quot;./ftp files&quot;                   
-##  [9] &quot;./latex_files&quot;                 
-## [10] &quot;./many_datafiles&quot;              
-## [11] &quot;./ProcAnFinDataR_ed_1_cache&quot;   
-## [12] &quot;./ProcAnFinDataR_ed_1_files&quot;   
-## [13] &quot;./procmodelfindatar_ed_1_cache&quot;
-## [14] &quot;./procmodelfindatar_ed_1_files&quot;
-## [15] &quot;./Removed chapters&quot;            
-## [16] &quot;./Scripts&quot;                     
-## [17] &quot;./tabs&quot;</code></pre>
+##  [5] &quot;./docs&quot;                        
+##  [6] &quot;./eqs&quot;                         
+##  [7] &quot;./fig_ggplot&quot;                  
+##  [8] &quot;./figs&quot;                        
+##  [9] &quot;./ftp files&quot;                   
+## [10] &quot;./latex_files&quot;                 
+## [11] &quot;./many_datafiles&quot;              
+## [12] &quot;./ProcAnFinDataR_ed_1_cache&quot;   
+## [13] &quot;./ProcAnFinDataR_ed_1_files&quot;   
+## [14] &quot;./procmodelfindatar_ed_1_cache&quot;
+## [15] &quot;./procmodelfindatar_ed_1_files&quot;
+## [16] &quot;./Removed chapters&quot;            
+## [17] &quot;./Scripts&quot;                     
+## [18] &quot;./tabs&quot;</code></pre>
 <p>The command <code>list.dirs(recursive = F)</code> listed all directories of the current path without recursion. The output shows the directories that I have used to write this book. It includes the output directory of the book ( <code>./_book</code>), the directory with the data (<code>./data</code>), among others. In this same directory, you can find the chapters of the book, organized by files and based on the <em>RMarkdown</em> language (<code>.Rmd</code> file extension). To list only files with the extension <code>.Rmd</code>, we can use the <code>pattern</code> input in function <code>list.files</code> as follows:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># list all files with extension .Rmd</span>
 <span class="kw">list.files</span>(<span class="dt">pattern =</span> <span class="st">&quot;*.Rmd&quot;</span>)</code></pre></div>
@@ -1249,6 +1250,26 @@ my.dirs &lt;-<span class="st"> </span><span class="kw">list.dirs</span>(<span cl
 <p>Baumer, Ben, Mine Cetinkaya-Rundel, Andrew Bray, Linda Loi, and Nicholas J Horton. 2014. “R Markdown: Integrating a Reproducible Analysis Tool into Introductory Statistics.” <em>arXiv Preprint arXiv:1402.1894</em>.</p>
 </div>
 </div>
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://pafdr.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
             </section>
 
           </div>

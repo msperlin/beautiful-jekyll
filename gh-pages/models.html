@@ -1465,7 +1465,7 @@ my.garchfit &lt;-<span class="st"> </span><span class="kw">garchFit</span>(<span
 ## 
 ## Mean and Variance Equation:
 ##  data ~ arma(1, 0) + garch(1, 1)
-## &lt;environment: 0x0000000013dbe218&gt;
+## &lt;environment: 0x0000000017c6e7d8&gt;
 ##  [data = sim.garch]
 ## 
 ## Conditional Distribution:
@@ -1493,7 +1493,7 @@ my.garchfit &lt;-<span class="st"> </span><span class="kw">garchFit</span>(<span
 ##  604.1894    normalized:  0.6041894 
 ## 
 ## Description:
-##  Sat Apr 29 09:55:55 2017 by user: marcelo</code></pre>
+##  Sat Apr 29 12:52:17 2017 by user: marcelo</code></pre>
 <p>The resulting parameters from the estimation are close to the values defined arbitrarily in the call to <code>garchSpec</code>. We can achieve higher accuracy by increasing the number of observations in the simulated model. Function <code>summary</code> also works for Garch models. Due to the large amount of information on the prompt, we leave it as an exercise for the reader.</p>
 <p>Now, as an example with real data, let’s estimate a Garch model for the SP500 index. The data is loaded from section <a href="models.html#arima-estimating">9.4.2</a>, so we can use it directly. First, let’s execute the LM Arch test <span class="citation">(Engle <a href="#ref-engle1982autoregressive">1982</a>; Tsay <a href="#ref-tsay2005analysis">2005</a>)</span> to verify if the returns of the market index have the Arch effect. Function <code>ArchTest</code> from <code>FinTS</code> <span class="citation">(Graves <a href="#ref-fints">2014</a>)</span> can perform this task.  </p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(FinTS)
@@ -1557,7 +1557,7 @@ my.garchfit.sp500 &lt;-<span class="st"> </span><span class="kw">garchFit</span>
 ##  6040.208    normalized:  3.355671 
 ## 
 ## Description:
-##  Sat Apr 29 09:55:55 2017 by user: marcelo</code></pre>
+##  Sat Apr 29 12:52:17 2017 by user: marcelo</code></pre>
 <p>As expected, all Garch coefficients are significant at 1%. As for the mean equation, we again find a negative value for <code>ar1</code>, but its significance is not strong, with a p-value close to 10%. We could use the previously estimated Garch model to simulate future returns and prices of the SP500 index.</p>
 </div>
 <div id="forecasting-garch-models" class="section level3">
@@ -2156,6 +2156,26 @@ est.table &lt;-<span class="st"> </span><span class="kw">screenreg</span>(<span 
 <p>Robinson, David. 2017. <em>Broom: Convert Statistical Analysis Objects into Tidy Data Frames</em>. <a href="https://CRAN.R-project.org/package=broom" class="uri">https://CRAN.R-project.org/package=broom</a>.</p>
 </div>
 </div>
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://pafdr.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
             </section>
 
           </div>
