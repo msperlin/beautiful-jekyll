@@ -23,7 +23,6 @@ description: This blog is about R and finance
 
 # List of links in the navigation bar
 navbar-links:
-  Test: "gh-pages/index.html"
   About Me: "aboutme"
   Subscribe to RSS: "subscribe"
   My R Book: "myrbook"
