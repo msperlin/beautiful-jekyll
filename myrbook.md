@@ -8,7 +8,7 @@ image: /img/CAPADigital_FinancialDataR.jpg
 
 My book Processing and Analyzing Financial Data with R is available! 
 
-You can find more details [here (english)](https://sites.google.com/view/pafdR/home) and [here (portuguese)]https://sites.google.com/view/r-financas/).
+You can find more details [here (english)](https://sites.google.com/view/pafdR/home) and [here (portuguese)](https://sites.google.com/view/r-financas/).
 
 
 
