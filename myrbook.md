@@ -1,16 +1,16 @@
 ---
 layout: page
 title: My R book
-image: /img/CAPA_MarceloDadosFinanceiros01E.jpg
+image: /img/CAPADigital_FinancialDataR.jpg
 ---
 
-My book about R and Finance (in portuguese) is finally available! 
+![](/img/CAPADigital_FinancialDataR.jpg.jpg)
 
-You can purchase it in amazon: [ebook](https://www.amazon.com.br/dp/B01N4VXYPM), [print](https://www.amazon.com/dp/8592243513)
+My book Processing and Analyzing Financial Data with R is available! 
 
-The book site is available [here]( https://sites.google.com/view/r-financas/p%C3%A1gina-inicial).
+You can find more details [here (english)](https://sites.google.com/view/pafdR/home) and [here (portuguese)]https://sites.google.com/view/r-financas/).
 
-![](/img/CAPA_MarceloDadosFinanceiros01E.jpg)
+
 
 
 
