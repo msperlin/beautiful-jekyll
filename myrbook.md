@@ -4,7 +4,7 @@ title: My R book
 image: /img/CAPADigital_FinancialDataR.jpg
 ---
 
-![](/img/CAPADigital_FinancialDataR.jpg)
+<img src="/img/CAPADigital_FinancialDataR.jpg" width="350" height="475" alt="Cover image" />
 
 My book, **Processing and Analyzing Financial Data with R**, is now available! 
 
