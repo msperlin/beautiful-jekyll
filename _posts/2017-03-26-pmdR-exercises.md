@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "New book and package pmfdR"
+title: "New book and package pafdR"
 subtitle: "Processing and modelling financial data with R "
 author: "Marcelo Perlin"
 output: md_document
 image: /img/CAPADigital_FinancialDataR.jpg
-tags: [R, pmfdR, exercises, book]
+tags: [R, pafdR, exercises, book]
 ---
 
 My Portuguese book about finance and R was
@@ -26,17 +26,17 @@ and many more.
 The book is not yet finished. I'm taking my time in reviewing everything
 and making sure that it comes out perfectly. I believe it will be ready
 in a few months or less. If you are interested in the book, please go to
-its [website](https://sites.google.com/view/pmfdr/home) where you can
+its [website](https://sites.google.com/view/pafdr/home) where you can
 find its current TOC (table of contents), code and data.
 
 If you want to be notified about the publication of the book, please
 sign this [form](https://goo.gl/forms/ViTXWClGCduO8f8J3) and I'll let
 you know as soon as it is available.
 
-Package `pmfdR`
+Package `pafdR`
 ===============
 
-Yesterday I released package `pmfdR`, which provides access to all
+Yesterday I released package `pafdR`, which provides access to all
 material from my book **Processing and Modelling Financial Data with
 R**, including code, data and exercises.
 
@@ -44,30 +44,30 @@ The exercises are still not complete. I expect to have at least 100
 exercises covering all chapters of the book. As soon as the book is
 finished, I'll starting working on it.
 
-With package `pmfdR` you can:
+With package `pafdR` you can:
 
-1.  Download data and code with function `pmfdR_download.code.and.data`
-2.  Build exercises with function `pmfdR_build.exercise`
+1.  Download data and code with function `pafdR_download.code.and.data`
+2.  Build exercises with function `pafdR_build.exercise`
 
 Downloading code and data
 -------------------------
 
 All the R code from the book is publicly available in
-[github](https://github.com/msperlin/pmfdR-en-code_data/). Function
-`pmfdR_download.code.and.data` will download a zip file from the
+[github](https://github.com/msperlin/pafdR-en-code_data/). Function
+`pafdR_download.code.and.data` will download a zip file from the
 repository and unzip it at specified folder. Have a look in its usage:
 
-    if (!require(pmfdR)){
-      install.packages('pmfdR')
-      library(pmfdR)
+    if (!require(pafdR)){
+      install.packages('pafdR')
+      library(pafdR)
     } 
 
     my.lan <- 'en' # language of code and data ('en' or 'pt-br')
 
     # dl may take some time (around 60 mb)
-    pmfdR_download.code.and.data(lan = my.lan)
+    pafdR_download.code.and.data(lan = my.lan)
 
-    dir.out <- 'pmfdR-en-code_data-master'
+    dir.out <- 'pafdR-en-code_data-master'
 
     # list R code
     list.files(dir.out, pattern = '*.R')
@@ -83,19 +83,19 @@ positive aspects of using `exams`. You can find the full post
 [here](https://msperlin.github.io/2017-01-30-Exams-with-dynamic-content/)
 
 You can create your custom exercise file using function
-`pmfdR_build.exercise`. Give it a try, just copy and paste the following
+`pafdR_build.exercise`. Give it a try, just copy and paste the following
 chunk of code in your R prompt.
 
-    if (!require(pmfdR)){
-      install.packages('pmfdR')
-      library(pmfdR)
+    if (!require(pafdR)){
+      install.packages('pafdR')
+      library(pafdR)
     } 
 
     my.lan <- 'en' # language of exercises
-    my.exercise.folder <- 'pmfdR-exercises' # name of folder with exercises files (will download from github)
+    my.exercise.folder <- 'pafdR-exercises' # name of folder with exercises files (will download from github)
     my.pdf.folder <- 'PdfOut' # name of folder to place pdf file and answer sheet
 
-    pmfdR_build.exercise(lan = my.lan,
+    pafdR_build.exercise(lan = my.lan,
                          exercise.folder = my.exercise.folder, 
                          pdf.folder = my.pdf.folder)
 
