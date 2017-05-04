@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "MY book (pafdR) is out!"
+title: "My book (pafdR) is out!"
 subtitle: ""
 author: "Marcelo Perlin"
 output: html_document
