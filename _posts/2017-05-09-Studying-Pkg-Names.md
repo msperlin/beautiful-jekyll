@@ -37,8 +37,8 @@ errors in a regression model. These robust estimates are also called
 sandwich](http://gosset.wharton.upenn.edu/teaching/541/sandwich_estimator.html).
 But, you only know that if you studied a bit of econometric theory. This
 strategy works because it is easier to remember things that surprise us.
-Another great example is package `janitor`. I'm sure the you already
-suspects that it has something do to with data cleaning. And you are
+Another great example is package `janitor`. I'm sure you already
+suspect that it has something do to with data cleaning. And you are
 right! The message of the name is effortless and it works! The author
 even got the privilege of using letter R in the name.
 
