@@ -150,7 +150,7 @@ Now, let's look at the distribution of used letters in relative terms:
     idx <- df.to.plot$char %in% LETTERS
     df.to.plot <- df.to.plot[idx, ]
 
-    p <- ggplot(df.to.plot, aes(x=char, y = perc.count, color=source.char,width=.5)) +
+    p <- ggplot(df.to.plot, aes(x=char, y = perc.count, fill=source.char, width=.5)) +
       geom_col(position = 'dodge') + scale_y_continuous(labels = percent_format())  
 
     print(p)
