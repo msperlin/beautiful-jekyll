@@ -26,6 +26,8 @@ The steps for using it are:
 # sudo chmod 700 InstallR.sh
 # ./FirstTimeInstallR.sh
 
+# Install R
+
 sudo echo "deb http://cran.rstudio.com/bin/linux/ubuntu trusty/" | sudo tee -a /etc/apt/sources.list
 
 gpg --keyserver keyserver.ubuntu.com --recv-key E084DAB9
@@ -39,6 +41,14 @@ sudo apt-get install -y mesa-common-dev libx11-dev r-cran-rgl r-cran-rglpk r-cra
 sudo apt-get install -y  r-cran-reshape  r-cran-reshape2 r-cran-rmysql
 
 sudo R CMD javareconf 
+
+# install RStudio 1-0.143-amd64
+# Link and version at: https://www.rstudio.com/products/rstudio/download2/
+
+sudo apt-get install gdebi-core
+wget https://download1.rstudio.org/rstudio-1.0.143-amd64.deb
+sudo gdebi -n rstudio-1.0.143-amd64.deb
+rm rstudio-1.0.143-amd64.deb
 ```
 
 2) Change the permissions of the file so that it can be executed:
