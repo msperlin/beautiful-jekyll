@@ -60,7 +60,7 @@ sudo chmod 700 InstallR.sh
 3) Execute it as `sudo`
 
 ```
-sudo ./FirstTimeInstallR.sh
+sudo ./InstallR.sh
 ```
 
 That's it. I hope others will find this simple bash script useful as well. 
