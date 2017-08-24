@@ -60,7 +60,7 @@ Remote access: RealVnc
 
 Browser: Chrome
 
-**Small number of games**. Occasionally, I used to play some computer games in the weekend. That, is no longer the case. While there has been an advance in the game front with Linux+Steam, most titles simply don't come to Linux.
+- **Small number of games**. Occasionally, I used to play some computer games in the weekend. That, is no longer the case. While there has been an advance in the game front with Linux+Steam, most titles simply don't come to Linux.
 
 
 ## Conclusion
