@@ -45,12 +45,19 @@ After some research, I decided to go with [Linux Mint](https://www.linuxmint.com
 - **Relearn all software**. I used Windows for so many years that I knew by heart how to use its software. I had to relearn many things. I've found a good website, [AlternativeTo](http://alternativeto.net/) that can help a lot. So far, I can't name a Windows software that is not replaceable in Linux. Next I describe  what I use in Linux to do most of my work:
 
 Writing research articles: Latex (textudio + texlive)
+
 Writing other documents: Writer (libreoffice) and gedit
+
 Spreadsheets: Calc (libreoffice)
+
 Slides: Impress (libreoffice), Latex beamer and RMarkdown
+
 Data Analysis: R+RStudio and Python+Spyder (ocasionally), 
+
 Data storage: SQLITE and csv files
+
 Remote access: RealVnc
+
 Browser: Chrome
 
 **Small number of games**. Occasionally, I used to play some computer games in the weekend. That, is no longer the case. While there has been an advance in the game front with Linux+Steam, most titles simply don't come to Linux.
