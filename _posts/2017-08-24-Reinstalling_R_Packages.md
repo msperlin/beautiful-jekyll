@@ -17,7 +17,7 @@ So, whenever I have a fresh computer, I just run the following script:
 
 #install.packages('stringr')
 
-#my.path <- 'C:/Dropbox/' # windows
+#folder.in <- 'C:/Dropbox/' # windows
 folder.in <- '/home/msperlin/Dropbox' # linux 
 
 reinstall.pkgs(folder.in)
