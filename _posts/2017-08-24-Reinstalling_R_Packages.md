@@ -14,7 +14,6 @@ I've found a very simple solution to this problem. I wrote a function that takes
 So, whenever I have a fresh computer, I just run the following script:
 
 ```{r}
-rm(list=ls())
 
 #install.packages('stringr')
 
