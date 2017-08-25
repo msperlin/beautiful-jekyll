@@ -9,7 +9,7 @@ tags: [R, packages]
 
 Whenever I buy a new computer or format an old one, I have the problem of reinstalling my R packages. If you are a heavy user, you will likely have a significant amount of packages used by your scripts. When you try to run a script in a fresh install of R, it will tell you that you don't have the proper packages installed. Needless to say that manually installing them is boring.
 
-I've found a very simple solution to this problem. I wrote a function that takes as input a folder in the computer and searches for all .R and .Rmd files in all subfolders. It then reads each one and finds all occurrences of `library(pkgnamehere)` and `require(pkgnamehere)`. It proceeds by checking if the package is locally available and, if not, installs it from CRAN.
+I've found a very simple solution to this problem. I wrote a function that takes as input a folder in the computer and searches for all .R and .Rmd files in all subfolders. It then reads each one and finds all occurrences of `library(pkgnamehere)` and `require(pkgnamehere)`. It proceeds by checking if the package is locally available and, if not, installs it from CRAN. I'm not sure if this is a new solution but, if you find it interesting and worthy of a CRAN package, let me know in the comment sections. I'm sure I can significantly improve it.
 
 So, whenever I have a fresh computer, I just run the following script:
 
@@ -74,4 +74,4 @@ check.install.pkgs <- function(pkg.in){
 }
 ```
 
-I'm not sure if this is a new solution but, if you find it interesting and worthy of a CRAN package, let me know in the comment sections. I'm sure I can significantly improve it.
+
