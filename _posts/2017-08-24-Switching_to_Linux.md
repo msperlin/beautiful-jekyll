@@ -8,7 +8,7 @@ image: /img/linuxmint-logo.png
 tags: [R, Linux mint, windows 10]
 ---
 
-It has been 8 months since I switched from Windows 10 to Linux Mint. In this post I'll talk about my experience as a scholar and R user in this transition.
+Its been 8 months since I switched from Windows 10 to Linux Mint. In this post I'll talk about my experience as a scholar and R user in this transition.
 
 My work is, simply put, to communicate ideas. A typical day of work is a mixture of writing research papers, creating classroom material such as slides and exercises, and analyzing data. Most of my work happens in front of a computer.
 
