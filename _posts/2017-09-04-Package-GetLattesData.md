@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Package `GetLattesData`"
+title: "Package GetLattesData"
 subtitle: "Downloading and reading bibliometric data from Lattes"
 author: "Marcelo Perlin"
 output: md_document
