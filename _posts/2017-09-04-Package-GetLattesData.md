@@ -41,8 +41,11 @@ work.
 Installation
 ============
 
-The package is not yet in CRAN. It should be there in a couple of days.
-In the meanwhile, you can install it using devtools.
+The package is available in CRAN:
+
+    install.packages('GetLattesData')
+
+You can also install the dev version from github:
 
     #install.packages('devtools')
     devtools::install_github('msperlin/GetLattesData')
