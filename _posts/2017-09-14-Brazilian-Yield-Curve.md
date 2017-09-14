@@ -52,7 +52,7 @@ yield curve of real, nominal and inflation returns. Let's plot it!
 
     ## Warning: Removed 1 rows containing missing values (geom_point).
 
-![](/img/2017-09-14-Brazilian-Yield-Curve_files/figure-markdown_strict/unnamed-chunk-4-1.png)
+![](img/2017-09-14-Brazilian-Yield-Curve_files/figure-markdown_strict/unnamed-chunk-4-1.png)
 
 The expected inflation in Brazil seems to be stable. Market expectation
 is for an inflation around 5% a year in 2024. This level is quite low
