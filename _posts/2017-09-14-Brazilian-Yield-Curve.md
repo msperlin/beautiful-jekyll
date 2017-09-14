@@ -5,7 +5,7 @@ a financial tool that shows how, based on current prices of fixed income
 instruments, the market perceives the future real, nominal and inflation
 returns. You can find more details regarding the use and definition of a
 yield curve in
-\[Investopedia\]\[<http://www.investopedia.com/terms/y/yieldcurve.asp>\].
+[Investopedia](http://www.investopedia.com/terms/y/yieldcurve.asp).
 
 Unfortunately, function `get.yield.curve` only downloads the **current**
 yield curve from the website. Data for historical curves over five
@@ -52,7 +52,7 @@ yield curve of real, nominal and inflation returns. Let's plot it!
 
     ## Warning: Removed 1 rows containing missing values (geom_point).
 
-![](/img/2017-09-14-Brazilian-Yield-Curve_files/figure-markdown_strict/unnamed-chunk-4-1.png)
+![](img/2017-09-14-Brazilian-Yield-Curve_files/figure-markdown_strict/unnamed-chunk-4-1.png)
 
 The expected inflation in Brazil seems to be stable. Market expectation
 is for an inflation around 5% a year in 2024. This level is quite low
