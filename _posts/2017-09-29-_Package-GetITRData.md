@@ -211,7 +211,7 @@ the income statements for all desired quarters of PETROBRAS are:
 
 The resulting dataframe is in the long format, ready for processing. In
 the long format, financial statements of different quarters are stacked.
-In the wide format, we have the quarters as dates. If you want the wide
+In the wide format, we have the columns as dates and rows as account names/ids. If you want the wide
 format, which I believe is most common in financial analysis, you can
 use function `gitrd.convert.to.wide`. See an example next:
 
