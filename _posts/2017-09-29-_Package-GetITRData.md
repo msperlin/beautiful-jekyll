@@ -37,11 +37,11 @@ The package is available in CRAN (release version) and in Github
 (development version). You can install any of those with the following
 code:
 
-\`\`\`r \# Release version in CRAN install.packages('GetITRData') \# not
-in CRAN yet
-
-\# Development version in Github
-devtools::install\_github('msperlin/GetITRData') \`\`\`
+    # Release version in CRAN 
+    install.packages('GetITRData') 
+    
+    # Development version in Github
+    devtools::install\_github('msperlin/GetITRData') 
 
 How to use `GetITRData`
 =======================
