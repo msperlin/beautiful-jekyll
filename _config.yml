@@ -24,9 +24,11 @@ description: This blog is about R and finance
 # List of links in the navigation bar
 navbar-links:
   About Me: 
-    - About: "aboutme"
-    - Publications: "publications"
-    - Working Papers: "workingpapers"
+    - CV: "aboutme"
+  Research Work:
+    - International Publications: "publications"
+    - Local Publications: "content/publications"
+    - Working Papers: "workingpapers"  
   Subscribe to RSS: "subscribe"
   My R Book: "myrbook"
   Resources:
