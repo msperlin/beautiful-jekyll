@@ -92,3 +92,47 @@ Qualities of the package:
 [Link to download](/content/matlab/PairsTrading_FEX.zip)
 
 
+### State Space Models
+
+This toolbox was designed to simulate and fit linear state space models.
+
+The main literature I used for this particular package is Kim and Nelson (1999).
+
+A state space model (without non stochastic coefficients) is given by:
+
+y(t)=beta(t)*x(t)'+e(t) 
+beta(t)=u+F*beta(t-1)+v(t)
+
+e(t)~N(0,R) 
+v(t)~N(0,Q)
+
+Where x(t) is a vector of size (1,k), beta(t), u and v(t) are vectors with size [1,k] and F, Q are matrices of size [k,k]. More details about the model can be found at the reference.
+
+The main advantage of this package is that the fitting function lets you build your own state space model by changing the input option optionsSpec. Please check the pdf document and the example scripts at the zip file for instructions of how to use it.
+
+Some comments about the fitting code:
+
+•	So far it doesn’t handle autoregressive processes between series of the beta matrix. In other works, at the F matrix, the only estimated coefficients are in the diagonal (all non diagonal elements are zero).
+
+•	The model is estimated by Gaussian maximum likelihood with the function fminsearch. I also played around with fminunc(), but there was no improvement over fminsearch when it comes to robustness and speed.
+
+•	So far the code doesn’t handle state space models with mixture of non stochastic and stochastic coefficients, that is, when you want some variables to have stochastic coefficients and others not in the same model.
+
+[Link to download](/content/matlab/State_Space_Models_FEX.zip)
+
+## Yahoo Finance and Matlab
+
+This is a simple algorithm that downloads trading data from yahoo database. It is basically a large scale application of sqq.m which was originally submitted by Michael Boldin.
+
+Some of the functionalities of the package: 
+- User defined ticker list. 
+- Choice for benchmark ticker in dates comparison 
+- Function for downloading most recent SP500 composition in ticker list. 
+- Control for bad data (e.g. a certain percentage of prices missing). 
+- Choice of frequency of data (e.g. weekly prices). 
+- Choice of starting and ending data. 
+- Function for saving the whole data in a pre-formatted excel file together with a full reports on missing data.
+
+[Link to download](/content/matlab/GetTickerData_FEX.zip)
+
+
