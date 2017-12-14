@@ -23,10 +23,9 @@ description: This blog is about R and finance
 
 # List of links in the navigation bar
 navbar-links:
-  About Me: 
-    - CV: "content/aboutme"
-  My R Book: "content/myrbook"
-  Research Work:
+  About Me: "content/aboutme"
+  My Books: "content/myrbook"
+  Research:
     - International Publications: "content/int_publications"
     - Local Publications: "content/loc_publications"
     - Working Papers: "content/workingpapers" 
