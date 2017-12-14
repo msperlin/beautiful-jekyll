@@ -3,29 +3,27 @@ layout: page
 title: R Code
 ---
 
-I have developed many packages distributed in CRAN. You can find more details [here](https://www.rdocumentation.org/collaborators/name/Marcelo%20Perlin).
+I have developed many packages that are publicly distributed in CRAN. You can find the name and description below. Some of them are also hosted at [Github](https://github.com/msperlin/).
+
+[GetDFPData](https://cran.r-project.org/package=GetDFPData) - Reads annual financial reports including assets, liabilities, dividends history, stockholder composition and much more from Bovespa's DFP, FRE and FCA systems <http://www.bmfbovespa.com.br/en_us/products/listed-equities-and-derivatives/equities/listed-companies.htm>. These are web based interfaces for all financial reports of companies traded at Bovespa. The package is especially designed for large scale data importation, keeping a tabular (long) structure for easier processing.
 
 
-[GetHFData]() - Downloads and aggregates high frequency trading data for Brazilian instruments directly from Bovespa ftp site <ftp://ftp.bmf.com.br/MarketData/>.
+[GetHFData](https://cran.r-project.org/package=GetHFData) - Downloads and aggregates high frequency trading data for Brazilian instruments directly from Bovespa ftp site <ftp://ftp.bmf.com.br/MarketData/>.
 
-[BatchGetSymbols]() - Makes it easy to download a large number of trade data from Yahoo or Google Finance.
+[BatchGetSymbols](https://cran.r-project.org/package=BatchGetSymbols) - Makes it easy to download a large number of trade data from Yahoo or Google Finance.
 
-[GetTDData]() - Downloads and aggregates data for Brazilian government issued bonds directly from the website of Tesouro Direto <http://www.tesouro.fazenda.gov.br/tesouro-direto-balanco-e-estatisticas>.
+[GetTDData](https://cran.r-project.org/package=GetTDData) - Downloads and aggregates data for Brazilian government issued bonds directly from the website of Tesouro Direto <http://www.tesouro.fazenda.gov.br/tesouro-direto-balanco-e-estatisticas>.
 
-GetLattesData   Cran
-A simple API for downloading and reading xml data directly from Lattes <http://lattes.cnpq.br/>.
+[GetLattesData](https://cran.r-project.org/package=GetLattesData) - A simple API for downloading and reading xml data directly from Lattes <http://lattes.cnpq.br/>.
 
-GetITRData   Cran
-Reads quarterly and annual financial reports including assets, liabilities, income and cash flow statements from Bovespa's ITR (informacoes trimestrais) system <http://www.bmfbovespa.com.br/en_us/products/listed-equities-and-derivatives/equities/listed-companies.htm>. The ITR/DFP system is a web based interface for all financial reports of companies traded at Bovespa. The package is especially designed for large scale data importation, keeping a tabular (long) structure for easier processing.
+[GetITRData](https://cran.r-project.org/package=) - Reads quarterly and annual financial reports including assets, liabilities, income and cash flow statements from Bovespa's ITR (informacoes trimestrais) system <http://www.bmfbovespa.com.br/en_us/products/listed-equities-and-derivatives/equities/listed-companies.htm>. The ITR/DFP system is a web based interface for all financial reports of companies traded at Bovespa. The package is especially designed for large scale data importation, keeping a tabular (long) structure for easier processing.
 
-pafdR   Cran
-Provides access to material from the book "Processing and Analyzing Financial Data with R" by Marcelo Perlin (2017) available at <https://sites.google.com/view/pafdr/home>.
+[pafdR](https://cran.r-project.org/package=pafdR) - Provides access to material from the book "Processing and Analyzing Financial Data with R" by Marcelo Perlin (2017) available at <https://sites.google.com/view/pafdr/home>.
 
-predatory   Cran
-Allows the user to check and find (allegedly) predatory journals based on Beall's list available at <https://scholarlyoa.com/>. As part of a research project, the data from the website has been scraped with web scraping algorithms and manual work. The package includes a search function and direct access to this database of predatory journals. The use of this tool should facilitate the detection of predatory publications by researchers and librarians.
+[pmfdR](https://cran.r-project.org/package=pmfdR) - Provides access to material from the book "Processing and Modelling Financial Data with R" by Marcelo Perlin (2017) available at <https://sites.google.com/view/pmfdr/home>.
 
-RndTexExams   Cran
-Using as input a 'LaTeX' file with a multiple choice exam, this package will produce several versions with randomized contents of the same exam. Functions for grading and testing for cheating are also available.
+[predatory](https://cran.r-project.org/package=predatory) - Allows the user to check and find (allegedly) predatory journals based on Beall's list available at <https://scholarlyoa.com/>. As part of a research project, the data from the website has been scraped with web scraping algorithms and manual work. The package includes a search function and direct access to this database of predatory journals. The use of this tool should facilitate the detection of predatory publications by researchers and librarians.
 
-pmfdR   Cran
-Provides access to material from the book "Processing and Modelling Financial Data with R" by Marcelo Perlin (2017) available at <https://sites.google.com/view/pmfdr/home>.
+[RndTexExams](https://cran.r-project.org/package=RndTexExams) - Using as input a 'LaTeX' file with a multiple choice exam, this package will produce several versions with randomized contents of the same exam. Functions for grading and testing for cheating are also available.
+
+
