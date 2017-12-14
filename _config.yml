@@ -25,12 +25,16 @@ description: This blog is about R and finance
 navbar-links:
   About Me: 
     - CV: "content/aboutme"
+  My R Book: "content/myrbook"
   Research Work:
     - International Publications: "content/int_publications"
     - Local Publications: "content/loc_publications"
-    - Working Papers: "content/workingpapers"  
+    - Working Papers: "content/workingpapers" 
+  Code:
+    - R: "content/rcode"
+    - Matlab: "content/matlabcode" 
   Subscribe to RSS: "content/subscribe"
-  My R Book: "content/myrbook"
+
   Resources:
     - Beautiful Jekyll: "http://deanattali.com/beautiful-jekyll/"
     - R-Bloggers: "https://www.r-bloggers.com/"
