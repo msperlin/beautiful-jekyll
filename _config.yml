@@ -26,6 +26,7 @@ navbar-links:
   About Me: 
     - About: "aboutme"
     - Publications: "publications"
+    - Working Papers: "workingpapers"
   Subscribe to RSS: "subscribe"
   My R Book: "myrbook"
   Resources:
