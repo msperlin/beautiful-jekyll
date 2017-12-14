@@ -4,6 +4,10 @@ title: Local Publications
 
 ---
 
+# 2017
+
+## 2017
+
 ### 2017
 
 #### 2017
@@ -13,11 +17,11 @@ title: Local Publications
 It is often argued that intraday returns can be used to construct covariance estimates that are more accurate than those based on daily returns. However, it is still unclear whether high frequency data provide more precise covariance estimates in markets more contaminated from microstructure noise such as higher bid-ask spreads and lower liquidity. We address this question by investigating the benefits of using high frequency data in the Brazilian equities market to construct optimal minimum variance portfolios. We implement alternative realized covariance estimators based on intraday returns sampled at alternative frequencies and obtain their dynamic versions using a multivariate GARCH framework. Our evidence based on a high-dimensional data set suggests that realized covariance estimators performed significantly better from an economic point of view in comparison to standard estimators based on low-frequency (close-to-close) data as they delivered less risky portfolios.
 
 
-**O poder preditivo de pesquisas na internet sobre o mercado financeiro brasileiro. (2017) RAM. Revista de Administração Mackenzie (Impresso)** [[Link]](http://www.scielo.br/scielo.php?script=sci_arttext&pid=S1678-69712017000200184)
+**O poder preditivo de pesquisas na internet sobre o mercado financeiro brasileiro. RAM. Revista de Administração Mackenzie (Impresso)** [[Link]](http://www.scielo.br/scielo.php?script=sci_arttext&pid=S1678-69712017000200184)
 
 Entender a capacidade preditiva de pesquisas no Google sobre o mercado financeiro brasileiro. Apesar de uma crescente literatura estrangeira utilizando dados sobre pesquisas oriundas no Google, no Brasil não se tem conhecimento de trabalhos desta natureza. A aplicação no mercado financeiro evidencia novas fontes de informação acerca do movimento dos mercados e pode contribuir para pesquisadores e praticantes entenderem melhor esta dinâmica. Principais aspectos metodológicos: Seguindo a literatura, foram estimados modelos VAR para investigar os efeitos em três variáveis dos mercados de renda acionário e de renda fixa: volume, retorno e volatilidade. Além disso, foi estudado o impacto da procura por termos relacionados à gripe no mercado de renda variável. Foram usados dados semanais de pesquisas do Google Trends e dos mercados financeiros entre o período de 2007 a 2014. Síntese dos principais resultados: Evidencia-se a existência de um efeito preditivo entre os níveis de pesquisas e as variáveis financeiras, principalmente no mercado de renda variável. Todavia, este resultado não foi robusto em todos os casos analisados. Destaca-se que, para a relação inversa, isto é, o mercado financeiro impactando as pesquisas no Google, encontrou-se forte evidência de uma relação causal. O uso de uma estratégia de negociação baseada neste tipo de dados gerou retornos maiores do que os bechmarkings definidos. O estudo revelou uma relação significativa entre o nível de pesquisas no Google e o mercado financeiro. Os resultados oferecem uma nova fonte de informação que afeta o mercado financeiro do Brasil.
 
-**Análise do Perfil dos Acadêmicos e de suas Publicações Científicas em Administração. RAC. Revista de Administração Contemporânea (Impresso)** Forthcoming 
+**Análise do Perfil dos Acadêmicos e de suas Publicações Científicas em Administração. RAC. Revista de Administração Contemporânea (Impresso)** [[Link]](http://www.scielo.br/scielo.php?script=sci_abstract&pid=S1415-65552017000100062&lng=en&nrm=iso&tlng=pt)
 
 A produção da ciência tem sido foco de diversas discussões, particularmente ao que se refere à produtividade científica. Este artigo tem como objetivo analisar o perfil de acadêmicos doutores que atuam na área de Administração no Brasil e as suas respectivas publicações científicas, de modo a identificar fatores que expliquem esse aspecto da produtividade científica. Utilizando estatística descritiva e modelos estatísticos, com base em dados provenientes de 1976 pesquisadores doutores registrados na Plataforma Lattes, a pesquisa identificou fatores ligados à formação e experiência que influem na produtividade científica dos acadêmicos em Administração. Os resultados da pesquisa também indicam que houve importantes modificações nos padrões de formação acadêmica e de produtividade no país. Considerando a centralidade do tema da produtividade científica, o trabalho sugere novas pesquisas para que se ampliem as discussões sobre os rumos da produção intelectual e da pós-graduação em Administração no Brasil.
 
