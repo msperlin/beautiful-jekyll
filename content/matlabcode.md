@@ -3,7 +3,7 @@ layout: page
 title: Matlab Code
 ---
 
-Here you can find Matlab code I have used for research or fun. Be aware that I no longer  use Matlab and all code available here are not being actively mantained.
+Here you can find Matlab code I have used for research or fun. Be aware that **I no longer  use Matlab for research or any other project and all code available here is not being actively mantained**.
 
 ### ACD Models
 
@@ -27,11 +27,16 @@ This Matlab code provides a simple function that access google trends for a give
 Fell free to use it or provide suggestions on how to improve it.
 
 INSTRUCTIONS
- 1) Verify your chrome.exe file path (google can help you) and copy it over at to chromePath (see script)
- 2) Manually open one chrome brownser and leave it open during the whole process 
- 3) In chrome, change the download settings so that all downloads go to your default download folder without user dialog
- 4) Set your default download path in dlFolder (see script)
- 5) Run the example script
+
+1) Verify your chrome.exe file path (google can help you) and copy it over at to chromePath (see script)
+
+2) Manually open one chrome brownser and leave it open during the whole process 
+
+3) In chrome, change the download settings so that all downloads go to your default download folder without user dialog
+
+4) Set your default download path in dlFolder (see script)
+
+5) Run the example script
 
 [Link to download](/content/matlab/Gtrends_Matlab_v1.zip)
 
@@ -125,6 +130,7 @@ Some comments about the fitting code:
 This is a simple algorithm that downloads trading data from yahoo database. It is basically a large scale application of sqq.m which was originally submitted by Michael Boldin.
 
 Some of the functionalities of the package: 
+
 - User defined ticker list. 
 - Choice for benchmark ticker in dates comparison 
 - Function for downloading most recent SP500 composition in ticker list. 
