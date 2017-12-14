@@ -4,7 +4,7 @@ title: International Publications
 
 ---
 
-[Mispricing in the odd lots market in Brazil. North American Journal of Economics and Finance. Volume 42, November 2017, Pages 618-628**.](http://www.sciencedirect.com/science/article/pii/S1062940817302127)
+**Mispricing in the odd lots market in Brazil. North American Journal of Economics and Finance. Volume 42, November 2017, Pages 618-628**.[[Direct Link]](http://www.sciencedirect.com/science/article/pii/S1062940817302127)
 
 We study the case of mispricing in the odd lots equity market in Brazil. Contrary to expectation, odd lot investors are paying higher prices than round lot investors. The pricing difference between markets is affected by market returns, volatility and spreads. Our main hypothesis is that; once the assets traded in the odd lot market are more illiquid than their counterparts, the mispricing is driven by liquidity factors. Additionally, we show that the mispricing yields an arbitrage opportunity that is not being traded away in the Brazilian market. Therefore, we propose regulators to review the market design for odd lots in Brazil. We argue that reducing the minimal trading unit in the round lots market would benefit investors.
 
