@@ -4,7 +4,9 @@ title: Local Publications
 
 ---
 
-## 2017
+### 2017
+
+#### 2017
 
 **Portfolio management using realized covariances: Evidence from Brazil. EconomiA** [[Link]](https://www.sciencedirect.com/science/article/pii/S1517758017300395)
 
