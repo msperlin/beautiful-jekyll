@@ -25,9 +25,7 @@ description: This blog is about R and finance
 navbar-links:
   About Me: 
     - About: "aboutme"
-    - Publications:
-        - International: "publications"
-        - teste: "publications"
+    - Publications: "publications"
   Subscribe to RSS: "subscribe"
   My R Book: "myrbook"
   Resources:
