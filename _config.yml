@@ -28,7 +28,7 @@ navbar-links:
   Research:
     - International Publications: "content/int_publications"
     - Local Publications: "content/loc_publications"
-    - Awards: "content/awards'
+    - Awards: "content/awards"
     - Working Papers: "content/workingpapers" 
   Code:
     - R: "content/rcode"
