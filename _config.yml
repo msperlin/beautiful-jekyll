@@ -24,10 +24,11 @@ description: This blog is about R and finance
 # List of links in the navigation bar
 navbar-links:
   About Me: "content/aboutme"
-  My Books: "content/myrbook"
+  Books: "content/myrbook"
   Research:
     - International Publications: "content/int_publications"
     - Local Publications: "content/loc_publications"
+    - Awards: "content/awards'
     - Working Papers: "content/workingpapers" 
   Code:
     - R: "content/rcode"
