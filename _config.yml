@@ -31,8 +31,10 @@ navbar-links:
     - Awards: "content/awards"
     - Working Papers: "content/workingpapers" 
   Code:
-    - R: "content/rcode"
-    - Matlab: "content/matlabcode" 
+    - R Packages: "content/rcode"
+    - Shiny Apps: "content/shiny"
+    - Matlab: "content/matlabcode"
+     
   Subscribe to RSS: "content/subscribe"
 
   Resources:
