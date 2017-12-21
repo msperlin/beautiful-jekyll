@@ -1,7 +1,6 @@
 ---
 layout: page
 title: My R book
-image: /img/CAPADigital_FinancialDataR.jpg
 ---
 
 <img src="/img/CAPADigital_FinancialDataR_20170427-1.jpg" width="675" height="475" alt="Cover image" />

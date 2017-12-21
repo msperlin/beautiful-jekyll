@@ -1,7 +1,6 @@
 ---
 layout: page
 title: List of posts
-image: /img/profile.jpg
 ---
 
 {% for post in site.posts %}
