@@ -28,16 +28,14 @@ navbar-links:
   Research:
     - International Publications: "content/int_publications"
     - Local Publications: "content/loc_publications"
-    - Awards: "content/awards"
     - Working Papers: "content/workingpapers" 
+    - Awards: "content/awards"
   Code:
     - R Packages: "content/rcode"
     - Shiny Apps: "content/shiny"
     - Matlab: "content/matlabcode"
-     
-  Subscribe to RSS: "content/subscribe"
-
   Resources:
+    - Subscribe to RSS: "content/subscribe"
     - Beautiful Jekyll: "http://deanattali.com/beautiful-jekyll/"
     - R-Bloggers: "https://www.r-bloggers.com/"
 
