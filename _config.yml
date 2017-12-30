@@ -17,13 +17,13 @@ baseurl: ""
 title: Marcelo S. Perlin
 
 # Short description of your site
-description: Blog and personal site
+description: Blog and personal site of Marcelo S. Perlin
 
 # --- Navigation bar options --- #
 
 # List of links in the navigation bar
 navbar-links:
-  About Me: "content/aboutme"
+  About: "content/aboutme"
   Posts: "content/posts"
   Books: "content/myrbook"
   Research:
