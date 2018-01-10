@@ -4,13 +4,13 @@ title: "The Brazilian post office and R"
 subtitle: " "
 author: "Marcelo S. Perlin"
 output: md_document
-image: img/R_correio.jpg
+image: img/R_Correio.jpg
 tags: [R, logo]
 ---
 
 While I would like to post a success story about the Brazilian post office using R to analyze its internal data, the real story is the use of R's logo for its **R**egistered mail :). Have a look:
 
-![](/img/R_correio.jpg)
+![](/img/R_Correio.jpg)
 
 My best guess is that someone searched for letter R in [Google images](https://www.google.com.br/search?q=R&newwindow=1&safe=off&source=lnms&tbm=isch&sa=X&ved=0ahUKEwj1p-2xws7YAhXGfpAKHQ0NDUoQ_AUICygC&biw=1920&bih=914) and used the first hit as a symbol of registered mail. My second best guess is that someone really likes R and has a particular sense of humour.
 
