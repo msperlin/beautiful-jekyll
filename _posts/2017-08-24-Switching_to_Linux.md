@@ -69,3 +69,12 @@ I'm very happy with my choice and advise everyone to make the switch. I'm more p
 
 I hope this post gives some pointers for those considering making the change. You can find [many tutorials](https://www.google.com.br/search?q=how+to+install+linux+mint&oq=how+to+install+linux+mint&aqs=chrome..69i57l2j69i60l3j69i59.2670j0j4&sourceid=chrome&ie=UTF-8) in the internet about how to install and use Linux mint.
 
+A couple of good ideas from Eric Jacobsen (comments section) before you start out:
+
+- You can use VirtualBox to easily try out Linux Mint or other distributions before settling on one and investing the time to set it up.
+
+- You can install XFCE desktop environment on the Cinnamon distribution, for lighter resource usage. (Cinnamon and XFCE are both desktop environments. Try on virtualbox first if desired.) The login page allows you to specify which of the installed desktop environment to use, so it is easy to switch between them.
+
+- Note that Mint is derived from Ubuntu, which is derived from Debian, thus Mint uses the Debian package manager. This is pretty important because you may be using it a lot, and Mint benefits from packages created for Ubuntu and Debian.
+
+- An alternative to installing TeX packages is using ShareLaTex or Overleaf to use TeX online.
