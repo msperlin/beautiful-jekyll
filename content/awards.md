@@ -4,8 +4,8 @@ title: Awards
 ---
 
 ## 2018
--  Top 10% of authors on SSRN by all-time downloads [link](https://hq.ssrn.com/rankings/focusedRankings.cfm?ID=7&rank=1&user=467401)
-- Top 10% of authors on SSRN by total new downloads within the last 12 months [link](https://hq.ssrn.com/rankings/focusedRankings.cfm?ID=7&rank=2&user=467401&redirectFrom=true)
+-  Top 10% of authors on SSRN by all-time downloads. [[link]](https://hq.ssrn.com/rankings/focusedRankings.cfm?ID=7&rank=1&user=467401)
+- Top 10% of authors on SSRN by total new downloads within the last 12 months. [[link]](https://hq.ssrn.com/rankings/focusedRankings.cfm?ID=7&rank=2&user=467401&redirectFrom=true)
 
 ## 2016
 
