@@ -44,7 +44,10 @@ In the next chunks of code I show some of the innovations:
 
     ## Loading required package: xml2
 
-    # download Ibovespa stocks
+    # dowlaoad Ibovespa stocks
+    #my.tickers <- paste0(BatchGetSymbols::GetIbovStocks()$tickers, '.SA')
+
+    # download SP500 stocks
     my.tickers <- GetSP500Stocks()$tickers[1:10] # lets keep it light
 
     # set dates
@@ -56,11 +59,11 @@ In the next chunks of code I show some of the innovations:
 
     # get data and time it
     time.nocache <- system.time({
-    my.l <- BatchGetSymbols(tickers = my.tickers, first.date, last.date, 
+    my.l <- BatchGetSymbols(tickers = my.tickers, first.date, last.date,
                             cache.folder = my.temp.cache.folder, do.cache = FALSE)
     })
 
-    ## 
+    ##
     ## Running BatchGetSymbols for:
     ##    tickers = MMM, ABT, ABBV, ACN, ATVI, AYI, ADBE, AMD, AAP, AES
     ##    Downloading data for benchmark ticker
@@ -76,11 +79,11 @@ In the next chunks of code I show some of the innovations:
     ## AES | yahoo (10|10) - Well done!
 
     time.withcache <- system.time({
-    my.l <- BatchGetSymbols(tickers = my.tickers, first.date, last.date, 
+    my.l <- BatchGetSymbols(tickers = my.tickers, first.date, last.date,
                             cache.folder = my.temp.cache.folder, do.cache = TRUE)
     })
 
-    ## 
+    ##
     ## Running BatchGetSymbols for:
     ##    tickers = MMM, ABT, ABBV, ACN, ATVI, AYI, ADBE, AMD, AAP, AES
     ##    Downloading data for benchmark ticker | Found cache file
@@ -97,12 +100,12 @@ In the next chunks of code I show some of the innovations:
 
     cat('\nTime with no cache:', time.nocache['elapsed'])
 
-    ## 
+    ##
     ## Time with no cache: 5.721
 
     cat('\nTime with cache:', time.withcache['elapsed'])
 
-    ## 
+    ##
     ## Time with cache: 0.419
 
 Now let's check the default output with data in the long format:
@@ -131,7 +134,7 @@ Now let's check the default output with data in the long format:
 
 And change the format of the long dataframe to wide:
 
-    l.wide <- reshape.wide(my.l$df.tickers) 
+    l.wide <- reshape.wide(my.l$df.tickers)
 
 Now we check the matrix of prices:
 
