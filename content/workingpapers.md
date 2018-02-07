@@ -4,7 +4,7 @@ title: Working Papers
 ---
 
 
-**Market making and liquidity absortion**
+**Market making and liquidity absorption**
 
 TBA
 
