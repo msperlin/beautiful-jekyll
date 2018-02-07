@@ -15,8 +15,6 @@ Using a database of predatory journals and publications, we look into the extent
 
 
 
-**Accessing Financial Reports and Corporate Events Data from B3 using GetDFPData**
+**Accessing Financial Reports and Corporate Events with GetDFPData**
 
-GetDFPData is an open and free software for accessing data from B3, the Brazilian financial exchange.  Users can import large datasets of financial reports and corporate events from traded companies with a web or command line interface. Designing and popularizing free software for gathering and managing data can boost the number and quality of research in financial markets. This paper discusses the use and contribution of the proposed software. Three empirical and reproducible examples of usage in corporate finance research are presented. 
-
-
+GetDFPData is an open and free software for accessing corporate data from B3, the Brazilian financial exchange. Users can import large datasets of financial reports and corporate events with a web or command line interface. The distribution and popularization of open software for gathering and managing financial data can boost the number and quality of research in corporate finance studies. This paper discusses the contribution and usage of the proposed software. An empirical and reproducible example of usage in corporate finance research is presented in the final section of the article.
