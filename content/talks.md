@@ -5,9 +5,9 @@ title: Talks and Conferences
 
 ## 2018
 
-SER II (conference), UFF (Rio de Janeiro): Accessing Financial Reports and Corporate Events with GetDFPData. [[slides]](/content/slides/Slides-GetDFPData.html)
+SER II (conference), UFF (Rio de Janeiro): Accessing Financial Reports and Corporate Events with GetDFPData.
 
-Departamento de Contabilidade, Unisinos (Porto Alegre): Accessing Financial Reports and Corporate Events with GetDFPData
+Departamento de Contabilidade, Unisinos (Porto Alegre): Accessing Financial Reports and Corporate Events with GetDFPData. [[slides]](/content/slides/Slides-GetDFPData.html)
 
 ## 2017
 
