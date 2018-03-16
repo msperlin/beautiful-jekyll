@@ -41,7 +41,6 @@ FMA (conference), Orlando (United States): Can We Predict Financial Markets base
 
 EFMA (conference), Reading (UK): On the Performance of the Tick Test
 
+## 2010
 
-
-
-PERLIN, M. S.; SCHANZ, J. . Liquidity risks in the UK high-value payment system: an empirical analysis. 2010. (Apresentação de Trabalho/Conferência ou palestra).
+Bank of England Seminar, London (UK): Liquidity risks in the UK high-value payment system: an empirical analysis
