@@ -11,20 +11,37 @@ Departamento de Contabilidade, Unisinos (Porto Alegre): Accessing Financial Repo
 
 ## 2017
 
-NUMATS-COPPE, UFRJ (Rio de Janeiro): Introdução ao R e aplicações em Engenharia Civil.
-
-COPPEAD, UFRJ (Rio de Janeiro): Introdução ao R para análise de dados financeiros
-
 Mannheim University, Mannheim (Germany): Market making and liquidity spillover.
 
 Goethe University, Frankfurt (Germany): Market making and liquidity spillover.
 
+NUMATS-COPPE, UFRJ (Rio de Janeiro): Introdução ao R e aplicações em Engenharia Civil.
+
+COPPEAD, UFRJ (Rio de Janeiro): Introdução ao R para análise de dados financeiros
+
+R and Finance (conference), Chicago (United States): Package GetHFData
+
+SER II, UFF (Niterói): Package RndTexExams
+
 PPGE, UFSC, (Florianopolis): Introdução ao R na análise de dados financeiros.
 
+## 2016
+
+EBFIN (conference), Rio de Janeiro: BaR - Balance at Risk
+
+## 2015
+
+EBFIN (conference), São Paulo: Can We Predict Financial Markets based on Google's Search Queries?
+
+EBFIN (conference), São Paulo: Os pesquisadores, as publicações e os periódicos da área de Finanças no Brasil: Uma análise com base em currículos da plataforma Lattes
+
+FMA (conference), Orlando (United States): Can We Predict Financial Markets based on Google's Search Queries?
+
+## 2012
+
+EFMA (conference), Reading (UK): On the Performance of the Tick Test
 
 
-6.
-PERLIN, M. S.. O uso do Matlab na Pesquisa (e didática) em Finanças. 2011. (Apresentação de Trabalho/Conferência ou palestra).
 
-7.
+
 PERLIN, M. S.; SCHANZ, J. . Liquidity risks in the UK high-value payment system: an empirical analysis. 2010. (Apresentação de Trabalho/Conferência ou palestra).
