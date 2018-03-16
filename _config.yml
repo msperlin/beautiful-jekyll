@@ -26,6 +26,7 @@ navbar-links:
   About: "content/aboutme"
   Posts: "content/posts"
   Books: "content/myrbook"
+  Talks: "content/talks"
   Research:
     - International Publications: "content/int_publications"
     - Local Publications: "content/loc_publications"
