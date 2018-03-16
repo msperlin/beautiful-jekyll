@@ -5,27 +5,23 @@ title: Awards
 
 ## 2018
 
-
-
-SER II, UFF (Rio de Janeiro): Accessing Financial Reports and Corporate Events with GetDFPData
+SER II (conference), UFF (Rio de Janeiro): Accessing Financial Reports and Corporate Events with GetDFPData
 
 Departamento de Contabilidade, Unisinos (Porto Alegre): Accessing Financial Reports and Corporate Events with GetDFPData
 
 ## 2017
 
-Coppe, UFRJ (Rio de Janeiro): Introdução ao R e aplicações em Engenharia Civil.
+NUMATS-COPPE, UFRJ (Rio de Janeiro): Introdução ao R e aplicações em Engenharia Civil.
+
+COPPEAD, UFRJ (Rio de Janeiro): Introdução ao R para análise de dados financeiros
+
+Mannheim University, Mannheim (Germany): Market making and liquidity spillover.
+
+Goethe University, Frankfurt (Germany): Market making and liquidity spillover.
+
+PPGE, UFSC, (Florianopolis): Introdução ao R na análise de dados financeiros.
 
 
-PERLIN, MARCELO. Introdução ao R para análise de dados financeiros. 2017. (Apresentação de Trabalho/Conferência ou palestra).
-
-3.
-PERLIN, M. S.. Market making and liquidity spillover. 2017. (Apresentação de Trabalho/Seminário).
-
-4.
-PERLIN, M. S.. Market making and liquidity spillover. 2017. (Apresentação de Trabalho/Seminário).
-
-5.
-PERLIN, M. S.. Introdução ao R na análise de dados financeiros. 2017. (Apresentação de Trabalho/Conferência ou palestra).
 
 6.
 PERLIN, M. S.. O uso do Matlab na Pesquisa (e didática) em Finanças. 2011. (Apresentação de Trabalho/Conferência ou palestra).
