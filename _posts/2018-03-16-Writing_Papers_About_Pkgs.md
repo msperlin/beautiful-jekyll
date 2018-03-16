@@ -11,9 +11,7 @@ Back in 2007 I wrote a [Matlab package](https://github.com/msperlin/MS_Regress-M
 
 This [manual](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=1714016) about the code became, by far, my most cited paper in [Google Scholar](https://scholar.google.com.br/citations?user=n3LTk-UAAAAJ&hl=en). It is not even published, just a permanent working paper. When attending conferences and seminars, I was always surprised to hear that people knew me as the _matlab regime switching_ guy.
 
-Moving forward a few years, I stopped using Matlab for R and I continue to invest a lot of time writing papers about packages and publishing them in standard scientific journals. You can see a list of those [here](https://msperlin.github.io/content/loc_publications/).
-
-I can testify for a greater contribution and impact for research papers about code. I strongly believe that it will become more popular in the years to come. The new generation of researchers is far more aware of code than the previous. In that sense, nothing beats R and CRAN at the diversity and depth of packages.
+Moving forward a few years, I stopped using Matlab for R and I continue to invest a lot of time writing papers about packages and publishing them in standard scientific journals. You can see a list of those [here](https://msperlin.github.io/content/loc_publications/). I can testify for a greater contribution and impact for research papers about code. I strongly believe that it will become more popular in the years to come. The new generation of researchers is far more aware of code than the previous. In that sense, nothing beats R and CRAN at the diversity and depth of packages.
 
 In this subject, I frequently review papers in the same topic and I see common mistakes that researchers do when writing their papers. Here's some tips for those that wish to pursue such a publication:
 
