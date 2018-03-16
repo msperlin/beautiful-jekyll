@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Awards
+title: Talks and Conferences
 ---
 
 ## 2018
