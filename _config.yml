@@ -26,8 +26,8 @@ navbar-links:
   About: "content/aboutme"
   Posts: "content/posts"
   Books: 
-    - Processing and Analyzing Financial Data: "content/myrbook"
-    - Processamento e Modelagem de Dados Financeiros e Econômicos: "content/myrbook_pt"
+    - Processing and Analyzing Financial Data with R: "content/myrbook"
+    - Processamento e Modelagem de Dados Financeiros com o R: "content/myrbook_pt"
   Talks: "content/talks"
   Research:
     - International Publications: "content/int_publications"
