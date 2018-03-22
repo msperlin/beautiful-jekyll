@@ -19,7 +19,7 @@ O livro está disponível na Amazon Brasileira como [Ebook](https://www.amazon.c
 
 ### Código do livro
 
-Todo o código do livro está disponível neste [link](/content/pafdr files/R code and data (zip).zip)
+Todo o código apresentado no livro está disponível como  um arquivo compactado  [aqui](/content/pafdr files/R code and data (zip).zip).
 
 
 ### Versão Online
