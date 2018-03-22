@@ -3,7 +3,7 @@ layout: page
 title:
 ---
 
-<img src="/content/pafdr files/CAPADigital_DadosFinanceirosR.jpg" width="575" height="475" alt="Cover image" />
+<img src="/content/pafdr files/CAPADigital_DadosFinanceirosR.jpg" width="475" height="575" alt="Cover image" />
 
 ### Sumário
 
