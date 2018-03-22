@@ -3,9 +3,7 @@ layout: page
 title:
 ---
 
-<img src="/content/pafdr files/CAPADigital_DadosFinanceirosR.jpg" width="350" height="475" alt="Cover image" />
-
-### Sumário
+<img src="/content/pafdr files/CAPADigital_DadosFinanceirosR.jpg" width="350" height="475" alt="Cover image" align='center' />
 
 **Este livro introduz o leitor ao uso do R e RStudio como plataforma de processamento e análise de dados financeiros.** O livro apresenta toda a base de conhecimento necessária para utilizar o R, desde a sua instalação até a criação de códigos de pesquisa. O livro está organizado com exemplos práticos de uso do código que contextualizam e facilitam o aprendizado em cada etapa do processo.
 
