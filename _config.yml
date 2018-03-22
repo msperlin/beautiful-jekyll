@@ -25,7 +25,9 @@ description: Blog and personal site of Marcelo S. Perlin
 navbar-links:
   About: "content/aboutme"
   Posts: "content/posts"
-  Books: "content/myrbook"
+  Books: 
+    - Processing and Analyzing Financial Data: "content/myrbook"
+    - Processamento e Modelagem de Dados Financeiros e Econômicos: "content/myrbook"
   Talks: "content/talks"
   Research:
     - International Publications: "content/int_publications"
