@@ -25,3 +25,49 @@ Todo o código do livro está disponível neste [link](/content/book zip file/R 
 ### Versão Online
 
 A versão integral e online do livro está disponível [aqui](/pmdfR-Online/).
+
+### Links do livro
+
+**Páginas para instalação do R e RStudio:**
+
+[https://www.r-project.org/](https://www.r-project.org/)
+
+[https://www.rstudio.com](https://www.rstudio.com)
+
+**Páginas úteis do CRAN:**
+
+[R Views para Finanças](https://cran.r-project.org/web/views/Finance.html)
+
+[R Consortium](https://www.r-consortium.org/)
+
+[Manual oficial do R](https://cran.r-project.org/doc/manuals/R-lang.html)
+
+[Manual oficial do repositório CRAN](https://cran.r-project.org/web/packages/policies.html)
+
+**Páginas úteis sobre o R:**
+
+[Tutorial RMarkdown](http://rmarkdown.rstudio.com/index.html)
+
+[Tutorial para pacotes do R](http://r-pkgs.had.co.nz/intro.html)
+
+[Guia de estilo de código do Google](https://google.github.io/styleguide/Rguide.xml)
+
+
+**Páginas do Quandl:**
+
+[Página principal do Quandl](https://www.quandl.com)
+
+[Página do Banco Central Brasileiro (BCB) no Quandl](https://www.quandl.com/data/BCB)
+
+[Página do IBGE no Quandl](https://www.quandl.com/data/IBGE-Brazilian-Institute-of-Geography-and-Statistics)
+
+
+**Outras páginas:**
+
+[Página do tesouro direto na BMFBovespa](http://www.bmfbovespa.com.br/pt_br/produtos/tesouro-direto/titulos-disponiveis-para-compra.htm)
+
+[Site para instalação do Java](https://www.java.com/pt_BR/)
+
+[Site Bovespa/B3](http://www.bmfbovespa.com.br/)
+
+[Site Yahoo Finance](https://finance.yahoo.com/)
