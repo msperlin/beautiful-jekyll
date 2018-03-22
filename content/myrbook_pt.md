@@ -3,7 +3,7 @@ layout: page
 title:
 ---
 
-<img src="/img/CAPADigital_FinancialDataR_20170427-1.jpg" width="675" height="475" alt="Cover image" />
+<img src="/content/pafdr files/CAPADigital_DadosFinanceirosR.jpg" width="675" height="475" alt="Cover image" />
 
 ### Sumário
 
@@ -19,7 +19,7 @@ O livro está disponível na Amazon Brasileira como [Ebook](https://www.amazon.c
 
 ### Código do livro
 
-Todo o código do livro está disponível neste [link](/content/book zip file/R code and data (zip).zip)
+Todo o código do livro está disponível neste [link](/content/pafdr files/R code and data (zip).zip)
 
 
 ### Versão Online
