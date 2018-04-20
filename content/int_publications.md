@@ -4,6 +4,12 @@ title: International Publications
 
 ---
 
+# 2018
+
+**Is predatory publishing a real threat? Evidence from a large database study. Scientometrics (to be published).** [[Full Text]](https://rdcu.be/L32s)
+
+Using a database of potential, possible, or probable predatory scholarly open-access journals, the objective of this research is to study the penetration of predatory publications in the Brazilian academic system and the profile of authors in a cross-section empirical study. Based on a massive amount of publications from Brazilian researchers of all disciplines during the 2000 to 2015 period, we were able to analyze the extent of predatory publications using an econometric modeling. Descriptive statistics indicate that predatory publications represent a small overall proportion, but grew exponentially in the last 5 years. Departing from prior studies, our analysis shows that experienced researchers with a high number of non-indexed publications and PhD obtained locally are more likely to publish in predatory journals. Further analysis shows that once a journal regarded as predatory is listed in the local ranking system, the Qualis, it starts to receive more publications than non-predatory ones.
+
 # 2017
 
 **Mispricing in the odd lots market in Brazil. North American Journal of Economics and Finance.** [[Link]](http://www.sciencedirect.com/science/article/pii/S1062940817302127)
@@ -20,7 +26,7 @@ In this paper we look into the interaction of Google's search queries and severa
 
 We assemble a massive sample of 180,000 CVs of Brazilian academic researchers of all disciplines from the Lattes platform. From the CVs we gather information on key variables that possibly explain the quantity and impact of their output published in journals: gender, PhD origin (domestic or foreign), time taken for finishing a PhD program, and number of years involved in research since PhD completion. Researcher productivity is gauged by three metrics: average SCImago Journal Rank impact factor, average points from Qualis (which is a Brazilian domestic metrics that includes domestic journals), and average number of journal publications per year after PhD completion. Taken together, we find males are more productive in terms of quantity of publications, but the effect of gender in terms of quality is mixed for individual groups of subject areas. Holding a PhD from abroad increases the chance for a researcher to publish in journals of higher impact, whereas domestic PhDs publish more articles, but in journals of less impact. Thus, there is a trade-off between research impact and quantity. We also find that the more years a researcher takes to finish his or her doctorate, the more likely he or she will publish less thereafter. The data also support the existence of an inverted U-shaped function relating research age and productivity.
 
-## 2016 
+## 2016
 
 **A Multistage Stochastic Programming Asset-Liability Management Model - An Application to the Brazilian Pension Fund Industry. Optimization and Engineering.** [[Link]](https://link.springer.com/article/10.1007/s11081-016-9316-3?wt_mc=internal.event.1.SEM.ArticleAuthorOnlineFirst).
 
