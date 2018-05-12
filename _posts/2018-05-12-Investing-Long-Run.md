@@ -52,7 +52,7 @@ and R. I wrote a simple [function](/content/others/fct_invest_horizon.R)
 that will grab data, simulate investments of different horizons many
 times and plot the results. Let's try it for the SP500 index:
 
-    source('fct_invest_horizon.R')
+    source('https://raw.githubusercontent.com/msperlin/msperlin.github.io/master/content/others/fct_invest_horizon.R')
 
     my.ticker <- '^GSPC' # ticker from yahoo finance
     max.horizon = 255*50 # 50 years
