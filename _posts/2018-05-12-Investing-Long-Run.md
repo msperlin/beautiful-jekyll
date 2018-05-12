@@ -37,7 +37,7 @@ investment horizon and profitability. The idea is that the more time you
 hold a stock (or index), higher the chance of a profit. The table,
 originally from Taleb's *Fooled by Randomness*, is as follows.
 
-<img src="investing-by-horizon.png" width="300" />
+<img src="/img/investing-by-horizon.png" width="300" />
 
 My problem with the table is that it seems pretty off. My experience
 tells me that a 67% chance of positive return every month seems
@@ -80,7 +80,7 @@ times and plot the results. Let's try it for the SP500 index:
 
     print(l.out$p2)
 
-![](img/2018-05-12-Investing-Long-Run_files/figure-markdown_strict/unnamed-chunk-2-2.png)
+![](/img/2018-05-12-Investing-Long-Run_files/figure-markdown_strict/unnamed-chunk-2-2.png)
 
 As we can see, the data doesn't lie. As the investment horizon
 increases, the chances of a positive return increases. This result
@@ -116,7 +116,7 @@ financial markets.
 
     print(l.out$p1)
 
-![](img/2018-05-12-Investing-Long-Run_files/figure-markdown_strict/unnamed-chunk-3-1.png)
+![](/img/2018-05-12-Investing-Long-Run_files/figure-markdown_strict/unnamed-chunk-3-1.png)
 
 As expected, the curve of probabilities has a lower slope, meaning that
 you need more time investing in the SP500 index to guarantee a return of
@@ -149,11 +149,11 @@ investor.
 
     print(l.out$p1)
 
-![](img/2018-05-12-Investing-Long-Run_files/figure-markdown_strict/unnamed-chunk-4-1.png)
+![](/img/2018-05-12-Investing-Long-Run_files/figure-markdown_strict/unnamed-chunk-4-1.png)
 
     print(l.out$p2)
 
-![](img/2018-05-12-Investing-Long-Run_files/figure-markdown_strict/unnamed-chunk-4-2.png)
+![](/img/2018-05-12-Investing-Long-Run_files/figure-markdown_strict/unnamed-chunk-4-2.png)
 
 Well, needless to say that, historically, Buffet has done very well in
 his investments! If you bought the stock and kept it for more 1 year,
