@@ -76,7 +76,7 @@ times and plot the results. Let's try it for the SP500 index:
 
     print(l.out$p1)
 
-![](img/2018-05-12-Investing-Long-Run_files/figure-markdown_strict/unnamed-chunk-2-1.png)
+![](/img/2018-05-12-Investing-Long-Run_files/figure-markdown_strict/unnamed-chunk-2-1.png)
 
     print(l.out$p2)
 
