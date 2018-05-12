@@ -159,5 +159,4 @@ Well, needless to say that, historically, Buffet has done very well in
 his investments! If you bought the stock and kept it for more 1 year,
 there is a 70% chance that you got a profit on your investment.
 
-I hope this post convinced you to start investing. The results don't
-lie. The earlier you start, the best.
+I hope this post convinced you to start investing. The message from the results are straighforward: **the earlier you start, the best**.
