@@ -7,9 +7,9 @@ title: Talks and Conferences
 
 PUC-RJ, Escola de Negócios (IAG). Accessing Financial Reports and Corporate Events with GetDFPData. [[slides]](/content/slides/PUC_Slides-GetDFPData.html)
 
-SER II (conference), UFF (Rio de Janeiro): Accessing Financial Reports and Corporate Events with GetDFPData. [[slides]](/content/slides/SER_Slides-GetDFPData.html)
+SER III (conference), UFF (Niterói-RJ). Accessing Financial Reports and Corporate Events with GetDFPData. [[slides]](/content/slides/SER_Slides-GetDFPData.html)
 
-Departamento de Contabilidade, Unisinos (Porto Alegre): Accessing Financial Reports and Corporate Events with GetDFPData. [[slides]](/content/slides/Slides-GetDFPData.html)
+Unisinos-Porto Alegre, Departamento de Contabilidade. Accessing Financial Reports and Corporate Events with GetDFPData. [[slides]](/content/slides/Slides-GetDFPData.html)
 
 ## 2017
 
