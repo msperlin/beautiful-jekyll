@@ -15,7 +15,7 @@ Este livro é recomendado a profissionais e alunos de pós-graduação que tenha
 
 **Código e Dados do livro:** Todo o código e os dados apresentados no livro estão disponíveis como um arquivo compactado [aqui](/content/pafdr files/R code and data (zip).zip).
 
-**Sumário da obra:** O sumário da obra está disponível [aqui](/content/pafdr files/pafdrpadfeR_ed2_TOC.pdf).
+**Sumário da obra:** O sumário da obra está disponível [aqui](/content/pafdr files/padfeR_ed2_TOC.pdf).
 
 **Versão Online:** A versão integral e online do livro está disponível [neste link](http://www.msperlin.com/padfeR/).
 
