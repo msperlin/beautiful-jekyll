@@ -3,13 +3,13 @@ layout: page
 title:
 ---
 
-<img src="/content/pafdr files/CAPADigital_DadosFinanceirosR.jpg" width="350" height="475" alt="Cover image" align="middle" />
+<img src="/content/pafdr files/CAPADigital_DadosFinanceirosR_20180510.jpg" width="350" height="475" alt="Cover image" align="middle" />
 
-**Este livro introduz o leitor ao uso do R e RStudio como plataforma de processamento e análise de dados financeiros.** O livro apresenta toda a base de conhecimento necessária para utilizar o R, desde a sua instalação até a criação de códigos de pesquisa. O livro está organizado com exemplos práticos de uso do código que contextualizam e facilitam o aprendizado em cada etapa do processo.
+Este livro introduz o leitor ao uso do R e RStudio como plataforma de processamento e análise de dados financeiros e econômicos. O livro apresenta toda a base de conhecimento necessária para utilizar o R, desde a sua instalação até a criação de códigos de pesquisa. O livro está organizado com exemplos práticos de uso do código que contextualizam e facilitam o aprendizado em cada etapa do processo. Baseado no material do livro, o leitor aprenderá a baixar dados econômicos e financeiros de arquivos locais ou da internet, representar e processar esses dados utilizando a linguagem específica do R e, por fim, criar tabelas e figuras para reportar os resultados em um relatório técnico.
 
-Baseado no material do livro, o leitor aprenderá a baixar dados financeiros de arquivos locais ou da internet, representar estes dados utilizando objetos no R, processá-los utilizando a linguagem específica do R e, por fim, criar tabelas e figuras para reportar os resultados em uma relatório técnico. **Todos os capítulos incluem códigos que podem ser replicados no computador do leitor.** O material do livro foi criado com base na experiência prática do autor em pesquisa científica e inclui instruções para o uso dos melhores pacotes para cada finalidade, tal como dplyr no processamento de dados e o ggplot2 na criação de figuras. Após a apresentação das capacidades do R, no último capítulo do livro apresenta-se três exemplos completos e reproduzíveis de pesquisa em Finanças, incluindo a análise de performance de diferentes investimentos no mercado Brasileiro até a visualização do padrão de liquidez intradiária no mercado da Bovespa.
+Todos os capítulos incluem códigos que podem ser replicados no computador do leitor. O material do livro foi criado com base na experiência prática do autor em pesquisa científica e consultoria, incluindo instruções para o uso dos melhores pacotes para cada finalidade. Após a apresentação das capacidades do R, no último capítulo do livro apresenta-se um exemplo completo e reproduzível a respeito da performance de diferentes investimentos no mercado financeiro Brasileiro.
 
-**Este livro é recomendado a pesquisadores, analistas de mercado e alunos de pós-graduação que tenham interesse em aprender a utilizar o R no seu trabalho**. Não é necessário nenhum conhecimento prévio de programação ou finanças para aproveitar este livro. Após a leitura, é esperado que o leitor tenha o conhecimento suficiente para desenvolver suas próprias pesquisas de forma autônoma, seja esta a confecção de documentos acadêmicos ou então o trabalho de pesquisa em empresas públicas e privadas.
+Este livro é recomendado a profissionais e alunos de pós-graduação que tenham interesse em aprender a utilizar o R. Não é necessário nenhum conhecimento prévio de programação para aproveitar o material. Após a leitura, é esperado que o leitor tenha o conhecimento suficiente para desenvolver suas própria pesquisa de forma autônoma, seja essa a confecção de documentos acadêmicos ou então o trabalho de pesquisa em empresas públicas e privadas.
 
 ### Onde comprar
 
@@ -17,12 +17,13 @@ O livro está disponível na Amazon Brasileira como [Ebook](https://www.amazon.c
 
 ### Código do livro
 
-Todo o código apresentado no livro está disponível como  um arquivo compactado  [aqui](/content/pafdr files/R code and data (zip).zip).
+Todo o código apresentado no livro está disponível como um arquivo compactado  [aqui](/content/pafdr files/R code and data (zip).zip).
 
 
 ### Versão Online
 
-A versão integral e online do livro está disponível [aqui](/pmdfR-Online/).
+A versão integral e online do livro está disponível [aqui](http://www.msperlin.com/padfeR/).
+
 
 ### Links do livro
 
