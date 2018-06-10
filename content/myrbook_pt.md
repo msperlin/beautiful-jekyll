@@ -17,10 +17,7 @@ Este livro é recomendado a profissionais e alunos de pós-graduação que tenha
 
 **Sumário da obra:** O sumário da obra está disponível [aqui](/content/pafdr files/pafdrpadfeR_ed2_TOC.pdf).
 
-### Versão Online
-
-A versão integral e online do livro está disponível [aqui](http://www.msperlin.com/padfeR/).
-
+**Versão Online:** A versão integral e online do livro está disponível [neste link](http://www.msperlin.com/padfeR/).
 
 ### Links do livro
 
