@@ -11,7 +11,7 @@ Todos os capítulos incluem códigos que podem ser replicados no computador do l
 
 Este livro é recomendado a profissionais e alunos de pós-graduação que tenham interesse em aprender a utilizar o R. Não é necessário nenhum conhecimento prévio de programação para aproveitar o material. Após a leitura, é esperado que o leitor tenha o conhecimento suficiente para desenvolver suas própria pesquisa de forma autônoma, seja essa a confecção de documentos acadêmicos ou então o trabalho de pesquisa em empresas públicas e privadas.
 
-**Onde comprar:** O livro está disponível na Amazon Brasileira como [Ebook](https://www.amazon.com.br/dp/B01N4VXYPM) e, na Amazon Americana, como [livro impresso](https://www.amazon.com/dp/8592243513).
+**Onde comprar:** O livro está disponível na Amazon Brasileira como [Ebook](https://www.amazon.com.br/dp/B07DN4M357) e, na Amazon Americana, como [livro impresso](https://www.amazon.com/dp/8592243513).
 
 **Código e Dados do livro:** Todo o código e os dados apresentados no livro estão disponíveis como um arquivo compactado [aqui](/content/pafdr files/R code and data (zip).zip).
 
