@@ -26,19 +26,11 @@ title:
 
 **Páginas para instalação do R e RStudio:**
 
-[https://www.r-project.org/](https://www.r-project.org/)
-
-[https://www.rstudio.com](https://www.rstudio.com)
+[https://www.r-project.org/](https://www.r-project.org/) | [https://www.rstudio.com](https://www.rstudio.com)
 
 **Páginas úteis do CRAN:**
 
-[R Views para Finanças](https://cran.r-project.org/web/views/Finance.html)
-
-[R Consortium](https://www.r-consortium.org/)
-
-[Manual oficial do R](https://cran.r-project.org/doc/manuals/R-lang.html)
-
-[Manual oficial do repositório CRAN](https://cran.r-project.org/web/packages/policies.html)
+[R Views para Finanças](https://cran.r-project.org/web/views/Finance.html) | [R Consortium](https://www.r-consortium.org/) | [Manual oficial do R](https://cran.r-project.org/doc/manuals/R-lang.html) | [Manual oficial do repositório CRAN](https://cran.r-project.org/web/packages/policies.html)
 
 **Páginas úteis sobre o R:**
 
