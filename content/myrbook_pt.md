@@ -34,28 +34,15 @@ title:
 
 **Páginas úteis sobre o R:**
 
-[Tutorial RMarkdown](http://rmarkdown.rstudio.com/index.html)
-
-[Tutorial para pacotes do R](http://r-pkgs.had.co.nz/intro.html)
-
+[Tutorial RMarkdown](http://rmarkdown.rstudio.com/index.html) | [Tutorial para pacotes do R](http://r-pkgs.had.co.nz/intro.html) | 
 [Guia de estilo de código do Google](https://google.github.io/styleguide/Rguide.xml)
 
 
 **Páginas do Quandl:**
 
-[Página principal do Quandl](https://www.quandl.com)
-
-[Página do Banco Central Brasileiro (BCB) no Quandl](https://www.quandl.com/data/BCB)
-
-[Página do IBGE no Quandl](https://www.quandl.com/data/IBGE-Brazilian-Institute-of-Geography-and-Statistics)
+[Página principal do Quandl](https://www.quandl.com) | [Página do Banco Central Brasileiro (BCB) no Quandl](https://www.quandl.com/data/BCB) | [Página do IBGE no Quandl](https://www.quandl.com/data/IBGE-Brazilian-Institute-of-Geography-and-Statistics)
 
 
 **Outras páginas:**
 
-[Página do tesouro direto na BMFBovespa](http://www.bmfbovespa.com.br/pt_br/produtos/tesouro-direto/titulos-disponiveis-para-compra.htm)
-
-[Site para instalação do Java](https://www.java.com/pt_BR/)
-
-[Site Bovespa/B3](http://www.bmfbovespa.com.br/)
-
-[Site Yahoo Finance](https://finance.yahoo.com/)
+[Página do tesouro direto na BMFBovespa](http://www.bmfbovespa.com.br/pt_br/produtos/tesouro-direto/titulos-disponiveis-para-compra.htm) | [Site para instalação do Java](https://www.java.com/pt_BR/) | [Site Bovespa/B3](http://www.bmfbovespa.com.br/) | [Site Yahoo Finance](https://finance.yahoo.com/)
