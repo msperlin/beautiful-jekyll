@@ -34,8 +34,7 @@ title:
 
 **Páginas úteis sobre o R:**
 
-[Tutorial RMarkdown](http://rmarkdown.rstudio.com/index.html) | [Tutorial para pacotes do R](http://r-pkgs.had.co.nz/intro.html) | 
-[Guia de estilo de código do Google](https://google.github.io/styleguide/Rguide.xml)
+[Tutorial RMarkdown](http://rmarkdown.rstudio.com/index.html) | [Tutorial para pacotes do R](http://r-pkgs.had.co.nz/intro.html) | [Guia de estilo de código do Google](https://google.github.io/styleguide/Rguide.xml)
 
 
 **Páginas do Quandl:**
