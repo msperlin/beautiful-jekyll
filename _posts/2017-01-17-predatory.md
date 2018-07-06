@@ -9,7 +9,7 @@ bibliography: MyBib.bib
 tags: [R, predatory journals]
 ---
 
-The recent rise of publications in predatory journals is a big issue in
+The recent rise of publications in predatory journals is a big issue in 
 the academic community and it hurts the development of science. This is
 especially true for developing countries such as Brazil, where the
 academic evaluation system is not yet well established. Surprinsingly,
