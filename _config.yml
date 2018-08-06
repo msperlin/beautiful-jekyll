@@ -34,6 +34,8 @@ navbar-links:
     - Local Publications: "content/loc_publications"
     - Working Papers: "content/workingpapers" 
     - Awards: "content/awards"
+    - On the News: "content/on-the-news"
+
   Code:
     - R Packages: "content/rcode"
     - Shiny Apps: "content/shiny"
