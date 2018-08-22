@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Coverage by News
+title: News Coverage
 ---
 
 ## 2018
