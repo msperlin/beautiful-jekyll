@@ -4,6 +4,7 @@ title: Awards
 ---
 
 ## 2018
+- Article "Is predatory publishing a real threat? Evidence from a large database study" in the top 5% of all research outputs scored by Altmetric. [[link]](https://springeropen.altmetric.com/details/38773966)
 -  Top 10% of authors on SSRN by all-time downloads. [[link]](https://hq.ssrn.com/rankings/focusedRankings.cfm?ID=7&rank=1&user=467401)
 - Top 10% of authors on SSRN by total new downloads within the last 12 months. [[link]](https://hq.ssrn.com/rankings/focusedRankings.cfm?ID=7&rank=2&user=467401&redirectFrom=true)
 
