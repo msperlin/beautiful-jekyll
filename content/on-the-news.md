@@ -1,6 +1,6 @@
 ---
 layout: page
-title:
+title: Media Coverage
 ---
 
 ### 2018
