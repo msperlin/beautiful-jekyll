@@ -6,7 +6,11 @@ title: International Publications
 
 # 2018
 
-**Is predatory publishing a real threat? Evidence from a large database study. Scientometrics (forthcoming).** [[Full Text]](https://doi.org/10.1007/s11192-018-2750-6)
+**Lotka’s law for the Brazilian scientific output published in journals. Journal of Information Science (forthcoming)**. [[Full Text]](https://doi.org/10.1177/0165551518801813)
+
+Lotka’s law is a power law for the frequency of scholarly publications. We show that Lotka’s law cannot be dismissed after considering a massive sample of the number of publications of Brazilian researchers in journals listed on the SCImago Journal Rank and the Journal Citation Reports. For the SCImago Journal Rank, we found a power law with the Pareto exponent of 0.4 beyond the threshold of 50 papers. This means computing the ‘average number of publications’ of either a researcher or a discipline is of no practical significance.
+
+**Is predatory publishing a real threat? Evidence from a large database study. Scientometrics.** [[Full Text]](https://doi.org/10.1007/s11192-018-2750-6)
 
 Using a database of potential, possible, or probable predatory scholarly open-access journals, the objective of this research is to study the penetration of predatory publications in the Brazilian academic system and the profile of authors in a cross-section empirical study. Based on a massive amount of publications from Brazilian researchers of all disciplines during the 2000 to 2015 period, we were able to analyze the extent of predatory publications using an econometric modeling. Descriptive statistics indicate that predatory publications represent a small overall proportion, but grew exponentially in the last 5 years. Departing from prior studies, our analysis shows that experienced researchers with a high number of non-indexed publications and PhD obtained locally are more likely to publish in predatory journals. Further analysis shows that once a journal regarded as predatory is listed in the local ranking system, the Qualis, it starts to receive more publications than non-predatory ones.
 
