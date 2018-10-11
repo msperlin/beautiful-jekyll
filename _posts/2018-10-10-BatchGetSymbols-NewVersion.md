@@ -11,7 +11,7 @@ tags: [R, BatchGetSymbols]
 One of the main requests I get for package `BatchGetSymbols` is to allow
 the choice of frequency of the financial dataset. I finally got some time to work on it. I just posted a new version of
 BatchGetSymbols in CRAN. The major change is that users can now set the
-time frequency of the financial data: dailly, weekly, monthly or yearly.
+time frequency of the financial data: daily, weekly, monthly or yearly.
 Let's check it out:
 
     library(BatchGetSymbols)
