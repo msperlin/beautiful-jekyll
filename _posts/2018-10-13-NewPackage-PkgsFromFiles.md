@@ -8,7 +8,7 @@ image: /img/2018-10-13-NewPackage-PkgsFromFiles_files/figure-markdown_strict/unn
 tags: [R, GetLattesData]
 ---
 
-Its been a while since I write a CRAN package and this weekend I decided
+Its been a while since I develop a CRAN package and this weekend I decided
 to work on a idea I had some time ago. The result is package
 `PkgsFromFiles`.
 
