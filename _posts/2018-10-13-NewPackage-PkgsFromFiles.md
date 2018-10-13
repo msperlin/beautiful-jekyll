@@ -220,13 +220,35 @@ operation. Have a look:
 
     dplyr::glimpse(df)
 
+    ## Observations: 127
+    ## Variables: 3
+    ## $ pkg            <chr> "dplyr", "stringr", "GetDFPData", "xlsx", "goog...
+    ## $ status.message <chr> "Already installed", "Already installed", "Alre...
+    ## $ installation   <lgl> TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE,...
+
 The package also includes function `pff_find_R_files_from_folder`, which
 will find all packages used in R related files from a given folder. It
 outputs a dataframe with several information about packages used in the
 found scripts.
 
     df.files <- pff_find_R_files_from_folder(folder.in = my.dir)
+
+    ## 
+    ## Searching folder  ~/Dropbox/01-Pesquisa/
+    ##  Found 32 files in 11 folders
+    ##       R Scripts: 32 files
+    ##       Rmarkdown files: 0 files
+    ##       Sweave files: 0 files
+
     dplyr::glimpse(df.files)
+
+    ## Observations: 32
+    ## Variables: 5
+    ## $ files      <chr> "/home/msperlin/Dropbox/01-Pesquisa//01-Working Pap...
+    ## $ file.names <chr> "01-Build_Presidents_Table.R", "02-DownloadPictures...
+    ## $ extensions <chr> "R", "R", "R", "R", "R", "R", "R", "R", "R", "R", "...
+    ## $ pkgs       <chr> "dplyr ; stringr ; GetDFPData ; xlsx", "googlesheet...
+    ## $ n.pkgs     <int> 4, 4, 1, 3, 6, 6, 2, 4, 3, 6, 9, 6, 8, 5, 4, 1, 9, ...
 
 I also wrote a simple function for plotting the most used packages for a
 given folder:
