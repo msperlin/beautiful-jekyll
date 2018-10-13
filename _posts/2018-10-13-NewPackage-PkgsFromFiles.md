@@ -14,8 +14,8 @@ to work on a idea I had some time ago. The result is package
 
 When working with different computers at home or work, one of the
 problems I have is installing missing packages across different
-computers. As an example, a script that works in my work computer may
-not work in my home computer. This is specially annoying when I have a
+computers. As an example, a script that works in my **work computer** may
+not work in my **home computer**. This is specially annoying when I have a
 fresh install of the operating system or R. In this case, I must
 manually install all packages, case by case. Instead of focusing on the
 script at hand, I spend considerable time finding and installing missing
