@@ -3,7 +3,9 @@ layout: page
 title: R Code
 ---
 
-I have developed many packages that are publicly distributed in CRAN. You can find the name and description below. Some of them are also hosted at [Github](https://github.com/msperlin/).
+Programming is not only part of my job as an academic, but a big hobby for me. Over time, I developed many packages that are publicly distributed in CRAN. You can find the name and description below. Most of them are also hosted at [Github](https://github.com/msperlin/).
+
+[PkgsFromFiles](https://github.com/msperlin/PkgsFromFiles) - Includes functions for finding and installing R packages by finding its use from local scripts and Rmarkdown/Sweave files. See [blog post](https://msperlin.github.io/2018-10-13-NewPackage-PkgsFromFiles/) for details.
 
 [GetDFPData](https://cran.r-project.org/package=GetDFPData) - Reads annual financial reports including assets, liabilities, dividends history, stockholder composition and much more from Bovespa's DFP, FRE and FCA systems <http://www.bmfbovespa.com.br/en_us/products/listed-equities-and-derivatives/equities/listed-companies.htm>. These are web based interfaces for all financial reports of companies traded at Bovespa. The package is especially designed for large scale data importation, keeping a tabular (long) structure for easier processing.
 
