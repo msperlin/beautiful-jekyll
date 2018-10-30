@@ -16,7 +16,7 @@ title:
 
 **Onde comprar:** O livro está disponível na Amazon como [Ebook](https://www.amazon.com.br/dp/B07DN4M357) e [livro impresso](https://www.amazon.com/dp/B07DN4M357).
 
-**Código e Dados do livro:** Todo o código e os dados apresentados no livro estão disponíveis em arquivo compactado disponibilizado [aqui](/content/pafdr files/R code and data (zip).zip).
+**Código e Dados do livro:** Todo o código e os dados apresentados no livro estão disponíveis em arquivo compactado disponibilizado [aqui](/content/padfer files/Codigos_Dados_padfeR.zip).
 
 **Sumário da obra:** O sumário da obra está disponível [aqui](/content/pafdr files/padfeR_ed2_TOC.pdf).
 

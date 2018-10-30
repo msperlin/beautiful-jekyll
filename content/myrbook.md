@@ -13,5 +13,5 @@ This book is recommended for researchers and students interested in learning how
 
 You can buy the book in [Amazon](https://www.amazon.com/dp/B071DTSCPS). A free (online) version of the book is also availabe [here](http://www.msperlin.com/pafdR/).
 
-Data and code from the book can be downloaded [here](http://www.msperlin.com/blog/files/pafdr files/R code and data (zip).zip).
+Data and code from the book can be downloaded [here](http://www.msperlin.com/blog/files/pafdr files/Code_Data_pafdR.zip).
 
