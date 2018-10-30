@@ -10,6 +10,6 @@ tags: [admin]
 
 Its been almost two years since I first hosted this blog as an alternative outlet of my writings. Everything is currently being built using jekyll and hosted in github. It works fine but I want to have more control over the deployment of the site, using my own server and domain.
 
-Also, my blog is being migrated to Hugo using package `blogdown` and hugo template [academic](https://themes.gohugo.io/academic/). This format offers far more functionality and it is great! You can check the new site at [http://www.msperlin.com/blog](http://www.msperlin.com/blog). 
+Also, my new blog is now based on Hugo using package `blogdown` and template [academic](https://themes.gohugo.io/academic/). This format offers far more functionality and it is great! You can check the new site at [http://www.msperlin.com/blog](http://www.msperlin.com/blog). 
 
-I'll still keep this site for a couple of months but it won't be updated any more. Every other material such as online book are also going to be migrated to my domain. 
+I'll still keep this site for a couple of months but it won't be updated any more. Every other material such as online books are also going to be migrated to the new domain. 
