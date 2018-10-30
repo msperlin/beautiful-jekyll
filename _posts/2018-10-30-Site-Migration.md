@@ -12,4 +12,4 @@ Its been almost two years since I first hosted this blog as an alternative outle
 
 Also, my blog is being migrated to Hugo using package `blogdown` and hugo template [academic](https://themes.gohugo.io/academic/). This format offers far more functionality and it is great! You can check the new site at [http://www.msperlin.com/blog](http://www.msperlin.com/blog). 
 
-I'll still keep this site for a couple of months but it won't be updated any more. 
+I'll still keep this site for a couple of months but it won't be updated any more. Every other material such as online book are also going to be migrated to my domain. 
