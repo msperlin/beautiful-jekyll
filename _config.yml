@@ -23,28 +23,11 @@ description: Blog and personal site of Marcelo S. Perlin
 
 # List of links in the navigation bar
 navbar-links:
-  About: "content/aboutme"
   Posts: "content/posts"
   Books: 
     - Processing and Analyzing Financial Data with R: "content/myrbook"
     - Processamento e Análise de Dados Financeiros e Econômicos com o R: "content/myrbook_pt"
-  Talks: "content/talks"
-  Research:
-    - International Publications: "content/int_publications"
-    - Local Publications: "content/loc_publications"
-    - Working Papers: "content/workingpapers" 
-    - Awards: "content/awards"
-    - Media Coverage: "content/on-the-news"
-
-  Code:
-    - R Packages: "content/rcode"
-    - Shiny Apps: "content/shiny"
-    - Matlab: "content/matlabcode"
-  Resources:
-    - Subscribe to RSS: "content/subscribe"
-    - Beautiful Jekyll: "http://deanattali.com/beautiful-jekyll/"
-    - R-Bloggers: "https://www.r-bloggers.com/"
-
+  Research: "content/int_publications"
 
 # Image to show in the navigation bar - image must be a square (width = height)
 # Remove this parameter if you don't want an image in the navbar
